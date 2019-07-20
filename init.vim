@@ -6,6 +6,7 @@ set termguicolors  " use true colors
 set background=dark
 "colorscheme nord
 colorscheme happy_hacking
+let &t_ut=''  " do not use background color erase (conflicts with kitty)
 
 
 " FILETYPE-SPECIFIC
