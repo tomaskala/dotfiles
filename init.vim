@@ -5,7 +5,8 @@ set nocompatible  " must be the first line
 set termguicolors  " use true colors
 set background=dark
 "colorscheme nord
-colorscheme happy_hacking
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
 let &t_ut=''  " do not use background color erase (conflicts with kitty)
 
 
