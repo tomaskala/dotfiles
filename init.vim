@@ -118,6 +118,9 @@ nnoremap <silent> <C-Right> :tabnext<CR>
 " previous tab
 nnoremap <silent> <C-Left> :tabprevious<CR>
 
+" Toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
 
 " MISCELLANEOUS
 set nohidden  " once a tab is closed, remove the buffer
