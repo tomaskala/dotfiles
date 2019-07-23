@@ -50,6 +50,15 @@ set splitright  " open new pane to the right
 " LEADER SHORTCUTS
 let mapleader=","  " the leader is a comma instead of a backslash
 
+" <leader>y yanks to system clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
+
+" <leader>p pastes from system clipboard
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
 
 " SEARCHING
 set incsearch  " search as characters are entered
