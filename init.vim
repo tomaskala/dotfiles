@@ -1,6 +1,12 @@
 set nocompatible  " must be the first line
 
 
+" PLUGINS
+call plug#begin('~/.local/share/nvim/plugged')
+    Plug 'scrooloose/nerdtree'
+call plug#end()
+
+
 " COLORS
 set termguicolors  " use true colors
 set background=dark
