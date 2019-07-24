@@ -4,15 +4,25 @@ set nocompatible  " must be the first line
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
     Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdcommenter'  " press <leader>c<space> to toggle line comment
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'arcticicestudio/nord-vim'  " nord theme
+    Plug 'patstockwell/vim-monokai-tasty'  " monokai theme
 call plug#end()
 
 
 " COLORS
 set termguicolors  " use true colors
 set background=dark
-"colorscheme nord
+
+"colorscheme nord  " nord for vim
+"let g:airline_theme='nord'  " nord for vim-airline
+
 let g:vim_monokai_tasty_italic = 1
-colorscheme vim-monokai-tasty
+colorscheme vim-monokai-tasty  " monokai for vim
+let g:airline_theme='monokai_tasty'  " monokai for vim-airline
+
 let &t_ut=''  " do not use background color erase (conflicts with kitty)
 
 
