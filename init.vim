@@ -61,6 +61,7 @@ set shortmess+=I  " do not display the startup message
 set showmode  " display the current mode
 set splitbelow  " open new pane to the bottom
 set splitright  " open new pane to the right
+set colorcolumn=120  " show a column at 120 characters
 
 
 " LEADER SHORTCUTS
