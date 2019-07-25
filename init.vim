@@ -133,6 +133,21 @@ nnoremap <silent> <C-Left> :tabprevious<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 
+" CUSTOM COMMANDS
+function ChangeTheme(theme)
+    if a:theme == "nord"
+        colorscheme nord
+        AirlineTheme nord
+    else
+        colorscheme vim-monokai-tasty
+        AirlineTheme monokai_tasty
+    endif
+endfunction
+
+command Nord call ChangeTheme("nord")
+command Monokai call ChangeTheme("monokai")
+
+
 " MISCELLANEOUS
 set nohidden  " once a tab is closed, remove the buffer
 set noerrorbells  " shut up
