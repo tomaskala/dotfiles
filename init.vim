@@ -132,6 +132,10 @@ nnoremap <silent> <C-Left> :tabprevious<CR>
 " Toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
+" Press Enter to insert a blank line below, Shift+Enter to insert a blank line above.
+map <Enter> o<ESC>
+map <S-Enter> O<ESC>
+
 
 " CUSTOM COMMANDS
 function ChangeTheme(theme)
