@@ -24,7 +24,8 @@ function play {
 
     if [ -d "${path}" ] ; then
         # Directory -> play it recursively.
-        mplayer -playlist <(find "${path}" -type f \( -name \*.mp3 -or -name \*.flac \)) "${rest}"
+        find "${path}" -type f \( -name \*.mp3 -or -name \*.flac \) >playlist
+        mplayer -playlist playlist "${rest}"
     elif [ -f "${path}" ] ; then
         # File -> play it.
         play_file "${path}" "${rest}"
