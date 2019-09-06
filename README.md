@@ -56,7 +56,8 @@ When doing a fresh installation, the following software should be installed.
 * ag
 * htop
 * openvpn
-* pass
+* [pass](https://www.password-store.org)
+    * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
 
 ### Media
 * VLC
