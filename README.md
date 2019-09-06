@@ -70,7 +70,7 @@ When doing a fresh installation, the following software should be installed.
 
 ## Configuration
 * Turn off bluetooth
-* enable ssd trimming
+* Enable SSD trimming
     ```
     systemctl is-enabled fstrim.timer  # Check
     systemctl enable fstrim.timer  # Enable
