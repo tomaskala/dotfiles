@@ -52,7 +52,6 @@ When doing a fresh installation, the following software should be installed.
     * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
     * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
     * set as the default shell: `chsh -s $(which zsh)`
-* enable ssd trimming
 * fzf
 * ag
 * htop
@@ -68,10 +67,18 @@ When doing a fresh installation, the following software should be installed.
 * telegram
 
 
-### Settings
+## Configuration
+* Turn off bluetooth
 * enable ssd trimming
     ```
     systemctl is-enabled fstrim.timer  # Check
     systemctl enable fstrim.timer  # Enable
     systemctl is-enabled fstrim.timer  # Check again
     ```
+* Firefox
+    * [Privacy settings](https://www.privacytools.io/)
+* [Hosts file](https://github.com/StevenBlack/hosts/)
+    * Unified hosts + fakenews + gambling
+* Nautilus
+    * Sort directories before files
+* SSH key
