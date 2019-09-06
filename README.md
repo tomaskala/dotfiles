@@ -19,7 +19,7 @@ In addition, there are some utility scripts.
 When doing a fresh installation, the following software should be installed.
 
 ### Internet
-* firefox
+* Firefox
     * cookie autodelete
     * disconnect
     * facebook container
@@ -28,19 +28,19 @@ When doing a fresh installation, the following software should be installed.
     * reddit enhancement suite
     * smart referer
     * ublock origin
-* transmission
+* Transmission
 
 ### Development
-* anaconda
+* Anaconda
     * create a `base` environment, enable it
     * autoflake
-* lua
+* Lua
     * luajit
     * love
-* git
-* neovim
+* Git
+* Neovim
     * [vim-plug](https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/)
-* make
+* Make
 
 ### System utilities
 * gnome-tweaks
@@ -59,12 +59,12 @@ When doing a fresh installation, the following software should be installed.
 * pass
 
 ### Media
-* vlc
-* mplayer
+* VLC
+* MPlayer
 
 ### Communication
-* discord
-* telegram
+* Discord
+* Telegram
 
 
 ## Configuration
