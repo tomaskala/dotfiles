@@ -74,6 +74,7 @@ plugins=(
   zsh-syntax-highlighting
   fzf
   last-working-dir
+  pass
 )
 
 source $ZSH/oh-my-zsh.sh

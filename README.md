@@ -58,6 +58,7 @@ When doing a fresh installation, the following software should be installed.
 * openvpn
 * [pass](https://www.password-store.org)
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
+    * The autocompletion is in `.zshrc`. If it does not work, do `rm ~/.zcompdump*` and restart zsh using `exec zsh`.
 
 ### Media
 * VLC
