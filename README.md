@@ -82,7 +82,7 @@ When doing a fresh installation, the following software should be installed.
     ```
 * Firefox
     * [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
-    * Once the `user-overrides.js` file is symlinked to the Firefox profile directory, run the `updater.sh` script downloaded from the git repo.
+    * Once the `user-overrides.js` file is symlinked to the Firefox profile directory, run the `updater.sh` [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh) downloaded from the git repo.
     * After fully configuring Firefox, press `Ctrl+Shift+Del` and clear everything.
 * [Hosts file](https://github.com/StevenBlack/hosts/)
     * Unified hosts + fakenews + gambling
