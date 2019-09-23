@@ -6,7 +6,8 @@ I have this repository cloned into my `~/` directory and the files symlinked to 
 * `.zshrc` goes to `~/.zshrc`;
 * `aliases.zsh` goes to `~/.oh-my-zsh/custom/aliases.zsh`;
 * `init.vim` goes to `~/.config/nvim/init.vim`;
-* `kitty.conf` goes to `~/.config/kitty/kitty.conf`.
+* `kitty.conf` goes to `~/.config/kitty/kitty.conf`;
+* `user-overrides.js` goes to `~/.mozilla/firefox/<profile-directory>`.
 
 In addition, there are some utility scripts.
 * `play.sh` -- a simple interface over `mplayer` to allow:
@@ -20,14 +21,16 @@ When doing a fresh installation, the following software should be installed.
 
 ### Internet
 * Firefox
-    * cookie autodelete
-    * disconnect
-    * facebook container
-    * firefox multi-account containers
-    * https everywhere
-    * reddit enhancement suite
-    * smart referer
-    * ublock origin
+    * see configuration below
+    * install the following addons
+        * cookie autodelete
+        * disconnect
+        * facebook container
+        * firefox multi-account containers
+        * https everywhere
+        * reddit enhancement suite
+        * smart referer
+        * ublock origin
 * Transmission
 
 ### Development
@@ -78,7 +81,9 @@ When doing a fresh installation, the following software should be installed.
     systemctl is-enabled fstrim.timer  # Check again
     ```
 * Firefox
-    * [Privacy settings](https://www.privacytools.io/)
+    * [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
+    * Once the `user-overrides.js` file is symlinked to the Firefox profile directory, run the `updater.sh` script downloaded from the git repo.
+    * After fully configuring Firefox, press `Ctrl+Shift+Del` and clear everything.
 * [Hosts file](https://github.com/StevenBlack/hosts/)
     * Unified hosts + fakenews + gambling
 * Nautilus
