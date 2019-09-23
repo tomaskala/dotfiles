@@ -156,6 +156,12 @@ endfunction
 command Nord call ChangeTheme("nord")
 command Monokai call ChangeTheme("monokai")
 
+" Fix caps lock annoyances.
+command! Wq wq
+command! WQ wq
+command! W w
+command! Q q
+
 
 " MISCELLANEOUS
 set nohidden  " once a tab is closed, remove the buffer
