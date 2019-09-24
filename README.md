@@ -7,7 +7,7 @@ I have this repository cloned into my `~/` directory and the files symlinked to 
 * `aliases.zsh` goes to `~/.oh-my-zsh/custom/aliases.zsh`;
 * `init.vim` goes to `~/.config/nvim/init.vim`;
 * `kitty.conf` goes to `~/.config/kitty/kitty.conf`;
-* `user-overrides.js` goes to `~/.mozilla/firefox/<profile-directory>`.
+* `user-overrides.js` goes to `~/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
 
 In addition, there are some utility scripts.
 * `play.sh` -- a simple interface over `mplayer` to allow:
@@ -51,7 +51,7 @@ When doing a fresh installation, the following software should be installed.
 * zsh
     * oh-my-zsh
     * [firacode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions)
-    * [agnoster theme and powerline fonts](https://github.com/agnoster/agnoster-zsh-theme)
+    * [agnoster theme](https://github.com/agnoster/agnoster-zsh-theme) and [powerline fonts](https://github.com/powerline/fonts)
     * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
     * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
     * set as the default shell: `chsh -s $(which zsh)`
