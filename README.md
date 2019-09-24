@@ -2,12 +2,12 @@
 ## Description
 Various utilities and settings for the Linux system, Fedora in particular.
 
-I have this repository cloned into my `~/` directory and the files symlinked to their respective locations. That is,
-* `.zshrc` goes to `~/.zshrc`;
-* `aliases.zsh` goes to `~/.oh-my-zsh/custom/aliases.zsh`;
-* `init.vim` goes to `~/.config/nvim/init.vim`;
-* `kitty.conf` goes to `~/.config/kitty/kitty.conf`;
-* `user-overrides.js` goes to `~/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
+I have this repository cloned into my `$HOME` directory and the files symlinked to their respective locations. That is,
+* `.zshrc` goes to `$HOME/.zshrc`;
+* `aliases.zsh` goes to `$HOME/.oh-my-zsh/custom/aliases.zsh`;
+* `init.vim` goes to `$HOME/.config/nvim/init.vim`;
+* `kitty.conf` goes to `$HOME/.config/kitty/kitty.conf`;
+* `user-overrides.js` goes to `$HOME/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
 
 In addition, there are some utility scripts.
 * `play.sh` -- a simple interface over `mplayer` to allow:
@@ -61,7 +61,7 @@ When doing a fresh installation, the following software should be installed.
 * openvpn
 * [pass](https://www.password-store.org)
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
-    * The autocompletion is in `.zshrc`. If it does not work, do `rm ~/.zcompdump*` and restart zsh using `exec zsh`.
+    * The autocompletion is in `.zshrc`. If it does not work, do `rm $HOME/.zcompdump*` and restart zsh using `exec zsh`.
 
 ### Media
 * VLC
