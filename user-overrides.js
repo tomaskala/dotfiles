@@ -9,7 +9,7 @@ user_pref("browser.newtab.preload", true);
 // Do not start the browser in private mode.
 user_pref("browser.privatebrowsing.autostart", false);  // 0110
 
-// Enable real time binary checks with Google services.
+// Enable real time binary checks with Google services (increases security).
 user_pref("browser.safebrowsing.downloads.remote.enabled", true);  // 0402
 
 // Make the URL bar work as a search bar again -- allow if you use a privacy
@@ -28,22 +28,32 @@ user_pref("browser.sessionstore.interval", 15000);  // 1023
 // Allow webpages to push their own fonts.
 user_pref("browser.display.use_document_fonts", 1);  // 1401
 
+// Always send a referer. Otherwise, embedded videos are broken.
+user_pref("network.http.referer.XOriginPolicy", 0);  // 1603
+
+// Enable DRM content.
+user_pref("media.gmp-widevinecdm.visible", true);  // 1825
+user_pref("media.gmp-widevinecdm.enabled", true);
+user_pref("media.eme.enabled", true);  // 1830
+
 // Enable WebGL.
 user_pref("webgl.disabled", false);  // 2010
 user_pref("webgl.dxgl.enabled", true); // [WINDOWS]
 user_pref("webgl.enable-webgl2", true);
 
-// Enable webpages to register clipboard events. Otherwise, Jupyter and
+// Allow webpages to register clipboard events. Otherwise, Jupyter and
 // Zeppelin notebooks do not work correctly.
 user_pref("dom.event.clipboardevents.enabled", true);  // 2402
 
 // Do not clear everything on shutdown.
 user_pref("privacy.clearOnShutdown.cookies", false);  // 2803
+user_pref("privacy.clearOnShutdown.history", false);
 user_pref("privacy.clearOnShutdown.sessions", false);
 user_pref("privacy.clearOnShutdown.siteSettings", false);
 
 // Autoselect the same settings as 2803 when pressing Ctrl+Shift+Del.
 user_pref("privacy.cpd.cookies", false);  // 2804
+user_pref("privacy.cpd.history", false);
 user_pref("privacy.cpd.sessions", false);
 user_pref("privacy.cpd.siteSettings", false);
 
