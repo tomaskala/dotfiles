@@ -24,13 +24,17 @@ When doing a fresh installation, the following software should be installed.
     * see configuration below
     * install the following addons
         * cookie autodelete
-        * disconnect
         * facebook container
         * firefox multi-account containers
         * https everywhere
+            * toolbar icon -> uncheck `Encrypt All Sites Eligible`
         * reddit enhancement suite
         * smart referer
         * ublock origin
+            * settings -> check `Prevent WebRTC from leaking local IP addresses`
+            * settings -> uncheck `Block remote fonts`
+        * privacy badger
+        * decentraleyes
 * Transmission
 
 ### Development
