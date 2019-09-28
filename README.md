@@ -133,4 +133,31 @@ When doing a fresh installation, the following software should be installed.
         * Then (if you wish) visit them again and check `Remember my decision` to always open them in the assigned container
     9. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
     10. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+        * **Settings**
+            * `Hide placeholders of blocked elements: enabled`
+            * `Privacy:` all
+            * `Default behavior -> Disable cosmetic filtering: enabled`
+            * Enable the advanced user mode, set `suspendTabsUntilReady` to `true`, disable the advanced user mode
+        * **Filter lists** -- check the following
+            * `Auto-update filter lists`
+            * `Parse and enforce cosmetic filters`
+            * `Ignore generic cosmetic filters`
+            * `My filters`
+            * `Built-in:` all except `uBlock filters - Experimental`
+            * `Ads`
+                * `Adblock Warning Removal List`
+                * `EasyList`
+            * `Privacy:` all
+            * `Malware domains:` all
+            * `Annoyances`
+                * `AdGuard Annoyances`
+                * `Fanboy's Annoyance List`
+            * `Multipurpose`
+                * `Dan Pollock's hosts file`
+                * `Peter Lowe's Ad and tracking server list`
+            * `Regions, languages`
+                * `CZE, SVK: EasyList Czech and Slovak`
+                * `RUS: AdGuard Russian`
+                * `RUS: RU AdList`
+            * `Custom:` [Import this file](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt) for blocking cryptominers
     11. [uMatrix](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
