@@ -260,6 +260,8 @@ When doing a fresh installation, the following software should be installed.
 * Once the `user-overrides.js` file from this repository is symlinked to the Firefox profile directory, run the `updater.sh` [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh) within the same directory.
 
 ### Import data
+* Consult [this document](https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data) where each profile element can be found.
+* I transfer *Bookmarks, Downloads and Browsing History* (files `places.sqlite`, `bookmarkbackups` and favicons.sqlite`) and *Stored session* (file `sessionstore.jsonlz4`).
 
 
 ### Cleanup
