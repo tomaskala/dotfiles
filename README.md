@@ -98,26 +98,26 @@ When doing a fresh installation, the following software should be installed.
 * Install the following addons (in this order!) along with the specified configurations:
     1. [Canvas blocker](https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/)
         * **General**
-        * `Expert mode: enabled`
-        * `Block mode: fake`
-        * `Faking`
-            * `Random number generator: non-persistent`
+            * `Expert mode: enabled`
+            * `Block mode: fake`
+            * `Faking`
+                * `Random number generator: non-persistent`
         * **APIs**
-        * `Canvas API`
-            * `Protected part of the canvas API: readout`
-            * `Protected API features`: all
-        * `Audio API`
-            * `Protected audio API: enabled`
-            * `Protected API features`: all
-        * `History API`
-            * `Protected API features`: all
-        * `Window API`
-            * `Protected window API: enabled`
-            * `Protected API features`: all
-        * `DOMRect API`
-            * `Protected DOMRect API: enabled`
-            * `Protected API features`: all
-        * `Misc`
+            * `Canvas API`
+                * `Protected part of the canvas API: readout`
+                * `Protected API features:` all
+            * `Audio API`
+                * `Protected audio API: enabled`
+                * `Protected API features:` all
+            * `History API`
+                * `Protected API features:` all
+            * `Window API`
+                * `Protected window API: enabled`
+                * `Protected API features:` all
+            * `DOMRect API`
+                * `Protected DOMRect API: enabled`
+                * `Protected API features:` all
+        * **Misc**
             * `Block data URL paged: disabled`
     2. [Clear URLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
     3. [CSS Exfil Protection](https://addons.mozilla.org/en-US/firefox/addon/css-exfil-protection/)
