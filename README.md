@@ -78,6 +78,10 @@ When doing a fresh installation, the following software should be installed.
 
 
 ## Firefox configuration
+Note that this is a privacy/security oriented configuration. After the initial setting, there will be a period when you have to tweak the addons to your taste so that they do not block websites you visit. For instance, embedded YouTube videos or gifs will not work until you enable them in uMatrix. To do this correctly requires care, otherwise you end up breaking something or losing some degree of privacy.
+
+If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expected to cause the most trouble. The other addons should be fairly harmless regarding website breakage.
+
 ### Post-installation cleanup
 * Create a new profile. Importing data from an old profile is addressed towards the end of this section.
 * Remove system addons
