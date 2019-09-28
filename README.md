@@ -121,6 +121,11 @@ When doing a fresh installation, the following software should be installed.
     * Create desired containers, visit all matching sites in these containers and check `Always open in this container`
     * Then (if you wish) visit them again and check `Remember my decision` to always open them in the assigned container
 9. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
+    * **General**
+        * `Automatic mode: enabled`
+    * **Isolation**
+        * `Middle Mouse: Different from Tab Domain & Subdomains`
+        * `Ctrl/Cmd + Left Mouse: Different from Tab Domain & Subdomains`
 10. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     * **Settings**
         * `Hide placeholders of blocked elements: enabled`
