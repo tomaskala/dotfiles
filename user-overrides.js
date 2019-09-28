@@ -57,8 +57,5 @@ user_pref("privacy.cpd.history", false);
 user_pref("privacy.cpd.sessions", false);
 user_pref("privacy.cpd.siteSettings", false);
 
-// Disabled because of cookie autodelete.
-user_pref("privacy.firstparty.isolate", false);  // 4001
-
 // Do not show the annoying white frame around webpages.
 user_pref("privacy.resistFingerprinting.letterboxing", false);  // 4504
