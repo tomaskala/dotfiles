@@ -82,95 +82,174 @@ When doing a fresh installation, the following software should be installed.
 
 
 ## Firefox configuration
+### Post-installation cleanup
 * Create a new profile
 * Remove system addons
     * Either `cd /usr/lib/firefox/browser/features` or `cd /usr/lib64/firefox/browser/features` followed by `sudo rm *.xpi`
     * Note that this must be redone every time Firefox is updated
-* Install the following addons (in this order!) along with the specified configurations:
-    1. [Canvas blocker](https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/)
-        * **General**
-            * `Expert mode: enabled`
-            * `Block mode: fake`
-            * `Faking`
-                * `Random number generator: non-persistent`
-        * **APIs**
-            * `Canvas API`
-                * `Protected part of the canvas API: readout`
-                * `Protected API features:` all
-            * `Audio API`
-                * `Protected audio API: enabled`
-                * `Protected API features:` all
-            * `History API`
-                * `Protected API features:` all
-            * `Window API`
-                * `Protected window API: enabled`
-                * `Protected API features:` all
-            * `DOMRect API`
-                * `Protected DOMRect API: enabled`
-                * `Protected API features:` all
-        * **Misc**
-            * `Block data URL pages: disabled`
-    2. [Clear URLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
-        * `Prevent tracking injection over history API: enabled`
-    3. [CSS Exfil Protection](https://addons.mozilla.org/en-US/firefox/addon/css-exfil-protection/)
-    4. [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
-        * Enable everything except `Block requests for missing resources`
-    5. [HTTPS Everywhere](https://addons.mozilla.org/en-US/firefox/addon/https-everywhere/)
-        * `Toolbar icon -> Encrypt All Sites Eligible -> disabled`
-    6. [Skip Redirect](https://addons.mozilla.org/en-US/firefox/addon/skip-redirect/)
-    7. [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-container/)
-    8. [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
-        * Create desired containers, visit all matching sites in these containers and check `Always open in this container`
-        * Then (if you wish) visit them again and check `Remember my decision` to always open them in the assigned container
-    9. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
-    10. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
-        * **Settings**
-            * `Hide placeholders of blocked elements: enabled`
-            * `I am an advanced user: enabled` -> set `suspendTabsUntilReady` to `true` -> `I am an advanced user: disabled`
-            * **Privacy**
-                * Enable all
-            * **Default behavior**
-                * `Disable cosmetic filtering: enabled`
-        * **Filter lists** -- check the following
-            * `Auto-update filter lists`
-            * `Parse and enforce cosmetic filters`
-            * `Ignore generic cosmetic filters`
-            * `My filters`
-            * `Built-in:` all except `uBlock filters - Experimental`
-            * `Ads`
-                * `Adblock Warning Removal List`
-                * `EasyList`
-            * `Privacy:` all
-            * `Malware domains:` all
-            * `Annoyances`
-                * `AdGuard Annoyances`
-                * `Fanboy's Annoyance List`
-            * `Multipurpose`
-                * `Dan Pollock's hosts file`
-                * `Peter Lowe's Ad and tracking server list`
-            * `Regions, languages`
-                * `CZE, SVK: EasyList Czech and Slovak`
-                * `RUS: AdGuard Russian`
-                * `RUS: RU AdList`
-            * `Custom:` [Import this file for cryptominer blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt)
-    11. [uMatrix](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
-        * Click the toolbar icon and then the title bar to get to the settings dashboard
-        * **Settings**
-            * **Convenience**
-                * `Show the number of blocked resources on the icon: enabled`
-                * `Collapse the placeholder of blacklisted elements: enabled`
-                * `Spoof <script> tags when 1-st party scripts are blocker`
-            * **Privacy**
-                * `Delete blocked cookies: enabled`
-                * `Delete non-blocked session cookies 60 minutes after the last time they have been used`
-                * `Delete local storage content set by blocked hostnames: enabled`
-                * `Clear browser cache every 60 minutes`
-                * `Spoof HTTP referrer string of third-party requests: enabled`
-                * `Block all hyperlink auditing attempts: enabled`
-        * **My rules**
-            * Add `no-workers: * true`, save and commit (disables web workers)
-            * Add [these rules](https://git.synz.io/Synzvato/decentraleyes/wikis/Frequently-Asked-Questions) since Decentraleyes is used as well
-        * **Assets**
-            * `Auto-update assets: enabled`
-            * Disable all hosts files filter lists, purge caches and save (we use uBlock Origin to control the static filters)
-            * `Ruleset recipes for English websites: enabled` (a puzzle piece icon will appear on the uMatrix panel allowing to quickly import a community-created ruleset)
+
+### Addons
+1. [Canvas blocker](https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/)
+    * **General**
+        * `Expert mode: enabled`
+        * `Block mode: fake`
+        * `Faking`
+            * `Random number generator: non-persistent`
+    * **APIs**
+        * `Canvas API`
+            * `Protected part of the canvas API: readout`
+            * `Protected API features:` all
+        * `Audio API`
+            * `Protected audio API: enabled`
+            * `Protected API features:` all
+        * `History API`
+            * `Protected API features:` all
+        * `Window API`
+            * `Protected window API: enabled`
+            * `Protected API features:` all
+        * `DOMRect API`
+            * `Protected DOMRect API: enabled`
+            * `Protected API features:` all
+    * **Misc**
+        * `Block data URL pages: disabled`
+2. [Clear URLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
+    * `Prevent tracking injection over history API: enabled`
+3. [CSS Exfil Protection](https://addons.mozilla.org/en-US/firefox/addon/css-exfil-protection/)
+4. [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
+    * Enable everything except `Block requests for missing resources`
+5. [HTTPS Everywhere](https://addons.mozilla.org/en-US/firefox/addon/https-everywhere/)
+    * `Toolbar icon -> Encrypt All Sites Eligible -> disabled`
+6. [Skip Redirect](https://addons.mozilla.org/en-US/firefox/addon/skip-redirect/)
+7. [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-container/)
+8. [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
+    * Create desired containers, visit all matching sites in these containers and check `Always open in this container`
+    * Then (if you wish) visit them again and check `Remember my decision` to always open them in the assigned container
+9. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
+10. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+    * **Settings**
+        * `Hide placeholders of blocked elements: enabled`
+        * `I am an advanced user: enabled` -> set `suspendTabsUntilReady` to `true` -> `I am an advanced user: disabled`
+        * **Privacy**
+            * Enable all
+        * **Default behavior**
+            * `Disable cosmetic filtering: enabled`
+    * **Filter lists** -- check the following
+        * `Auto-update filter lists`
+        * `Parse and enforce cosmetic filters`
+        * `Ignore generic cosmetic filters`
+        * `My filters`
+        * `Built-in:` all except `uBlock filters - Experimental`
+        * `Ads`
+            * `Adblock Warning Removal List`
+            * `EasyList`
+        * `Privacy:` all
+        * `Malware domains:` all
+        * `Annoyances`
+            * `AdGuard Annoyances`
+            * `Fanboy's Annoyance List`
+        * `Multipurpose`
+            * `Dan Pollock's hosts file`
+            * `Peter Lowe's Ad and tracking server list`
+        * `Regions, languages`
+            * `CZE, SVK: EasyList Czech and Slovak`
+            * `RUS: AdGuard Russian`
+            * `RUS: RU AdList`
+        * `Custom:` [Import this file for cryptominer blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt)
+11. [uMatrix](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+    * Click the toolbar icon and then the title bar to get to the settings dashboard
+    * **Settings**
+        * **Convenience**
+            * `Show the number of blocked resources on the icon: enabled`
+            * `Collapse the placeholder of blacklisted elements: enabled`
+            * `Spoof <script> tags when 1-st party scripts are blocker`
+        * **Privacy**
+            * `Delete blocked cookies: enabled`
+            * `Delete non-blocked session cookies 60 minutes after the last time they have been used`
+            * `Delete local storage content set by blocked hostnames: enabled`
+            * `Clear browser cache every 60 minutes`
+            * `Spoof HTTP referrer string of third-party requests: enabled`
+            * `Block all hyperlink auditing attempts: enabled`
+    * **My rules**
+        * Add `no-workers: * true`, save and commit (disables web workers)
+        * Add [these rules](https://git.synz.io/Synzvato/decentraleyes/wikis/Frequently-Asked-Questions) since Decentraleyes is used as well
+    * **Assets**
+        * `Auto-update assets: enabled`
+        * Disable all hosts files filter lists, purge caches and save (we use uBlock Origin to control the static filters)
+        * `Ruleset recipes for English websites: enabled` (a puzzle piece icon will appear on the uMatrix panel allowing to quickly import a community-created ruleset)
+
+### Configuration -- preferences
+* This section concerns the `about:preferences` part of the options. Some of it may be overriden by the `user.js` file set below, but there are parts that the file does not address. These are mainly convenience and user interface settings.
+
+#### General
+**Startup**
+* `Restore previous session: enabled`
+
+**Tabs**
+* `Ctrl+Tab cycles through tabs in recently used order: disabled`
+
+**Language**
+* `Check your spelling as you type: disabled`
+
+**Files and Applications**
+* `Always ask you where to save files`
+
+**Browsing**
+* `Use autoscrolling: disabled`
+* `Use smooth scrolling: enabled`
+* `Show a touch keyboard when necessary: disabled`
+* `Recommend extensions as you browse: disabled`
+* `Recommend features as you browse: disabled`
+
+#### Home
+**Firefox Home Content**
+* Disable all
+
+#### Search
+* `Default Search Engine: DuckDuckGo`
+* `Provide search suggestions: disabled`
+* `One-Click Search Engines | Keywords`
+    * `DuckDuckGo | d`
+    * `Wikipedia (en) | w`
+* Optionally add `YouTube | y` and `Metal Archives (band name search) | m`
+
+#### Privacy & Security
+**Content blocking**
+* `Custom settings`
+    * `Trackers: enabled, Only in Private Windows`
+    * `Cookies: enabled, All third-party cookies`
+    * `Cryptominers: enabled`
+    * `Fingerprinters: enabled`
+* `Send Do Not Track: Always` (oh honey...)
+
+**Logins and Passwords**
+* `Ask to save logins and passwords for websites: disabled`
+
+**History**
+* Firefox will `Use custom settings for history`
+* `Always use private browsing mode: disabled`
+    * `Remember browsing and download history: enabled`
+    * `Remember search and form history: disabled`
+
+**Address bar**
+* `Browsing history: enabled`
+* `Bookmarks: enabled`
+* `Open tabs: enabled`
+
+**Permissions**
+* `Location: Settings` -> `Block new requests asking to access your location`
+* `Camera: Settings` -> `Block new requests asking to access your camera`
+* `Autoplay: Settings` -> `Block Audio and Video`
+* `Block pop-up windows: enabled`
+* `Warn you when websites try to install add-ons: enabled`
+* `Prevent accessibility services from accessing your browser: enabled` (requires Firefox restart)
+
+**Firefox Data Collection and Use**
+* Disable all
+
+**Security**
+* Enable all
+
+**Certificates**
+* `Ask you every time`
+
+### Configuration -- user.js
