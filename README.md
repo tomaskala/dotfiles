@@ -70,10 +70,6 @@ When doing a fresh installation, the following software should be installed.
     systemctl enable fstrim.timer  # Enable
     systemctl is-enabled fstrim.timer  # Check again
     ```
-* Firefox
-    * [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
-    * Once the `user-overrides.js` file is symlinked to the Firefox profile directory, run the `updater.sh` [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh) downloaded from the git repo.
-    * After fully configuring Firefox, press `Ctrl+Shift+Del` and clear everything.
 * [Hosts file](https://github.com/StevenBlack/hosts/)
     * Unified hosts + fakenews + gambling
 * Nautilus
@@ -83,7 +79,7 @@ When doing a fresh installation, the following software should be installed.
 
 ## Firefox configuration
 ### Post-installation cleanup
-* Create a new profile
+* Create a new profile. Importing data from an old profile is addressed towards the end of this section.
 * Remove system addons
     * Either `cd /usr/lib/firefox/browser/features` or `cd /usr/lib64/firefox/browser/features` followed by `sudo rm *.xpi`
     * Note that this must be redone every time Firefox is updated
@@ -179,8 +175,10 @@ When doing a fresh installation, the following software should be installed.
 
 ### Configuration -- preferences
 * This section concerns the `about:preferences` part of the options. Some of it may be overriden by the `user.js` file set below, but there are parts that the file does not address. These are mainly convenience and user interface settings.
+* First, click the main menu -> `Customize`. Then, clear the top bar from all the addon icons and mess that Firefox comes with. It should be enough to leave only uMatrix and Firefox Multi-Account Containers.
+* Also select compact mode and dark theme.
 
-#### General
+1. **General**
 **Startup**
 * `Restore previous session: enabled`
 
@@ -200,11 +198,11 @@ When doing a fresh installation, the following software should be installed.
 * `Recommend extensions as you browse: disabled`
 * `Recommend features as you browse: disabled`
 
-#### Home
+2. **Home**
 **Firefox Home Content**
 * Disable all
 
-#### Search
+3. **Search**
 * `Default Search Engine: DuckDuckGo`
 * `Provide search suggestions: disabled`
 * `One-Click Search Engines | Keywords`
@@ -212,7 +210,7 @@ When doing a fresh installation, the following software should be installed.
     * `Wikipedia (en) | w`
 * Optionally add `YouTube | y` and `Metal Archives (band name search) | m`
 
-#### Privacy & Security
+4. **Privacy & Security**
 **Content blocking**
 * `Custom settings`
     * `Trackers: enabled, Only in Private Windows`
@@ -253,3 +251,11 @@ When doing a fresh installation, the following software should be installed.
 * `Ask you every time`
 
 ### Configuration -- user.js
+* We use [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
+* Once the `user-overrides.js` file from this repository is symlinked to the Firefox profile directory, run the `updater.sh` [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh) within the same directory.
+
+### Import data
+
+
+### Cleanup
+* Finally, after fully configuring Firefox, press `Ctrl+Shift+Del` and clear everything except `Browsing & Download History`
