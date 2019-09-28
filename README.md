@@ -118,14 +118,19 @@ When doing a fresh installation, the following software should be installed.
                 * `Protected DOMRect API: enabled`
                 * `Protected API features:` all
         * **Misc**
-            * `Block data URL paged: disabled`
+            * `Block data URL pages: disabled`
     2. [Clear URLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
+        * `Prevent tracking injection over history API: enabled`
     3. [CSS Exfil Protection](https://addons.mozilla.org/en-US/firefox/addon/css-exfil-protection/)
     4. [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
+        * Enable everything except `Block requests for missing resources`
     5. [HTTPS Everywhere](https://addons.mozilla.org/en-US/firefox/addon/https-everywhere/)
+        * `Toolbar icon -> Encrypt All Sites Eligible -> disabled`
     6. [Skip Redirect](https://addons.mozilla.org/en-US/firefox/addon/skip-redirect/)
     7. [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-container/)
     8. [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
+        * Create desired containers, visit all matching sites in these containers and check `Always open in this container`
+        * Then (if you wish) visit them again and check `Remember my decision` to always open them in the assigned container
     9. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
     10. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     11. [uMatrix](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
