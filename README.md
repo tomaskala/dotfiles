@@ -21,20 +21,6 @@ When doing a fresh installation, the following software should be installed.
 
 ### Internet
 * Firefox
-    * see configuration below
-    * install the following addons
-        * cookie autodelete
-        * facebook container
-        * firefox multi-account containers
-        * https everywhere
-            * toolbar icon -> uncheck `Encrypt All Sites Eligible`
-        * reddit enhancement suite
-        * smart referer
-        * ublock origin
-            * settings -> check `Prevent WebRTC from leaking local IP addresses`
-            * settings -> uncheck `Block remote fonts`
-        * privacy badger
-        * decentraleyes
 * Transmission
 
 ### Development
@@ -76,7 +62,7 @@ When doing a fresh installation, the following software should be installed.
 * Telegram
 
 
-## Configuration
+## System configuration
 * Turn off bluetooth
 * Enable SSD trimming
     ```
@@ -93,3 +79,53 @@ When doing a fresh installation, the following software should be installed.
 * Nautilus
     * Sort directories before files
 * SSH key
+
+
+## Firefox configuration
+* Create a new profile
+* Remove system addons
+    * Either
+    ```
+    cd /usr/lib/firefox/browser/features
+    sudo rm *.xpi
+    ```
+    or
+    ```
+    cd /usr/lib64/firefox/browser/features
+    sudo rm *.xpi
+    ```
+    * Note that this must be redone every time Firefox is updated
+* Install the following addons (in this order!) along with the specified configurations:
+    1. [Canvas blocker](https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/)
+        * **General**
+        * `Expert mode: enabled`
+        * `Block mode: fake`
+        * `Faking`
+            * `Random number generator: non-persistent`
+        * **APIs**
+        * `Canvas API`
+            * `Protected part of the canvas API: readout`
+            * `Protected API features`: all
+        * `Audio API`
+            * `Protected audio API: enabled`
+            * `Protected API features`: all
+        * `History API`
+            * `Protected API features`: all
+        * `Window API`
+            * `Protected window API: enabled`
+            * `Protected API features`: all
+        * `DOMRect API`
+            * `Protected DOMRect API: enabled`
+            * `Protected API features`: all
+        * `Misc`
+            * `Block data URL paged: disabled`
+    2. [Clear URLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
+    3. [CSS Exfil Protection](https://addons.mozilla.org/en-US/firefox/addon/css-exfil-protection/)
+    4. [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
+    5. [HTTPS Everywhere](https://addons.mozilla.org/en-US/firefox/addon/https-everywhere/)
+    6. [Skip Redirect](https://addons.mozilla.org/en-US/firefox/addon/skip-redirect/)
+    7. [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-container/)
+    8. [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
+    9. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
+    10. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+    11. [uMatrix](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
