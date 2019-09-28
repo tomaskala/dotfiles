@@ -84,16 +84,7 @@ When doing a fresh installation, the following software should be installed.
 ## Firefox configuration
 * Create a new profile
 * Remove system addons
-    * Either
-    ```
-    cd /usr/lib/firefox/browser/features
-    sudo rm *.xpi
-    ```
-    or
-    ```
-    cd /usr/lib64/firefox/browser/features
-    sudo rm *.xpi
-    ```
+    * Either `cd /usr/lib/firefox/browser/features` or `cd /usr/lib64/firefox/browser/features` followed by `sudo rm *.xpi`
     * Note that this must be redone every time Firefox is updated
 * Install the following addons (in this order!) along with the specified configurations:
     1. [Canvas blocker](https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/)
