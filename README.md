@@ -135,9 +135,11 @@ When doing a fresh installation, the following software should be installed.
     10. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
         * **Settings**
             * `Hide placeholders of blocked elements: enabled`
-            * `Privacy:` all
-            * `Default behavior -> Disable cosmetic filtering: enabled`
-            * Enable the advanced user mode, set `suspendTabsUntilReady` to `true`, disable the advanced user mode
+            * `I am an advanced user: enabled` -> set `suspendTabsUntilReady` to `true` -> `I am an advanced user: disabled`
+            * **Privacy**
+                * Enable all
+            * **Default behavior**
+                * `Disable cosmetic filtering: enabled`
         * **Filter lists** -- check the following
             * `Auto-update filter lists`
             * `Parse and enforce cosmetic filters`
@@ -159,5 +161,25 @@ When doing a fresh installation, the following software should be installed.
                 * `CZE, SVK: EasyList Czech and Slovak`
                 * `RUS: AdGuard Russian`
                 * `RUS: RU AdList`
-            * `Custom:` [Import this file](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt) for blocking cryptominers
+            * `Custom:` [Import this file for cryptominer blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt)
     11. [uMatrix](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+        * Click the toolbar icon and then the title bar to get to the settings dashboard
+        * **Settings**
+            * **Convenience**
+                * `Show the number of blocked resources on the icon: enabled`
+                * `Collapse the placeholder of blacklisted elements: enabled`
+                * `Spoof <script> tags when 1-st party scripts are blocker`
+            * **Privacy**
+                * `Delete blocked cookies: enabled`
+                * `Delete non-blocked session cookies 60 minutes after the last time they have been used`
+                * `Delete local storage content set by blocked hostnames: enabled`
+                * `Clear browser cache every 60 minutes`
+                * `Spoof HTTP referrer string of third-party requests: enabled`
+                * `Block all hyperlink auditing attempts: enabled`
+        * **My rules**
+            * Add `no-workers: * true`, save and commit (disables web workers)
+            * Add [these rules](https://git.synz.io/Synzvato/decentraleyes/wikis/Frequently-Asked-Questions) since Decentraleyes is used as well
+        * **Assets**
+            * `Auto-update assets: enabled`
+            * Disable all hosts files filter lists, purge caches and save (we use uBlock Origin to control the static filters)
+            * `Ruleset recipes for English websites: enabled` (a puzzle piece icon will appear on the uMatrix panel allowing to quickly import a community-created ruleset)
