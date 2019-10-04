@@ -117,8 +117,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 3. [CSS Exfil Protection](https://addons.mozilla.org/en-US/firefox/addon/css-exfil-protection/)
 4. [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
     * Enable everything except `Block requests for missing resources`
-5. [HTTPS Everywhere](https://addons.mozilla.org/en-US/firefox/addon/https-everywhere/)
-    * `Toolbar icon -> Encrypt All Sites Eligible -> disabled`
+5. [Smart HTTPS](https://addons.mozilla.org/en-US/firefox/addon/smart-https-revived/)
 6. [Skip Redirect](https://addons.mozilla.org/en-US/firefox/addon/skip-redirect/)
 7. [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-container/)
 8. [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
