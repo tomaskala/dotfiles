@@ -41,7 +41,7 @@ syntax enable  " enable syntax processing
 set mouse=a  " enable mouse input
 set autochdir  " always switch to the current file directory
 set iskeyword-=_  " make w and e move between underscores as if they were spaces
-set selection=exclusive
+set selection=exclusive  " exclusive visual selection
 
 
 " INDENTATION
@@ -63,6 +63,7 @@ set wildmenu  " visual autocomplete for the command menu
 set wildmode=longest,list  " shell-like filename autocompletion
 set lazyredraw  " redraw only when needed
 set showmatch  " highlight matching parentheses
+set matchpairs=(:),[:],{:},<:>  " these parentheses are shown as matching
 set shortmess+=I  " do not display the startup message
 set showmode  " display the current mode
 set splitbelow  " open new pane to the bottom
