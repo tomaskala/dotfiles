@@ -168,8 +168,8 @@ command! Q q
 " MISCELLANEOUS
 set nohidden  " once a tab is closed, remove the buffer
 set noerrorbells  " shut up
-set visualbell  " shut up and blink instead
-set t_vb=  " shut up
+set novisualbell  " shut up
+set vb t_vb=  " shut up
 
 
 " FILETYPE-SPECIFIC AUTOCOMMANDS
