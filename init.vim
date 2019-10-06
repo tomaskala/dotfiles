@@ -41,7 +41,7 @@ syntax enable  " enable syntax processing
 set mouse=a  " enable mouse input
 set autochdir  " always switch to the current file directory
 set iskeyword-=_  " make w and e move between underscores as if they were spaces
-set selection=exclusive  " exclusive visual selection
+set selection=old  " old-style visual selection
 
 
 " INDENTATION
