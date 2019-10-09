@@ -163,6 +163,7 @@ command! Wq wq
 command! WQ wq
 command! W w
 command! Q q
+command! E e
 
 
 " MISCELLANEOUS
