@@ -17,7 +17,12 @@ In addition, there are some utility scripts.
 
 
 ## Software
-When doing a fresh installation, the following software should be installed.
+When doing a fresh installation, first update.
+* Packages: `sudo dnf distro-sync -y && sync`; the `sync` command synchronized cached writes to persistent storage.
+* Firmware: `sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`.
+* Flatpaks: `flatpak update && sudo flatpak update`.
+
+The following software should then be installed.
 
 ### Internet
 * Firefox
@@ -80,6 +85,7 @@ When doing a fresh installation, the following software should be installed.
     * Move the values from `switch-applications` to `switch-windows`.
     * Move the values from `switch-applications-backward` to `switch-windows-backward`.
 * Set firacode as the system monospaced font in system configuration.
+* Set `<Ctrl>\`` as a keyboard shortcut to launch kitty.
 
 
 ## Firefox configuration
