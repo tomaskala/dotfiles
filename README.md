@@ -24,42 +24,43 @@ When doing a fresh installation, the following software should be installed.
 * Transmission
 
 ### Development
-* Anaconda
+* [Anaconda](https://www.anaconda.com/distribution/)
     * create a `base` environment, enable it
     * autoflake
-* Lua
-    * luajit
-    * love
+* [Lua](https://www.lua.org/)
 * Git
-* Neovim
-    * [vim-plug](https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/)
+* [Neovim](https://neovim.io/)
+    * [vim-plug](https://github.com/junegunn/vim-plug)
 * Make
 
 ### System utilities
-* gnome-tweaks
-* kitty
+* gnome-tweaks & No Topleft Hot Corner to disable the annoying "feature" when activities are opened whenever the cursor hits the top-left corner
+* Dash to Panel
+* [kitty](https://sw.kovidgoyal.net/kitty/)
+    * Along with the steps specified on the linked page, it is necessary to perform `sudo ln -s ~/.local/kitty.app/bin/kitty /usr/bin/kitty`.
 * zsh
-    * oh-my-zsh
+    * [oh-my-zsh](https://ohmyz.sh/)
     * [firacode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions)
     * [agnoster theme](https://github.com/agnoster/agnoster-zsh-theme) and [powerline fonts](https://github.com/powerline/fonts)
     * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
     * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
     * set as the default shell: `chsh -s $(which zsh)`
-* fzf
-* ag
+* [fzf](https://github.com/junegunn/fzf)
+* [ag](https://github.com/ggreer/the_silver_searcher)
 * htop
-* openvpn
 * [pass](https://www.password-store.org)
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
     * The autocompletion is in `.zshrc`. If it does not work, do `rm $HOME/.zcompdump*` and restart zsh using `exec zsh`.
 
 ### Media
-* VLC
+* [VLC](https://www.videolan.org/vlc/download-fedora.html)
+    * Rebind `Left/Right` from `Navigate left/right` to `Very short backwards/forward jump`.
 * MPlayer
 
 ### Communication
 * Discord
-* Telegram
+    * Requires some non-standard RPMs but should be possible to install at this point due to addition of some RPMs when installing VLC.
+* [Telegram](https://telegram.org/)
 
 
 ## System configuration
@@ -74,7 +75,11 @@ When doing a fresh installation, the following software should be installed.
     * Unified hosts + fakenews + gambling
 * Nautilus
     * Sort directories before files
-* SSH key
+* Fix the retarded `<Alt>Tab` and `<Shift><Alt>Tab` behavior.
+    * Install `dconf-editor`, go to `org/gnome/desktop/wm/keybindings`.
+    * Move the values from `switch-applications` to `switch-windows`.
+    * Move the values from `switch-applications-backward` to `switch-windows-backward`.
+* Set firacode as the system monospaced font in system configuration.
 
 
 ## Firefox configuration
