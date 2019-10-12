@@ -39,7 +39,7 @@ The following software should then be installed.
 * Make
 
 ### System utilities
-* gnome-tweaks & No Topleft Hot Corner to disable the annoying "feature" when activities are opened whenever the cursor hits the top-left corner
+* gnome-tweaks & No Topleft Hot Corner to disable the annoying "feature" when activities are opened whenever the cursor hits the top-left corner.
 * Dash to Panel
 * [kitty](https://sw.kovidgoyal.net/kitty/)
     * Along with the steps specified on the linked page, it is necessary to perform `sudo ln -s ~/.local/kitty.app/bin/kitty /usr/bin/kitty`.
@@ -87,7 +87,7 @@ The following software should then be installed.
     * Move the values from `switch-applications` to `switch-windows`.
     * Move the values from `switch-applications-backward` to `switch-windows-backward`.
 * Set firacode as the system monospaced font in system configuration.
-* Set `<Ctrl>\`` as a keyboard shortcut to launch kitty.
+* Set ``<Ctrl>` `` as a keyboard shortcut to launch kitty.
 
 
 ## Firefox configuration
