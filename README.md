@@ -284,7 +284,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 
 ### Import data
 * Consult [this document](https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data) where each profile element can be found.
-* I transfer *Bookmarks, Downloads and Browsing History* (files `places.sqlite`, `bookmarkbackups` and favicons.sqlite`) and *Stored session* (file `sessionstore.jsonlz4`).
+* I transfer *Bookmarks, Downloads and Browsing History* (files `places.sqlite`, `bookmarkbackups` and `favicons.sqlite`) and *Stored session* (file `sessionstore.jsonlz4`).
 
 
 ### Cleanup
