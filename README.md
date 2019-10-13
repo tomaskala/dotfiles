@@ -247,6 +247,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 
 **Logins and Passwords**
 * `Ask to save logins and passwords for websites: disabled`
+* `Saved logins` -> `Autofill logins and passwords: disabled`
 
 **History**
 * Firefox will `Use custom settings for history`
