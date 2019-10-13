@@ -173,7 +173,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
             * `CZE, SVK: EasyList Czech and Slovak`
             * `RUS: AdGuard Russian`
             * `RUS: RU AdList`
-        * `Custom:` [Import this file for cryptominer blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt)
+        * `Custom:` [Import this file for cryptominer blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt) -- simply paste the link (not the file contents) to the 'custom' field.
 11. [uMatrix](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     * Click the toolbar icon and then the title bar to get to the settings dashboard
     * **Settings**
