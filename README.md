@@ -32,6 +32,8 @@ The following software should then be installed.
 * [Anaconda](https://www.anaconda.com/distribution/)
     * create a `base` environment, enable it
     * autoflake
+    * flake8
+    * black
 * [Lua](https://www.lua.org/)
 * Git
 * [Neovim](https://neovim.io/)
