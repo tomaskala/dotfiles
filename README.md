@@ -179,8 +179,8 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
     * **Settings**
         * **Convenience**
             * `Show the number of blocked resources on the icon: enabled`
-            * `Collapse the placeholder of blacklisted elements: enabled`
-            * `Spoof <script> tags when 1-st party scripts are blocker`
+            * `Hide the placeholder of blacklisted elements: enabled`
+            * `Spoof <script> tags when 1-st party scripts are blocked`
         * **Privacy**
             * `Delete blocked cookies: enabled`
             * `Delete non-blocked session cookies 60 minutes after the last time they have been used`
@@ -202,6 +202,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 * Also select compact mode and dark theme.
 
 1. **General**
+
 **Startup**
 * `Restore previous session: enabled`
 
@@ -222,6 +223,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 * `Recommend features as you browse: disabled`
 
 2. **Home**
+
 **Firefox Home Content**
 * Disable all
 
@@ -234,6 +236,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 * Optionally add `YouTube | y` and `Metal Archives (band name search) | m`
 
 4. **Privacy & Security**
+
 **Content blocking**
 * `Custom settings`
     * `Trackers: enabled, Only in Private Windows`
