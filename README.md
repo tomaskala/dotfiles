@@ -266,6 +266,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 * `Autoplay: Settings` -> `Block Audio and Video`
 * `Block pop-up windows: enabled`
 * `Warn you when websites try to install add-ons: enabled`
+    * Clear exceptions
 * `Prevent accessibility services from accessing your browser: enabled` (requires Firefox restart)
 
 **Firefox Data Collection and Use**
