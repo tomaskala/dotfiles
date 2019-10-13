@@ -72,7 +72,7 @@ The following software should then be installed.
 * [Telegram](https://telegram.org/)
 
 
-## System configuration
+## System configuration (not exhaustive)
 * Turn off bluetooth
 * Enable SSD trimming
     ```
