@@ -90,6 +90,7 @@ The following software should then be installed.
     * Move the values from `switch-applications-backward` to `switch-windows-backward`.
 * Set firacode as the system monospaced font in system configuration.
 * Set ``<Ctrl>` `` as a keyboard shortcut to launch kitty.
+* [Backup LUKS headers](https://fedoraproject.org/wiki/Disk_Encryption_User_Guide#Backup_LUKS_headers)
 
 
 ## Firefox configuration
