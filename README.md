@@ -63,6 +63,7 @@ The following software should then be installed.
 
 ### Media
 * [VLC](https://www.videolan.org/vlc/download-fedora.html)
+    * Comes with many codecs necessary to play certain online videos.
     * Rebind `Left/Right` from `Navigate left/right` to `Very short backwards/forward jump`.
 * MPlayer
 
