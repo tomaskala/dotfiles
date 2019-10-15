@@ -245,7 +245,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
     * `Cookies: enabled, All third-party cookies`
     * `Cryptominers: enabled`
     * `Fingerprinters: enabled`
-* `Send Do Not Track: Always` (oh honey...)
+* `Send Do Not Track: Only when Firefox is set to block known trackers`
 
 **Logins and Passwords**
 * `Ask to save logins and passwords for websites: disabled`
