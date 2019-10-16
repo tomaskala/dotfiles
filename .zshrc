@@ -28,10 +28,6 @@ plugins=(
 # ----------------------------------------
 source $ZSH/oh-my-zsh.sh
 
-# Load custom functions
-# ----------------------------------------
-source ./user-functions.sh
-
 # User configuration
 # ----------------------------------------
 
