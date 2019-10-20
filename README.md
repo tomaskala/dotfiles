@@ -153,11 +153,10 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
         * **Privacy**
             * Enable all
         * **Default behavior**
-            * `Disable cosmetic filtering: enabled`
+            * `Disable cosmetic filtering: disabled`
     * **Filter lists** -- check the following
         * `Auto-update filter lists`
         * `Parse and enforce cosmetic filters`
-        * `Ignore generic cosmetic filters`
         * `My filters`
         * `Built-in:` all except `uBlock filters - Experimental`
         * `Ads`
