@@ -290,4 +290,4 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 
 
 ### Cleanup
-* Finally, after fully configuring Firefox, press `Ctrl+Shift+Del` and clear everything except `Browsing & Download History`
+* Finally, after having fully configured Firefox, press `Ctrl+Shift+Del` and clear everything except `Browsing & Download History`.
