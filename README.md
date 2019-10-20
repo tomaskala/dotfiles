@@ -17,7 +17,7 @@ In addition, there are some utility scripts.
 
 
 ## Software
-When doing a fresh installation, first update.
+When doing a fresh installation, first update:
 * Packages: `sudo dnf distro-sync -y && sync`; the `sync` command synchronized cached writes to persistent storage.
 * Firmware: `sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`.
 * Flatpaks: `flatpak update && sudo flatpak update`.
@@ -75,6 +75,7 @@ The following software should then be installed.
 
 ## System configuration (not exhaustive)
 * Turn off bluetooth
+* Reset the default root password
 * Enable SSD trimming
     ```
     systemctl is-enabled fstrim.timer  # Check
