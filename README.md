@@ -200,7 +200,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 
 ### Configuration -- preferences
 * This section concerns the `about:preferences` part of the options. Some of it may be overriden by the `user.js` file set below, but there are parts that the file does not address. These are mainly convenience and user interface settings.
-* First, click the main menu -> `Customize`. Then, clear the top bar from all the addon icons and mess that Firefox comes with. It should be enough to leave only uMatrix and Firefox Multi-Account Containers.
+* First, click the main menu -> `Customize`. Then, clear the top bar from all the addon icons and mess that Firefox comes with. It should be enough to leave only uBlock Origin, uMatrix and Firefox Multi-Account Containers.
 * Also select compact mode and dark theme.
 
 1. **General**
