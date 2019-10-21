@@ -30,7 +30,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 # ----------------------------------------
-
 autoload -Uz compinit
 compinit
 

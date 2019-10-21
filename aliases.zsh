@@ -8,3 +8,7 @@ alias p="$HOME/linux-utils/play.sh"
 function cc {
     cd "$1" && ll
 }
+
+function upgrade_kitty {
+    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+}
