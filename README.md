@@ -9,6 +9,8 @@ I have this repository cloned into my `$HOME` directory and the files symlinked 
 * `kitty.conf` goes to `$HOME/.config/kitty/kitty.conf`;
 * `user-overrides.js` goes to `$HOME/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
 
+Note that `.zshrc` has my user name hardcoded inside. If you wish to use the file, change it.
+
 In addition, there are some utility scripts.
 * `play.sh` -- a simple interface over `mplayer` to allow:
     * playing files after checking their extensions;
