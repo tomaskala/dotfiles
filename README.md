@@ -242,9 +242,9 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 4. **Privacy & Security**
 
 **Content blocking**
-* `Custom settings`
-    * `Trackers: enabled, Only in Private Windows`
+* `Enhanced Tracking protection: Custom`
     * `Cookies: enabled, All third-party cookies`
+    * `Tracking content: enabled, In all windows`
     * `Cryptominers: enabled`
     * `Fingerprinters: enabled`
 * `Send Do Not Track: Only when Firefox is set to block known trackers`
