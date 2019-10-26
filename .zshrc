@@ -1,20 +1,19 @@
-# Basic config
-# ----------------------------------------
+# Modify the path variable.
 export PATH="$HOME/.local/bin:$PATH"
 
-export ZSH="/home/tomas/.oh-my-zsh"
+# Path to the oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
+# Name of the theme to load.
 ZSH_THEME="agnoster"
 
-# User case-sensitive completion.
+# Use case-sensitive completion.
 CASE_SENSITIVE="true"
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-#
 # Command execution timestamp shown in the history.
 HIST_STAMPS="mm/dd/yyyy"
 
+# List plugins to user.
 plugins=(
   git
   zsh-autosuggestions
@@ -24,16 +23,14 @@ plugins=(
   pass
 )
 
-# Load oh-my-zsh
-# ----------------------------------------
+# Load oh-my-zsh.
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-# ----------------------------------------
+# Enable zsh completions.
 autoload -Uz compinit
 compinit
 
-# Completion for kitty
+# Completion for kitty.
 kitty + complete setup zsh | source /dev/stdin
 
 # Remove hostname.
