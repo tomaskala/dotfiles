@@ -148,6 +148,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
     * **Isolation**
         * `Middle Mouse: Different from Tab Domain & Subdomains`
         * `Ctrl/Cmd + Left Mouse: Different from Tab Domain & Subdomains`
+        * `Left Mouse: Different from Tab Domain & Subdomains`
 10. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     * **Settings**
         * `Hide placeholders of blocked elements: enabled`
