@@ -58,7 +58,7 @@ The following software should then be installed.
 * htop
 * sensors
     * `sudo dnf install lm_sensors -y && sudo sensors-detect --auto && sudo watch sensors`
-* [pass](https://www.password-store.org)
+* [pass](https://www.passwordstore.org)
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
     * The autocompletion is in `.zshrc`. If it does not work, do `rm $HOME/.zcompdump*` and restart zsh using `exec zsh`.
 
