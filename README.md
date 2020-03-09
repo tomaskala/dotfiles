@@ -203,6 +203,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
         * Disable all hosts files filter lists, purge caches and save (we use uBlock Origin to control the static filters)
         * `Ruleset recipes for English websites: enabled` (a puzzle piece icon will appear on the uMatrix panel allowing to quickly import a community-created ruleset)
     * Lastly, open uMatrix on an arbitrary page, click the star symbol at the top to set the global scope (!) and disable all 1st party requests (by resetting `1st-party` on the left). While in the global scope, selectively enable CSS and images for all sites (by setting `css` and `image` on the top), and 1st party cookies and frames (by clicking their respective fields inside the matrix).
+12. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
 
 ### Configuration -- preferences
 * This section concerns the `about:preferences` part of the options. Some of it may be overriden by the `user.js` file set below, but there are parts that the file does not address. These are mainly convenience and user interface settings.
