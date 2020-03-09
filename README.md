@@ -26,6 +26,9 @@ The following software should then be installed.
 
 ### Internet
 * Firefox
+* Thunderbird
+    * [Thunderbird and Gmail](https://support.mozilla.org/en-US/kb/thunderbird-and-gmail)
+    * [IMAP settings for Gmail](https://support.google.com/mail/answer/78892?hl=en)
 * Transmission
 
 ### Development
