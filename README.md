@@ -9,12 +9,6 @@ I have this repository cloned into my `$HOME` directory and the files symlinked 
 * `kitty.conf` goes to `$HOME/.config/kitty/kitty.conf`;
 * `user-overrides.js` goes to `$HOME/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
 
-In addition, there are some utility scripts.
-* `play.sh` -- a simple interface over `mplayer` to allow:
-    * playing files after checking their extensions;
-    * playing directories recursively;
-    * playing files by the number they begin with.
-
 
 ## Software
 When doing a fresh installation, first update:
@@ -69,7 +63,7 @@ The following software should then be installed.
 * [VLC](https://www.videolan.org/vlc/download-fedora.html)
     * Comes with many codecs necessary to play certain online videos.
     * Rebind `Left/Right` from `Navigate left/right` to `Very short backwards/forward jump`.
-* MPlayer
+* [cmus](https://cmus.github.io/)
 
 ### Communication
 * Discord
