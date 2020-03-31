@@ -3,6 +3,8 @@ alias lla="ls -lah"
 alias vim="nvim"
 alias vi="nvim"
 alias cls="clear"
+alias jn="jupyter notebook"
+alias jl="jupyter lab"
 
 function cc {
     cd "$1" && ll
