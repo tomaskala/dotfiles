@@ -5,6 +5,8 @@ alias vi="nvim"
 alias cls="clear"
 alias jn="jupyter notebook"
 alias jl="jupyter lab"
+alias py="python"
+alias ipy="ipython"
 
 function cc {
     cd "$1" && ll
