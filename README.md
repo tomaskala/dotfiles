@@ -167,7 +167,9 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
         * `Malware domains:` all
         * `Annoyances`
             * `AdGuard Annoyances`
+            * `EasyList Cookie`
             * `Fanboy's Annoyance List`
+            * `uBlock filters - Annoyances`
         * `Multipurpose`
             * `Dan Pollock's hosts file`
             * `Peter Lowe's Ad and tracking server list`
