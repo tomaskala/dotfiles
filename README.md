@@ -273,7 +273,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
 * `Location: Settings` -> `Block new requests asking to access your location`
 * `Camera: Settings` -> `Block new requests asking to access your camera`
 * `Autoplay: Settings` -> `Block Audio and Video`
-* `Virtual Reality: Settings -> `Block new requests asking to access your virtual reality devices`
+* `Virtual Reality: Settings` -> `Block new requests asking to access your virtual reality devices`
 * `Block pop-up windows: enabled`
 * `Warn you when websites try to install add-ons: enabled`
     * Clear exceptions
