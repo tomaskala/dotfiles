@@ -69,7 +69,7 @@ The following software should then be installed.
 ### Communication
 * Discord
     * Requires some non-standard RPMs but should be possible to install at this point due to addition of some RPMs when installing VLC.
-* [Telegram](https://telegram.org/)
+* Telegram
 
 
 ## System configuration (not exhaustive)
