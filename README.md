@@ -97,7 +97,7 @@ The following software should then be installed.
 ## Firefox configuration
 Note that this is a privacy/security oriented configuration. After the initial setting, there will be a period when you have to tweak the addons to your taste so that they do not block websites you visit. For instance, embedded YouTube videos or gifs will not work until you enable them in uMatrix. To do this correctly requires care, otherwise you end up breaking something or losing some degree of privacy.
 
-If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expected to cause the most trouble. The other addons should be fairly harmless regarding website breakage.
+If in doubt, do not use the uMatrix addon. The other addons should be fairly harmless regarding website breakage.
 
 ### Post-installation cleanup
 * Create a new profile. Importing data from an old profile is addressed towards the end of this section.
@@ -131,23 +131,14 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
         * `Block data URL pages: disabled`
 2. [Clear URLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
     * `Prevent tracking injection over history API: enabled`
-3. [CSS Exfil Protection](https://addons.mozilla.org/en-US/firefox/addon/css-exfil-protection/)
-4. [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
+3. [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
     * Enable everything except `Block requests for missing resources`
-5. [Smart HTTPS](https://addons.mozilla.org/en-US/firefox/addon/smart-https-revived/)
-6. [Skip Redirect](https://addons.mozilla.org/en-US/firefox/addon/skip-redirect/)
-7. [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-container/)
-8. [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
+4. [Smart HTTPS](https://addons.mozilla.org/en-US/firefox/addon/smart-https-revived/)
+5. [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-container/)
+6. [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
     * Create desired containers, visit all matching sites in these containers and check `Always open in this container`
     * Then (if you wish) visit them again and check `Remember my decision` to always open them in the assigned container
-9. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
-    * **General**
-        * `Automatic mode: enabled`
-    * **Isolation**
-        * `Middle Mouse: Different from Tab Domain & Subdomains`
-        * `Ctrl/Cmd + Left Mouse: Different from Tab Domain & Subdomains`
-        * `Left Mouse: Different from Tab Domain & Subdomains`
-10. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+7. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     * **Settings**
         * `Hide placeholders of blocked elements: enabled`
         * `I am an advanced user: enabled` -> set `suspendTabsUntilReady` to `true` -> `I am an advanced user: disabled`
@@ -178,7 +169,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
             * `RUS: AdGuard Russian`
             * `RUS: RU AdList`
         * `Custom:` [Import this file for cryptominer blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt) -- simply paste the link (not the file contents) to the 'custom' field.
-11. [uMatrix](https://addons.mozilla.org/en-US/firefox/addon/umatrix/)
+8. [uMatrix](https://addons.mozilla.org/en-US/firefox/addon/umatrix/)
     * Click the toolbar icon and then the title bar to get to the settings dashboard
     * **Settings**
         * **Convenience**
@@ -200,7 +191,7 @@ If in doubt, do not use the uMatrix addon. Along with Skip Redirect, it is expec
         * Disable all hosts files filter lists, purge caches and save (we use uBlock Origin to control the static filters)
         * `Ruleset recipes for English websites: enabled` (a puzzle piece icon will appear on the uMatrix panel allowing to quickly import a community-created ruleset)
     * Lastly, open uMatrix on an arbitrary page, click the star symbol at the top to set the global scope (!) and disable all 1st party requests (by resetting `1st-party` on the left). While in the global scope, selectively enable CSS and images for all sites (by setting `css` and `image` on the top), and 1st party cookies and frames (by clicking their respective fields inside the matrix).
-12. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+9. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
     * Add the following two rules to the blacklist. They are to disable vimium-ff in Jupyter notebooks, typically found on such URLs.
         * `http://localhost*`;
         * `https://localhost*`;
