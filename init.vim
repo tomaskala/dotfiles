@@ -8,7 +8,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'arcticicestudio/nord-vim'  " nord theme
-    Plug 'patstockwell/vim-monokai-tasty'  " monokai theme
+    Plug 'bluz71/vim-moonfly-colors'  " moonfly theme
 call plug#end()
 
 
@@ -19,9 +19,7 @@ set background=dark
 "colorscheme nord  " nord for vim
 "let g:airline_theme='nord'  " nord for vim-airline
 
-let g:vim_monokai_tasty_italic = 1
-colorscheme vim-monokai-tasty  " monokai for vim
-let g:airline_theme='monokai_tasty'  " monokai for vim-airline
+colorscheme moonfly  " moonfly for vim
 
 let &t_ut=''  " do not use background color erase (conflicts with kitty)
 
@@ -149,13 +147,12 @@ function ChangeTheme(theme)
         colorscheme nord
         AirlineTheme nord
     else
-        colorscheme vim-monokai-tasty
-        AirlineTheme monokai_tasty
+        colorscheme moonfly
     endif
 endfunction
 
 command Nord call ChangeTheme("nord")
-command Monokai call ChangeTheme("monokai")
+command Moonfly call ChangeTheme("moonfly")
 
 " Fix caps lock annoyances.
 command! Wq wq
