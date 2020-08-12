@@ -175,5 +175,7 @@ set vb t_vb=  " shut up
 
 " FILETYPE-SPECIFIC AUTOCOMMANDS
 augroup FileTypeSpecificAutocommands
+    au BufRead,BufNewFile *.pyx set filetype=cython
+    au BufRead,BufNewFile *.pxd set filetype=cython
     autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2 softtabstop=2
 augroup end

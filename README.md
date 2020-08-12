@@ -6,6 +6,7 @@ I have this repository cloned into my `$HOME` directory and the files symlinked 
 * `.zshrc` goes to `$HOME/.zshrc`;
 * `aliases.zsh` goes to `$HOME/.oh-my-zsh/custom/aliases.zsh`;
 * `init.vim` goes to `$HOME/.config/nvim/init.vim`;
+* `cython.vim` goes to `$HOME/.config/nvim/syntax/cython.vim`;
 * `kitty.conf` goes to `$HOME/.config/kitty/kitty.conf`;
 * `user-overrides.js` goes to `$HOME/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
 
