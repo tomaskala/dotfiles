@@ -1,5 +1,5 @@
 " Vim syntax file
-" Language:	Cython
+" Language:    Cython
 
 " Quit when a syntax file was already loaded.
 if exists("b:current_syntax")
@@ -13,10 +13,10 @@ unlet b:current_syntax
 " Cython extentions
 syn keyword cythonDef       cdef cpdef typedef ctypedef fused DEF IF ELIF ELSE
 syn keyword cythonStatement sizeof typeid new
-syn keyword cythonType		int long short float double char object void signed unsigned
-syn keyword cythonStructure	struct union enum cppclass
-syn keyword cythonInclude	include cimport
-syn keyword cythonAccess	public private property readonly extern
+syn keyword cythonType      int long short float double char object void signed unsigned
+syn keyword cythonStructure struct union enum cppclass
+syn keyword cythonInclude   include cimport
+syn keyword cythonAccess    public private property readonly extern
 syn keyword cythonGil       gil nogil
 
 " If someome wants Python's built-ins highlighted, they probably
@@ -33,22 +33,22 @@ syn match   pythonInclude     "from"
 
 " With "for[^:]*\zsfrom" VIM does not match "for" anymore, so
 " I used the slower "\@<=" form
-syn match   cythonForFrom        "\(for[^:]*\)\@<=from"
+syn match cythonForFrom "\(for[^:]*\)\@<=from"
 
 " Default highlighting
 hi def link cythonDef       Statement
 hi def link cythonStatement Statement
-hi def link cythonType		Type
+hi def link cythonType      Type
 hi def link cythonStructure Structure
-hi def link cythonInclude	PreCondit
-hi def link cythonAccess	cythonStatement
+hi def link cythonInclude   PreCondit
+hi def link cythonAccess    cythonStatement
 hi def link cythonGil       Statement
 
 if exists("python_highlight_builtins") || exists("pyrex_highlight_builtins")
-    hi def link pyrexBuiltin	Function
+    hi def link pyrexBuiltin    Function
 endif
 
-hi def link cythonForFrom	Statement
+hi def link cythonForFrom   Statement
 
 
 let b:current_syntax = "cython"
