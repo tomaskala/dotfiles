@@ -11,7 +11,7 @@ runtime! syntax/python.vim
 unlet b:current_syntax
 
 " Cython extentions
-syn keyword cythonDef       cdef cpdef typedef ctypedef fused DEF IF ELIF ELSE
+syn keyword cythonDef       cdef cpdef typedef ctypedef fused property DEF IF ELIF ELSE
 syn keyword cythonStatement sizeof typeid new
 syn keyword cythonType      int long short float double char object void signed unsigned
 syn keyword cythonStructure struct union enum cppclass
