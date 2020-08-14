@@ -16,7 +16,7 @@ syn keyword cythonStatement sizeof typeid new
 syn keyword cythonType      int long short float double char object void signed unsigned
 syn keyword cythonStructure struct union enum cppclass
 syn keyword cythonInclude   include cimport
-syn keyword cythonAccess    public private property readonly extern
+syn keyword cythonAccess    public private property readonly extern inline
 syn keyword cythonGil       gil nogil
 
 " If someome wants Python's built-ins highlighted, they probably
