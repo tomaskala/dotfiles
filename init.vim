@@ -9,6 +9,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'arcticicestudio/nord-vim'  " nord theme
     Plug 'bluz71/vim-moonfly-colors'  " moonfly theme
+    Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 
