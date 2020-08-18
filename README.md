@@ -34,6 +34,7 @@ The following software should then be installed.
     * flake8
     * mypy
     * `conda install -c numba icc_rt` -- install Intel SVML to speedup Numba code.
+* [Julia](https://julialang.org/)
 * [Lua](https://www.lua.org/)
 * Git
 * [Neovim](https://neovim.io/)
