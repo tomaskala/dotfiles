@@ -34,7 +34,6 @@ The following software should then be installed.
     * flake8
     * mypy
     * disable the annoying environment name prompt: `conda config --set changeps1 false`
-* [Julia](https://julialang.org/)
 * [Lua](https://www.lua.org/)
 * Git
 * [Neovim](https://neovim.io/)
