@@ -44,3 +44,5 @@ if [ -f "/home/tomas/anaconda3/etc/profile.d/conda.sh" ]; then
 else
     export PATH="/home/tomas/anaconda3/bin:$PATH"
 fi
+
+conda activate base
