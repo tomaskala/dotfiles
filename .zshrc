@@ -39,6 +39,18 @@ prompt_context() {}
 # CTRL+Space to accept the current suggestion.
 bindkey '^ ' autosuggest-accept
 
-# Append conda to the path variable. If this stops working for some
-# reason, try `/home/tomas/anaconda3/bin/conda init`.
-export PATH="/home/tomas/anaconda3/bin:$PATH"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/tomas/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/tomas/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tomas/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/tomas/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

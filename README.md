@@ -33,7 +33,7 @@ The following software should then be installed.
     * black
     * flake8
     * mypy
-    * `conda install -c numba icc_rt` -- install Intel SVML to speedup Numba code.
+    * disable the annoying environment name prompt: `conda config --set changeps1 false`
 * [Julia](https://julialang.org/)
 * [Lua](https://www.lua.org/)
 * Git
