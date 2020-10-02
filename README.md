@@ -39,6 +39,8 @@ The following software should then be installed.
 * [Neovim](https://neovim.io/)
     * [vim-plug](https://github.com/junegunn/vim-plug)
 * Make
+* OpenBLAS
+    * `sudo dnf install openblas-devel`
 
 ### System utilities
 * gnome-tweaks & No Topleft Hot Corner to disable the annoying "feature" when activities are opened whenever the cursor hits the top-left corner.
