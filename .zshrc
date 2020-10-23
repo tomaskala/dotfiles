@@ -5,7 +5,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 
 # Name of the theme to load.
-ZSH_THEME="agnoster"
+ZSH_THEME="custom"
 
 # Use case-sensitive completion.
 CASE_SENSITIVE="true"
