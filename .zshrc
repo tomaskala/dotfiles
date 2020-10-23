@@ -33,9 +33,6 @@ compinit
 # Completion for kitty.
 kitty + complete setup zsh | source /dev/stdin
 
-# Remove hostname.
-prompt_context() {}
-
 # CTRL+Space to accept the current suggestion.
 bindkey '^ ' autosuggest-accept
 
