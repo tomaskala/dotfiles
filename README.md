@@ -168,7 +168,14 @@ The following software should then be installed.
             * `RUS: AdGuard Russian`
             * `RUS: RU AdList`
         * `Custom:` [Import this file for cryptominer blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt) -- simply paste the link (not the file contents) to the 'custom' field.
-8. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+8. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
+    * **General**
+        * `Automatic mode: enabled`
+    * **Isolation**
+        * `Middle Mouse: Different from Tab Domain & Subdomains`
+        * `Ctrl/Cmd + Left Mouse: Different from Tab Domain & Subdomains`
+        * `Left Mouse: Different from Tab Domain & Subdomains
+9. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
     * Add the following two rules to the blacklist. They are to disable vimium-ff in Jupyter notebooks, typically found on such URLs.
         * `http://localhost*`;
         * `https://localhost*`;
