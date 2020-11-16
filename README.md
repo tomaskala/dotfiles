@@ -5,8 +5,7 @@ Various utilities and settings for the Linux system, Fedora in particular.
 I have this repository cloned into my `$HOME` directory and the files symlinked to their respective locations. That is,
 * `.zshrc` goes to `$HOME/.zshrc`;
 * `aliases.zsh` goes to `$HOME/.oh-my-zsh/custom/aliases.zsh`;
-* `init.vim` goes to `$HOME/.config/nvim/init.vim`;
-* `cython.vim` goes to `$HOME/.config/nvim/syntax/cython.vim`;
+* `nvim` goes to `$HOME/.config/nvim`;
 * `kitty.conf` goes to `$HOME/.config/kitty/kitty.conf`;
 * `user-overrides.js` goes to `$HOME/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
 
