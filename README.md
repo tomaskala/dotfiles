@@ -64,6 +64,8 @@ The following software should then be installed.
     * [vim-plug](https://github.com/junegunn/vim-plug)
 * Make
 * [IntelMKL](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library/choose-download.html)
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+* [PyCharm](https://www.jetbrains.com/pycharm/)
 
 ### System utilities
 * [kitty](https://sw.kovidgoyal.net/kitty/)
