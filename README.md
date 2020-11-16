@@ -150,16 +150,17 @@ The following software should then be installed.
         * `Auto-update filter lists`
         * `Parse and enforce cosmetic filters`
         * `My filters`
-        * `Built-in:` all except `uBlock filters - Experimental`
+        * `Built-in`
         * `Ads`
-            * `Adblock Warning Removal List`
             * `EasyList`
-        * `Privacy:` all
+        * `Privacy:`
+            * `EasyPrivacy`
+            * `Fanboy’s Enhanced Tracking List`
         * `Malware domains:` all
         * `Annoyances`
             * `AdGuard Annoyances`
             * `EasyList Cookie`
-            * `Fanboy's Annoyance List`
+            * `Fanboy's Annoyance`
             * `uBlock filters - Annoyances`
         * `Multipurpose`
             * `Dan Pollock's hosts file`
