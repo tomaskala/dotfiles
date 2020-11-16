@@ -11,11 +11,36 @@ I have this repository cloned into my `$HOME` directory and the files symlinked 
 * `user-overrides.js` goes to `$HOME/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
 
 
-## Software
 When doing a fresh installation, first update:
 * Packages: `sudo dnf distro-sync -y && sync`; the `sync` command synchronized cached writes to persistent storage.
 * Firmware: `sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`.
 * Flatpaks: `flatpak update && sudo flatpak update`.
+
+
+## System configuration (not exhaustive)
+* Turn off bluetooth.
+* Reset the default root password.
+* Enable SSD trimming.
+    ```
+    systemctl is-enabled fstrim.timer  # Check
+    systemctl enable fstrim.timer  # Enable
+    systemctl is-enabled fstrim.timer  # Check again
+    ```
+* [Hosts file](https://github.com/StevenBlack/hosts/)
+    * Unified hosts + fakenews + gambling.
+    * `sudo wget -O '/etc/hosts' 'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' && sync`
+* Nautilus
+    * Sort directories before files.
+* Fix the retarded `<Alt>Tab` and `<Shift><Alt>Tab` behavior.
+    * Install `dconf-editor`, go to `org/gnome/desktop/wm/keybindings`.
+    * Move the values from `switch-applications` to `switch-windows`.
+    * Move the values from `switch-applications-backward` to `switch-windows-backward`.
+* Install `gnome-tweaks` & `No Topleft Hot Corner` to disable the annoying "feature" when activities are opened whenever the cursor hits the top-left corner.
+* Set ``<Ctrl>` `` as a keyboard shortcut to launch terminal.
+* [Backup LUKS headers](https://fedoraproject.org/wiki/Disk_Encryption_User_Guide#Backup_LUKS_headers).
+
+
+## Software
 
 The following software should then be installed.
 
@@ -39,12 +64,9 @@ The following software should then be installed.
 * [Neovim](https://neovim.io/)
     * [vim-plug](https://github.com/junegunn/vim-plug)
 * Make
-* OpenBLAS
-    * `sudo dnf install openblas-devel`
+* [IntelMKL](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library/choose-download.html)
 
 ### System utilities
-* gnome-tweaks & No Topleft Hot Corner to disable the annoying "feature" when activities are opened whenever the cursor hits the top-left corner.
-* Dash to Panel
 * [kitty](https://sw.kovidgoyal.net/kitty/)
     * Along with the steps specified on the linked page, it is necessary to perform `sudo ln -s ~/.local/kitty.app/bin/kitty /usr/bin/kitty`.
 * zsh
@@ -58,7 +80,7 @@ The following software should then be installed.
 * [ag](https://github.com/ggreer/the_silver_searcher)
 * htop
 * sensors
-    * `sudo dnf install lm_sensors -y && sudo sensors-detect --auto && sudo watch sensors`
+    * `sudo dnf install lm_sensors -y && sudo sensors-detect --auto`
 * [pass](https://www.passwordstore.org)
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
     * The autocompletion is in `.zshrc`. If it does not work, do `rm $HOME/.zcompdump*` and restart zsh using `exec zsh`.
@@ -71,36 +93,10 @@ The following software should then be installed.
 
 ### Communication
 * Discord
-    * Requires some non-standard RPMs but should be possible to install at this point due to addition of some RPMs when installing VLC.
 * Telegram
 
 
-## System configuration (not exhaustive)
-* Turn off bluetooth
-* Reset the default root password
-* Enable SSD trimming
-    ```
-    systemctl is-enabled fstrim.timer  # Check
-    systemctl enable fstrim.timer  # Enable
-    systemctl is-enabled fstrim.timer  # Check again
-    ```
-* [Hosts file](https://github.com/StevenBlack/hosts/)
-    * Unified hosts + fakenews + gambling
-* Nautilus
-    * Sort directories before files
-* Fix the retarded `<Alt>Tab` and `<Shift><Alt>Tab` behavior.
-    * Install `dconf-editor`, go to `org/gnome/desktop/wm/keybindings`.
-    * Move the values from `switch-applications` to `switch-windows`.
-    * Move the values from `switch-applications-backward` to `switch-windows-backward`.
-* Set firacode as the system monospaced font in system configuration.
-* Set ``<Ctrl>` `` as a keyboard shortcut to launch kitty.
-* [Backup LUKS headers](https://fedoraproject.org/wiki/Disk_Encryption_User_Guide#Backup_LUKS_headers)
-
-
 ## Firefox configuration
-Note that this is a privacy/security oriented configuration. After the initial setting, there will be a period when you have to tweak the addons to your taste so that they do not block websites you visit. For instance, embedded YouTube videos or gifs will not work until you enable them in uMatrix. To do this correctly requires care, otherwise you end up breaking something or losing some degree of privacy.
-
-If in doubt, do not use the uMatrix addon. The other addons should be fairly harmless regarding website breakage.
 
 ### Post-installation cleanup
 * Create a new profile. Importing data from an old profile is addressed towards the end of this section.
@@ -172,29 +168,7 @@ If in doubt, do not use the uMatrix addon. The other addons should be fairly har
             * `RUS: AdGuard Russian`
             * `RUS: RU AdList`
         * `Custom:` [Import this file for cryptominer blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt) -- simply paste the link (not the file contents) to the 'custom' field.
-8. [uMatrix](https://addons.mozilla.org/en-US/firefox/addon/umatrix/)
-    * Click the toolbar icon and then the title bar to get to the settings dashboard
-    * **Settings**
-        * **Convenience**
-            * `Show the number of blocked resources on the icon: enabled`
-            * `Hide the placeholder of blacklisted elements: enabled`
-            * `Spoof <script> tags when 1-st party scripts are blocked`
-        * **Privacy**
-            * `Delete blocked cookies: enabled`
-            * `Delete non-blocked session cookies 60 minutes after the last time they have been used`
-            * `Delete local storage content set by blocked hostnames: enabled`
-            * `Clear browser cache every 60 minutes`
-            * `Spoof HTTP referrer string of third-party requests: enabled`
-            * `Block all hyperlink auditing attempts: enabled`
-    * **My rules**
-        * Add `no-workers: * true`, save and commit (disables web workers)
-        * Add [these rules](https://git.synz.io/Synzvato/decentraleyes/wikis/Frequently-Asked-Questions) since Decentraleyes is used as well
-    * **Assets**
-        * `Auto-update assets: enabled`
-        * Disable all hosts files filter lists, purge caches and save (we use uBlock Origin to control the static filters)
-        * `Ruleset recipes for English websites: enabled` (a puzzle piece icon will appear on the uMatrix panel allowing to quickly import a community-created ruleset)
-    * Lastly, open uMatrix on an arbitrary page, click the star symbol at the top to set the global scope (!) and disable all 1st party requests (by resetting `1st-party` on the left). While in the global scope, selectively enable CSS and images for all sites (by setting `css` and `image` on the top), and 1st party cookies and frames (by clicking their respective fields inside the matrix).
-9. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+8. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
     * Add the following two rules to the blacklist. They are to disable vimium-ff in Jupyter notebooks, typically found on such URLs.
         * `http://localhost*`;
         * `https://localhost*`;
