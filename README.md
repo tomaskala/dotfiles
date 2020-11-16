@@ -10,6 +10,36 @@ I have this repository cloned into my `$HOME` directory and the files symlinked 
 * `user-overrides.js` goes to `$HOME/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
 
 
+Before reinstalling the system, backup the following:
+* Firefox profile: `$HOME/.mozilla/firefox/<profile>`:
+    * `places.sqlite`
+    * `bookmarkbackups`
+    * `favicons.sqlite`
+    * `sessionstore.jsonlz4`
+* Saved passwords: `$HOME/.password-store`
+* Downloads directory: `$HOME/Downloads`
+* Documents directory: `$HOME/Documents`
+* Work directory: `$HOME/Work`
+* OpenVPN script: `/etc/openvpn/scripts/update-systemd-resolved`
+    * The script addresses some issues encountered when connecting to work VPN. However, it sometimes breaks DNS settings. These must then be restored by executing `sudo nvim /etc/resolv.conf`, replacing the content by `nameserver <dns-server-address>` and restarting the network manager by `sudo service NetworkManager restart`.
+    * This file needs executable permissions.
+* Export GPG keys.
+    * `gpg --armor --export <key-id> > <path-to-backup>/public.key`
+    * `gpg --armor --export-secret-keys <key-id> > <path-to-backup>/private.key`
+    * `gpg --export-ownertrust > <path-to-backup>/ownertrust.txt`
+    * To restore, perform the following:
+        * `gpg --import <path-to-backup>/private.key`
+        * `gpg --import-ownertrust <path-to-backup>/ownertrust.txt`
+* Export SSH keys.
+    * Export the `$HOME/.ssh` directory.
+    * To restore, copy the directory back and perform the following (for each private & public key pair):
+        * `cd $HOME/.ssh`
+        * `chown user:user id_rsa*`
+        * `chmod 600 id_rsa`
+        * `chmod 644 id_rsa.pub`
+        * `ssh-add id_rsa`
+
+
 When doing a fresh installation, first update:
 * Packages: `sudo dnf distro-sync -y && sync`; the `sync` command synchronized cached writes to persistent storage.
 * Firmware: `sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`.
