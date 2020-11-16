@@ -10,8 +10,11 @@ I have this repository cloned into my `$HOME` directory and the files symlinked 
 * `user-overrides.js` goes to `$HOME/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
 
 
+## Backup
+
+
 Before reinstalling the system, backup the following:
-* Firefox profile: `$HOME/.mozilla/firefox/<profile>`:
+* Firefox profile: `$HOME/.mozilla/firefox/<profile-directory>`:
     * `places.sqlite`
     * `bookmarkbackups`
     * `favicons.sqlite`
@@ -40,13 +43,16 @@ Before reinstalling the system, backup the following:
         * `ssh-add id_rsa`
 
 
+## System installation
+
+
 When doing a fresh installation, first update:
 * Packages: `sudo dnf distro-sync -y && sync`; the `sync` command synchronized cached writes to persistent storage.
 * Firmware: `sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`.
 * Flatpaks: `flatpak update && sudo flatpak update`.
 
 
-## System configuration (not exhaustive)
+### System configuration (not exhaustive)
 * Turn off bluetooth.
 * Reset the default root password.
 * Enable SSD trimming.
@@ -69,18 +75,17 @@ When doing a fresh installation, first update:
 * [Backup LUKS headers](https://fedoraproject.org/wiki/Disk_Encryption_User_Guide#Backup_LUKS_headers).
 
 
-## Software
-
+### Software
 The following software should then be installed.
 
-### Internet
+#### Internet
 * Firefox
 * Thunderbird
     * [Thunderbird and Gmail](https://support.mozilla.org/en-US/kb/thunderbird-and-gmail)
     * [IMAP settings for Gmail](https://support.google.com/mail/answer/78892?hl=en)
 * Transmission
 
-### Development
+#### Development
 * [Anaconda](https://www.anaconda.com/distribution/)
     * create a `base` environment, enable it
     * autoflake
@@ -93,11 +98,11 @@ The following software should then be installed.
 * [Neovim](https://neovim.io/)
     * [vim-plug](https://github.com/junegunn/vim-plug)
 * Make
-* [IntelMKL](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library/choose-download.html)
+* [Intel MKL](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library/choose-download.html)
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * [PyCharm](https://www.jetbrains.com/pycharm/)
 
-### System utilities
+#### System utilities
 * [kitty](https://sw.kovidgoyal.net/kitty/)
     * Along with the steps specified on the linked page, it is necessary to perform `sudo ln -s ~/.local/kitty.app/bin/kitty /usr/bin/kitty`.
 * zsh
@@ -116,26 +121,25 @@ The following software should then be installed.
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
     * The autocompletion is in `.zshrc`. If it does not work, do `rm $HOME/.zcompdump*` and restart zsh using `exec zsh`.
 
-### Media
+#### Media
 * [VLC](https://www.videolan.org/vlc/download-fedora.html)
     * Comes with many codecs necessary to play certain online videos.
     * Rebind `Left/Right` from `Navigate left/right` to `Very short backwards/forward jump`.
 * [cmus](https://cmus.github.io/)
 
-### Communication
+#### Communication
 * Discord
 * Telegram
 
 
-## Firefox configuration
-
-### Post-installation cleanup
+### Firefox configuration
+#### Post-installation cleanup
 * Create a new profile. Importing data from an old profile is addressed towards the end of this section.
 * Remove system addons
     * Either `cd /usr/lib/firefox/browser/features` or `cd /usr/lib64/firefox/browser/features` followed by `sudo rm *.xpi`
     * Note that this must be redone every time Firefox is updated
 
-### Addons
+#### Addons
 1. [Canvas blocker](https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/)
     * **General**
         * `Expert mode: enabled`
@@ -214,7 +218,7 @@ The following software should then be installed.
         * `http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`;
         * `https://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`.
 
-### Configuration -- preferences
+#### Configuration -- preferences
 * This section concerns the `about:preferences` part of the options. Some of it may be overriden by the `user.js` file set below, but there are parts that the file does not address. These are mainly convenience and user interface settings.
 * First, click the main menu -> `Customize`. Then, clear the top bar from all the addon icons and mess that Firefox comes with. It should be enough to leave only uBlock Origin, uMatrix and Firefox Multi-Account Containers.
 * Also select compact mode and dark theme.
@@ -297,14 +301,14 @@ The following software should then be installed.
 **Certificates**
 * `Ask you every time`
 
-### Configuration -- user.js
-* We use [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
+#### Configuration -- user.js
+* I use [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
 * Once the `user-overrides.js` file from this repository is symlinked to the Firefox profile directory, run the `updater.sh` [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh) within the same directory.
 
-### Import data
+#### Import data
 * Consult [this document](https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data) where each profile element can be found.
 * I transfer *Bookmarks, Downloads and Browsing History* (files `places.sqlite`, `bookmarkbackups` and `favicons.sqlite`) and *Stored session* (file `sessionstore.jsonlz4`).
 
 
-### Cleanup
+#### Cleanup
 * Finally, after having fully configured Firefox, press `Ctrl+Shift+Del` and clear everything except `Browsing & Download History`.
