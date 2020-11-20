@@ -2,12 +2,10 @@
 ## Description
 Various utilities and settings for the Linux system, Fedora in particular.
 
-I have this repository cloned into my `$HOME` directory and the files symlinked to their respective locations. That is,
-* `.zshrc` goes to `$HOME/.zshrc`;
-* `aliases.zsh` goes to `$HOME/.oh-my-zsh/custom/aliases.zsh`;
-* `nvim` goes to `$HOME/.config/nvim`;
-* `kitty.conf` goes to `$HOME/.config/kitty/kitty.conf`;
-* `user-overrides.js` goes to `$HOME/.mozilla/firefox/<profile-directory>` (see the Configuration/Firefox section below).
+### Installation
+* Clone this repository.
+* Run the `setup.sh` script which will symlink config files to their respective locations.
+* Once Firefox has been configured, manually symlink the `user-overrides.js` file to `$HOME/.mozilla/firefox/<profile-directory>`.
 
 
 ## Backup
