@@ -13,5 +13,6 @@ root_dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 set_ln "${root_dir}/.zshrc" "$HOME/.zshrc"
 set_ln "${root_dir}/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
 set_ln "${root_dir}/custom.zsh-theme" "$HOME/.oh-my-zsh/themes/custom.zsh-theme"
-set_ln "${root_dir}/nvim" "$HOME/.config/nvim"
 set_ln "${root_dir}/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+set_ln "${root_dir}/.bashrc" "$HOME/.bashrc"
+set_ln "${root_dir}/nvim" "$HOME/.config/nvim"
