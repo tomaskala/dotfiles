@@ -21,6 +21,7 @@ Before reinstalling the system, backup the following:
 * Saved passwords: `$HOME/.password-store`.
 * Downloads directory: `$HOME/Downloads`.
 * Documents directory: `$HOME/Documents`.
+* Pictures directory: `$HOME/Pictures`.
 * Work directory: `$HOME/Work`.
 * OpenVPN script: `/etc/openvpn/scripts/update-systemd-resolved`.
     * The script addresses some issues encountered when connecting to work VPN. However, it sometimes breaks DNS settings. These must then be restored by executing `sudo nvim /etc/resolv.conf`, replacing the content by `nameserver <dns-server-address>` and restarting the network manager by `sudo service NetworkManager restart`.
