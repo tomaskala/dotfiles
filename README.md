@@ -13,15 +13,16 @@ Various utilities and settings for the Linux system, Fedora in particular.
 
 Before reinstalling the system, backup the following:
 * Firefox profile: `$HOME/.mozilla/firefox/<profile-directory>`:
-    * `places.sqlite`
-    * `bookmarkbackups`
-    * `favicons.sqlite`
-    * `sessionstore.jsonlz4`
-* Saved passwords: `$HOME/.password-store`
-* Downloads directory: `$HOME/Downloads`
-* Documents directory: `$HOME/Documents`
-* Work directory: `$HOME/Work`
-* OpenVPN script: `/etc/openvpn/scripts/update-systemd-resolved`
+    * `places.sqlite`;
+    * `bookmarkbackups`;
+    * `favicons.sqlite`;
+    * `sessionstore.jsonlz4`.
+* Thunderbird profile: `$HOME/.thunderbird`.
+* Saved passwords: `$HOME/.password-store`.
+* Downloads directory: `$HOME/Downloads`.
+* Documents directory: `$HOME/Documents`.
+* Work directory: `$HOME/Work`.
+* OpenVPN script: `/etc/openvpn/scripts/update-systemd-resolved`.
     * The script addresses some issues encountered when connecting to work VPN. However, it sometimes breaks DNS settings. These must then be restored by executing `sudo nvim /etc/resolv.conf`, replacing the content by `nameserver <dns-server-address>` and restarting the network manager by `sudo service NetworkManager restart`.
     * This file needs executable permissions.
 * Export GPG keys.
