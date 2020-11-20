@@ -200,7 +200,6 @@ The following software should then be installed.
             * `Peter Lowe's Ad and tracking server list`
         * `Regions, languages`
             * `CZE, SVK: EasyList Czech and Slovak`
-            * `RUS: AdGuard Russian`
             * `RUS: RU AdList`
         * `Custom:` [Import this file for cryptominer blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt) -- simply paste the link (not the file contents) to the 'custom' field.
 7. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
