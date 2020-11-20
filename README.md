@@ -52,8 +52,11 @@ When doing a fresh installation, first update:
 
 ### System configuration (not exhaustive)
 * Set git username and email.
+    * `git config --global user.name "<username>"`
+    * `git config --global user.email "<email>"`
 * Turn off bluetooth.
 * Reset the default root password.
+    * `sudo passwd root`
 * Enable SSD trimming.
     ```
     systemctl is-enabled fstrim.timer  # Check
