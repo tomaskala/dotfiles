@@ -53,6 +53,7 @@ When doing a fresh installation, first update:
 
 
 ### System configuration (not exhaustive)
+* Set git username and email.
 * Turn off bluetooth.
 * Reset the default root password.
 * Enable SSD trimming.
