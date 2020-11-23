@@ -32,6 +32,7 @@ export LESS_TERMCAP_me=$'\e[0m'        # End bold      - reset.
 export LESS_TERMCAP_ue=$'\e[0m'        # End underline - reset.
 export LESS_TERMCAP_se=$'\e[0m'        # End standout  - reset.
 export LESSHISTFILE=-
+export PAGER=less
 
 export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;81:pi=38;5;43:bd=38;5;212:\
 cd=38;5;225:or=30;48;5;202:ow=38;5;75:so=38;5;177:su=36;48;5;63:ex=38;5;156:\
