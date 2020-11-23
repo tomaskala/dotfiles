@@ -3,8 +3,8 @@ unalias -a
 
 # Utilities.
 alias ls='ls --color --classify --human-readable --quoting-style=escape'
-alias ll="ls -lh"
-alias lla="ls -lah"
+alias ll="ls -l"
+alias lla="ls -la"
 alias cls="clear"
 alias ..='cd ..'
 alias ...='cd ../..'
