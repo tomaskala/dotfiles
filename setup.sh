@@ -8,7 +8,7 @@ function set_ln {
     ln -s "$what" "$where"
 }
 
-root_dir=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
+root_dir="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
 
 set_ln "${root_dir}/.zshrc" "$HOME/.zshrc"
 set_ln "${root_dir}/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
