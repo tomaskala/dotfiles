@@ -44,6 +44,9 @@ alias gst='git status'
 alias jn='jupyter notebook'
 alias jl='jupyter lab'
 alias ipy='ipython'
+alias mkvenv='python -m venv ./venv'
+alias avenv='source ./venv/bin/activate'
+alias dvenv='deactivate'
 
 
 ### Environment variables.
