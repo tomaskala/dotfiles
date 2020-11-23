@@ -17,7 +17,7 @@ Before reinstalling the system, backup the following:
     * `bookmarkbackups`;
     * `favicons.sqlite`;
     * `sessionstore.jsonlz4`.
-* Thunderbird profile: `$HOME/.thunderbird`.
+* Thunderbird profile: `$HOME/.thunderbird/<profile-directory>`.
 * Saved passwords: `$HOME/.password-store`.
 * Downloads directory: `$HOME/Downloads`.
 * Documents directory: `$HOME/Documents`.
