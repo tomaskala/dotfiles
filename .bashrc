@@ -3,21 +3,22 @@ unalias -a
 
 # Utilities.
 alias ls='ls --color --classify --human-readable --quoting-style=escape'
-alias ll="ls -l"
-alias lla="ls -la"
-alias cls="clear"
+alias ll='ls -l'
+alias lla='ls -la'
+alias cls='clear'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias diff='diff --color'
 
 # Editor aliases.
-alias vim="nvim"
-alias vi="nvim"
+alias vim='nvim'
+alias vi='nvim'
 
 # Python aliases.
-alias jn="jupyter notebook"
-alias jl="jupyter lab"
-alias ipy="ipython"
+alias jn='jupyter notebook'
+alias jl='jupyter lab'
+alias ipy='ipython'
 
 
 ### Environment variables.
