@@ -7,7 +7,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'scrooloose/nerdcommenter'  " press <leader>c<space> to toggle line comment
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'arcticicestudio/nord-vim'  " nord theme
     Plug 'bluz71/vim-moonfly-colors'  " moonfly theme
 call plug#end()
 
@@ -15,9 +14,6 @@ call plug#end()
 " COLORS
 set termguicolors  " use true colors
 set background=dark
-
-"colorscheme nord  " nord for vim
-"let g:airline_theme='nord'  " nord for vim-airline
 
 colorscheme moonfly  " moonfly for vim
 
@@ -163,17 +159,6 @@ map <S-Enter> O<ESC>
 
 
 " CUSTOM COMMANDS
-function ChangeTheme(theme)
-    if a:theme == "nord"
-        colorscheme nord
-        AirlineTheme nord
-    else
-        colorscheme moonfly
-    endif
-endfunction
-
-command Nord call ChangeTheme("nord")
-command Moonfly call ChangeTheme("moonfly")
 
 " Fix caps lock annoyances.
 command! Wq wq
