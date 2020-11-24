@@ -39,6 +39,8 @@ syntax enable  " enable syntax processing
 set mouse=a  " enable mouse input
 set autochdir  " always switch to the current file directory
 set selection=old  " old-style visual selection
+set encoding=utf-8
+set backspace=indent,eol,start
 
 
 " INDENTATION
@@ -50,6 +52,13 @@ set linebreak  " do not break words when wrapping lines
 set expandtab  " tabs are spaces
 set smarttab  " smart behavior when inserting tab in front of a line
 set autoindent  " indent at the previous line level
+set nojoinspaces  " do not insert an extra space when joining (J) sentences
+
+
+" BACKUPS
+set nobackup
+set nowritebackup
+set noswapfile
 
 
 " UI CONFIG
@@ -66,6 +75,18 @@ set showmode  " display the current mode
 set splitbelow  " open new pane to the bottom
 set splitright  " open new pane to the right
 set colorcolumn=120  " show a column at 120 characters
+
+
+" SHUT UP
+set noerrorbells
+set novisualbell
+if exists('&belloff')
+    set belloff=all
+endif
+
+
+" MISCELLANEOUS
+set nohidden  " once a tab is closed, remove the buffer
 
 
 " LEADER SHORTCUTS
@@ -160,13 +181,6 @@ command! WQ wq
 command! W w
 command! Q q
 command! E e
-
-
-" MISCELLANEOUS
-set nohidden  " once a tab is closed, remove the buffer
-set noerrorbells  " shut up
-set novisualbell  " shut up
-set vb t_vb=  " shut up
 
 
 " FILETYPE-SPECIFIC AUTOCOMMANDS
