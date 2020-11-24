@@ -37,6 +37,7 @@ set autochdir  " always switch to the current file directory
 set selection=old  " old-style visual selection
 set encoding=utf-8
 set backspace=indent,eol,start
+set autoread  " automatically reload changed files from disk
 
 
 " INDENTATION
@@ -76,6 +77,7 @@ set colorcolumn=120  " show a column at 120 characters
 " SHUT UP
 set noerrorbells
 set novisualbell
+set visualbell t_vb=
 if exists('&belloff')
     set belloff=all
 endif
@@ -103,6 +105,7 @@ set incsearch  " search as characters are entered
 set hlsearch  " highlight matches
 set ignorecase  " case insensitive search
 set smartcase  " but case sensitive when uppercase is present
+set showmatch  " live match highlighting
 
 " press <leader><space> to turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
