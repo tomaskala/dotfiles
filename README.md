@@ -169,13 +169,11 @@ The following software should then be installed.
         * `Block data URL pages: disabled`
 2. [Clear URLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
     * `Prevent tracking injection over history API: enabled`
-3. [Decentraleyes](https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/)
-    * Enable everything except `Block requests for missing resources`
-4. [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-container/)
-5. [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
+3. [Facebook Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-container/)
+4. [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
     * Create desired containers, visit all matching sites in these containers and check `Always open in this container`
     * Then (if you wish) visit them again and check `Remember my decision` to always open them in the assigned container
-6. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+5. [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     * **Settings**
         * `Hide placeholders of blocked elements: enabled`
         * `I am an advanced user: enabled` -> set `suspendTabsUntilReady` to `true` -> `I am an advanced user: disabled`
@@ -206,14 +204,14 @@ The following software should then be installed.
             * `CZE, SVK: EasyList Czech and Slovak`
             * `RUS: RU AdList`
         * `Custom:` [Import this file for cryptominer blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt) -- simply paste the link (not the file contents) to the 'custom' field.
-7. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
+6. [Temporary Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
     * **General**
         * `Automatic mode: enabled`
     * **Isolation**
         * `Middle Mouse: Different from Tab Domain & Subdomains`
         * `Ctrl/Cmd + Left Mouse: Different from Tab Domain & Subdomains`
         * `Left Mouse: Different from Tab Domain & Subdomains
-8. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+7. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
     * Add the following two rules to the blacklist. They are to disable vimium-ff in Jupyter notebooks, typically found on such URLs.
         * `http://localhost*`;
         * `https://localhost*`;
