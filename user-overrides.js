@@ -59,3 +59,7 @@ user_pref("privacy.cpd.siteSettings", false);
 
 // Do not show the annoying white frame around webpages.
 user_pref("privacy.resistFingerprinting.letterboxing", false);  // 4504
+
+// Enable HTTPS-only mode.
+user_pref("dom.security.https_only_mode", true);
+user_pref("dom.security.https_only_mode_send_http_background_request", false);
