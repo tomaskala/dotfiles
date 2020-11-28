@@ -4,7 +4,11 @@ function set_ln {
     what="$1"
     where="$2"
 
-    rm "$where"
+    if [ -f "$where" ]
+    then
+        rm "$where"
+    fi
+
     ln -s "$what" "$where"
 }
 
