@@ -7,6 +7,9 @@ function set_ln {
     if [ -f "$where" ]
     then
         rm "$where"
+    elif [ -d "$where" ]
+    then
+        rm -r "$where"
     fi
 
     ln -s "$what" "$where"
