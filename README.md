@@ -210,7 +210,7 @@ The following software should then be installed.
     * **Isolation**
         * `Middle Mouse: Different from Tab Domain & Subdomains`
         * `Ctrl/Cmd + Left Mouse: Different from Tab Domain & Subdomains`
-        * `Left Mouse: Different from Tab Domain & Subdomains
+        * `Left Mouse: Different from Tab Domain & Subdomains`
 7. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
     * Add the following two rules to the blacklist. They are to disable vimium-ff in Jupyter notebooks, typically found on such URLs.
         * `http://localhost*`;
