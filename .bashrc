@@ -1,3 +1,9 @@
+### Bash prompt.
+PS1_LAMBDA="\[\033[38;5;173m\]λ\[\033[0;00m\]"
+PS1_DIR="\[\033[38;5;26m\]\w\[\033[00m\]"
+PS1="${PS1_LAMBDA} ${PS1_DIR} "
+
+
 ### Aliases.
 unalias -a
 
