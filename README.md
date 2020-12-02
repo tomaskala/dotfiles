@@ -87,6 +87,7 @@ The following software should then be installed.
 * Thunderbird
     * [Thunderbird and Gmail](https://support.mozilla.org/en-US/kb/thunderbird-and-gmail)
     * [IMAP settings for Gmail](https://support.google.com/mail/answer/78892?hl=en)
+    * Once emails have been loaded and sorted, install the [No Message Pane Sort](https://addons.thunderbird.net/en-US/thunderbird/addon/no-message-pane-sort-by-mouse/) addon.
 * Transmission
 
 #### Development
