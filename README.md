@@ -35,9 +35,7 @@ Before reinstalling the system, backup the following:
         * `gpg --import-ownertrust <path-to-backup>/ownertrust.txt`
 * Export SSH keys.
     * Export the `~/.ssh` directory.
-    * To restore, copy the directory back and perform the following (for each private & public key pair):
-        * `cd ~/.ssh`
-        * `chown user:user id_rsa*`
+    * To restore, copy the directory back, `cd` into it, run the ssh agent (`eval $(ssh-agent)`) and perform the following (for each private & public key pair):
         * `chmod 600 id_rsa`
         * `chmod 644 id_rsa.pub`
         * `ssh-add id_rsa`
