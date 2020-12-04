@@ -9,7 +9,7 @@ The guide assumes CentOS 8 to be running on the VPS.
     * `passwd root`
 3. **Create a non-root user, grant sudo privileges.**
     * `adduser <username>`
-    * `usermod -aG sudo <username>`
+    * `usermod -aG wheel <username>`
 4. **Log out, transfer the SSH key.**
     * `ssh-copy-id -i ~/.ssh/<public-key> <username>@<host>`
 5. **Log in as the newly created user.**
