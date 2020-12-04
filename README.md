@@ -5,24 +5,24 @@ Various utilities and settings for the Linux system, Fedora in particular.
 ### Installation
 * Clone this repository.
 * Run the `setup.sh` script which will symlink config files to their respective locations.
-* Once Firefox has been configured, manually symlink the `user-overrides.js` file to `$HOME/.mozilla/firefox/<profile-directory>`.
+* Once Firefox has been configured, manually symlink the `user-overrides.js` file to `~/.mozilla/firefox/<profile-directory>`.
 
 
 ## Backup
 
 
 Before reinstalling the system, backup the following:
-* Firefox profile: `$HOME/.mozilla/firefox/<profile-directory>`:
+* Firefox profile: `~/.mozilla/firefox/<profile-directory>`:
     * `places.sqlite`;
     * `bookmarkbackups`;
     * `favicons.sqlite`;
     * `sessionstore.jsonlz4`.
-* Thunderbird profile: `$HOME/.thunderbird/<profile-directory>`.
-* Saved passwords: `$HOME/.password-store`.
-* Downloads directory: `$HOME/Downloads`.
-* Documents directory: `$HOME/Documents`.
-* Pictures directory: `$HOME/Pictures`.
-* Work directory: `$HOME/Work`.
+* Thunderbird profile: `~/.thunderbird/<profile-directory>`.
+* Saved passwords: `~/.password-store`.
+* Downloads directory: `~/Downloads`.
+* Documents directory: `~/Documents`.
+* Pictures directory: `~/Pictures`.
+* Work directory: `~/Work`.
 * OpenVPN script: `/etc/openvpn/scripts/update-systemd-resolved`.
     * The script addresses some issues encountered when connecting to work VPN. However, it sometimes breaks DNS settings. These must then be restored by executing `sudo nvim /etc/resolv.conf`, replacing the content by `nameserver <dns-server-address>` and restarting the network manager by `sudo service NetworkManager restart`.
     * This file needs executable permissions.
@@ -34,9 +34,9 @@ Before reinstalling the system, backup the following:
         * `gpg --import <path-to-backup>/private.key`
         * `gpg --import-ownertrust <path-to-backup>/ownertrust.txt`
 * Export SSH keys.
-    * Export the `$HOME/.ssh` directory.
+    * Export the `~/.ssh` directory.
     * To restore, copy the directory back and perform the following (for each private & public key pair):
-        * `cd $HOME/.ssh`
+        * `cd ~/.ssh`
         * `chown user:user id_rsa*`
         * `chmod 600 id_rsa`
         * `chmod 644 id_rsa.pub`
@@ -124,7 +124,7 @@ The following software should then be installed.
     * `sudo dnf install lm_sensors -y && sudo sensors-detect --auto`
 * [pass](https://www.passwordstore.org)
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
-    * The autocompletion is in `.zshrc`. If it does not work, do `rm $HOME/.zcompdump*` and restart zsh using `exec zsh`.
+    * The autocompletion is in `.zshrc`. If it does not work, do `rm ~/.zcompdump*` and restart zsh using `exec zsh`.
 * Docker
     * Create the docker group: `sudo groupadd docker`.
     * Add the current user to the group: `sudo usermod -aG docker $USER`.
