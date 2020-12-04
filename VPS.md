@@ -70,16 +70,10 @@ The guide assumes CentOS 8 to be running on the VPS.
     * Check `fail2ban` status: `sudo fail2ban-client status`.
     * Check the SSH jail status: `sudo fail2ban-client status sshd`.
 9. **Install `logwatch`.**
-    * `vim /usr/share/logwatch/default.conf/logwatch.conf`
+    * `vim /etc/logwatch/conf/logwatch.conf`
+    * Set `Output` to `mail`.
     * Set `MailTo` to the email address that should received the logs.
     * Set `MailFrom` to the email address that will be set as the sender. Most likely the same as the receiver.
-    * Modify `Service` to the services whose logs should be analyzed. Setting `Service = All` might be too much. Instead, examine `/usr/share/logwatch/scripts/services` for the full list, and list each desired service on a separate line.
-    ```
-    Service = http
-    Service = sendmail
-    ...
-    ```
-    * Try it out manually: `logwatch --detail Low --mailto email@address --service http --range today`.
 10. **Enable SSH 2FA.**
     * Install `libpam-google-authenticator`.
     * Make sure that the currently logged user is the one we are setting 2FA for.
