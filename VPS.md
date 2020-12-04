@@ -100,6 +100,7 @@ The guide assumes CentOS 8 to be running on the VPS.
 ## TODO
 * Let's Encrypt HTTPS?
 * Nextcloud fail2ban 
+    * **Nevermind, check out the nextcloud documentation, server hardening section.**
     * The configuration below is likely outdated. Check also [this link](https://help.nextcloud.com/t/fail2ban-nextclouds-log-expression-chaged/59481).
     * [This link](https://www.c-rieger.de/nextcloud-installationsanleitung/) is probably better, though auf Deutsch.
     * Create filter `sudo vim /etc/fail2ban/filter.d/nextcloud.conf`
