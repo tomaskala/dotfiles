@@ -75,20 +75,17 @@ The guide assumes CentOS 8 to be running on the VPS.
     * Set `MailTo` to the email address that should received the logs.
     * Set `MailFrom` to the email address that will be set as the sender. Most likely the same as the receiver.
 10. **Enable SSH 2FA.**
-    * Install `libpam-google-authenticator`.
+    * Install `google-authenticator`.
     * Make sure that the currently logged user is the one we are setting 2FA for.
     * Run `google-authenticator` (without `sudo`).
     * Make a backup of the PAM SSH config: `sudo cp --archive /etc/pam.d/sshd /etc/pam.d/sshd-COPY-$(date +"%Y%m%d%H%M%S")`.
-    * Enable PAM as an authentication method for SSH by adding the following line to `/etc/pam.d/sshd`.
+    * Enable PAM as an authentication method for SSH by adding the following line to the top of `/etc/pam.d/sshd`.
     ```
-    auth required pam_google_authenticator.so
+    auth sufficient pam_google_authenticator.so
     ```
-    In the same file, comment out the `@include common-auth` line. This tells PAM not to prompt for password.
-    * Add the following lines to `/etc/ssh/sshd_config`.
-    ```
-    ChallengeResponseAuthentication yes
-    AuthenticationMethods publickey,keyboard-interactive
-    ```
+    * `sudo vim /etc/ssh/sshd_config`
+    * Set `ChallengeResponseAuthentication` to `yes`.
+    * Set `AuthenticationMethods` to `publickey,keyboard-interactive`.
     The first line makes SSH use PAM. The second line requires both the SSH key and the verification code -- by default, the SSH key would be sufficient.
     * Restart SSH: `sudo service sshd restart`.
 11. **Enable automatic updates.**
