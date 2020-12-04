@@ -27,8 +27,8 @@ Most of these commands are relatively generic, though the parts related to syste
     sudo ufw allow http  # Enable 80/tcp.
     sudo ufw allow https  # Enable 443/tcp.
     ```
-    * Next, enable the firewall: `sudo ufw enable`.
-    * Finally, check status: `sudo ufw status`.
+    * Enable the firewall: `sudo ufw enable`.
+    * Check status: `sudo ufw status`.
 8. Install `fail2ban`.
     * Create an SSH jail: `sudo vim /etc/fail2ban/jail.d/ssh.local` and input the following.
     ```
@@ -53,7 +53,7 @@ Most of these commands are relatively generic, though the parts related to syste
 10. Enable SSH 2FA.
     * Install `libpam-google-authenticator`.
     * Make sure that the currently logged user is the one we are setting 2FA for.
-    * Run `google-authenticator` (without sudo).
+    * Run `google-authenticator` (without `sudo`).
     * Make a backup of the PAM SSH config: `sudo cp --archive /etc/pam.d/sshd /etc/pam.d/sshd-COPY-$(date +"%Y%m%d%H%M%S")`.
     * Enable PAM as an authentication method for SSH by adding the following line to `/etc/pam.d/sshd`.
     ```
