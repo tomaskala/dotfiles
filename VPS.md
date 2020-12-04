@@ -18,7 +18,7 @@ Most of these commands are relatively generic, though the parts related to syste
     * Set `PermitRootLogin` to `no`.
     * Set `PasswordAuthentication` to `no`.
     * Restart the SSH service: `sudo service restart sshd`.
-7. **Set up firewall.**
+7. **Set up a firewall.**
     * Ensure `iptables` is on.
     * Install `ufw`.
     * Run the following.
