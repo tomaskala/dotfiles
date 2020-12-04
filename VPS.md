@@ -1,10 +1,10 @@
 # VPS initial setup
 A short checklist to perform when setting up a new VPS. Assumes that the first login is under the root user.
 
-Most of these commands are relatively generic, though the parts related to system updates assume a Debian-based system.
+The guide assumes CentOS 8 to be running on the VPS.
 
 1. **Update the system.**
-    * Run `apt update && apt upgrade -y`.
+    * Run `dnf distro-sync -y && sync`.
 2. **Change the root password.**
     * `passwd root`
 3. **Create a non-root user, grant sudo privileges.**
