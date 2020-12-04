@@ -125,6 +125,10 @@ The following software should then be installed.
 * [pass](https://www.passwordstore.org)
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
     * The autocompletion is in `.zshrc`. If it does not work, do `rm $HOME/.zcompdump*` and restart zsh using `exec zsh`.
+* Docker
+    * Create the docker group: `sudo groupadd docker`.
+    * Add the current user to the group: `sudo usermod -aG docker $USER`.
+    * Log out and back in to reevaluate the group memberships.
 
 #### Media
 * [VLC](https://www.videolan.org/vlc/download-fedora.html)
