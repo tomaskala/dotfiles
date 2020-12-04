@@ -18,7 +18,7 @@ The guide assumes CentOS 8 to be running on the VPS.
     * `sudo vim /etc/ssh/sshd_config`
     * Set `PermitRootLogin` to `no`.
     * Set `PasswordAuthentication` to `no`.
-    * Restart the SSH service: `sudo service restart sshd`.
+    * Restart the SSH service: `sudo service sshd restart`.
 7. **Set up a firewall.**
     * Ensure `iptables` is on.
     * Install `ufw`.
@@ -77,7 +77,7 @@ The guide assumes CentOS 8 to be running on the VPS.
     AuthenticationMethods publickey,keyboard-interactive
     ```
     The first line makes SSH use PAM. The second line requires both the SSH key and the verification code -- by default, the SSH key would be sufficient.
-    * Restart SSH: `sudo service restart sshd`.
+    * Restart SSH: `sudo service sshd restart`.
 11. **Enable automatic updates.**
     * Install: `sudo apt install unattended-upgrades`.
     * Enable periodic security updates: `sudo dpkg-reconfigure --priority=low unattended-upgrades`.
