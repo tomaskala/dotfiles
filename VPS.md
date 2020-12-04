@@ -20,16 +20,43 @@ The guide assumes CentOS 8 to be running on the VPS.
     * Set `PasswordAuthentication` to `no`.
     * Restart the SSH service: `sudo service sshd restart`.
 7. **Set up a firewall.**
-    * Ensure `iptables` is on.
-    * Install `ufw`.
-    * Run the following.
+    * Ensure that `iptables` is installed.
+    * `sudo vim /etc/iptables.rules`
     ```
-    sudo ufw allow ssh  # Enable 22/tcp.
-    sudo ufw allow http  # Enable 80/tcp.
-    sudo ufw allow https  # Enable 443/tcp.
+    *filter
+
+    # Allow all loopback traffic.
+    -A INPUT -i lo -j ACCEPT
+
+    # Deny all traffic originating from 127/8 not being loopback.
+    -A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT
+
+    # Allow all traffic from already established connections.
+    -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+    # Allow all outgoing traffic.
+    -A OUTPUT -j ACCEPT
+
+    # Allow HTTP.
+    -A INPUT -p tcp --dport 80 -j ACCEPT
+
+    # Allow HTTPS.
+    -A INPUT -p tcp --dport 443 -j ACCEPT
+
+    # Allow SSH.
+    -A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
+
+    # Deny everything else.
+    -A INPUT -j REJECT
+    -A FORWARD -j REJECT
+
+    COMMIT
     ```
-    * Enable the firewall: `sudo ufw enable`.
-    * Check status: `sudo ufw status`.
+    * Install the `iptables` service: `sudo dnf install iptables-services`.
+    * Load the rules: `sudo iptables-restore < /etc/iptables.rules`.
+    * Start the `iptables` service: `sudo systemctl start iptables`.
+    * Enable the `iptables` service: `sudo systemctl enable iptables`.
+    * Save the loaded rules into the `iptables` service: `sudo service iptables save`.
 8. **Install `fail2ban`.**
     * Create an SSH jail: `sudo vim /etc/fail2ban/jail.d/ssh.local` and input the following.
     ```
