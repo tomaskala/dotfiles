@@ -75,6 +75,7 @@ Most of these commands are relatively generic, though the parts related to syste
 ## TODO
 * Let's Encrypt HTTPS?
 * LUKS?
+* Email or phone monitoring.
 * Nextcloud fail2ban 
     * The configuration below is likely outdated. Check also [this link](https://help.nextcloud.com/t/fail2ban-nextclouds-log-expression-chaged/59481).
     * [This link](https://www.c-rieger.de/nextcloud-installationsanleitung/) is probably better, though auf Deutsch.
