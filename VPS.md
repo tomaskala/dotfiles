@@ -4,6 +4,7 @@ A short checklist to perform when setting up a new VPS. Assumes that the first l
 Most of these commands are relatively generic, though the parts related to system updates assume a Debian-based system.
 
 1. Update the system.
+    * Run `apt update && apt upgrade -y`.
 2. Change the root password.
     * `passwd root`
 3. Create a non-root user, grant sudo privileges.
