@@ -92,9 +92,12 @@ The guide assumes CentOS 8 to be running on the VPS.
     The first line makes SSH use PAM. The second line requires both the SSH key and the verification code -- by default, the SSH key would be sufficient.
     * Restart SSH: `sudo service sshd restart`.
 11. **Enable automatic updates.**
-    * Install: `sudo apt install unattended-upgrades`.
-    * Enable periodic security updates: `sudo dpkg-reconfigure --priority=low unattended-upgrades`.
-    * Check: `apt-config dump APT::Periodic::Unattended-Upgrade`.
+    * `sudo dnf install dnf-automatic`
+    * `sudo vim /etc/dnf/automatic.conf`
+    * Set `upgrade_type` to `security`.
+    * Set `apply_updates` to `yes`.
+    * Set `emit_via` to `motd` to show the message upon SSH login.
+    * Start the timer: `sudo systemctl enable --now dnf-automatic.timer`.
 
 
 ## TODO
