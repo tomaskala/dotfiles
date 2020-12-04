@@ -3,22 +3,22 @@ A short checklist to perform when setting up a new VPS. Assumes that the first l
 
 Most of these commands are relatively generic, though the parts related to system updates assume a Debian-based system.
 
-1. Update the system.
+1. **Update the system.**
     * Run `apt update && apt upgrade -y`.
-2. Change the root password.
+2. **Change the root password.**
     * `passwd root`
-3. Create a non-root user, grant sudo privileges.
+3. **Create a non-root user, grant sudo privileges.**
     * `adduser <username>`
     * `usermod -aG sudo <username>`
-4. Log out, transfer the SSH key.
+4. **Log out, transfer the SSH key.**
     * `ssh-copy-id -i ~/.ssh/<public-key> <username>@<host>`
-5. Log in as the newly created user.
-6. Disable root login via SSH, disable password authentication.
+5. **Log in as the newly created user.**
+6. **Disable root login via SSH, disable password authentication.**
     * `sudo vim /etc/ssh/sshd_config`
     * Set `PermitRootLogin` to `no`.
     * Set `PasswordAuthentication` to `no`.
     * Restart the SSH service: `sudo service restart sshd`.
-7. Set up firewall.
+7. **Set up firewall.**
     * Ensure `iptables` is on.
     * Install `ufw`.
     * Run the following.
@@ -29,7 +29,7 @@ Most of these commands are relatively generic, though the parts related to syste
     ```
     * Enable the firewall: `sudo ufw enable`.
     * Check status: `sudo ufw status`.
-8. Install `fail2ban`.
+8. **Install `fail2ban`.**
     * Create an SSH jail: `sudo vim /etc/fail2ban/jail.d/ssh.local` and input the following.
     ```
     [sshd]
@@ -49,7 +49,7 @@ Most of these commands are relatively generic, though the parts related to syste
     ```
     * Check `fail2ban` status: `sudo fail2ban-client status`.
     * Check the SSH jail status: `sudo fail2ban-client status sshd`.
-9. Install `logwatch`.
+9. **Install `logwatch`.**
     * `vim /usr/share/logwatch/default.conf/logwatch.conf`
     * Set `MailTo` to the email address that should received the logs.
     * Set `MailFrom` to the email address that will be set as the sender. Most likely the same as the receiver.
@@ -60,7 +60,7 @@ Most of these commands are relatively generic, though the parts related to syste
     ...
     ```
     * Try it out manually: `logwatch --detail Low --mailto email@address --service http --range today`.
-10. Enable SSH 2FA.
+10. **Enable SSH 2FA.**
     * Install `libpam-google-authenticator`.
     * Make sure that the currently logged user is the one we are setting 2FA for.
     * Run `google-authenticator` (without `sudo`).
@@ -77,7 +77,7 @@ Most of these commands are relatively generic, though the parts related to syste
     ```
     The first line makes SSH use PAM. The second line requires both the SSH key and the verification code -- by default, the SSH key would be sufficient.
     * Restart SSH: `sudo service restart sshd`.
-11. Enable automatic updates.
+11. **Enable automatic updates.**
     * Install: `sudo apt install unattended-upgrades`.
     * Enable periodic security updates: `sudo dpkg-reconfigure --priority=low unattended-upgrades`.
     * Check: `apt-config dump APT::Periodic::Unattended-Upgrade`.
