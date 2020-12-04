@@ -12,13 +12,13 @@ Most of these commands are relatively generic, though the parts related to syste
     * `usermod -aG sudo <username>`
 4. Log out, transfer the SSH key.
     * `ssh-copy-id -i ~/.ssh/<public-key> <username>@<host>`
-4. Log in as the newly created user.
-5. Disable root login via SSH, disable password authentication.
+5. Log in as the newly created user.
+6. Disable root login via SSH, disable password authentication.
     * `sudo vim /etc/ssh/sshd_config`
     * Set `PermitRootLogin` to `no`.
     * Set `PasswordAuthentication` to `no`.
     * Restart the SSH service: `sudo service restart sshd`.
-6. Set up firewall.
+7. Set up firewall.
     * Ensure `iptables` is on.
     * Install `ufw`.
     * Run the following.
@@ -29,7 +29,7 @@ Most of these commands are relatively generic, though the parts related to syste
     ```
     * Next, enable the firewall: `sudo ufw enable`.
     * Finally, check status: `sudo ufw status`.
-7. Install `fail2ban`.
+8. Install `fail2ban`.
     * Create an SSH jail: `sudo vim /etc/fail2ban/jail.d/ssh.local` and input the following.
     ```
     [sshd]
@@ -49,8 +49,8 @@ Most of these commands are relatively generic, though the parts related to syste
     ```
     * Check `fail2ban` status: `sudo fail2ban-client status`.
     * Check the SSH jail status: `sudo fail2ban-client status sshd`.
-8. Install logwatch.
-9. Enable SSH 2FA.
+9. Install logwatch.
+10. Enable SSH 2FA.
     * Install `libpam-google-authenticator`.
     * Make sure that the currently logged user is the one we are setting 2FA for.
     * Run `google-authenticator` (without sudo).
@@ -67,7 +67,7 @@ Most of these commands are relatively generic, though the parts related to syste
     ```
     The first line makes SSH use PAM. The second line requires both the SSH key and the verification code -- by default, the SSH key would be sufficient.
     * Restart SSH: `sudo service restart sshd`.
-10. Enable automatic updates.
+11. Enable automatic updates.
     * Install: `sudo apt install unattended-upgrades`.
     * Enable periodic security updates: `sudo dpkg-reconfigure --priority=low unattended-upgrades`.
     * Check: `apt-config dump APT::Periodic::Unattended-Upgrade`.
