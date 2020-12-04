@@ -58,23 +58,15 @@ The guide assumes CentOS 8 to be running on the VPS.
     * Enable the `iptables` service: `sudo systemctl enable iptables`.
     * Save the loaded rules into the `iptables` service: `sudo service iptables save`.
 8. **Install `fail2ban`.**
-    * Create an SSH jail: `sudo vim /etc/fail2ban/jail.d/ssh.local` and input the following.
+    * `sudo dnf install epel-release`
+    * `sudo dnf install fail2ban`
+    * `sudo vim /etc/fail2ban/jail.local`
     ```
     [sshd]
     enabled = true
-    banaction = ufw
-    port = ssh
-    filter = sshd
-    logpath = %(sshd_log)s
-    maxretry = 5
     ```
-    This configures `fail2ban` to use the above-installed `ufw` as a ban action.
-    * Enable `fail2ban` and the SSH jail.
-    ```
-    sudo fail2ban-client start
-    sudo fail2ban-client reload
-    sudo fail2ban-client add sshd
-    ```
+    * Start the `fail2ban` service: `sudo systemctl start fail2ban`.
+    * Enable the `fail2ban` service: `sudo systemctl enable fail2ban`.
     * Check `fail2ban` status: `sudo fail2ban-client status`.
     * Check the SSH jail status: `sudo fail2ban-client status sshd`.
 9. **Install `logwatch`.**
