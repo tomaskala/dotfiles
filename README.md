@@ -27,7 +27,6 @@ Before reinstalling the system, backup the following:
     * The script addresses some issues encountered when connecting to work VPN. However, it sometimes breaks DNS settings. These must then be restored by executing `sudo nvim /etc/resolv.conf`, replacing the content by `nameserver <dns-server-address>` and restarting the network manager by `sudo service NetworkManager restart`.
     * This file needs executable permissions.
 * Export GPG keys.
-    * `gpg --armor --export <key-id> > <path-to-backup>/public.key`
     * `gpg --armor --export-secret-keys <key-id> > <path-to-backup>/private.key`
     * `gpg --export-ownertrust > <path-to-backup>/ownertrust.txt`
     * To restore, perform the following:
