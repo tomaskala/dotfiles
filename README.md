@@ -106,14 +106,15 @@ The following software should then be installed.
 * [PyCharm](https://www.jetbrains.com/pycharm/)
 
 #### System utilities
+* `bash-completion`
 * [fzf](https://github.com/junegunn/fzf)
 * [ag](https://github.com/ggreer/the_silver_searcher)
-* htop
-* sensors
+* `htop`
+* `sensors`
     * `sudo dnf install lm_sensors -y && sudo sensors-detect --auto`
 * [pass](https://www.passwordstore.org)
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
-* Docker
+* `docker`
     * Create the docker group: `sudo groupadd docker`.
     * Add the current user to the group: `sudo usermod -aG docker $USER`.
     * Log out and back in to reevaluate the group memberships.
