@@ -39,6 +39,7 @@ Before reinstalling the system, backup the following:
         * `chmod 600 id_rsa`
         * `chmod 644 id_rsa.pub`
         * `ssh-add id_rsa`
+    * In case the added keys are not persistent and you are required to enter the private key password on every `git push`, add `AddKeysToAgent yes` to the top of `~/.ssh/config`.
 
 
 ## System installation
