@@ -113,6 +113,7 @@ The following software should then be installed.
 * `sensors`
     * `sudo dnf install lm_sensors -y && sudo sensors-detect --auto`
 * [pass](https://www.passwordstore.org)
+    * Download the [bash completion file](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion) and put it into `/etc/bash_completion.d` named `pass`.
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
 * `docker`
     * Create the docker group: `sudo groupadd docker`.
