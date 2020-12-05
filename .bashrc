@@ -106,3 +106,10 @@ HISTSIZE=99999                   # Amount of history to save.
 # - no_empty_cmd_completion: don't TAB expand empty lines.
 shopt -s cdspell direxpand dirspell globstar histappend histverify \
     nocaseglob no_empty_cmd_completion
+
+### Anaconda
+if [ -f "/home/tomas/anaconda3/etc/profile.d/conda.sh" ]; then
+    . "/home/tomas/anaconda3/etc/profile.d/conda.sh"
+else
+    export PATH="/home/tomas/anaconda3/bin:$PATH"
+fi
