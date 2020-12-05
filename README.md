@@ -106,15 +106,6 @@ The following software should then be installed.
 * [PyCharm](https://www.jetbrains.com/pycharm/)
 
 #### System utilities
-* [kitty](https://sw.kovidgoyal.net/kitty/)
-    * Along with the steps specified on the linked page, it is necessary to perform `sudo ln -s ~/.local/kitty.app/bin/kitty /usr/bin/kitty`.
-* zsh
-    * [oh-my-zsh](https://ohmyz.sh/)
-    * [firacode](https://github.com/tonsky/FiraCode/wiki/Linux-instructions)
-    * [agnoster theme](https://github.com/agnoster/agnoster-zsh-theme) and [powerline fonts](https://github.com/powerline/fonts)
-    * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
-    * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
-    * set as the default shell: `chsh -s $(which zsh)`
 * [fzf](https://github.com/junegunn/fzf)
 * [ag](https://github.com/ggreer/the_silver_searcher)
 * htop
@@ -122,7 +113,6 @@ The following software should then be installed.
     * `sudo dnf install lm_sensors -y && sudo sensors-detect --auto`
 * [pass](https://www.passwordstore.org)
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
-    * The autocompletion is in `.zshrc`. If it does not work, do `rm ~/.zcompdump*` and restart zsh using `exec zsh`.
 * Docker
     * Create the docker group: `sudo groupadd docker`.
     * Add the current user to the group: `sudo usermod -aG docker $USER`.
