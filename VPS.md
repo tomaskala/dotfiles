@@ -14,10 +14,11 @@ The guide assumes CentOS 8 to be running on the VPS.
 4. **Log out, transfer the SSH key.**
     * `ssh-copy-id -i ~/.ssh/<public-key> <username>@<host>`
 5. **Log in as the newly created user.**
-6. **Disable root login via SSH, disable password authentication.**
+6. **Disable root login via SSH, disable password authentication, change SSH port.**
     * `sudo vim /etc/ssh/sshd_config`
     * Set `PermitRootLogin` to `no`.
     * Set `PasswordAuthentication` to `no`.
+    * Set `Port` to `<new-ssh-port>`.
     * Restart the SSH service: `sudo service sshd restart`.
 7. **Set up a firewall.**
     * Ensure that `iptables` is installed.
@@ -44,7 +45,7 @@ The guide assumes CentOS 8 to be running on the VPS.
     -A INPUT -p tcp --dport 443 -j ACCEPT
 
     # Allow SSH.
-    -A INPUT -p tcp -m state --state NEW --dport 22 -j ACCEPT
+    -A INPUT -p tcp -m state --state NEW --dport <new-ssh-port> -j ACCEPT
 
     # Deny everything else.
     -A INPUT -j REJECT
@@ -64,6 +65,7 @@ The guide assumes CentOS 8 to be running on the VPS.
     ```
     [sshd]
     enabled = true
+    port = <new-ssh-port>
     ```
     * Start the `fail2ban` service: `sudo systemctl start fail2ban`.
     * Enable the `fail2ban` service: `sudo systemctl enable fail2ban`.
