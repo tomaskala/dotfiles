@@ -101,8 +101,8 @@ The following software should then be installed.
 * [Neovim](https://neovim.io/)
     * [vim-plug](https://github.com/junegunn/vim-plug)
 * Make
-* [Intel MKL](https://software.intel.com/content/www/us/en/develop/tools/math-kernel-library/choose-download.html)
-    * Press the `Download` button in the `Get the Single Component` section.
+* Intel MKL
+    * `conda install mkl-include`
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * [PyCharm](https://www.jetbrains.com/pycharm/)
 
