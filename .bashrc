@@ -114,9 +114,5 @@ shopt -s cdspell direxpand dirspell globstar histappend histverify \
 source /etc/profile.d/bash_completion.sh
 
 
-### Anaconda
-if [ -f "/home/tomas/anaconda3/etc/profile.d/conda.sh" ]; then
-    . "/home/tomas/anaconda3/etc/profile.d/conda.sh"
-else
-    export PATH="/home/tomas/anaconda3/bin:$PATH"
-fi
+### Anaconda.
+export PATH="$HOME/anaconda3/bin:$PATH"
