@@ -110,8 +110,9 @@ shopt -s cdspell direxpand dirspell globstar histappend histverify \
     nocaseglob no_empty_cmd_completion
 
 
-### Source bash completions.
+### Additional sources.
 source /etc/profile.d/bash_completion.sh
+source /usr/share/fzf/shell/key-bindings.bash
 
 
 ### Anaconda.
