@@ -59,7 +59,8 @@ alias dvenv='deactivate'
 
 
 ### Environment variables.
-export EDITOR=nvim
+export BROWSER='firefox'
+export EDITOR='nvim'
 export OS="$(uname)"
 
 export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
