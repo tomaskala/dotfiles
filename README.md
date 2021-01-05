@@ -189,10 +189,8 @@ The following software should then be installed.
             * `Left Mouse: Different from Tab Domain & Subdomains`
 6. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
     * Add the following two rules to the blacklist. They are to disable vimium-ff in Jupyter notebooks, typically found on such URLs.
-        * `http://localhost*`;
-        * `https://localhost*`;
-        * `http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`;
-        * `https://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`.
+        * `https?://localhost*`;
+        * `https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`;
 
 #### Configuration -- preferences
 * This section concerns the `about:preferences` part of the options. Some of it may be overriden by the `user.js` file set below, but there are parts that the file does not address. These are mainly convenience and user interface settings.
