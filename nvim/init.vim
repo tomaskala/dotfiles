@@ -63,7 +63,7 @@ set number  " show line numbers
 set showcmd  " show the last command in the bottom bar
 set cursorline  " highlight the current line
 set wildmenu  " visual autocomplete for the command menu
-set wildmode=longest,list  " shell-like filename autocompletion
+set wildmode=list:longest,full  " shell-like filename autocompletion
 set lazyredraw  " redraw only when needed
 set showmatch  " highlight matching parentheses
 set matchpairs=(:),[:],{:},<:>  " these parentheses are shown as matching
