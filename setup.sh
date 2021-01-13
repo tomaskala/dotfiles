@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euf -o pipefail
+
 
 function set_ln {
   what="$1"
