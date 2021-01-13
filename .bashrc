@@ -107,7 +107,7 @@ HISTSIZE=99999                   # Amount of history to save.
 # - nocaseglob: case-insensitive globbing.
 # - no_empty_cmd_completion: don't TAB expand empty lines.
 shopt -s cdspell direxpand dirspell globstar histappend histverify \
-    nocaseglob no_empty_cmd_completion
+  nocaseglob no_empty_cmd_completion
 
 
 ### Additional sources.

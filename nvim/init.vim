@@ -179,4 +179,5 @@ augroup FileTypeSpecificAutocommands
     autocmd BufRead,BufNewFile *.pxd set filetype=cython
     autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2 softtabstop=2
     autocmd FileType python,cython setlocal colorcolumn=89
+    autocmd FileType sh,bash setlocal tabstop=2 softtabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=80
 augroup end
