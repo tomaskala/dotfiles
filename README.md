@@ -1,9 +1,13 @@
 # linux-utils
 
+
 ## My Linux configuration and utilities
+
 I am using the latest Fedora installation.
 
+
 ### Installation
+
 * Clone this repository.
 * Run the `setup.sh` script which will symlink config files to their respective
   locations.
@@ -12,6 +16,7 @@ I am using the latest Fedora installation.
 
 
 ## Backup
+
 Before reinstalling the system, backup the following:
 * Firefox profile: `~/.mozilla/firefox/<profile-directory>`:
     * `places.sqlite`;
@@ -51,6 +56,7 @@ Before reinstalling the system, backup the following:
 
 
 ## System installation
+
 When doing a fresh installation, first update:
 * Packages: `sudo dnf distro-sync -y && sync`; the `sync` command synchronizes
   cached writes to persistent storage.
@@ -59,6 +65,7 @@ When doing a fresh installation, first update:
 
 
 ### System configuration (not exhaustive)
+
 * Set git username and email.
     * `git config --global user.name "<username>"`
     * `git config --global user.email "<email>"`
@@ -92,9 +99,12 @@ When doing a fresh installation, first update:
 
 
 ### Software
+
 The following software should then be installed.
 
+
 #### Internet
+
 * Firefox
 * Thunderbird
     * [Thunderbird and
@@ -106,7 +116,9 @@ The following software should then be installed.
       addon.
 * Transmission
 
+
 #### Development
+
 * [Anaconda](https://www.anaconda.com/distribution/)
     * Create a `base` environment, enable it.
     * autoflake
@@ -125,7 +137,9 @@ The following software should then be installed.
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * [PyCharm](https://www.jetbrains.com/pycharm/)
 
+
 #### System utilities
+
 * `bash-completion`
 * [fzf](https://github.com/junegunn/fzf)
 * [ag](https://github.com/ggreer/the_silver_searcher)
@@ -142,21 +156,29 @@ The following software should then be installed.
     * Add the current user to the group: `sudo usermod -aG docker $USER`.
     * Log out and back in to reevaluate the group memberships.
 
+
 #### Media
+
 * [VLC](https://www.videolan.org/vlc/download-fedora.html)
     * Comes with many codecs necessary to play certain online videos.
     * Rebind `Left/Right` from `Navigate left/right` to `Very short
       backwards/forward jump`.
 * [cmus](https://cmus.github.io/)
 
+
 #### Communication
+
 * Discord
 * Telegram
 
 
 ### Firefox configuration
 
+This section addresses the configuration of the Firefox browser.
+
+
 #### Post-installation cleanup
+
 * Create a new profile. Importing data from an old profile is addressed towards
   the end of this section.
 * Remove system addons
@@ -164,7 +186,9 @@ The following software should then be installed.
       /usr/lib64/firefox/browser/features` followed by `sudo rm *.xpi`
     * Note that this must be redone every time Firefox is updated
 
+
 #### Addons
+
 1. [Clear URLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
     * `Prevent tracking injection over history API: enabled`
 2. [Facebook
@@ -228,7 +252,9 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
         * `https?://localhost*`;
         * `https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`;
 
+
 #### Configuration -- preferences
+
 * This section concerns the `about:preferences` part of the options. Some of it
   may be overriden by the `user.js` file set below, but there are parts that the
   file does not address. These are mainly convenience and user interface
@@ -322,14 +348,18 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
 **HTTPS-Only Mode**
 * `Enable HTTPS-Only Mode in all windows`
 
+
 #### Configuration -- user.js
+
 * I use [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
 * Once the `user-overrides.js` file from this repository is symlinked to the
   Firefox profile directory, run the `updater.sh`
   [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh)
   within the same directory.
 
+
 #### Import data
+
 * Consult [this
   document](https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data)
   where each profile element can be found.
@@ -339,5 +369,6 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
 
 
 #### Cleanup
+
 * Finally, after having fully configured Firefox, press `Ctrl+Shift+Del` and
   clear everything except `Browsing & Download History`.
