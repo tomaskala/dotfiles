@@ -1,0 +1,40 @@
+[user]
+    name = Tomas Kala
+    email = tomik.kala@gmail.com
+    username = tomaskala
+
+[core]
+    editor = nvim
+    autoclrf = input
+
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+
+[fetch]
+    prune = true
+
+[push]
+    default = simple
+
+[pull]
+    rebase = true
+
+[rebase]
+    autoSquash = true
+    autoStash = true
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
