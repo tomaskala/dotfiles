@@ -239,6 +239,7 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
 * Also select compact mode and dark theme.
 
 1. **General**
+
 **Startup**
 * `Restore previous session: enabled`
 
@@ -259,10 +260,12 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
 * `Recommend features as you browse: disabled`
 
 2. **Home**
+
 **Firefox Home Content**
 * Disable all
 
 3. **Search**
+
 * `Default Search Engine: DuckDuckGo`
 * `Provide search suggestions: disabled`
 * `One-Click Search Engines | Keywords`
@@ -271,6 +274,7 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
 * Optionally add `YouTube | y` and `Metal Archives (band name search) | m`
 
 4. **Privacy & Security**
+
 **Content blocking**
 * `Enhanced Tracking protection: Custom`
     * `Cookies: enabled, All third-party cookies`
