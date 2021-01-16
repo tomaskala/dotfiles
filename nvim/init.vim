@@ -4,7 +4,7 @@ set nocompatible  " must be the first line
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
     Plug 'scrooloose/nerdtree'
-    Plug 'scrooloose/nerdcommenter'  " press <leader>c<space> to toggle line comment
+    Plug 'scrooloose/nerdcommenter'  " <leader>c<space> to toggle line comment
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'bluz71/vim-moonfly-colors'  " moonfly theme
@@ -44,7 +44,7 @@ set autoread  " automatically reload changed files from disk
 set tabstop=4  " number of visual spaces per TAB
 set softtabstop=4  " number of visual spaces in tab when editing
 set shiftwidth=4
-set softtabstop=4  " number of spaces when performing editing operations (e.g. tab at the beginning)
+set softtabstop=4  " number of spaces when performing editing operations
 set linebreak  " do not break words when wrapping lines
 set expandtab  " tabs are spaces
 set smarttab  " smart behavior when inserting tab in front of a line
@@ -71,7 +71,7 @@ set shortmess+=I  " do not display the startup message
 set showmode  " display the current mode
 set splitbelow  " open new pane to the bottom
 set splitright  " open new pane to the right
-set colorcolumn=120  " show a column at 120 characters
+set colorcolumn=81  " show a column at 81 characters
 
 
 " SHUT UP
@@ -114,7 +114,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 " KEYMAPS
 " note that the `"` comment cannot be used on the line defining the key mapping
 
-" make j/down and k/up go by rows instead of by lines in normal/visual selection modes
+" make j/down and k/up go by rows instead of lines in normal/visual selection
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
@@ -128,7 +128,7 @@ vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
-" go to the beginning/end of a row instead of a line in normal/visual selection modes
+" go to the beginning/end of a row instead of a line in normal/visual selection
 nnoremap ^ g^
 nnoremap $ g$
 vnoremap ^ g^
@@ -177,8 +177,8 @@ endif
 augroup FileTypeSpecificAutocommands
     autocmd BufRead,BufNewFile *.pyx set filetype=cython
     autocmd BufRead,BufNewFile *.pxd set filetype=cython
-    autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType python,cython setlocal colorcolumn=89
-    autocmd FileType sh,bash setlocal tabstop=2 softtabstop=2 shiftwidth=2 softtabstop=2 colorcolumn=81
-    autocmd FileType mail,markdown,text setlocal textwidth=80 colorcolumn=81
+    autocmd FileType sh,bash setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType mail,markdown,text setlocal textwidth=80
 augroup end
