@@ -148,6 +148,7 @@ The following software should then be installed.
       file](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion)
       and put it into `/etc/bash_completion.d` named `pass`.
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
+    * [pass-update](https://github.com/roddhjav/pass-update)
 * `docker`
     * Create the docker group: `sudo groupadd docker`.
     * Add the current user to the group: `sudo usermod -aG docker $USER`.
