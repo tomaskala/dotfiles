@@ -1,0 +1,129 @@
+#!/bin/bash
+set -euf -o pipefail
+
+
+SYNCED_DIR="$HOME/synchronized"
+GIT_DIR=""
+
+
+function usage {
+  echo "Usage: s [<options>] [--] [<file>...]
+           or: s command [<args>...]
+
+  In the first form:
+  -h      show this help message and exit
+  -p      push after staging
+  file... list of files to stage relative to the synced directory
+          ${SYNCED_DIR}; if omitted, stage the entire directory
+
+  In the second form: Provide shortcuts for common git commands.
+    command := { git | init | pull | push | status | log }
+  If command = git, subsequent arguments are passed to git directly.
+  Otherwise, 'git <command> <args>...' is evaluated."
+}
+
+function die {
+  echo "$1" 1>&2
+  exit 1
+}
+
+function set_git {
+	GIT_DIR="${1%/*}"
+
+	while [[ ! -d "${GIT_DIR}" && "${GIT_DIR%/*}/" == "${SYNCED_DIR%/}/"* ]]; do
+		GIT_DIR="${GIT_DIR%/*}"
+	done
+
+  [[ $(git -C "${GIT_DIR}" rev-parse --is-inside-work-tree 2>/dev/null) \
+    == true ]] || GIT_DIR=""
+}
+
+function cmd_git {
+  set_git "${SYNCED_DIR}/"
+
+  if [[ "$1" == "init" ]]; then
+    GIT_DIR="${SYNCED_DIR}"
+    git -C "${GIT_DIR}" "$@" || exit 1
+    git_add "${SYNCED_DIR}"
+    git_commit "Initialize the repository"
+  elif [[ -n "${GIT_DIR}" ]]; then
+    git -C "${GIT_DIR}" "$@"
+  else
+    die "Error: Git repository not initialized."
+  fi
+}
+
+function git_add {
+	[[ -n "${GIT_DIR}" ]] || return
+  git -C "${GIT_DIR}" add "$1" || return
+  [[ -n $(git -C "${GIT_DIR}" status --porcelain "$1") ]] || return
+}
+
+function git_commit {
+  [[ -n "${GIT_DIR}" ]] || return
+  git -C "${GIT_DIR}" commit -m "$1"
+}
+
+function git_push {
+  [[ -n "${GIT_DIR}" ]] || return
+  git -C "${GIT_DIR}" push
+}
+
+function main {
+  [[ -d "${SYNCED_DIR}" ]] || mkdir "${SYNCED_DIR}"
+
+  if [[ "$#" -gt 0 ]]; then
+    # Git and shortcuts for common git commands.
+    case "$1" in
+      git) shift; cmd_git "$@"; exit "$?" ;;
+      init) shift; cmd_git init "$@"; exit "$?" ;;
+      pull) shift; cmd_git pull "$@"; exit "$?" ;;
+      push) shift; cmd_git push "$@"; exit "$?" ;;
+      status) shift; cmd_git status "$@"; exit "$?" ;;
+      log) shift; cmd_git log "$@"; exit "$?" ;;
+    esac
+  fi
+
+  git -C "${SYNCED_DIR}" rev-parse 2>/dev/null \
+    || die "Error: Git repository not initialized."
+
+  local filepath=""
+  local push=false
+
+  # Parse flags.
+  while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+      -h|--help) usage; exit 0 ;;
+      -p|--push) push=true; shift ;;
+      --) shift; break ;;
+      *) break ;;
+    esac
+  done
+
+  if [[ "$#" -eq 0 ]]; then
+    # No positional args, sync the entire directory.
+    set_git "${SYNCED_DIR}/"
+    git_add "${SYNCED_DIR}" || true
+    git_commit "Full sync" >/dev/null || true
+  else
+    # Sync the given files.
+    while [[ "$#" -gt 0 ]]; do
+      filepath="${SYNCED_DIR}/$1"
+      [[ -e "${filepath}" ]] || die "Error: $1 is not in ${SYNCED_DIR}."
+      set_git "${filepath}"
+      git_add "${filepath}"
+      shift
+    done
+
+    set_git "${SYNCED_DIR}/"
+    git_commit "Sync"
+  fi
+
+  if [[ "${push}" == true ]]; then
+    set_git "${SYNCED_DIR}/"
+    git_push
+  fi
+}
+
+
+main "$@"

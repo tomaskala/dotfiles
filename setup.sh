@@ -21,3 +21,10 @@ set_ln "${root_dir}/.bashrc" "$HOME/.bashrc"
 set_ln "${root_dir}/.gitconfig" "$HOME/.gitconfig"
 set_ln "${root_dir}/.tmux.conf" "$HOME/.tmux.conf"
 set_ln "${root_dir}/nvim" "$HOME/.config/nvim"
+
+mkdir -p "$HOME/.local/bin"
+
+while read -r script; do
+  script_name=$(basename "${script}")
+  set_ln "${root_dir}/bin/${script_name}" "$HOME/.local/bin/${script_name}"
+done < <(find "${root_dir}/bin" -type f -executable)

@@ -115,5 +115,18 @@ source /etc/profile.d/bash_completion.sh
 source /usr/share/fzf/shell/key-bindings.bash
 
 
-### Anaconda.
-export PATH="$HOME/anaconda3/bin:$PATH"
+### Path manipulation.
+function add {
+if [[ ":$2:" != *":$1:"* ]]; then
+  if [ -z "$2" ]; then
+    printf '%s' "$1"
+  else
+    printf '%s' "$1:$2"
+  fi
+  else
+    printf '%s' "$2"
+  fi
+}
+
+PATH=$(add "$HOME/.local/bin" "$PATH")
+PATH=$(add "$HOME/anaconda3/bin" "$PATH")
