@@ -1,65 +1,74 @@
-// Restore last session on startup.
-user_pref("browser.startup.page", 3);  // 0102
-
-// Use the 'about:home' page when opening a new tab.
-user_pref("browser.startup.homepage", "about:home");  // 0103
-user_pref("browser.newtabpage.enabled", true);  // 0104
+user_pref("browser.cache.disk.enable", true);
+user_pref("browser.ctrlTab.recentlyUsedOrder", false);
+user_pref("browser.display.use_document_fonts", 1);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeBookmarks", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeDownloads", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includeVisited", false);
+user_pref("browser.newtabpage.activity-stream.showSearch", false);
+user_pref("browser.newtabpage.enabled", true);
 user_pref("browser.newtab.preload", true);
-
-// Do not start the browser in private mode.
-user_pref("browser.privatebrowsing.autostart", false);  // 0110
-
-// Enable real time binary checks with Google services (increases security).
-user_pref("browser.safebrowsing.downloads.remote.enabled", true);  // 0402
-
-// Make the URL bar work as a search bar again -- allow if you use a privacy
-// respecting search engine.
-user_pref("keyword.enabled", true);  // 0801
-
-// Enable disk cache.
-user_pref("browser.cache.disk.enable", true);  // 1001
-
-// Enable storing extra session data such as the scrollbar positions.
-user_pref("browser.sessionstore.privacy_level", 0);  // 1021
-
-// Reset the minimum time interval between session save operations.
-user_pref("browser.sessionstore.interval", 15000);  // 1023
-
-// Allow webpages to push their own fonts.
-user_pref("browser.display.use_document_fonts", 1);  // 1401
-
-// Always send a referer. Otherwise, embedded videos are broken.
-user_pref("network.http.referer.XOriginPolicy", 0);  // 1603
-
-// Enable DRM content.
-user_pref("media.gmp-widevinecdm.visible", true);  // 1825
+user_pref("browser.privatebrowsing.autostart", false);
+user_pref("browser.safebrowsing.downloads.remote.enabled", true);
+user_pref("browser.sessionstore.interval", 15000);
+user_pref("browser.sessionstore.privacy_level", 0);
+user_pref("browser.startup.homepage", "about:home");
+user_pref("browser.startup.page", 3);
+user_pref("browser.tabs.drawInTitlebar", true);
+user_pref("browser.toolbars.bookmarks.visibility", "never");
+user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\",\"library-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"_testpilot-containers-browser-action\",\"_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action\",\"_contain-facebook-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"_74145f27-f039-47ce-a470-a662b129930a_-browser-action\",\"_c607c8df-14a7-4f28-894f-29e8722976af_-browser-action\"],\"currentVersion\":16,\"newElementCount\":4}");
+user_pref("browser.uidensity", 1);
+user_pref("browser.urlbar.matchBuckets", "general:5,suggestion:Infinity");
+user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
+user_pref("browser.urlbar.suggest.topsites", false);
+user_pref("dom.event.clipboardevents.enabled", true);
+user_pref("dom.security.https_only_mode_ever_enabled", true);
+user_pref("dom.security.https_only_mode_send_http_background_request", false);
+user_pref("dom.security.https_only_mode", true);
+user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
+user_pref("extensions.pendingOperations", true);
+user_pref("extensions.ui.dictionary.hidden", true);
+user_pref("extensions.ui.lastCategory", "addons://list/theme");
+user_pref("extensions.ui.locale.hidden", true);
+user_pref("keyword.enabled", true);
+user_pref("layout.spellcheckDefault", 0);
+user_pref("media.autoplay.default", 5);
+user_pref("media.eme.enabled", true);
 user_pref("media.gmp-widevinecdm.enabled", true);
-user_pref("media.eme.enabled", true);  // 1830
-
-// Enable WebGL.
-user_pref("webgl.disabled", false);  // 2010
-user_pref("webgl.dxgl.enabled", true); // [WINDOWS]
-user_pref("webgl.enable-webgl2", true);
-
-// Allow webpages to register clipboard events. Otherwise, Jupyter and
-// Zeppelin notebooks do not work correctly.
-user_pref("dom.event.clipboardevents.enabled", true);  // 2402
-
-// Do not clear everything on shutdown.
-user_pref("privacy.clearOnShutdown.cookies", false);  // 2803
+user_pref("media.gmp-widevinecdm.visible", true);
+user_pref("network.http.referer.XOriginPolicy", 0);
+user_pref("permissions.default.camera", 2);
+user_pref("permissions.default.geo", 2);
+user_pref("permissions.default.microphone", 2);
+user_pref("permissions.default.xr", 2);
+user_pref("pref.privacy.disable_button.cookie_exceptions", false);
+user_pref("pref.privacy.disable_button.view_passwords", false);
+user_pref("privacy.clearOnShutdown.cookies", false);
+user_pref("privacy.clearOnShutdown.downloads", false);
 user_pref("privacy.clearOnShutdown.history", false);
+user_pref("privacy.clearOnShutdown.offlineApps", true);
 user_pref("privacy.clearOnShutdown.sessions", false);
 user_pref("privacy.clearOnShutdown.siteSettings", false);
-
-// Autoselect the same settings as 2803 when pressing Ctrl+Shift+Del.
-user_pref("privacy.cpd.cookies", false);  // 2804
+user_pref("privacy.cpd.cookies", false);
 user_pref("privacy.cpd.history", false);
 user_pref("privacy.cpd.sessions", false);
 user_pref("privacy.cpd.siteSettings", false);
-
-// Do not show the annoying white frame around webpages.
-user_pref("privacy.resistFingerprinting.letterboxing", false);  // 4504
-
-// Enable HTTPS-only mode.
-user_pref("dom.security.https_only_mode", true);
-user_pref("dom.security.https_only_mode_send_http_background_request", false);
+user_pref("privacy.history.custom", true);
+user_pref("privacy.resistFingerprinting.letterboxing", false);
+user_pref("privacy.sanitize.pending", "[{\"id\":\"shutdown\",\"itemsToClear\":[\"cache\",\"offlineApps\",\"formdata\"],\"options\":{}}]");
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
+user_pref("services.sync.clients.lastSync", "0");
+user_pref("services.sync.declinedEngines", "");
+user_pref("services.sync.globalScore", 0);
+user_pref("services.sync.nextSync", 0);
+user_pref("services.sync.tabs.lastSync", "0");
+user_pref("signon.generation.enabled", false);
+user_pref("signon.management.page.breach-alerts.enabled", false);
+user_pref("signon.rememberSignons", false);
+user_pref("webgl.disabled", false);
+user_pref("webgl.dxgl.enabled", true);
+user_pref("webgl.enable-webgl2", true);

@@ -251,102 +251,6 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
         * `https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`;
 
 
-#### Configuration -- preferences
-
-* This section concerns the `about:preferences` part of the options. Some of it
-  may be overriden by the `user.js` file set below, but there are parts that the
-  file does not address. These are mainly convenience and user interface
-  settings.
-* First, click the main menu -> `Customize`. Then, clear the top bar from all
-  the addon icons and mess that Firefox comes with. It should be enough to leave
-  only uBlock Origin and Firefox Multi-Account Containers.
-* Also select compact mode and dark theme.
-
-1. **General**
-
-**Startup**
-* `Restore previous session: enabled`
-
-**Tabs**
-* `Ctrl+Tab cycles through tabs in recently used order: disabled`
-
-**Language**
-* `Check your spelling as you type: disabled`
-
-**Files and Applications**
-* `Always ask you where to save files`
-
-**Browsing**
-* `Use autoscrolling: disabled`
-* `Use smooth scrolling: enabled`
-* `Show a touch keyboard when necessary: disabled`
-* `Recommend extensions as you browse: disabled`
-* `Recommend features as you browse: disabled`
-
-2. **Home**
-
-**Firefox Home Content**
-* Disable all
-
-3. **Search**
-
-* `Default Search Engine: DuckDuckGo`
-* `Provide search suggestions: disabled`
-* `One-Click Search Engines | Keywords`
-    * `DuckDuckGo | d`
-    * `Wikipedia (en) | w`
-* Optionally add `YouTube | y` and `Metal Archives (band name search) | m`
-
-4. **Privacy & Security**
-
-**Content blocking**
-* `Enhanced Tracking protection: Custom`
-    * `Cookies: enabled, All third-party cookies`
-    * `Tracking content: enabled, In all windows`
-    * `Cryptominers: enabled`
-    * `Fingerprinters: enabled`
-* `Send Do Not Track: Only when Firefox is set to block known trackers`
-
-**Logins and Passwords**
-* `Ask to save logins and passwords for websites: disabled`
-* `Saved logins` -> `Autofill logins and passwords: disabled`
-
-**History**
-* Firefox will `Use custom settings for history`
-* `Always use private browsing mode: disabled`
-    * `Remember browsing and download history: enabled`
-    * `Remember search and form history: disabled`
-
-**Address bar**
-* `Browsing history: enabled`
-* `Bookmarks: enabled`
-* `Open tabs: enabled`
-
-**Permissions**
-* `Location: Settings` -> `Block new requests asking to access your location`
-* `Camera: Settings` -> `Block new requests asking to access your camera`
-* `Autoplay: Settings` -> `Block Audio and Video`
-* `Virtual Reality: Settings` -> `Block new requests asking to access your
-  virtual reality devices`
-* `Block pop-up windows: enabled`
-* `Warn you when websites try to install add-ons: enabled`
-    * Clear exceptions
-* `Prevent accessibility services from accessing your browser: enabled`
-  (requires Firefox restart)
-
-**Firefox Data Collection and Use**
-* Disable all
-
-**Security**
-* Enable all
-
-**Certificates**
-* `Ask you every time`
-
-**HTTPS-Only Mode**
-* `Enable HTTPS-Only Mode in all windows`
-
-
 #### Configuration -- user.js
 
 * I use [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
@@ -354,6 +258,12 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
   Firefox profile directory, run the `updater.sh`
   [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh)
   within the same directory.
+* The `user-overrides.js` file includes most of `about:preferences` contents.
+  The only exception is the **Search engines** section which must be manually
+  edited.
+  * Select `DuckDuckGo` as the default search engine, remove all engines except
+    `DuckDuckGo` and `Wikipedia` and set `d` and `w` as their respective
+    keywords.
 
 
 #### Import data
