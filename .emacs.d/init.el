@@ -38,3 +38,9 @@
 (setf vc-display-status nil
       vc-handled-backends nil
       vc-follow-symlinks t)
+
+
+
+;; TODO: evil-mode window splitting
+;(setq evil-vsplit-window-right t
+      ;evil-split-window-below t)
