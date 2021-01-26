@@ -28,6 +28,9 @@
 ;; Do not use tabs for indentation.
 (setq-default indent-tabs-mode nil)
 
+;; Show matching parenthesis.
+(show-paren-mode 1)
+
 ;; Shorter yes/no.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
