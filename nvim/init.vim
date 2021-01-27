@@ -3,7 +3,6 @@ set nocompatible  " must be the first line
 
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
-    Plug 'scrooloose/nerdtree'
     Plug 'scrooloose/nerdcommenter'  " <leader>c<space> to toggle line comment
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -152,9 +151,6 @@ nnoremap <silent> <C-t> :tabnew<CR>
 nnoremap <silent> <C-Right> :tabnext<CR>
 " previous tab
 nnoremap <silent> <C-Left> :tabprevious<CR>
-
-" Toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
 
 " Press Enter to insert a blank line below.
 map <Enter> o<ESC>
