@@ -183,3 +183,6 @@ exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 
 
 # Force applications to open in assigned workspaces.
 assign [class="Firefox"] $ws1
+
+# Disable annoying titlebar.
+for_window [class="Firefox"] border pixel 0
