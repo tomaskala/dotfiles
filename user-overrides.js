@@ -57,6 +57,7 @@ user_pref("privacy.cpd.history", false);
 user_pref("privacy.cpd.sessions", false);
 user_pref("privacy.cpd.siteSettings", false);
 user_pref("privacy.history.custom", true);
+user_pref("privacy.resistFingerprinting", false);
 user_pref("privacy.resistFingerprinting.letterboxing", false);
 user_pref("privacy.sanitize.pending", "[{\"id\":\"shutdown\",\"itemsToClear\":[\"cache\",\"offlineApps\",\"formdata\"],\"options\":{}}]");
 user_pref("privacy.trackingprotection.enabled", true);
