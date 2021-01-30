@@ -6,7 +6,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'scrooloose/nerdcommenter'  " <leader>c<space> to toggle line comment
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'bluz71/vim-moonfly-colors'  " moonfly theme
+    Plug 'joshdick/onedark.vim'
 call plug#end()
 
 
@@ -14,7 +14,7 @@ call plug#end()
 set termguicolors  " use true colors
 set background=dark
 
-colorscheme moonfly  " moonfly for vim
+colorscheme onedark
 
 let &t_ut=''  " do not use background color erase (conflicts with kitty)
 
