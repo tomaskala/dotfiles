@@ -21,6 +21,7 @@ set_ln "${root_dir}/.bashrc" "$HOME/.bashrc"
 set_ln "${root_dir}/.gitconfig" "$HOME/.gitconfig"
 set_ln "${root_dir}/.tmux.conf" "$HOME/.tmux.conf"
 set_ln "${root_dir}/nvim" "$HOME/.config/nvim"
+set_ln "${root_dir}/.wallpaper" "$HOME/.wallpaper"
 
 mkdir -p "$HOME/.local/bin"
 
