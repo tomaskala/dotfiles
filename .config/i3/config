@@ -176,7 +176,7 @@ hide_edge_borders both
 bindsym $mod+Shift+x exec i3lock --color 475263
 
 # Set wallpaper.
-exec_always --no-startup-id feh --bg-scale ~/.wallpaper
+exec --no-startup-id feh --bg-scale ~/.wallpaper
 
 # Display settings.
 exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off
