@@ -3,20 +3,20 @@ env:
 
 font:
     normal:
-        family: Source Code Pro
+        family: Fira Code
         style: Regular
     bold:
-        family: Source Code Pro
+        family: Fira Code
         style: Bold
     italics:
-        family: Source Code Pro
-        style: Italic
-    size: 6
+        family: Fira Code
+        style: Light
+    size: 12
 
 colors:
     cursor:
-        text: '0x2f343f'
-        cursor: '0xf3f4f5'
+        text: '#2f343f'
+        cursor: '#ffffff'
     bright:
         black: '#000000'
         blue: '#4f97e1'
@@ -24,7 +24,7 @@ colors:
         green: '#86dc39'
         magenta: '#c56ecd'
         red: '#f22429'
-        white: '#f3f4f5'
+        white: '#ffffff'
         yellow: '#dc7539'
     normal:
         black: '#000000'
@@ -33,10 +33,10 @@ colors:
         green: '#2d957e'
         magenta: '#a31dbb'
         red: '#ce5384'
-        white: '#f3f4f5'
+        white: '#ffffff'
         yellow: '#b19527'
     primary:
         background: '#2f343f'
-        foreground: '#f3f4f5'
+        foreground: '#ffffff'
 
 draw_bold_text_with_bright_colors: false

@@ -137,6 +137,10 @@ The following software should then be installed.
 
 #### System utilities
 
+* Alacritty
+    * `sudo dnf install alacritty`
+* Fira Code
+    * `sudo dnf install fira-code-fonts`
 * `bash-completion`
 * [fzf](https://github.com/junegunn/fzf)
 * [ag](https://github.com/ggreer/the_silver_searcher)

@@ -58,6 +58,7 @@ alias dvenv='deactivate'
 
 ### Environment variables.
 export BROWSER='firefox'
+export TERMINAL='alacritty'
 export EDITOR='nvim'
 export OS="$(uname)"
 
