@@ -23,6 +23,9 @@ set_ln "${root_dir}/.tmux.conf" "$HOME/.tmux.conf"
 set_ln "${root_dir}/.config/nvim" "$HOME/.config/nvim"
 set_ln "${root_dir}/.wallpaper" "$HOME/.wallpaper"
 
+mkdir -p "$HOME/.fonts"
+set_ln "${root_dir}/.fonts/fontawesome.ttf" "$HOME/.fonts/fontawesome.ttf"
+
 mkdir -p "$HOME/.local/bin"
 
 while read -r script; do
