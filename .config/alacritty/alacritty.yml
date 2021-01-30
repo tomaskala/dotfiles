@@ -1,0 +1,42 @@
+env:
+    TERM: xterm-256color
+
+font:
+    normal:
+        family: Source Code Pro
+        style: Regular
+    bold:
+        family: Source Code Pro
+        style: Bold
+    italics:
+        family: Source Code Pro
+        style: Italic
+    size: 6
+
+colors:
+    cursor:
+        text: '0x2f343f'
+        cursor: '0xf3f4f5'
+    bright:
+        black: '#000000'
+        blue: '#4f97e1'
+        cyan: '#28defa'
+        green: '#86dc39'
+        magenta: '#c56ecd'
+        red: '#f22429'
+        white: '#f3f4f5'
+        yellow: '#dc7539'
+    normal:
+        black: '#000000'
+        blue: '#5d4d84'
+        cyan: '#2aa1b8'
+        green: '#2d957e'
+        magenta: '#a31dbb'
+        red: '#ce5384'
+        white: '#f3f4f5'
+        yellow: '#b19527'
+    primary:
+        background: '#2f343f'
+        foreground: '#f3f4f5'
+
+draw_bold_text_with_bright_colors: false
