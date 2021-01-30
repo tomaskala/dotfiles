@@ -31,9 +31,6 @@ bindsym $mod+Return exec i3-sensible-terminal
 # Kill the focused window.
 bindsym $mod+Shift+q kill
 
-# Start dmenu.
-bindsym $mod+d exec --no-startup-id dmenu_run
-
 # Change focus.
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -165,6 +162,9 @@ bar {
         urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 }
+
+# Start rofi.
+bindsym $mod+d exec rofi -show
 
 # Toggle sticky window.
 bindsym $mod+Shift+s sticky toggle
