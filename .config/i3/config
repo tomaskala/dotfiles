@@ -188,5 +188,4 @@ assign [class="discord"] $ws2
 assign [class="TelegramDesktop"] $ws2
 
 # Disable annoying titlebar.
-for_window [class="Firefox"] border pixel 0
-for_window [class="Alacritty"] border pixel 0
+default_border none
