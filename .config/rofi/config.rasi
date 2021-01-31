@@ -7,6 +7,7 @@ configuration {
     fixed-num-lines: true;
     bw: 1;
     matching: "fuzzy";
+    sort: true;
     levenshtein-sort: true;
     sidebar-mode: true;
     hide-scrollbar: true;
