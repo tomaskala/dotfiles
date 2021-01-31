@@ -26,10 +26,6 @@ filetype plugin on  " load filetype-specific plugin files
 
 
 " MAIN
-if filereadable("/bin/zsh")
-    set shell=/bin/zsh\ -i
-endif
-
 syntax enable  " enable syntax processing
 set mouse=a  " enable mouse input
 set autochdir  " always switch to the current file directory
