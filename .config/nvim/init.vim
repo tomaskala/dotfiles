@@ -16,7 +16,6 @@ set background=dark
 
 colorscheme onedark
 
-let &t_ut=''  " do not use background color erase (conflicts with kitty)
 
 
 " FILETYPE-SPECIFIC
