@@ -194,5 +194,8 @@ assign [class="Chromium-browser"] $ws3
 assign [class="jetbrains-idea"] $ws3
 assign [class="jetbrains-pycharm"] $ws3
 
+# Needs 'set set_term_title=true' in cmus config.
+for_window [title="cmus"] move container to workspace $ws10
+
 # Disable annoying titlebar.
 default_border none
