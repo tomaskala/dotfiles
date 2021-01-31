@@ -190,9 +190,9 @@ assign [class="Thunderbird"] $ws2
 assign [class="discord"] $ws2
 assign [class="TelegramDesktop"] $ws2
 
-assign [class="Chromium-browser"] $ws3
-assign [class="jetbrains-idea"] $ws3
-assign [class="jetbrains-pycharm"] $ws3
+assign [class="Chromium-browser"] $ws4
+assign [class="jetbrains-idea"] $ws4
+assign [class="jetbrains-pycharm"] $ws4
 
 # Needs 'set set_term_title=true' in cmus config.
 for_window [title="cmus"] move container to workspace $ws10
