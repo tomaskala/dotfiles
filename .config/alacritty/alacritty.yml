@@ -11,11 +11,11 @@ font:
     italics:
         family: Fira Code
         style: Light
-    size: 12
+    size: 11
 
 colors:
     cursor:
-        text: '#2f343f'
+        text: '#0c0c0d'
         cursor: '#ffffff'
     bright:
         black: '#000000'
@@ -36,7 +36,7 @@ colors:
         white: '#ffffff'
         yellow: '#b19527'
     primary:
-        background: '#2f343f'
+        background: '#0c0c0d'
         foreground: '#ffffff'
 
 draw_bold_text_with_bright_colors: false

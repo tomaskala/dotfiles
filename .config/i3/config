@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # Font.
-font pango:Fira Code 10
+font pango:Fira Code 11
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -125,8 +125,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Define colors.
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
+set $bg-color 	         #0c0c0d
+set $inactive-bg-color   #0c0c0d
 set $text-color          #f3f4f5
 set $inactive-text-color #676e7d
 set $urgent-bg-color     #e53935
@@ -155,7 +155,9 @@ bar {
     # Bar colors.
     colors {
         background $bg-color
+        statusline $text-color
         separator #757575
+
 		#                  border             background         text
         focused_workspace  $bg-color          $bg-color          $text-color
         inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
@@ -173,7 +175,7 @@ bindsym $mod+Shift+s sticky toggle
 hide_edge_borders both
 
 # Lock screen.
-bindsym $mod+Shift+x exec i3lock --color 475263
+bindsym $mod+Shift+x exec i3lock --color 0c0c0d
 
 # Set wallpaper.
 exec --no-startup-id feh --bg-scale ~/.wallpaper
