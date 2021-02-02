@@ -1,11 +1,10 @@
 set nocompatible  " must be the first line
 
 
+
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
     Plug 'scrooloose/nerdcommenter'  " <leader>c<space> to toggle line comment
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
     Plug 'bluz71/vim-moonfly-colors'
 call plug#end()
 
