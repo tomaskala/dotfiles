@@ -130,4 +130,3 @@ if [[ ":$2:" != *":$1:"* ]]; then
 }
 
 PATH=$(add "$HOME/.local/bin" "$PATH")
-PATH=$(add "$HOME/anaconda3/bin" "$PATH")
