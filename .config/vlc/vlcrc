@@ -1,0 +1,18 @@
+ignore-config=1
+qt-privacy-ask=0
+qt-autosave-volume=0
+metadata-network-access=0
+album-art=2
+video-title-show=0
+
+# Navigate left (string)
+key-nav-left=
+
+# Navigate right (string)
+key-nav-right=
+
+# Very short backwards jump (string)
+key-jump-extrashort=Left
+
+# Very short forward jump (string)
+key-jump+extrashort=Right
