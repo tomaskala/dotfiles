@@ -6,9 +6,10 @@
 I am using the latest Fedora installation.
 
 
-### Installation
+## Installation
 
 * Clone this repository.
+* Install the necessary software.
 * Run the `setup.sh` script which will symlink config files to their respective
   locations.
 * Once Firefox has been configured, manually symlink the `user-overrides.js`
@@ -57,40 +58,16 @@ Before reinstalling the system, backup the following:
 
 ## System installation
 
-When doing a fresh installation, first update:
-* Packages: `sudo dnf distro-sync -y && sync`; the `sync` command synchronizes
-  cached writes to persistent storage.
-* Firmware: `sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`.
-* Flatpaks: `flatpak update && sudo flatpak update`.
-
-
-### System configuration (not exhaustive)
-
-* Turn off bluetooth.
-* Reset the default root password.
-    * `sudo passwd root`
+* Update packages.
+    * `sudo dnf distro-sync -y && sync`
+* Update firmware.
+    * `sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`
 * Enable SSD trimming.
-    ```
-    systemctl is-enabled fstrim.timer  # Check
-    systemctl enable fstrim.timer  # Enable
-    systemctl is-enabled fstrim.timer  # Check again
-  ```
-* [Hosts file](https://github.com/StevenBlack/hosts/)
-    * Unified hosts + fakenews + gambling.
+    * `sudo systemctl enable fstrim.timer`
+* Download a [hosts file](https://github.com/StevenBlack/hosts/)
     * `sudo wget -O '/etc/hosts'
       'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts'
       && sync`
-* Nautilus
-    * Sort directories before files.
-* Fix the retarded `<Alt>Tab` and `<Shift><Alt>Tab` behavior.
-    * Install `dconf-editor`, go to `org/gnome/desktop/wm/keybindings`.
-    * Move the values from `switch-applications` to `switch-windows`.
-    * Move the values from `switch-applications-backward` to
-      `switch-windows-backward`.
-* Install `gnome-tweaks` & `No Topleft Hot Corner` to disable the annoying
-  "feature" when activities are opened whenever the cursor hits the top-left
-  corner.
-* Set ``<Ctrl>` `` as a keyboard shortcut to launch terminal.
 * [Backup LUKS
   headers](https://fedoraproject.org/wiki/Disk_Encryption_User_Guide#Backup_LUKS_headers).
 
@@ -116,21 +93,15 @@ The following software should then be installed.
 
 #### Development
 
-* [Anaconda](https://www.anaconda.com/distribution/)
-    * Create a `base` environment, enable it.
-    * autoflake
-    * black
-    * flake8
-    * mypy
-    * disable the annoying environment name prompt: `conda config --set
-      changeps1 false`
-* [Lua](https://www.lua.org/)
-* Git
-* [Neovim](https://neovim.io/)
+* git
+    * `sudo dnf install git`
+* neovim
+    * `sudo dnf install neovim`
     * [vim-plug](https://github.com/junegunn/vim-plug)
+* Emacs
+    * `sudo dnf install emacs`
 * Make
-* Intel MKL
-    * `conda install mkl-include`
+    * `sudo dnf install make`
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * [PyCharm](https://www.jetbrains.com/pycharm/)
 
@@ -141,30 +112,33 @@ The following software should then be installed.
     * `sudo dnf install alacritty`
 * Fira Code
     * `sudo dnf install fira-code-fonts`
-* `bash-completion`
-* [fzf](https://github.com/junegunn/fzf)
-* [ag](https://github.com/ggreer/the_silver_searcher)
-* `htop`
-* `sensors`
+* bash-completion
+    * `sudo dnf install bash-completion`
+* fzf
+    * `sudo dnf install fzf`
+* ag
+    * `sudo dnf install the_silver_searcher`
+* htop
+    * `sudo dnf install htop`
+* sensors
     * `sudo dnf install lm_sensors -y && sudo sensors-detect --auto`
 * [pass](https://www.passwordstore.org)
+    * `sudo dnf install pass`
     * Download the [bash completion
       file](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion)
       and put it into `/etc/bash_completion.d` named `pass`.
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
     * [pass-update](https://github.com/roddhjav/pass-update)
-* `docker`
+* Docker
+    * `sudo dnf install docker`
     * Create the docker group: `sudo groupadd docker`.
     * Add the current user to the group: `sudo usermod -aG docker $USER`.
-    * Log out and back in to reevaluate the group memberships.
+    * Relog.
 
 
 #### Media
 
 * [VLC](https://www.videolan.org/vlc/download-fedora.html)
-    * Comes with many codecs necessary to play certain online videos.
-    * Rebind `Left/Right` from `Navigate left/right` to `Very short
-      backwards/forward jump`.
 * [cmus](https://cmus.github.io/)
 
 
@@ -255,14 +229,14 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
         * `https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`;
 
 
-#### Configuration -- user.js
+#### Configuration
 
 * I use [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
 * Once the `user-overrides.js` file from this repository is symlinked to the
   Firefox profile directory, run the `updater.sh`
   [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh)
   within the same directory.
-* The `user-overrides.js` file includes most of `about:preferences` contents.
+* The `user-overrides.js` file includes most of the `about:preferences` contents.
   The only exception is the **Search engines** section which must be manually
   edited.
   * Select `DuckDuckGo` as the default search engine, remove all engines except
