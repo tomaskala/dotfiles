@@ -72,7 +72,7 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9: vir"
 set $ws10 "10: mus"
 
 # Switch to workspace.
@@ -193,6 +193,8 @@ assign [class="TelegramDesktop"] $ws2
 assign [class="Chromium-browser"] $ws4
 assign [class="jetbrains-idea"] $ws4
 assign [class="jetbrains-pycharm"] $ws4
+
+assign [class="Virt-manager"] $ws9
 
 # Needs 'set set_term_title=true' in cmus config.
 for_window [title="cmus"] move container to workspace $ws10

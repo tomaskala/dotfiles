@@ -64,7 +64,7 @@ Before reinstalling the system, backup the following:
     * `sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`
 * Enable SSD trimming.
     * `sudo systemctl enable fstrim.timer`
-* Download a [hosts file](https://github.com/StevenBlack/hosts/)
+* Download a [hosts file](https://github.com/StevenBlack/hosts/).
     * `sudo wget -O '/etc/hosts'
       'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts'
       && sync`
@@ -129,6 +129,8 @@ The following software should then be installed.
       and put it into `/etc/bash_completion.d` named `pass`.
     * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
     * [pass-update](https://github.com/roddhjav/pass-update)
+* Virtual Machine Manager
+    * `sudo dnf install virt-manager`
 * Docker
     * `sudo dnf install docker`
     * Create the docker group: `sudo groupadd docker`.
