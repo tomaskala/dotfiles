@@ -70,6 +70,17 @@ Before reinstalling the system, backup the following:
       && sync`
 * [Backup LUKS
   headers](https://fedoraproject.org/wiki/Disk_Encryption_User_Guide#Backup_LUKS_headers).
+* Configure the touchpad on the X Window System.
+    * Put the following inside `/etc/X11/xorg.conf.d/90-touchpad.conf`.
+      ```
+      Section "InputClass"
+          Identifier "touchpad"
+          MatchIsTouchpad "on"
+          Driver "libinput"
+          Option "Tapping" "on"
+          Option "NaturalScrolling" "on"
+      EndSection
+      ```
 
 
 ### Software
