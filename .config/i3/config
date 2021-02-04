@@ -152,6 +152,10 @@ bar {
     # Do not display workspace numbers used for consistent ordering.
     strip_workspace_numbers yes
 
+    # Disable scrolling on the bar to not change workspaces accidentally.
+    bindsym button4 nop
+    bindsym button5 nop
+
     # Bar colors.
     colors {
         background $bg-color
