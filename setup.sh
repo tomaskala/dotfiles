@@ -20,3 +20,6 @@ for source in .*; do
     install_dotfile "${dotfile}"
   done < <(find "${source}" -type f | sort)
 done
+
+
+chmod -w .config/vlc/vlcrc
