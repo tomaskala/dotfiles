@@ -1,11 +1,10 @@
 set nocompatible  " must be the first line
 
 
-
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
-    Plug 'scrooloose/nerdcommenter'  " <leader>c<space> to toggle line comment
-    Plug 'bluz71/vim-moonfly-colors'
+  Plug 'scrooloose/nerdcommenter'  " <leader>c<space> to toggle line comment
+  Plug 'bluz71/vim-moonfly-colors'
 call plug#end()
 
 
@@ -51,6 +50,7 @@ set noswapfile
 
 " UI CONFIG
 set number  " show line numbers
+set laststatus=2  " status line height
 set showcmd  " show the last command in the bottom bar
 set cursorline  " highlight the current line
 set wildmenu  " visual autocomplete for the command menu
@@ -59,18 +59,62 @@ set lazyredraw  " redraw only when needed
 set showmatch  " highlight matching parentheses
 set matchpairs=(:),[:],{:},<:>  " these parentheses are shown as matching
 set shortmess+=I  " do not display the startup message
-set showmode  " display the current mode
+set noshowmode  " do not display the current mode, the status bar does that
 set splitbelow  " open new pane to the bottom
 set splitright  " open new pane to the right
 set colorcolumn=81  " show a column at 81 characters
+set scrolloff=3  " minimum lines to keep above/below cursor when scrolling
+
+
+" STATUSLINE
+let currentmode={
+  \ 'n': 'NORMAL ',
+  \ 'v': 'VISUAL ',
+  \ 'V': 'V-LINE ',
+  \ "\<C-V>": 'V-BLOCK ',
+  \ 'i': 'INSERT ',
+  \ 'R': 'REPLACE ',
+  \ 'Rv': 'V-REPLACE ',
+  \ 'c': 'COMMAND ',
+\}
+
+set statusline=
+
+" show the current mode
+set statusline+=\ %{currentmode[mode()]}
+
+" file path, as typed or relative to current directory
+set statusline+=\ %F
+
+" modified and/or read-only file
+set statusline+=%{&modified?'\ [+]':''}
+set statusline+=%{&readonly?'\ [x]':''}
+
+" truncate line here
+set statusline+=%<
+
+" separation point between left and right aligned items
+set statusline+=%=
+
+set statusline+=%{&filetype!=#''?&filetype.'\ ':'none\ '}
+
+" fileformat
+set statusline+=%-7([%{&fileformat}]%)
+
+" location of cursor line
+set statusline+=[%l/%L]
+
+" column number
+set statusline+=\ col:%c
 
 
 " SHUT UP
 set noerrorbells
 set novisualbell
 set visualbell t_vb=
+
 if exists('&belloff')
-    set belloff=all
+  set belloff=all
 endif
 
 
@@ -101,6 +145,11 @@ set showmatch  " live match highlighting
 " press <leader><space> to turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
+" show substitution results in real time
+if exists('&inccommand')
+  set inccommand=nosplit
+endif
+
 
 " KEYMAPS
 " note that the `"` comment cannot be used on the line defining the key mapping
@@ -125,6 +174,9 @@ nnoremap $ g$
 vnoremap ^ g^
 vnoremap $ g$
 
+" decrease indentation level in insert mode
+inoremap <S-Tab> <ESC><<i
+
 " yank from the cursor to the end of the line, consistent with C and D
 nnoremap Y y$
 
@@ -144,29 +196,29 @@ nnoremap <silent> <C-Right> :tabnext<CR>
 " previous tab
 nnoremap <silent> <C-Left> :tabprevious<CR>
 
-" Press Enter to insert a blank line below.
+" press Enter to insert a blank line below
 map <Enter> o<ESC>
 
-" Fix caps lock annoyances.
+" fix caps lock annoyances
 if has("user_commands")
-    command! -bang -nargs=? -complete=file E e<bang> <args>
-    command! -bang -nargs=? -complete=file W w<bang> <args>
-    command! -bang -nargs=? -complete=file Wq wq<bang> <args>
-    command! -bang -nargs=? -complete=file WQ wq<bang> <args>
-    command! -bang Wa wa<bang>
-    command! -bang WA wa<bang>
-    command! -bang Q q<bang>
-    command! -bang QA qa<bang>
-    command! -bang Qa qa<bang>
+  command! -bang -nargs=? -complete=file E e<bang> <args>
+  command! -bang -nargs=? -complete=file W w<bang> <args>
+  command! -bang -nargs=? -complete=file Wq wq<bang> <args>
+  command! -bang -nargs=? -complete=file WQ wq<bang> <args>
+  command! -bang Wa wa<bang>
+  command! -bang WA wa<bang>
+  command! -bang Q q<bang>
+  command! -bang QA qa<bang>
+  command! -bang Qa qa<bang>
 endif
 
 
 " FILETYPE-SPECIFIC AUTOCOMMANDS
 augroup FileTypeSpecificAutocommands
-    autocmd BufRead,BufNewFile *.pyx set filetype=cython
-    autocmd BufRead,BufNewFile *.pxd set filetype=cython
-    autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd FileType python,cython setlocal colorcolumn=89
-    autocmd FileType sh,bash setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd FileType mail,markdown,text setlocal textwidth=80
+  autocmd BufRead,BufNewFile *.pyx set filetype=cython
+  autocmd BufRead,BufNewFile *.pxd set filetype=cython
+  autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType python,cython setlocal colorcolumn=89
+  autocmd FileType sh,bash setlocal tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType mail,markdown,text setlocal textwidth=80
 augroup end
