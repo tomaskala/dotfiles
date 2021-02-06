@@ -11,6 +11,9 @@
       echo-keystrokes 0.1                       ; Echo keystrokes faster.
       visual-bell nil)                          ; Disable visual bell.
 
+;; Maximize the window.
+(toggle-frame-maximized)
+
 ;; Hide the GUI.
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -24,6 +27,16 @@
 ;; Disable horizontal scrollbar.
 (when (fboundp 'set-horizontal-scroll-bar-mode)
   (set-horizontal-scroll-bar-mode nil))
+
+;; Configure scrolling behavior.
+(setf redisplay-dont-pause t
+      scroll-margin 3
+      scroll-step 1
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
+
+(setf mouse-wheel-follow-mouse t
+      mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
 ;; Do not use tabs for indentation.
 (setq-default indent-tabs-mode nil)
@@ -41,8 +54,6 @@
 (setf vc-display-status nil
       vc-handled-backends nil
       vc-follow-symlinks t)
-
-
 
 ;; TODO: evil-mode window splitting
 ;(setq evil-vsplit-window-right t
