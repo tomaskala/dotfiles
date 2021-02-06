@@ -111,6 +111,7 @@ The following software should then be installed.
     * [vim-plug](https://github.com/junegunn/vim-plug)
 * Emacs
     * `sudo dnf install emacs`
+    * Note: My configuration requires Emacs >= 27.
 * Make
     * `sudo dnf install make`
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
