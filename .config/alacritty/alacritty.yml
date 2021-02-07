@@ -11,7 +11,7 @@ font:
   italics:
     family: Fira Code
     style: Light
-  size: 11
+  size: 12
 
 colors:
   primary:
