@@ -3,7 +3,6 @@
 
 (setq inhibit-startup-message t                 ; Disable startup message.
       initial-scratch-message nil               ; Disable scratch message.
-      frame-inhibit-implied-resize t            ; No implicit frame resizing.
       initial-major-mode 'fundamental-mode      ; Do not start in text mode.
       large-file-warning-threshold 536870911    ; Increase large file threshold.
       backup-inhibited t                        ; Do not create backup files.
@@ -26,10 +25,6 @@
 
 ;; Stop cursor blinking.
 (blink-cursor-mode -1)
-
-;; Disable horizontal scrollbar.
-(when (fboundp 'set-horizontal-scroll-bar-mode)
-  (set-horizontal-scroll-bar-mode nil))
 
 ;; Configure scrolling behavior.
 (setq redisplay-dont-pause t

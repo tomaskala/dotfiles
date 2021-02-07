@@ -20,9 +20,20 @@
           gc-cons-percentage 0.1
           file-name-handler-alist old--file-name-handler-alist)))
 
+;; Do not resize the frame when other components are resized.
+(setq frame-inhibit-implied-resize t)
+
 ;; Hide the GUI.
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(tooltip-mode -1)
+(unless (eq window-system 'ns)
+  (menu-bar-mode -1))
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+(when (fboundp 'horizontal-scroll-bar-mode)
+  (horizontal-scroll-bar-mode -1))
+(when (fboundp 'tooltip-mode)
+  (tooltip-mode -1))
+
+;; Larger frame fringes.
 (set-fringe-mode 10)
