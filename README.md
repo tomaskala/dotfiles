@@ -146,7 +146,9 @@ The following software should then be installed.
 * Virtual Machine Manager
     * `sudo dnf install virt-manager`
 * Docker
-    * `sudo dnf install docker`
+    * Instead of using `dnf`, follow the [official
+      instructions](https://docs.docker.com/engine/install/). The most-recent
+      version is needed to get a proper cgroups support.
     * Create the docker group: `sudo groupadd docker`.
     * Add the current user to the group: `sudo usermod -aG docker $USER`.
     * Relog.
