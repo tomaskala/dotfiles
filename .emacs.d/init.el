@@ -79,15 +79,15 @@
 ;; Evil mode.
 (use-package evil
   :init
-  (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
-  (setq evil-want-C-d-scroll t)
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-i-jump t)
-  (setq evil-want-Y-to-eol t)
-  (setq evil-split-window-below t)
-  (setq evil-vsplit-window-right t)
-  (setq evil-search-module 'evil-search)
+  (setq evil-want-integration t
+        evil-want-keybinding nil
+        evil-want-C-d-scroll t
+        evil-want-C-u-scroll t
+        evil-want-C-i-jump nil
+        evil-want-Y-to-eol t
+        evil-split-window-below t
+        evil-vsplit-window-right t
+        evil-search-module 'evil-search)
   (global-undo-tree-mode)
   (setq evil-undo-system 'undo-tree)
   :config
@@ -182,9 +182,7 @@
 
 ;; Counsel enhances some Emacs commands with Ivy versions.
 (use-package counsel
-  :bind (("C-M-j" . 'counsel-switch-buffer)
-         :map minibuffer-local-map
-         ("C-r" . 'counsel-minibuffer-history))
+  :bind ("C-M-j" . 'counsel-switch-buffer)
   :custom
   (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
   :config
