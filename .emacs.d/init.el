@@ -1,15 +1,15 @@
 ;; -*- lexical-binding: t; -*-
 
 
-(setq inhibit-startup-message t                 ; Disable startup message.
-      initial-scratch-message nil               ; Disable scratch message.
-      initial-major-mode 'fundamental-mode      ; Do not start in text mode.
-      large-file-warning-threshold 536870911    ; Increase large file threshold.
-      backup-inhibited t                        ; Do not create backup files.
-      auto-save-default nil                     ; Disable autosave.
-      create-lockfiles nil                      ; Disable lockfiles.
-      echo-keystrokes 0.1                       ; Echo keystrokes faster.
-      visual-bell nil)                          ; Disable visual bell.
+(setq inhibit-startup-message t               ; Disable startup message.
+      initial-scratch-message nil             ; Disable scratch message.
+      initial-major-mode 'fundamental-mode    ; Do not start in text mode.
+      large-file-warning-threshold 536870911  ; Increase large file threshold.
+      backup-inhibited t                      ; Do not create backup files.
+      auto-save-default nil                   ; Disable autosave.
+      create-lockfiles nil                    ; Disable lockfiles.
+      echo-keystrokes 0.1                     ; Echo keystrokes faster.
+      visual-bell nil)                        ; Disable visual bell.
 
 ;; Maximize the window.
 (toggle-frame-maximized)
