@@ -72,8 +72,12 @@
   :init
   (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
+  (setq evil-want-C-d-scroll t)
   (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-i-jump nil)
+  (setq evil-want-C-i-jump t)
+  (setq evil-want-Y-to-eol t)
+  (setq evil-split-window-below t)
+  (setq evil-vsplit-window-right t)
   :config
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
@@ -83,12 +87,17 @@
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
 
+  ; Make the escape key quit all prompts.
+  (define-key evil-normal-state-map [escape] 'keyboard-quit)
+  (define-key evil-visual-state-map [escape] 'keyboard-quit)
+  (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
-
-;; TODO: evil-mode window splitting
-;(setq evil-vsplit-window-right t
-      ;evil-split-window-below t)
 
 (use-package evil-collection
   :after evil
@@ -105,6 +114,7 @@
 (use-package all-the-icons)
 
 (use-package doom-modeline
+  :after all-the-icons
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
 
