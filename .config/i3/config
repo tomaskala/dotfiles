@@ -185,7 +185,7 @@ bindsym $mod+Shift+x exec i3lock --color 0c0c0d
 exec --no-startup-id feh --bg-scale ~/.wallpaper
 
 # Display settings.
-exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off
+exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 320x1440 --rotate normal --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off
 
 # Force applications to open in assigned workspaces.
 assign [class="Firefox"] $ws1
