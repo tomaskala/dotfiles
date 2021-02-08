@@ -189,11 +189,45 @@
   (counsel-mode 1))
 
 ;; Display Emacs startup time.
-(defun efs/display-startup-time ()
+(defun my/display-startup-time ()
   (message "Emacs loaded in %s with %d garbage collections."
            (format "%.2f seconds"
                    (float-time
                      (time-subtract after-init-time before-init-time)))
            gcs-done))
 
-(add-hook 'emacs-startup-hook #'efs/display-startup-time)
+(add-hook 'emacs-startup-hook #'my/display-startup-time)
+
+;; Org-mode.
+(defun my/org-mode-setup ()
+  (org-indent-mode)
+  (auto-fill-mode 0)
+  (visual-line-mode 1)
+  (setq evil-auto-indent nil))
+
+(use-package org
+  :hook (org-mode . my/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾")
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.0)
+                  (org-level-6 . 1.0)
+                  (org-level-7 . 1.0)
+                  (org-level-8 . 1.0)))
+    (set-face-attribute (car face) nil :height (cdr face))))
+
+(use-package org-bullets
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("●" "◉" "○" "●" "○" "●" "○")))
+
+(defun my/org-mode-visual ()
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :hook (org-mode . my/org-mode-visual))
