@@ -67,6 +67,15 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
+;; These keys are used by evil mode.
+(global-unset-key (kbd "C-h"))
+(global-unset-key (kbd "C-j"))
+(global-unset-key (kbd "C-k"))
+(global-unset-key (kbd "C-l"))
+
+;; Replace the undo-redo monstrosity Emacs comes with.
+(use-package undo-tree)
+
 ;; Evil mode.
 (use-package evil
   :init
@@ -78,10 +87,11 @@
   (setq evil-want-Y-to-eol t)
   (setq evil-split-window-below t)
   (setq evil-vsplit-window-right t)
+  (setq evil-search-module 'evil-search)
+  (global-undo-tree-mode)
+  (setq evil-undo-system 'undo-tree)
   :config
   (evil-mode 1)
-  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
 
   ; Use visual line motions even outside of visual-line-mode buffers.
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
@@ -96,8 +106,28 @@
   (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
   (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
-  (evil-set-initial-state 'messages-buffer-mode 'normal)
-  (evil-set-initial-state 'dashboard-mode 'normal))
+  ; Switch panes using C-hjkl.
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+
+  ; Press enter to insert a newline character.
+  (define-key evil-motion-state-map (kbd "RET") nil)
+
+  ; Make redo behave in a sane way.
+  (define-key evil-normal-state-map (kbd "C-r") 'undo-tree-redo)
+
+  ; Clear search highlighting.
+  (define-key evil-normal-state-map (kbd ", SPC") 'evil-ex-nohighlight)
+
+  ; Start in the normal mode except in REPLs.
+  (setq evil-normal-state-modes
+        (append evil-emacs-state-modes
+                evil-normal-state-modes
+                evil-motion-state-modes))
+  (setq evil-emacs-state-modes nil)
+  (setq evil-motion-state-modes nil))
 
 (use-package evil-collection
   :after evil
@@ -160,10 +190,12 @@
   :config
   (counsel-mode 1))
 
+;; Display Emacs startup time.
 (defun efs/display-startup-time ()
   (message "Emacs loaded in %s with %d garbage collections."
            (format "%.2f seconds"
                    (float-time
                      (time-subtract after-init-time before-init-time)))
            gcs-done))
+
 (add-hook 'emacs-startup-hook #'efs/display-startup-time)
