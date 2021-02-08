@@ -47,14 +47,6 @@ alias grbs='git rebase --skip'
 alias grs='git restore'
 alias gst='git status'
 
-# Python aliases.
-alias jn='jupyter notebook'
-alias jl='jupyter lab'
-alias ipy='ipython'
-alias mkvenv='python -m venv ./venv'
-alias avenv='source ./venv/bin/activate'
-alias dvenv='deactivate'
-
 
 ### Environment variables.
 export BROWSER='firefox'
