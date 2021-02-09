@@ -198,6 +198,10 @@
 
 (add-hook 'emacs-startup-hook #'my/display-startup-time)
 
+;; Haskell mode.
+(use-package haskell-mode
+  :hook haskell-mode-hook)
+
 ;; Org-mode.
 (defun my/org-mode-setup ()
   (org-indent-mode)
