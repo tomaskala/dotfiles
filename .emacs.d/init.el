@@ -201,8 +201,8 @@
 ;; Org-mode.
 (defun my/org-mode-setup ()
   (org-indent-mode)
-  (auto-fill-mode 0)
-  (visual-line-mode 1)
+  (auto-fill-mode 1)
+  (set-fill-column 81)
   (setq evil-auto-indent nil))
 
 (use-package org
