@@ -6,9 +6,11 @@ configuration {
     show-icons: true;
     fixed-num-lines: true;
     bw: 1;
-    matching: "fuzzy";
     sort: true;
-    levenshtein-sort: true;
+    matching: "normal";
+    levenshtein-sort: false;
+    case-sensitive: false;
+    drun-match-fields: "name";
     sidebar-mode: true;
     hide-scrollbar: true;
     parse-known-hosts: false;
