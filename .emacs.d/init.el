@@ -207,12 +207,7 @@
   (org-indent-mode)
   (auto-fill-mode 1)
   (set-fill-column 81)
-  (setq evil-auto-indent nil))
-
-(use-package org
-  :hook (org-mode . my/org-mode-setup)
-  :config
-  (setq org-ellipsis " ▾")
+  (setq evil-auto-indent nil)
   (dolist (face '((org-level-1 . 1.2)
                   (org-level-2 . 1.1)
                   (org-level-3 . 1.05)
@@ -222,6 +217,17 @@
                   (org-level-7 . 1.0)
                   (org-level-8 . 1.0)))
     (set-face-attribute (car face) nil :height (cdr face))))
+
+(use-package org
+  :hook (org-mode . my/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾")
+  (setq org-agenda-start-with-log-mode t)
+  (setq org-log-done 'time)
+  (setq org-log-into-drawer t)
+  (setq org-agenda-files
+        '("~/notes/todos/tasks.org"
+          "~/notes/todos/periodic.org")))
 
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
