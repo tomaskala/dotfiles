@@ -202,7 +202,7 @@
 (use-package haskell-mode
   :hook haskell-mode-hook)
 
-;; Org-mode.
+;; Org mode.
 (defun my/org-mode-setup ()
   (org-indent-mode)
   (auto-fill-mode 1)
