@@ -9,7 +9,7 @@ call plug#end()
 
 
 " COLORS
-set termguicolors  " use true colors
+set termguicolors
 set background=dark
 colorscheme moonfly
 
@@ -25,15 +25,15 @@ syntax enable  " enable syntax processing
 set mouse=a  " enable mouse input
 set autochdir  " always switch to the current file directory
 set selection=old  " old-style visual selection
-set encoding=utf-8
-set backspace=indent,eol,start
+set encoding=utf-8  " set file encoding
+set backspace=indent,eol,start  " backspace over these
 set autoread  " automatically reload changed files from disk
 
 
 " INDENTATION
 set tabstop=4  " number of visual spaces per TAB
 set softtabstop=4  " number of visual spaces in tab when editing
-set shiftwidth=4
+set shiftwidth=4  " auto-indent this many spaces
 set softtabstop=4  " number of spaces when performing editing operations
 set linebreak  " do not break words when wrapping lines
 set expandtab  " tabs are spaces
@@ -50,23 +50,26 @@ set noswapfile
 
 " UI CONFIG
 set number  " show line numbers
-set laststatus=2  " status line height
+
+set noshowmode  " do not display the current mode, the status bar does that
 set showcmd  " show the last command in the bottom bar
-set cursorline  " highlight the current line
 set wildmenu  " visual autocomplete for the command menu
 set wildmode=list:longest,full  " shell-like filename autocompletion
-set lazyredraw  " redraw only when needed
+
 set showmatch  " highlight matching parentheses
 set matchpairs=(:),[:],{:},<:>  " these parentheses are shown as matching
-set shortmess+=I  " do not display the startup message
-set noshowmode  " do not display the current mode, the status bar does that
+
 set splitbelow  " open new pane to the bottom
 set splitright  " open new pane to the right
-set colorcolumn=81  " show a column at 81 characters
+
 set scrolloff=3  " minimum lines to keep above/below cursor when scrolling
+set cursorline  " highlight the current line
+set colorcolumn=81  " show a column at 81 characters
 
 
 " STATUSLINE
+set laststatus=2  " status line height
+
 let currentmode={
   \ 'n': 'NORMAL ',
   \ 'v': 'VISUAL ',
@@ -120,11 +123,11 @@ endif
 
 " MISCELLANEOUS
 set nohidden  " once a tab is closed, remove the buffer
+set lazyredraw  " redraw only when needed
+set shortmess+=I  " do not display the startup message
 
 
-" LEADER SHORTCUTS
-let mapleader=","  " the leader is a comma instead of a backslash
-
+" COPY-PASTE
 " <leader>y yanks to system clipboard
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
@@ -154,6 +157,9 @@ endif
 " KEYMAPS
 " note that the `"` comment cannot be used on the line defining the key mapping
 
+" the leader is a comma instead of a backslash
+let mapleader=","
+
 " make j/down and k/up go by rows instead of lines in normal/visual selection
 nnoremap j gj
 nnoremap k gk
@@ -180,9 +186,6 @@ inoremap <S-Tab> <ESC><<i
 " yank from the cursor to the end of the line, consistent with C and D
 nnoremap Y y$
 
-" press F12 to toggle preserving the pasted code indentation
-set pastetoggle=<F12>
-
 " use ctrl+direction to change split panes
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -191,8 +194,10 @@ map <C-l> <C-W>l
 
 " new tab
 nnoremap <silent> <C-t> :tabnew<CR>
+
 " next tab
 nnoremap <silent> <C-Right> :tabnext<CR>
+
 " previous tab
 nnoremap <silent> <C-Left> :tabprevious<CR>
 
@@ -215,9 +220,9 @@ endif
 
 " FILETYPE-SPECIFIC AUTOCOMMANDS
 function SetIndentation(n)
-    let &l:tabstop=a:n
-    let &l:softtabstop=a:n
-    let &l:shiftwidth=a:n
+  let &l:tabstop=a:n
+  let &l:softtabstop=a:n
+  let &l:shiftwidth=a:n
 endfunction
 
 augroup FileTypeSpecificAutocommands
@@ -225,6 +230,7 @@ augroup FileTypeSpecificAutocommands
   autocmd BufRead,BufNewFile *.pxd set filetype=cython
 
   autocmd FileType lua call SetIndentation(2)
+  autocmd FileType vim call SetIndentation(2)
   autocmd FileType sh,bash call SetIndentation(2)
   autocmd FileType mail,markdown,text
     \ call SetIndentation(2) |
