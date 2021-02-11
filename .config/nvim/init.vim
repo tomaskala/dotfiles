@@ -1,9 +1,9 @@
-set nocompatible  " must be the first line
+set nocompatible  " Must be the first line.
 
 
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'scrooloose/nerdcommenter'  " <leader>c<space> to toggle line comment
+  Plug 'scrooloose/nerdcommenter'  " <leader>c<space> to toggle line comment.
   Plug 'bluz71/vim-moonfly-colors'
 call plug#end()
 
@@ -15,31 +15,31 @@ colorscheme moonfly
 
 
 " FILETYPE-SPECIFIC
-filetype on  " syntax highlighting
-filetype indent on  " load filetype-specific indent files
-filetype plugin on  " load filetype-specific plugin files
+filetype on  " Syntax highlighting.
+filetype indent on  " Load filetype-specific indent files.
+filetype plugin on  " Load filetype-specific plugin files.
 
 
 " MAIN
-syntax enable  " enable syntax processing
-set mouse=a  " enable mouse input
-set autochdir  " always switch to the current file directory
-set selection=old  " old-style visual selection
-set encoding=utf-8  " set file encoding
-set backspace=indent,eol,start  " backspace over these
-set autoread  " automatically reload changed files from disk
+syntax enable  " Enable syntax processing.
+set mouse=a  " Enable mouse input.
+set autochdir  " Always switch to the current file directory.
+set selection=old  " Old-style visual selection.
+set encoding=utf-8  " Set file encoding.
+set backspace=indent,eol,start  " Backspace over these.
+set autoread  " Automatically reload changed files from disk.
 
 
 " INDENTATION
-set tabstop=4  " number of visual spaces per TAB
-set softtabstop=4  " number of visual spaces in tab when editing
-set shiftwidth=4  " auto-indent this many spaces
-set softtabstop=4  " number of spaces when performing editing operations
-set linebreak  " do not break words when wrapping lines
-set expandtab  " tabs are spaces
-set smarttab  " smart behavior when inserting tab in front of a line
-set autoindent  " indent at the previous line level
-set nojoinspaces  " do not insert an extra space when joining (J) sentences
+set tabstop=4  " Number of visual spaces per TAB.
+set softtabstop=4  " Number of visual spaces in tab when editing.
+set shiftwidth=4  " Auto-indent this many spaces.
+set softtabstop=4  " Number of spaces when performing editing operations.
+set linebreak  " Do not break words when wrapping lines.
+set expandtab  " Tabs are spaces.
+set smarttab  " Smart behavior when inserting tab in front of a line.
+set autoindent  " Indent at the previous line level.
+set nojoinspaces  " Do not insert an extra space when joining (J) sentences.
 
 
 " BACKUPS
@@ -49,26 +49,26 @@ set noswapfile
 
 
 " UI CONFIG
-set number  " show line numbers
+set number  " Show line numbers.
 
-set noshowmode  " do not display the current mode, the status bar does that
-set showcmd  " show the last command in the bottom bar
-set wildmenu  " visual autocomplete for the command menu
-set wildmode=list:longest,full  " shell-like filename autocompletion
+set noshowmode  " Do not display the current mode, the status bar does that.
+set showcmd  " Show the last command in the bottom bar.
+set wildmenu  " Visual autocomplete for the command menu.
+set wildmode=list:longest,full  " Shell-like filename autocompletion.
 
-set showmatch  " highlight matching parentheses
-set matchpairs=(:),[:],{:},<:>  " these parentheses are shown as matching
+set showmatch  " Highlight matching parentheses.
+set matchpairs=(:),[:],{:},<:>  " These parentheses are shown as matching.
 
-set splitbelow  " open new pane to the bottom
-set splitright  " open new pane to the right
+set splitbelow  " Open new pane to the bottom.
+set splitright  " Open new pane to the right.
 
-set scrolloff=3  " minimum lines to keep above/below cursor when scrolling
-set cursorline  " highlight the current line
-set colorcolumn=81  " show a column at 81 characters
+set scrolloff=3  " Minimum lines to keep above/below cursor when scrolling.
+set cursorline  " Highlight the current line.
+set colorcolumn=81  " Show a column at 81 characters.
 
 
 " STATUSLINE
-set laststatus=2  " status line height
+set laststatus=2  " Status line height.
 
 let currentmode={
   \ 'n': 'NORMAL ',
@@ -83,31 +83,31 @@ let currentmode={
 
 set statusline=
 
-" show the current mode
+" Show the current mode.
 set statusline+=\ %{currentmode[mode()]}
 
-" file path, as typed or relative to current directory
+" File path, as typed or relative to current directory.
 set statusline+=\ %F
 
-" modified and/or read-only file
+" Modified and/or read-only file.
 set statusline+=%{&modified?'\ [+]':''}
 set statusline+=%{&readonly?'\ [x]':''}
 
-" truncate line here
+" Truncate line here.
 set statusline+=%<
 
-" separation point between left and right aligned items
+" Separation point between the left and right aligned items.
 set statusline+=%=
 
 set statusline+=%{&filetype!=#''?&filetype.'\ ':'none\ '}
 
-" fileformat
+" Fileformat.
 set statusline+=%-7([%{&fileformat}]%)
 
-" location of cursor line
+" Cursor line location.
 set statusline+=[%l/%L]
 
-" column number
+" Column number.
 set statusline+=\ col:%c
 
 
@@ -122,45 +122,45 @@ endif
 
 
 " MISCELLANEOUS
-set nohidden  " once a tab is closed, remove the buffer
-set lazyredraw  " redraw only when needed
-set shortmess+=I  " do not display the startup message
+set nohidden  " Once a tab is closed, remove the buffer.
+set lazyredraw  " Redraw only when needed.
+set shortmess+=I  " Do not display the startup message.
 
 
 " COPY-PASTE
-" <leader>y yanks to system clipboard
+" <leader>y yanks to system clipboard.
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>yy "+yy
 
-" <leader>p pastes from system clipboard
+" <leader>p pastes from system clipboard.
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
 
 " SEARCHING
-set incsearch  " search as characters are entered
-set hlsearch  " highlight matches
-set ignorecase  " case insensitive search
-set smartcase  " but case sensitive when uppercase is present
-set showmatch  " live match highlighting
+set incsearch  " Search as characters are entered.
+set hlsearch  " Highlight matches.
+set ignorecase  " Case insensitive search.
+set smartcase  " But case sensitive when uppercase is present.
+set showmatch  " Live match highlighting.
 
-" press <leader><space> to turn off search highlight
+" Press <leader><space> to turn off search highlight.
 nnoremap <leader><space> :nohlsearch<CR>
 
-" show substitution results in real time
+" Show substitution results in real time.
 if exists('&inccommand')
   set inccommand=nosplit
 endif
 
 
 " KEYMAPS
-" note that the `"` comment cannot be used on the line defining the key mapping
+" Note that the `"` comment cannot be used on the line defining the key mapping.
 
-" the leader is a comma instead of a backslash
+" The leader is a comma instead of a backslash.
 let mapleader=","
 
-" make j/down and k/up go by rows instead of lines in normal/visual selection
+" Make j/down and k/up go by rows instead of lines in normal/visual selection.
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
@@ -170,41 +170,41 @@ nnoremap <Up> gk
 vnoremap <Down> gj
 vnoremap <Up> gk
 
-" make down and up go by rows instead of by lines in the insert mode
+" Make down and up go by rows instead of by lines in the insert mode.
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
-" go to the beginning/end of a row instead of a line in normal/visual selection
+" Go to the beginning/end of a row instead of a line in normal/visual selection.
 nnoremap ^ g^
 nnoremap $ g$
 vnoremap ^ g^
 vnoremap $ g$
 
-" decrease indentation level in insert mode
+" Decrease indentation level in insert mode.
 inoremap <S-Tab> <ESC><<i
 
-" yank from the cursor to the end of the line, consistent with C and D
+" Yank from the cursor to the end of the line, consistent with C and D.
 nnoremap Y y$
 
-" use ctrl+direction to change split panes
+" Use ctrl+direction to change split panes.
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" new tab
+" New tab.
 nnoremap <silent> <C-t> :tabnew<CR>
 
-" next tab
+" Next tab.
 nnoremap <silent> <C-Right> :tabnext<CR>
 
-" previous tab
+" Previous tab.
 nnoremap <silent> <C-Left> :tabprevious<CR>
 
-" press Enter to insert a blank line below
+" Press Enter to insert a blank line below.
 map <Enter> o<ESC>
 
-" fix caps lock annoyances
+" Fix caps lock annoyances.
 if has("user_commands")
   command! -bang -nargs=? -complete=file E e<bang> <args>
   command! -bang -nargs=? -complete=file W w<bang> <args>
