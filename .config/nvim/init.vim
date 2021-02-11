@@ -94,11 +94,7 @@ set statusline+=\ col:%c                  " Column number.
 " SHUT UP
 set noerrorbells
 set novisualbell
-set visualbell t_vb=
-
-if exists('&belloff')
-  set belloff=all
-endif
+set belloff=all
 
 
 " MISCELLANEOUS
