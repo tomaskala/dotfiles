@@ -110,12 +110,12 @@ source /usr/share/fzf/shell/key-bindings.bash
 
 ### Path manipulation.
 function add {
-if [[ ":$2:" != *":$1:"* ]]; then
-  if [ -z "$2" ]; then
-    printf '%s' "$1"
-  else
-    printf '%s' "$1:$2"
-  fi
+  if [[ ":$2:" != *":$1:"* ]]; then
+    if [ -z "$2" ]; then
+      printf '%s' "$1"
+    else
+      printf '%s' "$1:$2"
+    fi
   else
     printf '%s' "$2"
   fi
