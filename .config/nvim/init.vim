@@ -48,8 +48,7 @@ set noswapfile
 
 
 " UI CONFIG
-set number  " Show line numbers.
-
+set number                      " Show line numbers.
 set noshowmode                  " The status bar displays the current mode.
 set showcmd                     " Show the last command in the bottom bar.
 set wildmenu                    " Visual autocomplete for the command menu.
@@ -67,8 +66,6 @@ set colorcolumn=81  " Show a column at 81 characters.
 
 
 " STATUSLINE
-set laststatus=2  " Status line height.
-
 let currentmode={
   \ 'n': 'NORMAL ',
   \ 'v': 'VISUAL ',
@@ -80,34 +77,18 @@ let currentmode={
   \ 'c': 'COMMAND ',
 \}
 
-set statusline=
-
-" Show the current mode.
-set statusline+=\ %{currentmode[mode()]}
-
-" File path, as typed or relative to current directory.
-set statusline+=\ %F
-
-" Modified and/or read-only file.
-set statusline+=%{&modified?'\ [+]':''}
-set statusline+=%{&readonly?'\ [x]':''}
-
-" Truncate line here.
-set statusline+=%<
-
-" Separation point between the left and right aligned items.
-set statusline+=%=
-
-set statusline+=%{&filetype!=#''?&filetype.'\ ':'none\ '}
-
-" Fileformat.
-set statusline+=%-7([%{&fileformat}]%)
-
-" Cursor line location.
-set statusline+=[%l/%L]
-
-" Column number.
-set statusline+=\ col:%c
+set laststatus=2                          " Status line height.
+set statusline=                           " Clear the status line.
+set statusline+=\ %{currentmode[mode()]}  " Show the current mode.
+set statusline+=\ %F                      " Current file path.
+set statusline+=%{&modified?'\ [+]':''}   " The file has been modified.
+set statusline+=%{&readonly?'\ [x]':''}   " The file is read-only.
+set statusline+=%<                        " Truncate line here.
+set statusline+=%=                        " Left/right-aligned items separator.
+set statusline+=%{&filetype!=#''?&filetype.'\ ':'none\ '}  " File type.
+set statusline+=%-7([%{&fileformat}]%)    " File format.
+set statusline+=[%l/%L]                   " Cursor line location.
+set statusline+=\ col:%c                  " Column number.
 
 
 " SHUT UP
