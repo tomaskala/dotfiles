@@ -15,14 +15,15 @@ font:
 
 colors:
   primary:
-    background: '#0c0c0d'
+    background: '#080808'
     foreground: '#eeeeee'
+    bright_foreground: '#eeeeee'
   cursor:
-    text: '#0c0c0d'
+    text: '#080808'
     cursor: '#eeeeee'
   selection:
-    text: '#0c0c0d'
-    background: '#b2ceee'
+    text: '#080808'
+    background: '#eeeeee'
   normal:
     black: '#373c40'
     red: '#ff5454'
