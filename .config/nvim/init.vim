@@ -15,31 +15,31 @@ colorscheme moonfly
 
 
 " FILETYPE-SPECIFIC
-filetype on  " Syntax highlighting.
+filetype on         " Syntax highlighting.
 filetype indent on  " Load filetype-specific indent files.
 filetype plugin on  " Load filetype-specific plugin files.
 
 
 " MAIN
-syntax enable  " Enable syntax processing.
-set mouse=a  " Enable mouse input.
-set autochdir  " Always switch to the current file directory.
-set selection=old  " Old-style visual selection.
-set encoding=utf-8  " Set file encoding.
+syntax enable                   " Enable syntax processing.
+set mouse=a                     " Enable mouse input.
+set autochdir                   " Always switch to the current file directory.
+set selection=old               " Old-style visual selection.
+set encoding=utf-8              " Set file encoding.
 set backspace=indent,eol,start  " Backspace over these.
-set autoread  " Automatically reload changed files from disk.
+set autoread                    " Automatically reload changed files from disk.
 
 
 " INDENTATION
-set tabstop=4  " Number of visual spaces per TAB.
+set tabstop=4      " Number of visual spaces per TAB.
 set softtabstop=4  " Number of visual spaces in tab when editing.
-set shiftwidth=4  " Auto-indent this many spaces.
+set shiftwidth=4   " Auto-indent this many spaces.
 set softtabstop=4  " Number of spaces when performing editing operations.
-set linebreak  " Do not break words when wrapping lines.
-set expandtab  " Tabs are spaces.
-set smarttab  " Smart behavior when inserting tab in front of a line.
-set autoindent  " Indent at the previous line level.
-set nojoinspaces  " Do not insert an extra space when joining (J) sentences.
+set linebreak      " Do not break words when wrapping lines.
+set expandtab      " Tabs are spaces.
+set smarttab       " Smart behavior when inserting tab in front of a line.
+set autoindent     " Indent at the previous line level.
+set nojoinspaces   " Do not insert an extra space when joining (J) sentences.
 
 
 " BACKUPS
@@ -51,19 +51,19 @@ set noswapfile
 " UI CONFIG
 set number  " Show line numbers.
 
-set noshowmode  " Do not display the current mode, the status bar does that.
-set showcmd  " Show the last command in the bottom bar.
-set wildmenu  " Visual autocomplete for the command menu.
+set noshowmode                  " The status bar displays the current mode.
+set showcmd                     " Show the last command in the bottom bar.
+set wildmenu                    " Visual autocomplete for the command menu.
 set wildmode=list:longest,full  " Shell-like filename autocompletion.
 
-set showmatch  " Highlight matching parentheses.
+set showmatch                   " Highlight matching parentheses.
 set matchpairs=(:),[:],{:},<:>  " These parentheses are shown as matching.
 
 set splitbelow  " Open new pane to the bottom.
 set splitright  " Open new pane to the right.
 
-set scrolloff=3  " Minimum lines to keep above/below cursor when scrolling.
-set cursorline  " Highlight the current line.
+set scrolloff=3     " Minimum lines to keep above/below cursor when scrolling.
+set cursorline      " Highlight the current line.
 set colorcolumn=81  " Show a column at 81 characters.
 
 
@@ -122,8 +122,8 @@ endif
 
 
 " MISCELLANEOUS
-set nohidden  " Once a tab is closed, remove the buffer.
-set lazyredraw  " Redraw only when needed.
+set nohidden      " Once a tab is closed, remove the buffer.
+set lazyredraw    " Redraw only when needed.
 set shortmess+=I  " Do not display the startup message.
 
 
@@ -139,11 +139,11 @@ vnoremap <leader>p "+p
 
 
 " SEARCHING
-set incsearch  " Search as characters are entered.
-set hlsearch  " Highlight matches.
+set incsearch   " Search as characters are entered.
+set hlsearch    " Highlight matches.
 set ignorecase  " Case insensitive search.
-set smartcase  " But case sensitive when uppercase is present.
-set showmatch  " Live match highlighting.
+set smartcase   " But case sensitive when uppercase is present.
+set showmatch   " Live match highlighting.
 
 " Press <leader><space> to turn off search highlight.
 nnoremap <leader><space> :nohlsearch<CR>
