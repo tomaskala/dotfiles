@@ -3,7 +3,6 @@ set nocompatible  " Must be the first line.
 
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'scrooloose/nerdcommenter'  " <leader>c<space> to toggle line comment.
   Plug 'bluz71/vim-moonfly-colors'
 call plug#end()
 
