@@ -127,33 +127,6 @@ set lazyredraw    " Redraw only when needed.
 set shortmess+=I  " Do not display the startup message.
 
 
-" COPY-PASTE
-" <leader>y yanks to system clipboard.
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-nnoremap <leader>yy "+yy
-
-" <leader>p pastes from system clipboard.
-nnoremap <leader>p "+p
-vnoremap <leader>p "+p
-
-
-" SEARCHING
-set incsearch   " Search as characters are entered.
-set hlsearch    " Highlight matches.
-set ignorecase  " Case insensitive search.
-set smartcase   " But case sensitive when uppercase is present.
-set showmatch   " Live match highlighting.
-
-" Press <leader><space> to turn off search highlight.
-nnoremap <leader><space> :nohlsearch<CR>
-
-" Show substitution results in real time.
-if exists('&inccommand')
-  set inccommand=nosplit
-endif
-
-
 " KEYMAPS
 " Note that the `"` comment cannot be used on the line defining the key mapping.
 
@@ -215,6 +188,33 @@ if has("user_commands")
   command! -bang Q q<bang>
   command! -bang QA qa<bang>
   command! -bang Qa qa<bang>
+endif
+
+
+" COPY-PASTE
+" <leader>y yanks to system clipboard.
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
+
+" <leader>p pastes from system clipboard.
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
+
+" SEARCHING
+set incsearch   " Search as characters are entered.
+set hlsearch    " Highlight matches.
+set ignorecase  " Case insensitive search.
+set smartcase   " But case sensitive when uppercase is present.
+set showmatch   " Live match highlighting.
+
+" Press <leader><space> to turn off search highlight.
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Show substitution results in real time.
+if exists('&inccommand')
+  set inccommand=nosplit
 endif
 
 
