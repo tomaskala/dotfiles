@@ -122,3 +122,11 @@ function add {
 }
 
 PATH=$(add "$HOME/.local/bin" "$PATH")
+
+
+### Display a message when opening a terminal.
+motd="./.motd"
+
+if [[ -f "${motd}" ]]; then
+  cat "${motd}"
+fi
