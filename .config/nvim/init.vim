@@ -141,9 +141,6 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" New tab.
-nnoremap <silent> <C-t> :tabnew<CR>
-
 " Next tab.
 nnoremap <silent> <C-Right> :tabnext<CR>
 
@@ -165,6 +162,13 @@ if has("user_commands")
   command! -bang QA qa<bang>
   command! -bang Qa qa<bang>
 endif
+
+
+" MakeTags command to generate ctags.
+" ctrl+]   ... jump to tag under the cursor.
+" g+ctrl+] ... ambiguous tags
+" ctrl+t   ... jump back up the tag stack.
+command! MakeTags !ctags -R .
 
 
 " COPY-PASTE
