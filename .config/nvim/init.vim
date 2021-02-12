@@ -22,11 +22,11 @@ filetype plugin on  " Load filetype-specific plugin files.
 " MAIN
 syntax enable                   " Enable syntax processing.
 set mouse=a                     " Enable mouse input.
-set autochdir                   " Always switch to the current file directory.
 set selection=old               " Old-style visual selection.
 set encoding=utf-8              " Set file encoding.
 set backspace=indent,eol,start  " Backspace over these.
 set autoread                    " Automatically reload changed files from disk.
+set path+=**                    " Recursive globbing.
 
 
 " INDENTATION
