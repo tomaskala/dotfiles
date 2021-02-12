@@ -30,6 +30,11 @@ if [[ "$#" -gt 0 ]]; then
   # Contains an internal service address on each line.
   src="$1"
 
+  if [[ ! -f "${src}" ]]; then
+    >&2 echo "The file ${src} does not exist."
+    exit 1
+  fi
+
   if [[ "$#" -gt 1 ]]; then
     # The DNS server to use for digging.
     dns="$2"
