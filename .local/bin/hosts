@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euf -o pipefail
 
-if [[ "$#" -gt 0 && "$1" == "-h" ]]; then
+if [[ "$#" -gt 0 ]] && [[ "$1" == "-h" || "$1" == "--help" ]]; then
   echo "Usage: hosts [src] [@dns]"
   echo ""
   echo "Where: src    source file with 1 service address per line"
