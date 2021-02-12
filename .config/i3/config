@@ -187,11 +187,11 @@ hide_edge_borders both
 # Lock screen.
 bindsym $mod+Shift+x exec i3lock --color 0c0c0d
 
-# Set wallpaper.
-exec --no-startup-id feh --bg-fill ~/.wallpaper
-
 # Display settings.
-exec --no-startup-id xrandr --output eDP-1 --primary --auto --pos 320x1440 --rotate normal --output HDMI-1 --auto --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off
+exec_always --no-startup-id xrandr --output eDP-1 --primary --auto --pos 320x1440 --rotate normal --output HDMI-1 --auto --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off
+
+# Set wallpaper.
+exec_always --no-startup-id feh --bg-fill ~/.wallpaper
 
 # Force applications to open in assigned workspaces.
 assign [class="Firefox"] $ws1
