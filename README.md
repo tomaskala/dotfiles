@@ -68,6 +68,7 @@ Before reinstalling the system, backup the following:
     * `sudo wget -O '/etc/hosts'
       'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts'
       && sync`
+    * The [hosts](.local/bin/hosts) script can be used here.
 * [Backup LUKS
   headers](https://fedoraproject.org/wiki/Disk_Encryption_User_Guide#Backup_LUKS_headers).
 * Configure the touchpad on the X Window System.

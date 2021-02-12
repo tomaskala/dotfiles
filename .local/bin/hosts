@@ -1,0 +1,52 @@
+#!/bin/bash
+set -euf -o pipefail
+
+if [[ "$#" -gt 0 && "$1" == "-h" ]]; then
+  echo "Usage: hosts [src] [@dns]"
+  echo ""
+  echo "Where: src    source file with 1 service address per line"
+  echo "       dns    DNS server address"
+  echo ""
+  echo "Download an ad-blocking hosts file and append to /etc/hosts."
+  echo ""
+  echo "If a source file and possibly a DNS server are provided,"
+  echo "perform reverse DNS lookups of each entry in the file and"
+  echo "append the results to /etc/hosts."
+  exit 0
+fi
+
+sudo wget -O \
+  '/etc/hosts' \
+  'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
+  && sync
+
+# Append DNS lookups of internal services.
+if [[ "$#" -gt 0 ]]; then
+  if ! type dig > /dev/null; then
+    >&2 echo "The dig command is not installed." 
+    exit 1
+  fi
+
+  # Contains an internal service address on each line.
+  src="$1"
+
+  if [[ "$#" -gt 1 ]]; then
+    # The DNS server to use for digging.
+    dns="$2"
+
+    if [[ "${dns#@}" == "${dns}" ]]; then
+      # Not prefixed by '@'.
+      dns="@${dns}"
+    fi
+  else
+    # No DNS server provided.
+    dns=""
+  fi
+
+  echo '# Reverse DNS lookups from the "hosts" script.' | sudo tee -a /etc/hosts
+
+  while read -r addr; do
+    lookup=$(dig "${addr}" "${dns}" +short)
+    echo "${lookup} ${addr}" | sudo tee -a /etc/hosts
+  done < "${src}"
+fi
