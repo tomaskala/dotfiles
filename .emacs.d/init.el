@@ -227,7 +227,14 @@
   (setq org-log-into-drawer t)
   (setq org-agenda-files
         '("~/notes/todos/tasks.org"
-          "~/notes/todos/periodic.org")))
+          "~/notes/todos/periodic.org"))
+  (setq org-todo-keywords
+        '((sequence "TODO" "|" "DONE" "CANCELLED")))
+  (setq org-refile-targets
+        '((nil :maxlevel . 2 )))
+  (setq org-refile-use-outline-path 'file)
+  (setq org-outline-path-complete-in-steps nil)
+  (advice-add 'org-refile :after 'org-save-all-org-buffers))
 
 (use-package org-bullets
   :hook (org-mode . org-bullets-mode)
