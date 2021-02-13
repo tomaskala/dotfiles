@@ -228,6 +228,8 @@
   (setq org-agenda-files
         '("~/notes/todos/tasks.org"
           "~/notes/todos/periodic.org"))
+  (setq org-tag-alist
+        '(("errand" . ?E) ("home" . ?H) ("work" . ?W) ("idea" . ?I)))
   (setq org-todo-keywords
         '((sequence "TODO" "|" "DONE" "CANCELLED")))
   (setq org-refile-targets
