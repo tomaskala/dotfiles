@@ -28,11 +28,11 @@ function die {
 }
 
 function set_git {
-	GIT_DIR="${1%/*}"
+  GIT_DIR="${1%/*}"
 
-	while [[ ! -d "${GIT_DIR}" && "${GIT_DIR%/*}/" == "${SYNCED_DIR%/}/"* ]]; do
-		GIT_DIR="${GIT_DIR%/*}"
-	done
+  while [[ ! -d "${GIT_DIR}" && "${GIT_DIR%/*}/" == "${SYNCED_DIR%/}/"* ]]; do
+    GIT_DIR="${GIT_DIR%/*}"
+  done
 
   [[ $(git -C "${GIT_DIR}" rev-parse --is-inside-work-tree 2>/dev/null) \
     == true ]] || GIT_DIR=""
@@ -54,7 +54,7 @@ function cmd_git {
 }
 
 function git_add {
-	[[ -n "${GIT_DIR}" ]] || return
+  [[ -n "${GIT_DIR}" ]] || return
   git -C "${GIT_DIR}" add "$1" || return
   [[ -n $(git -C "${GIT_DIR}" status --porcelain "$1") ]] || return
 }

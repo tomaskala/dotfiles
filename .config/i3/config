@@ -131,7 +131,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Define colors.
-set $bg-color 	         #080808
+set $bg-color            #080808
 set $inactive-bg-color   #0c0c0d
 set $text-color          #f3f4f5
 set $inactive-text-color #676e7d
@@ -172,7 +172,7 @@ bar {
         focused_workspace  $bg-color          $bg-color          $text-color
         inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
         urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
+    }
 }
 
 # Start rofi.
