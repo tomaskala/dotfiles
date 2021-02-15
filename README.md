@@ -89,6 +89,28 @@ Before reinstalling the system, backup the following:
 The following software should then be installed.
 
 
+#### Window manager
+
+* i3, i3lock, i3status
+  * `sudo dnf install i3 i3lock i3status`
+* feh
+  * `sudo dnf install feh`
+* arandr
+  * `sudo dnf install arandr`
+* rofi
+  * `sudo dnf install rofi`
+* lxappearance
+  * `sudo dnf install lxappearance`
+  * Set the `Adwaita-dark` theme to kill the blinding white flash when opening a
+    new tab in Firefox.
+* dunst
+  * `sudo dnf install dunst`
+* maim
+  * `sudo dnf install maim`
+* xclip
+  * `sudo dnf install xclip`
+
+
 #### Internet
 
 * Firefox
