@@ -184,7 +184,7 @@ bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t ima
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # Start rofi.
-bindsym $mod+d exec rofi -show
+bindsym $mod+d exec --no-startup-id rofi -show
 
 # Toggle sticky window.
 bindsym $mod+Shift+s sticky toggle
