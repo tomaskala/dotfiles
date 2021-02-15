@@ -175,6 +175,14 @@ bar {
     }
 }
 
+# Capture a screenshot and save it to ~/Pictures.
+bindsym Print exec --no-startup-id maim "$HOME/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/$(date)"
+
+# Capture a screenshot and save it to clipboard.
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
 # Start rofi.
 bindsym $mod+d exec rofi -show
 
