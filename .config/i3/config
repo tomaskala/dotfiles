@@ -193,6 +193,9 @@ exec_always --no-startup-id xrandr --output eDP-1 --primary --auto --pos 320x144
 # Set wallpaper.
 exec_always --no-startup-id feh --bg-fill ~/.wallpaper
 
+# Launch the notification service.
+exec --no-startup-id dunst
+
 # Force applications to open in assigned workspaces.
 assign [class="Firefox"] $ws1
 assign [class="Thunderbird"] $ws2
