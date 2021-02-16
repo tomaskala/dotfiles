@@ -131,18 +131,18 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Define colors.
-set $bg-color            #1a2026
-set $inactive-bg-color   #1e252c
-set $text-color          #ffffff
-set $inactive-text-color #6ec1d6
-set $urgent-bg-color     #e53935
+set $bg-color-a      #1a2026
+set $bg-color-b      #1e252c
+set $text-color-a    #ffffff
+set $text-color-b    #6ec1d6
+set $urgent-bg-color #e53935
 
 # Window colors.
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+#                       border              background       text          indicator
+client.focused          $bg-color-a      $bg-color-a      $text-color-a #00ff00
+client.unfocused        $bg-color-b      $bg-color-b      $text-color-b #00ff00
+client.focused_inactive $bg-color-b      $bg-color-b      $text-color-b #00ff00
+client.urgent           $urgent-bg-color $urgent-bg-color $text-color-a #00ff00
 
 # Bar settings.
 bar {
@@ -153,7 +153,7 @@ bar {
     tray_output none
 
     # Show status.
-    status_command i3status --config ~/.config/i3/i3status.conf
+    status_command i3status --config $HOME/.config/i3/i3status.conf
 
     # Do not display workspace numbers used for consistent ordering.
     strip_workspace_numbers yes
@@ -164,18 +164,18 @@ bar {
 
     # Bar colors.
     colors {
-        background $bg-color
-        statusline $text-color
-        separator #757575
+        background $bg-color-a
+        statusline $text-color-a
+        separator $text-color-a
 
-        #                  border             background         text
-        focused_workspace  $bg-color          $bg-color          $text-color
-        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        #                  border           background       text
+        focused_workspace  $bg-color-b      $bg-color-b      $text-color-b
+        inactive_workspace $bg-color-a      $bg-color-a      $text-color-a
+        urgent_workspace   $urgent-bg-color $urgent-bg-color $text-color-a
     }
 }
 
-# Capture a screenshot and save it to ~/Pictures.
+# Capture a screenshot and save it to $HOME/Pictures.
 bindsym Print exec --no-startup-id maim "$HOME/Pictures/$(date)"
 bindsym Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/$(date)"
 
@@ -199,7 +199,7 @@ bindsym $mod+Shift+x exec i3lock --color 0c0c0d
 exec_always --no-startup-id xrandr --output eDP-1 --primary --auto --pos 320x1440 --rotate normal --output HDMI-1 --auto --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off
 
 # Set wallpaper.
-exec_always --no-startup-id feh --bg-fill ~/.wallpaper
+exec_always --no-startup-id feh --bg-fill $HOME/.wallpaper
 
 # Launch the notification service.
 exec --no-startup-id dunst
