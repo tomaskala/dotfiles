@@ -130,6 +130,22 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Move mode settings.
+mode "move" {
+    # Move window.
+    bindsym h     move left
+    bindsym j     move down
+    bindsym k     move up
+    bindsym l     move right
+
+    # Back to normal: Enter or Escape or $mod+m.
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+m mode "default"
+}
+
+bindsym $mod+m mode "move" focus floating
+
 # Define colors.
 set $bg-color-a      #1a2026
 set $bg-color-b      #1e252c
