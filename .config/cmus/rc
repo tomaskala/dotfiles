@@ -1,4 +1,4 @@
-colorscheme gruvbox
+colorscheme green
 set set_term_title=true
 set repeat=false
 set shuffle=false

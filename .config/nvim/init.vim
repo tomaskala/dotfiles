@@ -3,14 +3,16 @@ set nocompatible  " Must be the first line.
 
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'bluz71/vim-moonfly-colors'
+  Plug 'joshdick/onedark.vim'
+  Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 
 " COLORS
 set termguicolors
 set background=dark
-colorscheme moonfly
+let g:onedark_terminal_italics=1
+colorscheme onedark
 
 
 " FILETYPE-SPECIFIC
