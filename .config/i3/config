@@ -154,10 +154,10 @@ set $text-color-b    #6ec1d6
 set $urgent-bg-color #e53935
 
 # Window colors.
-#                       border              background       text          indicator
-client.focused          $bg-color-a      $bg-color-a      $text-color-a #00ff00
-client.unfocused        $bg-color-b      $bg-color-b      $text-color-b #00ff00
-client.focused_inactive $bg-color-b      $bg-color-b      $text-color-b #00ff00
+#                       border           background       text          indicator
+client.focused          $bg-color-b      $bg-color-b      $text-color-b #00ff00
+client.unfocused        $bg-color-a      $bg-color-a      $text-color-a #00ff00
+client.focused_inactive $bg-color-a      $bg-color-a      $text-color-a #00ff00
 client.urgent           $urgent-bg-color $urgent-bg-color $text-color-a #00ff00
 
 # Bar settings.
