@@ -106,6 +106,7 @@ shopt -s cdspell direxpand dirspell globstar histappend histverify \
 ### Additional sources.
 source /etc/profile.d/bash_completion.sh
 source /usr/share/fzf/shell/key-bindings.bash
+source /usr/share/bash-completion/completions/git
 
 
 ### Path manipulation.
