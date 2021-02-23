@@ -23,7 +23,7 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 5
 
     # Horizontal padding.
     horizontal_padding = 8
@@ -86,7 +86,7 @@
     stack_duplicates = true
 
     # Hide the count of stacked notifications with the same content.
-    hide_duplicate_count = false
+    hide_duplicate_count = true
 
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
@@ -95,7 +95,7 @@
     icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable.
-    max_icon_size = 32
+    max_icon_size = 40
 
     # Paths to default icons.
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
@@ -158,12 +158,12 @@
 [urgency_low]
     background = "#1a2026"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 5
 
 [urgency_normal]
     background = "#1a2026"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 5
 
 [urgency_critical]
     background = "#1a2026"
