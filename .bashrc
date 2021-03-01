@@ -104,9 +104,18 @@ shopt -s cdspell direxpand dirspell globstar histappend histverify \
 
 
 ### Additional sources.
-source /etc/profile.d/bash_completion.sh
-source /usr/share/fzf/shell/key-bindings.bash
-source /usr/share/bash-completion/completions/git
+function source_if_exists {
+  f="$1"
+
+  if [[ -f "${f}" ]]; then
+    source "${f}"
+  else
+    >&2 echo "${f} does not exist"
+  fi
+}
+
+source_if_exists /usr/share/bash-completion/bash_completion
+source_if_exists /usr/share/fzf/shell/key-bindings.bash
 
 
 ### Path manipulation.
