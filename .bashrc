@@ -52,7 +52,8 @@ alias gst='git status'
 export BROWSER='firefox'
 export TERMINAL='alacritty'
 export EDITOR='nvim'
-export OS="$(uname)"
+OS="$(uname)"
+export OS
 
 export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
 export LESS_TERMCAP_md=$'\e[00;34m'    # Bold mode     - blue.
@@ -87,7 +88,7 @@ gm=38;5;203:ga=38;5;203:xa=38;5;239:*.ts=00"
 ### Bash settings.
 HISTCONTROL=ignoreboth:erasedups # Erase duplicates.
 HISTFILESIZE=99999               # Max size of history file.
-HISTIGNORE=?:??                  # Ignore one and two letter commands.
+HISTIGNORE="?:??"                # Ignore one and two letter commands.
 HISTSIZE=99999                   # Amount of history to save.
 
 # Enable the useful Bash features:
