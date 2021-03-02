@@ -110,8 +110,6 @@ function source_if_exists {
 
   if [[ -f "${f}" ]]; then
     source "${f}"
-  else
-    >&2 echo "${f} does not exist"
   fi
 }
 
