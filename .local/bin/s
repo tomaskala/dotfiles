@@ -2,22 +2,21 @@
 set -euf -o pipefail
 
 
-SYNCED_DIR="$HOME/synchronized"
+SYNCED_DIR="$HOME/notes"
+GIT_COMMIT_MSG="Sync"
 GIT_DIR=""
 
 
 function usage {
-  echo "Usage: s [<options>] [--] [<file>...]
+  echo "Usage: s [<commit-message>]
            or: s command [<args>...]
 
-  In the first form:
-  -h      show this help message and exit
-  -p      push after staging
-  file... list of files to stage relative to the synced directory
-          ${SYNCED_DIR}; if omitted, stage the entire directory
+  In the first form: Synchronize the repository with the remote by
+  committing all files, pulling and then pushing. If provided, use
+  the commit message passed as an argument.
 
   In the second form: Provide shortcuts for common git commands.
-    command := { git | init | pull | push | status | log }
+    command := { git | pull | push | status | log }
   If command = git, subsequent arguments are passed to git directly.
   Otherwise, 'git <command> <args>...' is evaluated."
 }
@@ -59,9 +58,14 @@ function git_add {
   [[ -n $(git -C "${GIT_DIR}" status --porcelain "$1") ]] || return
 }
 
-function git_commit {
+function git_commit_all {
   [[ -n "${GIT_DIR}" ]] || return
-  git -C "${GIT_DIR}" commit -m "$1"
+  git -C "${GIT_DIR}" commit -a -m "$1"
+}
+
+function git_pull {
+  [[ -n "${GIT_DIR}" ]] || return
+  git -C "${GIT_DIR}" pull
 }
 
 function git_push {
@@ -70,59 +74,45 @@ function git_push {
 }
 
 function main {
-  [[ -d "${SYNCED_DIR}" ]] || mkdir "${SYNCED_DIR}"
+  local commit_msg="${GIT_COMMIT_MSG}"
 
-  if [[ "$#" -gt 0 ]]; then
-    # Git and shortcuts for common git commands.
-    case "$1" in
-      git) shift; cmd_git "$@"; exit "$?" ;;
-      init) shift; cmd_git init "$@"; exit "$?" ;;
-      pull) shift; cmd_git pull "$@"; exit "$?" ;;
-      push) shift; cmd_git push "$@"; exit "$?" ;;
-      status) shift; cmd_git status "$@"; exit "$?" ;;
-      log) shift; cmd_git log "$@"; exit "$?" ;;
-    esac
+  # Show usage.
+  if [[ "$#" -gt 0 ]] && [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    usage
+    exit 0
   fi
 
+  # Check whether the directory exists.
+  if [[ ! -d "${SYNCED_DIR}" ]]; then
+    die "Error: The directory ${SYNCED_DIR} does not exist."
+  fi
+
+  # Check whether the git repository is initialized.
   git -C "${SYNCED_DIR}" rev-parse 2>/dev/null \
     || die "Error: Git repository not initialized."
 
-  local filepath=""
-  local push=false
-
-  # Parse flags.
-  while [[ "$#" -gt 0 ]]; do
+  # Parse arguments.
+  if [[ "$#" -gt 0 ]]; then
     case "$1" in
-      -h|--help) usage; exit 0 ;;
-      -p|--push) push=true; shift ;;
-      --) shift; break ;;
-      *) break ;;
+      # Invoke git with the rest of the arguments.
+      git) shift; cmd_git "$@"; exit "$?" ;;
+      # Shortcuts for common commands.
+      diff) shift; cmd_git diff "$@"; exit "$?" ;;
+      pull) shift; cmd_git pull "$@"; exit "$?" ;;
+      push) shift; cmd_git push "$@"; exit "$?" ;;
+      status) shift; cmd_git status "$@"; exit "$?" ;;
+      log) shift; cmd_git log --stat "$@"; exit "$?" ;;
+      # Assume that the first argument is a commit message.
+      *) commit_msg="$1" ;;
     esac
-  done
-
-  if [[ "$#" -eq 0 ]]; then
-    # No positional args, sync the entire directory.
-    set_git "${SYNCED_DIR}/"
-    git_add "${SYNCED_DIR}" || true
-    git_commit "Full sync" >/dev/null || true
-  else
-    # Sync the given files.
-    while [[ "$#" -gt 0 ]]; do
-      filepath="${SYNCED_DIR}/$1"
-      [[ -e "${filepath}" ]] || die "Error: $1 is not in ${SYNCED_DIR}."
-      set_git "${filepath}"
-      git_add "${filepath}"
-      shift
-    done
-
-    set_git "${SYNCED_DIR}/"
-    git_commit "Sync"
   fi
 
-  if [[ "${push}" == true ]]; then
-    set_git "${SYNCED_DIR}/"
-    git_push
-  fi
+  # Synchronize.
+  set_git "${SYNCED_DIR}/"
+  git_add "${SYNCED_DIR}"
+  git_commit_all "${commit_msg}"
+  git_pull
+  git_push
 }
 
 
