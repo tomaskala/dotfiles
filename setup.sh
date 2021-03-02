@@ -1,6 +1,6 @@
 #!/bin/bash
 set -eu -o pipefail
-GLOBIGNORE=".:..:.git"
+GLOBIGNORE=".:..:.git:.gitignore"
 
 
 function install_dotfile {
