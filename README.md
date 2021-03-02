@@ -149,6 +149,8 @@ The following software should then be installed.
     * `sudo dnf install fira-code-fonts`
 * bash-completion
     * `sudo dnf install bash-completion`
+* shellcheck
+    * `sudo dnf install ShellCheck`
 * tmux
     * `sudo dnf install tmux`
 * fzf
