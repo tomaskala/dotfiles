@@ -1,5 +1,0 @@
-- ^x^n ... autocomplete just this file
-- ^x^f ... autocomplete filenames, work with path+=**
-- ^x^] ... autocomplete tags only
-- ^n   ... autocomplete anything specified by the 'complete' option
-- ~/Downloads: firefox theme to dissect
