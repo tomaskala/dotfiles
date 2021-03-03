@@ -2,27 +2,27 @@
 set -euf -o pipefail
 
 
+__USAGE="Usage: $(basename "$0") [<commit-message>]
+   or: $(basename "$0") command [<args>...]
+
+In the first form: Synchronize the repository with the remote by
+committing all files, pulling and then pushing. If provided, use
+the commit message passed as an argument.
+
+In the second form: Provide shortcuts for common git commands.
+  command := { git | pull | push | status | log }
+If command = git, subsequent arguments are passed to git directly.
+Otherwise, 'git <command> <args>...' is evaluated.
+"
+
+
 SYNCED_DIR="$HOME/notes"
 GIT_COMMIT_MSG="Sync"
 GIT_DIR=""
 
 
-function usage {
-  echo "Usage: s [<commit-message>]
-           or: s command [<args>...]
-
-  In the first form: Synchronize the repository with the remote by
-  committing all files, pulling and then pushing. If provided, use
-  the commit message passed as an argument.
-
-  In the second form: Provide shortcuts for common git commands.
-    command := { git | pull | push | status | log }
-  If command = git, subsequent arguments are passed to git directly.
-  Otherwise, 'git <command> <args>...' is evaluated."
-}
-
 function die {
-  echo "$1" 1>&2
+  >&2 echo "$1"
   exit 1
 }
 
@@ -78,7 +78,7 @@ function main {
 
   # Show usage.
   if [[ "$#" -gt 0 ]] && [[ "$1" == "-h" || "$1" == "--help" ]]; then
-    usage
+    echo "${__USAGE}"
     exit 0
   fi
 

@@ -1,58 +1,67 @@
 #!/bin/bash
 set -euf -o pipefail
 
-src=""
-dns=""
+
+__USAGE="Usage: $(basename "$0") [src] [@dns]
+
+Where: src    source file with 1 service address per line
+       dns    DNS server address
+
+Download an ad-blocking hosts file and append to /etc/hosts.
+
+If a source file and possibly a DNS server are provided,
+perform reverse DNS lookups of each entry in the file and
+append the results to /etc/hosts.
+"
+
+
+HOSTS_SRC="https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts"
+SRC=""
+DNS=""
+
+
+function die {
+  >&2 echo "$1"
+  exit 1
+}
+
 
 # Process arguments.
 if [[ "$#" -gt 0 ]]; then
   if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-    echo "Usage: hosts [src] [@dns]"
-    echo ""
-    echo "Where: src    source file with 1 service address per line"
-    echo "       dns    DNS server address"
-    echo ""
-    echo "Download an ad-blocking hosts file and append to /etc/hosts."
-    echo ""
-    echo "If a source file and possibly a DNS server are provided,"
-    echo "perform reverse DNS lookups of each entry in the file and"
-    echo "append the results to /etc/hosts."
+    echo "${__USAGE}"
     exit 0
   fi
 
   if ! type dig > /dev/null; then
-    >&2 echo "The dig command is not installed." 
-    exit 1
+    die "The dig command is not installed." 
   fi
 
-  src="$1"
+  SRC="$1"
 
-  if [[ ! -f "${src}" ]]; then
-    >&2 echo "The file ${src} does not exist."
-    exit 1
+  if [[ ! -f "${SRC}" ]]; then
+    die "The file ${SRC} does not exist."
   fi
 
   if [[ "$#" -gt 1 ]]; then
-    dns="$2"
+    DNS="$2"
 
-    if [[ "${dns#@}" == "${dns}" ]]; then
-      dns="@${dns}"
+    if [[ "${DNS#@}" == "${DNS}" ]]; then
+      DNS="@${DNS}"
     fi
   fi
 fi
 
 # Download the base hosts file.
 sudo wget -O \
-  '/etc/hosts' \
-  'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts' \
-  && sync
+  "/etc/hosts" "${HOSTS_SRC}" && sync
 
 # Append DNS lookups of internal services.
-if [[ -n "${src}" ]]; then
-  echo '# Reverse DNS lookups from the "hosts" script.' | sudo tee -a /etc/hosts
+if [[ -n "${SRC}" ]]; then
+  echo "# Reverse DNS lookups from the 'hosts' script." | sudo tee -a /etc/hosts
 
   while read -r addr; do
-    lookup=$(dig "${addr}" "${dns}" +short)
+    lookup=$(dig "${addr}" "${DNS}" +short)
     echo "${lookup} ${addr}" | sudo tee -a /etc/hosts
-  done < "${src}"
+  done < "${SRC}"
 fi
