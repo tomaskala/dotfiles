@@ -2,21 +2,18 @@
 set -euf -o pipefail
 
 
-__USAGE="Usage: $(basename "$0") [src] [@dns]
+__USAGE="Usage: $(basename "$0") [OPTIONS]
 
-Where: src    source file with 1 service address per line
-       dns    DNS server address
-
-Download an ad-blocking hosts file and append to /etc/hosts.
-
-If a source file and possibly a DNS server are provided,
-perform reverse DNS lookups of each entry in the file and
-append the results to /etc/hosts.
-"
+Options:
+  -b FILE  Path to a blacklist file with 1 address per line.
+  -s FILE  Path to a lookup file with 1 address per line.
+  -d TEXT  Address of a DNS server to use when digging the lookup file contents.
+  -h       Show this message and exit."
 
 
 HOSTS_SRC="https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts"
-SRC=""
+BLACKLIST_SRC=""
+LOOKUP_SRC=""
 DNS=""
 
 
@@ -27,41 +24,51 @@ function die {
 
 
 # Process arguments.
-if [[ "$#" -gt 0 ]]; then
-  if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-    echo "${__USAGE}"
-    exit 0
-  fi
+while getopts "hb:s:d:" arg; do
+  case "${arg}" in
+    h) echo "${__USAGE}"; exit 0 ;;
+    b) BLACKLIST_SRC="${OPTARG}" ;;
+    s) LOOKUP_SRC="${OPTARG}" ;;
+    d) DNS="${OPTARG}" ;;
+    ?) echo "${__USAGE}"; exit 1 ;;
+  esac
+done
 
-  if ! type dig > /dev/null; then
-    die "The dig command is not installed." 
-  fi
+# Check the argument values.
+if [[ -n "${LOOKUP_SRC}" ]] && ! type dig > /dev/null; then
+  die "The dig command is not installed." 
+fi
 
-  SRC="$1"
+if [[ -n "${LOOKUP_SRC}" ]] && [[ ! -f "${LOOKUP_SRC}" ]]; then
+  die "The file ${LOOKUP_SRC} does not exist."
+fi
 
-  if [[ ! -f "${SRC}" ]]; then
-    die "The file ${SRC} does not exist."
-  fi
+if [[ -n "${BLACKLIST_SRC}" ]] && [[ ! -f "${BLACKLIST_SRC}" ]]; then
+  die "The file ${BLACKLIST_SRC} does not exist."
+fi
 
-  if [[ "$#" -gt 1 ]]; then
-    DNS="$2"
-
-    if [[ "${DNS#@}" == "${DNS}" ]]; then
-      DNS="@${DNS}"
-    fi
-  fi
+if [[ "${DNS#@}" == "${DNS}" ]]; then
+  DNS="@${DNS}"
 fi
 
 # Download the base hosts file.
-sudo wget -O \
-  "/etc/hosts" "${HOSTS_SRC}" && sync
+sudo wget -O "/etc/hosts" "${HOSTS_SRC}" && sync
 
 # Append DNS lookups of internal services.
-if [[ -n "${SRC}" ]]; then
-  echo "# Reverse DNS lookups from the 'hosts' script." | sudo tee -a /etc/hosts
+if [[ -n "${LOOKUP_SRC}" ]]; then
+  echo "# Reverse DNS lookup from the 'hosts' script." | sudo tee -a /etc/hosts
 
   while read -r addr; do
     lookup=$(dig "${addr}" "${DNS}" +short)
     echo "${lookup} ${addr}" | sudo tee -a /etc/hosts
-  done < "${SRC}"
+  done < "${LOOKUP_SRC}"
+fi
+
+# Append the blacklist no-ops.
+if [[ -n "${BLACKLIST_SRC}" ]]; then
+  echo "# Blacklist from the 'hosts' script." | sudo tee -a /etc/hosts
+
+  while read -r addr; do
+    echo "0.0.0.0 ${addr}" | sudo tee -a /etc/hosts
+  done < "${BLACKLIST_SRC}"
 fi
