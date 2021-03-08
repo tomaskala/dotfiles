@@ -12,8 +12,7 @@ the commit message passed as an argument.
 In the second form: Provide shortcuts for common git commands.
   command := { git | pull | push | status | log }
 If command = git, subsequent arguments are passed to git directly.
-Otherwise, 'git <command> <args>...' is evaluated.
-"
+Otherwise, 'git <command> <args>...' is evaluated."
 
 
 SYNCED_DIR="$HOME/notes"
