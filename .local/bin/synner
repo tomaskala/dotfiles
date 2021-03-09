@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euf -o pipefail
+set -uf -o pipefail
 
 
 __USAGE="Usage: $(basename "$0") [<commit-message>]
