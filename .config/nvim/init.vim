@@ -211,6 +211,7 @@ augroup FileTypeSpecificAutocommands
   autocmd BufRead,BufNewFile *.pyx set filetype=cython
   autocmd BufRead,BufNewFile *.pxd set filetype=cython
 
+  autocmd FileType haskell call SetIndentation(2)
   autocmd FileType lua call SetIndentation(2)
   autocmd FileType vim call SetIndentation(2)
   autocmd FileType sh,bash call SetIndentation(2)
