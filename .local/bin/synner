@@ -3,16 +3,14 @@ set -uf -o pipefail
 
 
 __USAGE="Usage: $(basename "$0") [<commit-message>]
-   or: $(basename "$0") command [<args>...]
+   or: $(basename "$0") git [<args>...]
 
 In the first form: Synchronize the repository with the remote by
 committing all files, pulling and then pushing. If provided, use
 the commit message passed as an argument.
 
-In the second form: Provide shortcuts for common git commands.
-  command := { git | pull | push | status | log }
-If command = git, subsequent arguments are passed to git directly.
-Otherwise, 'git <command> <args>...' is evaluated."
+In the second form: Provide shortcuts for git commands ran as if
+inside the synchronized directory."
 
 
 SYNCED_DIR="$HOME/notes"
@@ -57,9 +55,9 @@ function git_add {
   [[ -n $(git -C "${GIT_DIR}" status --porcelain "$1") ]] || return
 }
 
-function git_commit_all {
+function git_commit {
   [[ -n "${GIT_DIR}" ]] || return
-  git -C "${GIT_DIR}" commit -a -m "$1"
+  git -C "${GIT_DIR}" commit -m "$1"
 }
 
 function git_pull {
@@ -95,12 +93,6 @@ function main {
     case "$1" in
       # Invoke git with the rest of the arguments.
       git) shift; cmd_git "$@"; exit "$?" ;;
-      # Shortcuts for common commands.
-      diff) shift; cmd_git diff "$@"; exit "$?" ;;
-      pull) shift; cmd_git pull "$@"; exit "$?" ;;
-      push) shift; cmd_git push "$@"; exit "$?" ;;
-      status) shift; cmd_git status "$@"; exit "$?" ;;
-      log) shift; cmd_git log --stat "$@"; exit "$?" ;;
       # Assume that the first argument is a commit message.
       *) commit_msg="$1" ;;
     esac
@@ -109,7 +101,7 @@ function main {
   # Synchronize.
   set_git "${SYNCED_DIR}/"
   git_add "${SYNCED_DIR}"
-  git_commit_all "${commit_msg}"
+  git_commit "${commit_msg}"
   git_pull
   git_push
 }
