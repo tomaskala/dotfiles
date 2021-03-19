@@ -49,6 +49,10 @@ alias gst='git status'
 
 
 ### Environment variables.
+export REALNAME='Tomas Kala'
+export EMAIL='me@tomaskala.com'
+export GIT_COMMITTER_NAME="${REALNAME}"
+export GIT_AUTHOR_NAME="${REALNAME}"
 export BROWSER='firefox'
 export TERMINAL='alacritty'
 export EDITOR='nvim'
