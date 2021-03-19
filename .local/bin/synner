@@ -74,7 +74,7 @@ function main {
   local commit_msg="${GIT_COMMIT_MSG}"
 
   # Show usage.
-  if [[ "$#" -gt 0 ]] && [[ "$1" == "-h" || "$1" == "--help" ]]; then
+  if [[ "$#" -gt 0 && "$1" == "-h" ]]; then
     echo "${__USAGE}"
     exit 0
   fi
