@@ -5,7 +5,7 @@ GLOBIGNORE=".:..:.git:.gitignore"
 
 function install_dotfile {
   dotfile="$1"
-  dest="$HOME/${dotfile}"
+  dest="${HOME}/${dotfile}"
 
   echo "Installing ${dotfile}"
 

@@ -30,7 +30,7 @@ while getopts "hb:s:d:" arg; do
     b) BLACKLIST_SRC="${OPTARG}" ;;
     s) LOOKUP_SRC="${OPTARG}" ;;
     d) DNS="${OPTARG}" ;;
-    ?) echo "${__USAGE}"; exit 1 ;;
+    *) echo "${__USAGE}"; exit 1 ;;
   esac
 done
 

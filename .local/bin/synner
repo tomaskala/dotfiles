@@ -13,7 +13,7 @@ In the second form: Provide shortcuts for git commands ran as if
 inside the synchronized directory."
 
 
-SYNCED_DIR="$HOME/notes"
+SYNCED_DIR="${HOME}/notes"
 GIT_COMMIT_MSG="Sync"
 GIT_DIR=""
 

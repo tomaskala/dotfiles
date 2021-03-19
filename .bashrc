@@ -130,7 +130,7 @@ function add {
   fi
 }
 
-PATH=$(add "$HOME/.local/bin" "$PATH")
+PATH=$(add "${HOME}/.local/bin" "${PATH}")
 
 
 ### Display a message when opening a terminal.
