@@ -1,0 +1,52 @@
+#!/bin/bash
+set -ef -o pipefail
+
+
+__USAGE="Usage: $(basename "$0") source [destination]
+
+Encrypt the source file using all public keys for the email found in the
+EMAIL environment variable.
+
+If destination is provided, save the encrypted file there. Otherwise,
+save it in the same directory as the source with '.gpg' appended to it."
+
+
+function die {
+  >&2 echo "$1"
+  exit 1
+}
+
+
+# Show usage.
+if [[ "$#" -gt 0 && "$1" == "-h" ]]; then
+  echo "${__USAGE}"
+  exit 0
+fi
+
+
+[[ -z "${EMAIL}" ]] && die "The EMAIL environment variable is not set."
+
+GPG_OPTS=( "--quiet" "--yes" "--compress-algo=none" "--no-encrypt-to" )
+GPG="gpg"
+
+which gpg2 &>/dev/null && GPG="gpg2"
+
+[[ -n ${GPG_AGENT_INFO} || ${GPG} == "gpg2" ]] \
+  && GPG_OPTS+=( "--batch" "--use-agent" )
+
+[[ "$#" -eq 0 || "$#" -gt 2 ]] && die "Specify either 1 or 2 arguments."
+
+# Process arguments.
+SOURCE="$1"
+[[ "$#" -eq 2 ]] && GPG_OPTS+=( "-o" "$2" )
+
+[[ ! -f "${SOURCE}" ]] && die "The file ${SOURCE} does not exist."
+
+# Read all key IDs for the email stored in the EMAIL environment variable.
+while read -r keyid; do
+  GPG_OPTS+=( "-r" "${keyid}" )
+done < <(gpg --list-keys --with-colons "${EMAIL}" \
+  | awk -F: '$1 == "pub" { print $5 }')
+
+# Encrypt the source file.
+"${GPG}" -e "${GPG_OPTS[@]}" "${SOURCE}"
