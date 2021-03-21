@@ -49,7 +49,6 @@ while getopts "hp" arg; do
   esac
 done
 
-
 for source in .*; do
   while read -r dotfile; do
     if [[ "${dotfile}" = "${dotfile##*.gpg}" ]]; then
@@ -59,6 +58,5 @@ for source in .*; do
     fi
   done < <(find "${source}" -type f | sort)
 done
-
 
 chmod -w .config/vlc/vlcrc

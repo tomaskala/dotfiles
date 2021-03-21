@@ -23,7 +23,6 @@ if [[ "$#" -gt 0 && "$1" == "-h" ]]; then
   exit 0
 fi
 
-
 [[ -z "${EMAIL}" ]] && die "The EMAIL environment variable is not set."
 
 GPG_OPTS=( "--quiet" "--yes" "--compress-algo=none" "--no-encrypt-to" )
