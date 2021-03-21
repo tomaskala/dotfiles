@@ -11,7 +11,7 @@ Options:
   -h       Show this message and exit."
 
 
-HOSTS_SRC="https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts"
+HOSTS_SRC="https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts"
 BLACKLIST_SRC=""
 LOOKUP_SRC=""
 DNS=""
