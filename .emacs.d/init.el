@@ -233,8 +233,7 @@
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
   (setq org-agenda-files
-        '("~/notes/todos/tasks.org"
-          "~/notes/todos/periodic.org"))
+        '("~/notes/todos/"))
   (setq org-tag-alist
         '(("errand" . ?E) ("home" . ?H) ("work" . ?W) ("idea" . ?I)))
   (setq org-todo-keywords
