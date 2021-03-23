@@ -1,7 +1,7 @@
-# linux-utils
+# Dotfiles
 
 
-## My Linux configuration and utilities
+## My dotfiles and utilities
 
 I am using the latest Fedora installation.
 
