@@ -19,6 +19,7 @@ I am using the latest Fedora installation.
 ## Backup
 
 Before reinstalling the system, backup the following:
+
 * Firefox profile: `~/.mozilla/firefox/<profile-directory>`:
   * `places.sqlite`;
   * `bookmarkbackups`;
