@@ -114,6 +114,17 @@ The following software should then be installed.
 #### Internet
 
 * Firefox
+* Qutebrowser
+  * Optionally install asciidoc to generate help files.
+    * `sudo dnf install asciidoc`
+  * Install Qutebrowser from the official repository.
+  ```
+  $ cd
+  $ git clone https://github.com/qutebrowser/qutebrowser.git
+  $ cd ./qutebrowser
+  $ python scripts/mkvenv.py
+  $ ln -fs $HOME/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop ~/.local/share/applications/
+  ```
 * Thunderbird
   * [Thunderbird and
     Gmail](https://support.mozilla.org/en-US/kb/thunderbird-and-gmail)
