@@ -70,5 +70,6 @@ if [[ -n "${BLACKLIST_SRC}" ]]; then
 
   while read -r addr; do
     echo "0.0.0.0 ${addr}" | sudo tee -a /etc/hosts
+    echo "0.0.0.0 www.${addr}" | sudo tee -a /etc/hosts
   done < "${BLACKLIST_SRC}"
 fi
