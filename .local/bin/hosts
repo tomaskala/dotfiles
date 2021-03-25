@@ -6,8 +6,11 @@ __USAGE="Usage: $(basename "$0") [OPTIONS]
 
 Options:
   -b FILE  Path to a blacklist file with 1 address per line.
+           The file may contain comment lines beginning with '#'.
   -s FILE  Path to a lookup file with 1 address per line.
+           The file may contain comment lines beginning with '#'.
   -d TEXT  Address of a DNS server to use when digging the lookup file contents.
+           If not beginning with '@', the character will be substituted.
   -h       Show this message and exit."
 
 
@@ -59,8 +62,12 @@ if [[ -n "${LOOKUP_SRC}" ]]; then
   echo "# DNS lookup from the 'hosts' script." | sudo tee -a /etc/hosts
 
   while read -r addr; do
-    lookup=$(dig "${addr}" "${DNS}" +short)
-    echo "${lookup} ${addr}" | sudo tee -a /etc/hosts
+    if [[ "${addr#\#}" == "${addr}" ]]; then
+      lookup=$(dig "${addr}" "${DNS}" +short)
+      echo "${lookup} ${addr}" | sudo tee -a /etc/hosts
+    else
+      echo "${addr}" | sudo tee -a /etc/hosts
+    fi
   done < "${LOOKUP_SRC}"
 fi
 
@@ -69,7 +76,11 @@ if [[ -n "${BLACKLIST_SRC}" ]]; then
   echo "# Blacklist from the 'hosts' script." | sudo tee -a /etc/hosts
 
   while read -r addr; do
-    echo "0.0.0.0 ${addr}" | sudo tee -a /etc/hosts
-    echo "0.0.0.0 www.${addr}" | sudo tee -a /etc/hosts
+    if [[ "${addr#\#}" == "${addr}" ]]; then
+      echo "0.0.0.0 ${addr}" | sudo tee -a /etc/hosts
+      echo "0.0.0.0 www.${addr}" | sudo tee -a /etc/hosts
+    else
+      echo "${addr}" | sudo tee -a /etc/hosts
+    fi
   done < "${BLACKLIST_SRC}"
 fi
