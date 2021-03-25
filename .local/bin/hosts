@@ -56,7 +56,7 @@ sudo wget -O "/etc/hosts" "${HOSTS_SRC}" && sync
 
 # Append DNS lookups of internal services.
 if [[ -n "${LOOKUP_SRC}" ]]; then
-  echo "# Reverse DNS lookup from the 'hosts' script." | sudo tee -a /etc/hosts
+  echo "# DNS lookup from the 'hosts' script." | sudo tee -a /etc/hosts
 
   while read -r addr; do
     lookup=$(dig "${addr}" "${DNS}" +short)
