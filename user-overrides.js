@@ -19,7 +19,7 @@ user_pref("browser.sessionstore.interval", 15000);
 user_pref("browser.sessionstore.privacy_level", 0);
 user_pref("browser.startup.homepage", "about:home");
 user_pref("browser.startup.page", 3);
-user_pref("browser.tabs.drawInTitlebar", true);
+user_pref("browser.tabs.drawInTitlebar", false);
 user_pref("browser.toolbars.bookmarks.visibility", "never");
 user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\",\"library-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"_testpilot-containers-browser-action\",\"_d7742d87-e61d-4b78-b8a1-b469842139fa_-browser-action\",\"_contain-facebook-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"_74145f27-f039-47ce-a470-a662b129930a_-browser-action\",\"_c607c8df-14a7-4f28-894f-29e8722976af_-browser-action\"],\"currentVersion\":16,\"newElementCount\":4}");
 user_pref("browser.uidensity", 1);
