@@ -20,6 +20,27 @@ c.completion.shrink = True
 # Automatically start playing `<video>` elements.
 c.content.autoplay = False
 
+# List of URLs to ABP-style adblocking rulesets.
+c.content.blocking.adblock.lists = [
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt",
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt",
+    "https://curben.gitlab.io/malware-filter/urlhaus-filter-online.txt",
+    "https://raw.githubusercontent.com/Spam404/lists/master/adblock-list.txt",
+    "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/sections/annoyances.txt",
+    "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+    "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+    "https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt",
+    "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_1_Russian/filter.txt",
+    "https://www.fanboy.co.nz/fanboy-problematic-sites.txt",
+    "https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt",
+    "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
+]
+
 # Enable the ad/host blocker
 c.content.blocking.enabled = True
 
