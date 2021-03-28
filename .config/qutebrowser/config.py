@@ -151,6 +151,7 @@ c.url.searchengines = {
     "tce": "https://translate.google.com/?op=translate&sl=cs&tl=en&text={}",
     "tec": "https://translate.google.com/?op=translate&sl=en&tl=cs&text={}",
     "http": "https://httpstatuses.com/{}",
+    "m": "https://www.metal-archives.com/search?type=band_name&searchString={}",
 }
 
 # Keybindings.
