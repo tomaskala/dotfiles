@@ -1,3 +1,6 @@
+import os
+
+
 # Load autoconfig.
 config.load_autoconfig()
 
@@ -58,6 +61,17 @@ c.downloads.location.prompt = True
 
 # What to display in the download filename input (both = download path & filename).
 c.downloads.location.suggestion = "both"
+
+# Editor (and arguments) to use for the `edit-*` commands.
+c.editor.command = [
+    os.environ["TERMINAL"],
+    "-e",
+    os.environ["EDITOR"],
+    "-f",
+    "{file}",
+    "-c",
+    "set cc=|normal {line}G{column0}l",
+]
 
 # Make characters in hint strings uppercase.
 c.hints.uppercase = True
