@@ -154,7 +154,7 @@ set $bg-color-a      #1a2026
 set $bg-color-b      #1e252c
 set $text-color-a    #ffffff
 set $text-color-b    #6ec1d6
-set $urgent-bg-color #e53935
+set $urgent-bg-color #c13775
 
 # Window colors.
 #                       border           background       text          indicator
