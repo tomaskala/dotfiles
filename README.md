@@ -291,11 +291,20 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
   [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh)
   within the same directory.
 * The `user-overrides.js` file includes most of the `about:preferences` contents.
-  The only exception is the **Search engines** section which must be manually
-  edited.
-  * Select `DuckDuckGo` as the default search engine, remove all engines except
-    `DuckDuckGo` and `Wikipedia` and set `d` and `w` as their respective
-    keywords.
+  The only exception is the **Search engines** section, which must be cleared
+  and set to the following (using bookmarks, since Firefox does not allow to
+  edit the search engines in preferences).
+  ```
+  (d) https://duckduckgo.com/?q=%s
+  (w) https://en.wikipedia.org/wiki/Special:Search/%s
+  (y) https://www.youtube.com/results?search_query=%s
+  (r) https://www.reddit.com/search?q=%s
+  (gh) https://github.com/search?q=%s
+  (tce) https://translate.google.com/?op=translate&sl=cs&tl=en&text=%s
+  (tec) https://translate.google.com/?op=translate&sl=en&tl=cs&text=%s
+  (http) https://httpstatuses.com/%s
+  (m) https://www.metal-archives.com/search?type=band_name&searchString=%s
+  ```
 
 
 #### Import data
