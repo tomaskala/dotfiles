@@ -108,6 +108,14 @@ c.url.open_base_url = True
 # Search engines which can be used via the address bar.
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
+    "d": "https://duckduckgo.com/?q={}",
+    "w": "https://en.wikipedia.org/wiki/Special:Search/{}",
+    "y": "https://www.youtube.com/results?search_query={}",
+    "r": "https://www.reddit.com/search?q={}",
+    "gh": "https://github.com/search?q={}",
+    "tce": "https://translate.google.com/?op=translate&sl=cs&tl=en&text={}",
+    "tec": "https://translate.google.com/?op=translate&sl=en&tl=cs&text={}",
+    "http": "https://httpstatuses.com/{}",
 }
 
 config.bind(",f", "spawn -d firefox {url}")
