@@ -153,7 +153,11 @@ c.url.searchengines = {
     "http": "https://httpstatuses.com/{}",
 }
 
+# Keybindings.
 config.bind(",f", "spawn -d firefox {url}")
+
+# Load a colorscheme.
+config.source("colorscheme.py")
 
 
 # TODO: Autoclear cache upon exit.
