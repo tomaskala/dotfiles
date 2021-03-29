@@ -189,6 +189,9 @@ The following software should then be installed.
   * Create the docker group: `sudo groupadd docker`.
   * Add the current user to the group: `sudo usermod -aG docker $USER`.
   * Relog.
+* Wireshark
+  * `sudo dnf install wireshark`
+  * Add the current user to the group: `sudo usermod -aG wireshark $USER`.
 
 
 #### Media
