@@ -59,4 +59,5 @@ for source in .*; do
   done < <(find "${source}" -type f | sort)
 done
 
+chmod 700 ~/.gnupg
 chmod -w .config/vlc/vlcrc
