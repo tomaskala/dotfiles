@@ -41,11 +41,24 @@ SOURCE="$1"
 
 [[ ! -f "${SOURCE}" ]] && die "The file ${SOURCE} does not exist."
 
-# Read all key IDs for the email stored in the EMAIL environment variable.
+# Read all fingerprints for the email stored in the EMAIL environment variable.
+FPR_PARSER='
+BEGIN {
+  out = ""
+}
+
+$1 == "fpr" {
+  out = $10;
+}
+
+$1 == "uid" {
+  print out;
+}
+'
+
 while read -r keyid; do
   GPG_OPTS+=( "-r" "${keyid}" )
-done < <(gpg --list-keys --with-colons "${EMAIL}" \
-  | awk -F: '$1 == "pub" { print $5 }')
+done < <(gpg --list-keys --with-colons "${EMAIL}" | awk -F: "${FPR_PARSER}")
 
 # Encrypt the source file.
 "${GPG}" -e "${GPG_OPTS[@]}" "${SOURCE}"
