@@ -2,6 +2,7 @@
     name = Tomas Kala
     email = me@tomaskala.com
     username = tomaskala
+    signingKey = BEB4BD93D9FFD6A585F367AA6C787D207CCD1CFA
 
 [core]
     editor = nvim
@@ -28,7 +29,7 @@
 
 [merge]
     tool = vimdiff
-    conflictstyle = diff3
+    conflictStyle = diff3
 
 [mergetool "vimdiff"]
     cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
@@ -38,6 +39,9 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+
+[commit]
+    gpgSign = true
 
 [pass]
 	signcommits = true
