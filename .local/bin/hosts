@@ -6,9 +6,11 @@ __USAGE="Usage: $(basename "$0") [OPTIONS]
 
 Options:
   -b FILE  Path to a blacklist file with 1 address per line.
-           The file may contain comment lines beginning with '#'.
+           The file may contain comment lines beginning with '#'
+           as well as empty lines.
   -s FILE  Path to a lookup file with 1 address per line.
-           The file may contain comment lines beginning with '#'.
+           The file may contain comment lines beginning with '#'
+           as well as empty lines.
   -d TEXT  Address of a DNS server to use when digging the lookup file contents.
            If not beginning with '@', the character will be substituted.
   -h       Show this message and exit."
