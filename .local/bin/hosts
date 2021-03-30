@@ -7,7 +7,9 @@ __USAGE="Usage: $(basename "$0") [OPTIONS]
 Options:
   -b FILE  Path to a blacklist file with 1 address per line.
            The file may contain comment lines beginning with '#'
-           as well as empty lines.
+           as well as empty lines. The addresses are assumed not
+           to begin with a 'www.'. In turn, the script blocks both
+           the given as well as 'www.'-prepended variants.
   -s FILE  Path to a lookup file with 1 address per line.
            The file may contain comment lines beginning with '#'
            as well as empty lines.
