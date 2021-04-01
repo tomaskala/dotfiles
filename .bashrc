@@ -18,6 +18,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias diff='diff --color'
 
+# Audio control.
+alias audio-hdmi='pacmd set-card-profile 0 output:hdmi-stereo+input:analog-stereo'
+alias audio-laptop='pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo'
+
 # Editor aliases.
 alias vim='nvim'
 alias vi='nvim'
