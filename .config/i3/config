@@ -243,5 +243,9 @@ assign [class="Virt-manager"] $ws9
 # Needs 'set set_term_title=true' in cmus config.
 for_window [class="Alacritty" title="cmus"] move container to workspace $ws10
 
+# Scratchpad.
+for_window [class="Alacritty" instance="scratchpad"] floating enable
+bindsym $mod+g exec scratchpad
+
 # Disable annoying titlebar.
 default_border none

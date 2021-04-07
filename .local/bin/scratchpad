@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euf -o pipefail
+
+TMPFILE=$(mktemp)
+TERMINAL_ARGS=(
+  --class="scratchpad"
+  -e "${SHELL}"
+  -l
+  -c "${EDITOR} -c startinsert ${TMPFILE}"
+)
+
+"${TERMINAL}" "${TERMINAL_ARGS[@]}" && xclip -selection clipboard < "${TMPFILE}"
