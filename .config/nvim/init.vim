@@ -3,16 +3,26 @@ set nocompatible  " Must be the first line.
 
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'joshdick/onedark.vim'
   Plug 'sheerun/vim-polyglot'
+  Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
 call plug#end()
 
 
 " COLORS
 set termguicolors
 set background=dark
-let g:onedark_terminal_italics=1
-colorscheme onedark
+colorscheme tempus_warp
+
+function Day()
+  colorscheme tempus_dawn
+endfunction
+
+function Night()
+  colorscheme tempus_warp
+endfunction
+
+command Day call Day()
+command Night call Night()
 
 
 " FILETYPE-SPECIFIC
