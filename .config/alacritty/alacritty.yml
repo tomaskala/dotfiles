@@ -15,13 +15,13 @@ font:
 
 colors:
   primary:
-    background: '#1a2026'
-    foreground: '#ffffff'
+    background: '#001514'
+    foreground: '#a29fa0'
   cursor:
-    background: '#ffffff'
-    foreground: '#1a2026'
+    background: '#a29fa0'
+    foreground: '#001514'
   normal:
-    black: '#282c34'
+    black: '#3e4452'
     red: '#e06c75'
     green: '#98c379'
     yellow: '#e5c07b'
