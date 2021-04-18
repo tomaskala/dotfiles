@@ -308,6 +308,7 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
   (http) https://httpstatuses.com/%s
   (m) https://www.metal-archives.com/search?type=band_name&searchString=%s
   ```
+* Install the [Gruvbox theme](gruvbox.xpi) by opening it (`CTRL+o`) in Firefox.
 
 
 #### Import data

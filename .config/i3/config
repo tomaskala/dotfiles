@@ -150,18 +150,28 @@ mode "move" {
 bindsym $mod+m mode "move" focus floating
 
 # Define colors.
-set $bg-color-a      #1a2026
-set $bg-color-b      #1e252c
-set $text-color-a    #ffffff
-set $text-color-b    #6ec1d6
-set $urgent-bg-color #c13775
+set $normal-bg-color #1d2021
+set $normal-fg-color #ebdbb2
+set $normal-bd-color #1d2021
+
+set $focused-bg-color #689d6a
+set $focused-fg-color #1d2021
+set $focused-bd-color #689d6a
+
+set $inactive-bg-color #458588
+set $inactive-fg-color #1d2021
+set $inactive-bd-color #458588
+
+set $urgent-bg-color #d3869b
+set $urgent-fg-color #1d2021
+set $urgent-bd-color #d3869b
 
 # Window colors.
-#                       border           background       text          indicator
-client.focused          $bg-color-b      $bg-color-b      $text-color-b #00ff00
-client.unfocused        $bg-color-a      $bg-color-a      $text-color-a #00ff00
-client.focused_inactive $bg-color-a      $bg-color-a      $text-color-a #00ff00
-client.urgent           $urgent-bg-color $urgent-bg-color $text-color-a #00ff00
+#                       border             background         text               indicator
+client.focused          $focused-bd-color  $focused-bg-color  $focused-fg-color  #00ff00
+client.unfocused        $normal-bd-color   $normal-bg-color   $normal-fg-color   #00ff00
+client.focused_inactive $inactive-bd-color $inactive-bg-color $inactive-fg-color #00ff00
+client.urgent           $urgent-bd-color   $urgent-bg-color   $urgent-fg-color   #00ff00
 
 # Bar settings.
 bar {
@@ -183,14 +193,14 @@ bar {
 
     # Bar colors.
     colors {
-        background $bg-color-a
-        statusline $text-color-a
-        separator $text-color-a
+        background $normal-bg-color
+        statusline $normal-fg-color
+        separator $normal-bd-color
 
-        #                  border           background       text
-        focused_workspace  $bg-color-b      $bg-color-b      $text-color-b
-        inactive_workspace $bg-color-a      $bg-color-a      $text-color-a
-        urgent_workspace   $urgent-bg-color $urgent-bg-color $text-color-a
+        #                  border            background        text
+        focused_workspace  $focused-bd-color $focused-bg-color $focused-fg-color
+        inactive_workspace $normal-bd-color  $normal-bg-color  $normal-fg-color
+        urgent_workspace   $urgent-bd-color  $urgent-bg-color  $urgent-fg-color
     }
 }
 

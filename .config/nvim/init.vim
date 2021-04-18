@@ -4,21 +4,24 @@ set nocompatible  " Must be the first line.
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
-  Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
+  Plug 'morhetz/gruvbox'
 call plug#end()
 
 
 " COLORS
 set termguicolors
 set background=dark
-colorscheme tempus_warp
+let g:gruvbox_italic='1'
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_light='medium'
+colorscheme gruvbox
 
 function Day()
-  colorscheme tempus_dawn
+  set background=light
 endfunction
 
 function Night()
-  colorscheme tempus_warp
+  set background=dark
 endfunction
 
 command Day call Day()

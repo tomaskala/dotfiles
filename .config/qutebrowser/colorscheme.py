@@ -1,32 +1,32 @@
-bg0_hard = "#1a2026"
-bg0_soft = "#1e252c"
-bg0_normal = bg0_hard
+bg0_hard = "#1d2021"
+bg0_soft = "#32302f"
+bg0_normal = "#282828"
 
-bg0 = bg0_normal
-bg1 = bg0_soft
-bg2 = bg0_normal
-bg3 = bg0_normal
-bg4 = bg0_normal
+bg0 = bg0_hard
+bg1 = bg0
+bg2 = bg0
+bg3 = bg0
+bg4 = bg0
 
-fg0 = "#ffffff"
-fg1 = "#ffffff"
-fg2 = "#6ec1d6"
-fg3 = "#6ec1d6"
-fg4 = "#ffffff"
+fg0 = "#fbf1c7"
+fg1 = "#ebdbb2"
+fg2 = "#d5c4a1"
+fg3 = "#bdae93"
+fg4 = "#a89984"
 
-bright_red = "#d66e8d"
+bright_red = "#fb4934"
 bright_green = "#b8bb26"
 bright_yellow = "#fabd2f"
-bright_blue = "#6ec1d6"
+bright_blue = "#83a598"
 bright_purple = "#d3869b"
 bright_aqua = "#8ec07c"
 bright_gray = "#928374"
 bright_orange = "#fe8019"
 
-dark_red = "#c13775"
+dark_red = "#cc241d"
 dark_green = "#98971a"
-dark_yellow = "#666d17"
-dark_blue = "#37bac1"
+dark_yellow = "#d79921"
+dark_blue = "#458588"
 dark_purple = "#b16286"
 dark_aqua = "#689d6a"
 dark_gray = "#a89984"
@@ -36,7 +36,7 @@ dark_orange = "#d65d0e"
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
-c.colors.completion.fg = [fg0, bright_blue, fg0]
+c.colors.completion.fg = [fg1, bright_aqua, bright_yellow]
 
 # Background color of the completion widget for odd rows.
 c.colors.completion.odd.bg = bg0
@@ -71,7 +71,7 @@ c.colors.completion.item.selected.border.bottom = (
 )
 
 # Foreground color of the matched text in the selected completion item.
-c.colors.completion.item.selected.match.fg = bright_yellow
+c.colors.completion.item.selected.match.fg = bright_orange
 
 # Foreground color of the matched text in the completion.
 c.colors.completion.match.fg = c.colors.completion.item.selected.match.fg
@@ -150,7 +150,7 @@ c.colors.keyhint.bg = bg0
 c.colors.messages.error.fg = bg0
 
 # Background color of an error message.
-c.colors.messages.error.bg = dark_red
+c.colors.messages.error.bg = bright_red
 
 # Border color of an error message.
 c.colors.messages.error.border = c.colors.messages.error.bg
@@ -159,7 +159,7 @@ c.colors.messages.error.border = c.colors.messages.error.bg
 c.colors.messages.warning.fg = bg0
 
 # Background color of a warning message.
-c.colors.messages.warning.bg = bright_red
+c.colors.messages.warning.bg = bright_purple
 
 # Border color of a warning message.
 c.colors.messages.warning.border = c.colors.messages.warning.bg
@@ -196,10 +196,10 @@ c.colors.statusbar.normal.fg = fg2
 c.colors.statusbar.normal.bg = bg0
 
 # Foreground color of the statusbar in insert mode.
-c.colors.statusbar.insert.fg = fg2
+c.colors.statusbar.insert.fg = bg0
 
 # Background color of the statusbar in insert mode.
-c.colors.statusbar.insert.bg = bg0
+c.colors.statusbar.insert.bg = dark_aqua
 
 # Foreground color of the statusbar in passthrough mode.
 c.colors.statusbar.passthrough.fg = bg0
@@ -247,16 +247,18 @@ c.colors.statusbar.url.fg = fg4
 c.colors.statusbar.url.error.fg = dark_red
 
 # Foreground color of the URL in the statusbar for hovered links.
-c.colors.statusbar.url.hover.fg = bright_yellow
+c.colors.statusbar.url.hover.fg = bright_orange
 
-# Foreground color of the URL in the statusbar on successful load (http).
+# Foreground color of the URL in the statusbar on successful load
+# (http).
 c.colors.statusbar.url.success.http.fg = bright_red
 
-# Foreground color of the URL in the statusbar on successful load (https).
+# Foreground color of the URL in the statusbar on successful load
+# (https).
 c.colors.statusbar.url.success.https.fg = fg0
 
 # Foreground color of the URL in the statusbar when there's a warning.
-c.colors.statusbar.url.warn.fg = bright_red
+c.colors.statusbar.url.warn.fg = bright_purple
 
 ### Tabs
 
@@ -267,58 +269,58 @@ c.colors.tabs.bar.bg = bg0
 c.colors.tabs.indicator.start = bright_blue
 
 # Color gradient end for the tab indicator.
-c.colors.tabs.indicator.stop = dark_blue
+c.colors.tabs.indicator.stop = bright_aqua
 
 # Color for the tab indicator on errors.
 c.colors.tabs.indicator.error = bright_red
 
-# Foreground color of unselected even tabs.
-c.colors.tabs.even.fg = fg0
-
-# Background color of unselected even tabs.
-c.colors.tabs.even.bg = bg0_hard
-
 # Foreground color of unselected odd tabs.
-c.colors.tabs.odd.fg = c.colors.tabs.even.fg
+c.colors.tabs.odd.fg = fg2
 
 # Background color of unselected odd tabs.
-c.colors.tabs.odd.bg = c.colors.tabs.even.bg
+c.colors.tabs.odd.bg = bg2
 
-# Foreground color of selected even tabs.
-c.colors.tabs.selected.even.fg = fg2
+# Foreground color of unselected even tabs.
+c.colors.tabs.even.fg = c.colors.tabs.odd.fg
 
-# Background color of selected even tabs.
-c.colors.tabs.selected.even.bg = bg0_soft
+# Background color of unselected even tabs.
+c.colors.tabs.even.bg = bg3
 
 # Foreground color of selected odd tabs.
-c.colors.tabs.selected.odd.fg = c.colors.tabs.selected.even.fg
+c.colors.tabs.selected.odd.fg = bg0
 
 # Background color of selected odd tabs.
-c.colors.tabs.selected.odd.bg = c.colors.tabs.selected.even.bg
+c.colors.tabs.selected.odd.bg = dark_aqua
+
+# Foreground color of selected even tabs.
+c.colors.tabs.selected.even.fg = c.colors.tabs.selected.odd.fg
+
+# Background color of selected even tabs.
+c.colors.tabs.selected.even.bg = c.colors.tabs.selected.odd.bg
 
 # Background color of pinned unselected even tabs.
-c.colors.tabs.pinned.even.bg = dark_red
+c.colors.tabs.pinned.even.bg = bright_green
 
 # Foreground color of pinned unselected even tabs.
-c.colors.tabs.pinned.even.fg = fg0
+c.colors.tabs.pinned.even.fg = bg2
 
 # Background color of pinned unselected odd tabs.
-c.colors.tabs.pinned.odd.bg = c.colors.tabs.pinned.even.bg
+c.colors.tabs.pinned.odd.bg = bright_green
 
 # Foreground color of pinned unselected odd tabs.
 c.colors.tabs.pinned.odd.fg = c.colors.tabs.pinned.even.fg
 
 # Background color of pinned selected even tabs.
-c.colors.tabs.pinned.selected.even.bg = dark_red
+c.colors.tabs.pinned.selected.even.bg = bg0
 
 # Foreground color of pinned selected even tabs.
-c.colors.tabs.pinned.selected.even.fg = fg2
+c.colors.tabs.pinned.selected.even.fg = c.colors.tabs.selected.odd.fg
 
 # Background color of pinned selected odd tabs.
 c.colors.tabs.pinned.selected.odd.bg = c.colors.tabs.pinned.selected.even.bg
 
 # Foreground color of pinned selected odd tabs.
-c.colors.tabs.pinned.selected.odd.fg = c.colors.tabs.pinned.selected.even.fg
+c.colors.tabs.pinned.selected.odd.fg = c.colors.tabs.selected.odd.fg
 
 # Background color for webpages if unset (or empty to use the theme's color).
 c.colors.webpage.bg = bg4
