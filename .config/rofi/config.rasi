@@ -6,7 +6,7 @@ configuration {
     show-icons: true;
     fixed-num-lines: true;
     bw: 1;
-    sort: true;
+    sort: false;
     matching: "normal";
     levenshtein-sort: false;
     case-sensitive: false;
