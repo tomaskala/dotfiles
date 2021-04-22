@@ -197,6 +197,7 @@ The following software should then be installed.
 #### Media
 
 * [VLC](https://www.videolan.org/vlc/download-fedora.html)
+* [mpv](https://mpv.io/)
 * [cmus](https://cmus.github.io/)
 
 
