@@ -18,6 +18,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias diff='diff --color'
 
+# Media.
+alias y='youtube-dl'
+alias yp='youtube-dl -o "%(playlist_index)s-%(title)s.%(ext)s"'
+
 # Audio control.
 alias audio-hdmi='pacmd set-card-profile 0 output:hdmi-stereo+input:analog-stereo'
 alias audio-laptop='pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo'

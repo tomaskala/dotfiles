@@ -1,0 +1,11 @@
+# Do not use the last modification time of the video for the downloaded file.
+--no-mtime
+
+# Restrict filenames to ASCII and avoid '&' and spaces.
+--restrict-filenames
+
+# Use this audio and video format.
+-f "bestvideo[height<=1080]+bestaudio/best[height<=1080]"
+
+# Use this container format for the merged audio+video.
+--merge-output-format mkv

@@ -199,6 +199,10 @@ The following software should then be installed.
 * [VLC](https://www.videolan.org/vlc/download-fedora.html)
 * mpv
   * `sudo dnf install mpv`
+* FFmpeg
+  * `sudo dnf install ffmpeg`
+* youtube-dl
+  * `sudo dnf install youtube-dl`
 * cmus
   * `sudo dnf install cmus`
 
