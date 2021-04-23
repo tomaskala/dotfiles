@@ -230,6 +230,7 @@ augroup FileTypeSpecificAutocommands
   autocmd FileType sh,bash call SetIndentation(2)
   autocmd FileType mail,markdown,text
     \ call SetIndentation(2) |
-    \ setlocal textwidth=80
+    \ setlocal textwidth=80 |
+    \ set conceallevel=2
   autocmd FileType python,cython setlocal colorcolumn=89
 augroup end
