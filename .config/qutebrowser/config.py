@@ -156,6 +156,8 @@ c.url.searchengines = {
 
 # Keybindings.
 config.bind(",f", "spawn -d firefox {url}")
+config.bind(",m", "spawn mpv {url}")
+config.bind(",M", "hint links spawn mpv {hint-url}")
 
 # Load a colorscheme.
 config.source("colorscheme.py")
