@@ -182,6 +182,7 @@ The following software should then be installed.
   * [pass-update](https://github.com/roddhjav/pass-update)
 * Virtual Machine Manager
   * `sudo dnf install virt-manager`
+  * Add the current user to the group: `sudo usermod -aG libvirt $USER`.
 * Docker
   * Instead of using `dnf`, follow the [official
     instructions](https://docs.docker.com/engine/install/). The most-recent
