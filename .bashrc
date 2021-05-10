@@ -59,13 +59,16 @@ alias gst='git status'
 ### Environment variables.
 export REALNAME='Tomas Kala'
 export EMAIL='me@tomaskala.com'
-export GIT_COMMITTER_NAME="${REALNAME}"
-export GIT_AUTHOR_NAME="${REALNAME}"
 export BROWSER='firefox'
 export TERMINAL='alacritty'
 export EDITOR='nvim'
 OS="$(uname)"
 export OS
+
+export GIT_AUTHOR_NAME="${REALNAME}"
+export GIT_AUTHOR_EMAIL="${EMAIL}"
+export GIT_COMMITTER_NAME="${REALNAME}"
+export GIT_COMMITTER_EMAIL="${EMAIL}"
 
 export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
 export LESS_TERMCAP_md=$'\e[00;34m'    # Bold mode     - blue.
