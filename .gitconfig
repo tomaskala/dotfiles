@@ -44,4 +44,4 @@
     gpgSign = true
 
 [pass]
-	signcommits = true
+    signcommits = true
