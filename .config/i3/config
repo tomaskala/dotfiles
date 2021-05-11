@@ -257,5 +257,8 @@ for_window [class="Alacritty" title="cmus"] move container to workspace $ws10
 for_window [class="Alacritty" instance="scratchpad"] floating enable
 bindsym $mod+g exec scratchpad
 
+# Passmenu.
+bindsym $mod+p exec --no-startup-id passmenu
+
 # Disable annoying titlebar.
 default_border none
