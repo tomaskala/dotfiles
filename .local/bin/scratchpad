@@ -3,7 +3,7 @@ set -euf -o pipefail
 
 TMPFILE=$(mktemp)
 TERMINAL_ARGS=(
-  --class="scratchpad"
+  -c "scratchpad"
   -e "${SHELL}"
   -l
   -c "${EDITOR} -c startinsert ${TMPFILE}"

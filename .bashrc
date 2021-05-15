@@ -62,7 +62,7 @@ export EMAIL='me@tomaskala.com'
 export GIT_COMMITTER_NAME="${REALNAME}"
 export GIT_AUTHOR_NAME="${REALNAME}"
 export BROWSER='firefox'
-export TERMINAL='alacritty'
+export TERMINAL='st'
 export EDITOR='nvim'
 OS="$(uname)"
 export OS
