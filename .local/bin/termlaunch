@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+set -euf -o pipefail
+
+
+__USAGE="Usage: $(basename "$0") [OPTIONS] COMMAND
+
+Launch the given command in a new terminal window.
+
+Commands:
+  scratchpad  Open a temporary file in a text editor, copying its contents to
+              the system clipboard after saving.
+  notes       Open the file given by the '-n' option in a text editor. If no
+              such file is given, open the editor with an empty text buffer.
+  calculator  Launch calculator.
+
+Options:
+  -g TEXT  a
+  -n FILE  a
+  -h       Show this message and exit."
+
+
+GEOMETRY=""
+NOTES_FILE=""
+
+
+function tl {
+  local args=()
+  local class="$1"
+  shift
+
+  if [[ -n "${GEOMETRY}" ]]; then
+    args+=(-g "${GEOMETRY}" -i)
+  fi
+
+  args+=(-c "${class}" -e "${SHELL}" -l -c "'$@'")
+  eval "${TERMINAL} ${args[*]}"
+}
+
+function tl_scratchpad {
+  local tmpfile
+  tmpfile=$(mktemp)
+  local command=("${EDITOR}" -c "startinsert" "${tmpfile}")
+  tl "scratchpad" "${command[@]}" && xclip -selection clipboard < "${tmpfile}"
+}
+
+function tl_notes {
+  local command=("${EDITOR}" "${NOTES_FILE}")
+  tl "notes" "${command[@]}"
+}
+
+function tl_calculator {
+  local command=("bc" "-l")
+  tl "calculator" "${command[@]}"
+}
+
+
+while getopts "hg:n:" arg; do
+  case "${arg}" in
+    h) echo "${__USAGE}"; exit 0 ;;
+    g) GEOMETRY="${OPTARG}" ;;
+    n) NOTES_FILE="${OPTARG}" ;;
+    *) echo "${__USAGE}"; exit 1 ;;
+  esac
+done
+
+case "${@:${OPTIND}:1}" in
+  scratchpad) tl_scratchpad ;;
+  notes) tl_notes ;;
+  calculator) tl_calculator ;;
+  *) echo "${__USAGE}"; exit 1 ;;
+esac
