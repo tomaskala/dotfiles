@@ -1,5 +1,5 @@
 configuration {
-    modi: "drun,file-browser,ssh,window";
+    modi: "drun";
     width: 50;
     lines: 10;
     columns: 1;
@@ -10,7 +10,6 @@ configuration {
     matching: "normal";
     case-sensitive: false;
     drun-match-fields: "name";
-    sidebar-mode: true;
     hide-scrollbar: true;
     parse-known-hosts: false;
 }
