@@ -66,6 +66,8 @@ export TERMINAL='st'
 export EDITOR='nvim'
 OS="$(uname)"
 export OS
+GPG_TTY="$(tty)"
+export GPG_TTY
 
 export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
 export LESS_TERMCAP_md=$'\e[00;34m'    # Bold mode     - blue.
