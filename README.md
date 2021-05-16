@@ -31,13 +31,6 @@ Before reinstalling the system, backup the following:
 * Documents directory: `~/Documents`.
 * Pictures directory: `~/Pictures`.
 * Work directory: `~/Work`.
-* OpenVPN script: `/etc/openvpn/scripts/update-systemd-resolved`.
-  * The script addresses some issues encountered when connecting to work VPN.
-    However, it sometimes breaks DNS settings. These must then be restored by
-    executing `sudo nvim /etc/resolv.conf`, replacing the content by
-    `nameserver <dns-server-address>` and restarting the network manager by
-    `sudo service NetworkManager restart`.
-  * This file needs executable permissions.
 * Export GPG keys.
   * `gpg --armor --export-secret-keys <key-id> > <path-to-backup>/private.key`
   * `gpg --export-ownertrust > <path-to-backup>/ownertrust.txt`
@@ -127,10 +120,6 @@ The following software should then be installed.
   $ ln -fs $HOME/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop ~/.local/share/applications/
   ```
 * Thunderbird
-  * [Thunderbird and
-    Gmail](https://support.mozilla.org/en-US/kb/thunderbird-and-gmail)
-  * [IMAP settings for
-    Gmail](https://support.google.com/mail/answer/78892?hl=en)
   * Install the [No Message Pane
     Sort](https://addons.thunderbird.net/en-US/thunderbird/addon/no-message-pane-sort-by-mouse/)
     addon.
@@ -177,7 +166,7 @@ The following software should then be installed.
   * `sudo dnf install pass`
   * Download the [bash completion
     file](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion)
-    and put it into `/etc/bash_completion.d` named `pass`.
+    and put it into `/etc/bash_completion.d` under the name `pass`.
   * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
   * [pass-update](https://github.com/roddhjav/pass-update)
 * Virtual Machine Manager
@@ -197,7 +186,6 @@ The following software should then be installed.
 
 #### Media
 
-* [VLC](https://www.videolan.org/vlc/download-fedora.html)
 * mpv
   * `sudo dnf install mpv`
 * FFmpeg
@@ -316,7 +304,7 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
   (http) https://httpstatuses.com/%s
   (m) https://www.metal-archives.com/search?type=band_name&searchString=%s
   ```
-* Install the [Gruvbox theme](firefox/gruvbox.xpi) by opening it (`CTRL+o`) in
+* Install the `firefox/gruvbox.xpi` by opening it (`CTRL+o`) in
   Firefox.
 
 
