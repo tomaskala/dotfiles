@@ -12,8 +12,8 @@ I am using the latest Fedora installation.
 * Install the necessary software.
 * Run the `setup.sh` script which will symlink config files to their respective
   locations.
-* Once Firefox has been configured, manually symlink the `user-overrides.js`
-  file to `~/.mozilla/firefox/<profile-directory>`.
+* Once Firefox has been configured, manually symlink the
+* `firefox/user-overrides.js` file to `~/.mozilla/firefox/<profile-directory>`.
 
 
 ## Backup
@@ -297,14 +297,14 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
 #### Configuration
 
 * I use [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
-* Once the `user-overrides.js` file from this repository is symlinked to the
-  Firefox profile directory, run the `updater.sh`
+* Once the `firefox/user-overrides.js` file from this repository is symlinked to
+* the Firefox profile directory, run the `updater.sh`
   [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh)
   within the same directory.
-* The `user-overrides.js` file includes most of the `about:preferences` contents.
-  The only exception is the **Search engines** section, which must be cleared
-  and set to the following (using bookmarks, since Firefox does not allow to
-  edit the search engines in preferences).
+* The `firefox/user-overrides.js` file includes most of the `about:preferences`
+  contents. The only exception is the **Search engines** section, which must be
+  cleared and set to the following (using bookmarks, since Firefox does not
+  allow to edit the search engines in preferences).
   ```
   (d) https://duckduckgo.com/?q=%s
   (w) https://en.wikipedia.org/wiki/Special:Search/%s
@@ -316,7 +316,8 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
   (http) https://httpstatuses.com/%s
   (m) https://www.metal-archives.com/search?type=band_name&searchString=%s
   ```
-* Install the [Gruvbox theme](gruvbox.xpi) by opening it (`CTRL+o`) in Firefox.
+* Install the [Gruvbox theme](firefox/gruvbox.xpi) by opening it (`CTRL+o`) in
+  Firefox.
 
 
 #### Import data
