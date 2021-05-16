@@ -1,7 +1,7 @@
 ### Bash prompt.
 unset PS1
-PS1_LAMBDA="\[\033[38;5;173m\]λ\[\033[0;00m\]"
-PS1_DIR="\[\033[38;5;78m\]\w\[\033[00m\]"
+PS1_LAMBDA="\[\e[38;5;173m\]λ\[\e[0m\]"
+PS1_DIR="\[\e[38;5;78m\]\w\[\e[0m\]"
 PS1="${PS1_LAMBDA} ${PS1_DIR} "
 
 
@@ -68,35 +68,9 @@ OS="$(uname)"
 export OS
 GPG_TTY="$(tty)"
 export GPG_TTY
-
 export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
-export LESS_TERMCAP_md=$'\e[00;34m'    # Bold mode     - blue.
-export LESS_TERMCAP_us=$'\e[00;32m'    # Underline     - green.
-export LESS_TERMCAP_so=$'\e[00;40;33m' # Standout      - yellow on grey.
-export LESS_TERMCAP_me=$'\e[0m'        # End bold      - reset.
-export LESS_TERMCAP_ue=$'\e[0m'        # End underline - reset.
-export LESS_TERMCAP_se=$'\e[0m'        # End standout  - reset.
 export LESSHISTFILE=-
 export PAGER=less
-
-export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;81:pi=38;5;43:bd=38;5;212:\
-cd=38;5;225:or=30;48;5;202:ow=38;5;75:so=38;5;177:su=36;48;5;63:ex=38;5;156:\
-mi=38;5;115:*.exe=38;5;156:*.bat=38;5;156:*.tar=38;5;204:*.tgz=38;5;205:\
-*.tbz2=38;5;205:*.zip=38;5;206:*.7z=38;5;206:*.gz=38;5;205:*.bz2=38;5;205:\
-*.rar=38;5;205:*.rpm=38;5;173:*.deb=38;5;173:*.dmg=38;5;173:\
-*.jpg=38;5;141:*.jpeg=38;5;147:*.png=38;5;147:\
-*.mpg=38;5;151:*.mpeg=38;5;151:*.avi=38;5;151:*.mov=38;5;216:*.wmv=38;5;216:\
-*.mp4=38;5;217:*.mkv=38;5;216:\
-*.flac=38;5;223:*.mp3=38;5;218:*.wav=38;5;213:*.ape=38;5;213:\
-*akefile=38;5;176:*.pdf=38;5;253:*.ods=38;5;224:*.odt=38;5;146:\
-*.doc=38;5;224:*.xls=38;5;146:*.docx=38;5;224:*.xlsx=38;5;146:\
-*.epub=38;5;152:*.mobi=38;5;105:*.m4b=38;5;222:*.conf=38;5;121:\
-*.md=38;5;224:*.markdown=38;5;224:*README=38;5;224:*.ico=38;5;140:\
-*.iso=38;5;205"
-export EXA_COLORS="da=38;5;252:sb=38;5;204:sn=38;5;43:\
-uu=38;5;245:un=38;5;241:ur=38;5;223:uw=38;5;223:ux=38;5;223:ue=38;5;223:\
-gr=38;5;153:gw=38;5;153:gx=38;5;153:tr=38;5;175:tw=38;5;175:tx=38;5;175:\
-gm=38;5;203:ga=38;5;203:xa=38;5;239:*.ts=00"
 
 
 ### Bash settings.
@@ -120,10 +94,8 @@ shopt -s cdspell direxpand dirspell globstar histappend histverify \
 
 ### Additional sources.
 function source_if_exists {
-  f="$1"
-
-  if [[ -f "${f}" ]]; then
-    source "${f}"
+  if [[ -f "$1" ]]; then
+    source "$1"
   fi
 }
 
@@ -148,8 +120,6 @@ PATH=$(add "${HOME}/.local/bin" "${PATH}")
 
 
 ### Display a message when opening a terminal.
-motd="./.motd"
-
-if [[ -f "${motd}" ]]; then
-  cat "${motd}"
+if [[ -f "./.motd" ]]; then
+  cat "./.motd"
 fi
