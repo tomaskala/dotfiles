@@ -32,19 +32,25 @@ Before reinstalling the system, backup the following:
 * Pictures directory: `~/Pictures`.
 * Work directory: `~/Work`.
 * Export GPG keys.
-  * `gpg --armor --export-secret-keys <key-id> > <path-to-backup>/private.key`
-  * `gpg --export-ownertrust > <path-to-backup>/ownertrust.txt`
+  ```
+  $ gpg --armor --export-secret-keys <key-id> > <path-to-backup>/private.key
+  $ gpg --export-ownertrust > <path-to-backup>/ownertrust.txt
+  ```
   * To restore, perform the following:
-    * `gpg --import <path-to-backup>/private.key`
-    * `gpg --import-ownertrust <path-to-backup>/ownertrust.txt`
+    ```
+    $ gpg --import <path-to-backup>/private.key
+    $ gpg --import-ownertrust <path-to-backup>/ownertrust.txt
+    ```
 * Export SSH keys.
   * Export the `~/.ssh` directory.
   * To restore, copy the directory back, `cd` into it, run the ssh agent
     (`eval $(ssh-agent)`) and perform the following (for each private & public
     key pair):
-    * `chmod 600 id_rsa`
-    * `chmod 644 id_rsa.pub`
-    * `ssh-add id_rsa`
+    ```
+    $ chmod 600 id_rsa
+    $ chmod 644 id_rsa.pub
+    $ ssh-add id_rsa
+    ```
   * In case the added keys are not persistent and you are required to enter
     the private key password on every `git push`, add `AddKeysToAgent yes` to
     the top of `~/.ssh/config`.
@@ -53,13 +59,13 @@ Before reinstalling the system, backup the following:
 ## System installation
 
 * Update packages.
-  * `sudo dnf distro-sync -y && sync`
+  * `$ sudo dnf distro-sync -y && sync`
 * Update firmware.
-  * `sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`
+  * `$ sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`
 * Enable SSD trimming.
-  * `sudo systemctl enable fstrim.timer`
+  * `$ sudo systemctl enable fstrim.timer`
 * Download a [hosts file](https://github.com/StevenBlack/hosts/).
-  * `sudo wget -O '/etc/hosts'
+  * `$ sudo wget -O '/etc/hosts'
     'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts'
     && sync`
   * The [hosts](.local/bin/hosts) script can be used here.
@@ -86,23 +92,23 @@ The following software should then be installed.
 #### Window manager
 
 * i3, i3lock, i3status
-  * `sudo dnf install i3 i3lock i3status`
+  * `$ sudo dnf install i3 i3lock i3status`
 * feh
-  * `sudo dnf install feh`
+  * `$ sudo dnf install feh`
 * arandr
-  * `sudo dnf install arandr`
+  * `$ sudo dnf install xrandr arandr`
 * rofi
-  * `sudo dnf install rofi`
+  * `$ sudo dnf install rofi`
 * lxappearance
-  * `sudo dnf install lxappearance`
+  * `$ sudo dnf install lxappearance`
   * Set the `Adwaita-dark` theme to kill the blinding white flash when opening a
     new tab in Firefox.
 * dunst
-  * `sudo dnf install dunst`
+  * `$ sudo dnf install dunst`
 * maim
-  * `sudo dnf install maim`
+  * `$ sudo dnf install maim`
 * xclip
-  * `sudo dnf install xclip`
+  * `$ sudo dnf install xclip`
 
 
 #### Internet
@@ -110,7 +116,7 @@ The following software should then be installed.
 * Firefox
 * Qutebrowser
   * Optionally install asciidoc to generate help files.
-    * `sudo dnf install asciidoc`
+    * `$ sudo dnf install asciidoc`
   * Install Qutebrowser from the official repository.
   ```
   $ cd
@@ -129,15 +135,15 @@ The following software should then be installed.
 #### Development
 
 * git
-  * `sudo dnf install git`
+  * `$ sudo dnf install git`
 * neovim
-  * `sudo dnf install neovim`
+  * `$ sudo dnf install neovim`
   * [vim-plug](https://github.com/junegunn/vim-plug)
 * Emacs
-  * `sudo dnf install emacs`
+  * `$ sudo dnf install emacs`
   * Note: My configuration requires Emacs >= 27.
 * Make
-  * `sudo dnf install make`
+  * `$ sudo dnf install make`
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 * [PyCharm](https://www.jetbrains.com/pycharm/)
 
@@ -145,55 +151,55 @@ The following software should then be installed.
 #### System utilities
 
 * Alacritty
-  * `sudo dnf install alacritty`
+  * `$ sudo dnf install alacritty`
 * Fira Code
-  * `sudo dnf install fira-code-fonts`
+  * `$ sudo dnf install fira-code-fonts`
 * bash-completion
-  * `sudo dnf install bash-completion`
+  * `$ sudo dnf install bash-completion`
 * ShellCheck
-  * `sudo dnf install ShellCheck`
+  * `$ sudo dnf install ShellCheck`
 * tmux
-  * `sudo dnf install tmux`
+  * `$ sudo dnf install tmux`
 * fzf
-  * `sudo dnf install fzf`
+  * `$ sudo dnf install fzf`
 * ag
-  * `sudo dnf install the_silver_searcher`
+  * `$ sudo dnf install the_silver_searcher`
 * htop
-  * `sudo dnf install htop`
+  * `$ sudo dnf install htop`
 * sensors
-  * `sudo dnf install lm_sensors -y && sudo sensors-detect --auto`
+  * `$ sudo dnf install lm_sensors -y && sudo sensors-detect --auto`
 * [pass](https://www.passwordstore.org)
-  * `sudo dnf install pass`
+  * `$ sudo dnf install pass`
   * Download the [bash completion
     file](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion)
     and put it into `/etc/bash_completion.d` under the name `pass`.
   * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
   * [pass-update](https://github.com/roddhjav/pass-update)
 * Virtual Machine Manager
-  * `sudo dnf install virt-manager`
-  * Add the current user to the group: `sudo usermod -aG libvirt $USER`.
+  * `$ sudo dnf install virt-manager`
+  * Add the current user to the group: `$ sudo usermod -aG libvirt $USER`.
 * Docker
   * Instead of using `dnf`, follow the [official
     instructions](https://docs.docker.com/engine/install/). The most-recent
     version is needed to get a proper cgroups support.
-  * Create the docker group: `sudo groupadd docker`.
-  * Add the current user to the group: `sudo usermod -aG docker $USER`.
+  * Create the docker group: `$ sudo groupadd docker`.
+  * Add the current user to the group: `$ sudo usermod -aG docker $USER`.
   * Relog.
 * Wireshark
-  * `sudo dnf install wireshark`
-  * Add the current user to the group: `sudo usermod -aG wireshark $USER`.
+  * `$ sudo dnf install wireshark`
+  * Add the current user to the group: `$ sudo usermod -aG wireshark $USER`.
 
 
 #### Media
 
 * mpv
-  * `sudo dnf install mpv`
+  * `$ sudo dnf install mpv`
 * FFmpeg
-  * `sudo dnf install ffmpeg`
+  * `$ sudo dnf install ffmpeg`
 * youtube-dl
-  * `sudo dnf install youtube-dl`
+  * `$ sudo dnf install youtube-dl`
 * cmus
-  * `sudo dnf install cmus`
+  * `$ sudo dnf install cmus`
 
 
 #### Communication
@@ -212,8 +218,8 @@ This section addresses the configuration of the Firefox browser.
 * Create a new profile. Importing data from an old profile is addressed towards
   the end of this section.
 * Remove system addons
-  * Either `cd /usr/lib/firefox/browser/features` or `cd
-    /usr/lib64/firefox/browser/features` followed by `sudo rm *.xpi`
+  * Either `$ cd /usr/lib/firefox/browser/features` or `$ cd
+    /usr/lib64/firefox/browser/features` followed by `$ sudo rm *.xpi`
   * Note that this must be redone every time Firefox is updated
 
 
