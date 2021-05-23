@@ -73,10 +73,10 @@ set $ws3 "3: >_"
 set $ws4 "4: dev"
 set $ws5 "5"
 set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
+set $ws7 "7: vid"
+set $ws8 "8: mus"
 set $ws9 "9: vir"
-set $ws10 "10: mus"
+set $ws10 "10"
 
 # Switch to workspace.
 bindsym $mod+1 workspace number $ws1
@@ -248,10 +248,13 @@ assign [class="Chromium-browser"] $ws4
 assign [class="jetbrains-idea"] $ws4
 assign [class="jetbrains-pycharm"] $ws4
 
-assign [class="Virt-manager"] $ws9
+assign [class="mpv"] $ws7
+assign [class="vlc"] $ws7
 
 # Needs 'set set_term_title=true' in cmus config.
-for_window [class="st-256color" title="cmus"] move container to workspace $ws10
+for_window [class="st-256color" title="cmus"] move container to workspace $ws8
+
+assign [class="Virt-manager"] $ws9
 
 # Scratchpad.
 for_window [class="scratchpad"] floating enable
