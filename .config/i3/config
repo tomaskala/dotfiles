@@ -203,7 +203,7 @@ bar {
 
 # Capture a screenshot and save it to $HOME/Pictures.
 bindsym Print exec --no-startup-id maim -f jpg "$HOME/Pictures/$(date --iso-8601=seconds).jpg"
-bindsym Shift+Print exec --no-startup-id maim -f jpg --select "$HOME/Pictures/$(date --iso-8601=seconds).jpg"
+bindsym Shift+Print exec --no-startup-id maim -f jpg -s "$HOME/Pictures/$(date --iso-8601=seconds).jpg"
 
 # Capture a screenshot and save it to clipboard.
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
