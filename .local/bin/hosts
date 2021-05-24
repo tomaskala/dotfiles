@@ -43,7 +43,7 @@ done
 
 # Check the argument values.
 if [[ -n "${LOOKUP_SRC}" ]] && ! type dig > /dev/null; then
-  die "The dig command is not installed." 
+  die "Dig is not installed."
 fi
 
 if [[ -n "${LOOKUP_SRC}" ]] && [[ ! -f "${LOOKUP_SRC}" ]]; then
