@@ -78,12 +78,10 @@ static const char *calculatorcmd[] = { "termlaunch", "calculator", NULL };
 static const char *notescmd[] = { "termlaunch", "-n", "~/notes/todos/tasks.org", "notes", NULL };
 static const char *resolutioncmd[] = { "refreshresolution", NULL };
 static const char *passmenucmd[] = { "passmenu", NULL };
-static const char *audioraisecmd[] = { "pactl", "set-sink-volume @DEFAULT_SINK@ +5%", NULL };
-static const char *audiolowercmd[] = { "pactl", "set-sink-volume @DEFAULT_SINK@ -5%", NULL };
-static const char *audiomutecmd[] = { "pactl", "set-sink-mute @DEFAULT_SINK@ toggle", NULL };
-static const char *audiomicmutecmd[] = { "pactl", "set-source-mute @DEFAULT_SOURCE@ toggle", NULL };
-static const char *printscreencmd[] = { "maim", "-f", "jpg", "\"$HOME/Pictures/$(date --iso-8601=seconds).jpg\"", NULL };
-static const char *printscreenselectcmd[] = { "maim", "-f", "jpg", "-s", "\"$HOME/Pictures/$(date --iso-8601=seconds).jpg\"", NULL };
+static const char *audioraisecmd[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
+static const char *audiolowercmd[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
+static const char *audiomutecmd[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
+static const char *audiomicmutecmd[] = { "pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier         key                      function        argument */
@@ -129,8 +127,8 @@ static Key keys[] = {
 	{ 0,                XF86XK_AudioLowerVolume, spawn,          {.v = audiolowercmd } },
 	{ 0,                XF86XK_AudioMute,        spawn,          {.v = audiomutecmd } },
 	{ 0,                XF86XK_AudioMicMute,     spawn,          {.v = audiomicmutecmd } },
-	{ 0,                XK_Print,                spawn,          {.v = printscreencmd } },
-	{ ShiftMask,        XK_Print,                spawn,          {.v = printscreenselectcmd } },
+	{ 0,                XK_Print,                spawn,          SHCMD("maim -f jpg ~/Pictures/$(date --iso-8601=seconds).jpg") },
+	{ ShiftMask,        XK_Print,                spawn,          SHCMD("maim -f jpg -s ~/Pictures/$(date --iso-8601=seconds).jpg") },
 };
 
 /* button definitions */
