@@ -10,7 +10,8 @@
 ## dwm
 
 * After cloning the repository, download and `git apply` the
-  [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/) patch.
+  [alwayscenter](https://dwm.suckless.org/patches/alwayscenter/) and the
+  [focusonclick](https://dwm.suckless.org/patches/focusonclick/) patches.
 
 
 ## dmenu

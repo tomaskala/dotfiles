@@ -7,6 +7,7 @@ static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int focusonwheel       = 0;
 static const char *fonts[]          = { "mono:pixelsize=16:antialias=true:autohint=true" };
 static const char dmenufont[]       = "mono:pixelsize=16:antialias=true:autohint=true";
 static const char col_norm_bg[]     = "#1d2021";
