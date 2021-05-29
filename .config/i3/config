@@ -221,11 +221,8 @@ hide_edge_borders both
 # Lock screen.
 bindsym $mod+Shift+x exec i3lock --color 0c0c0d
 
-# Display settings.
+# Display & wallpaper settings.
 exec_always --no-startup-id refreshresolution
-
-# Set wallpaper.
-exec_always --no-startup-id feh --bg-fill $HOME/.wallpaper
 
 # Set microphone volume.
 exec --no-startup-id amixer set Capture 40%
