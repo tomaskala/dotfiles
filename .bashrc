@@ -56,23 +56,6 @@ alias grs='git restore'
 alias gst='git status'
 
 
-### Environment variables.
-export REALNAME='Tomas Kala'
-export EMAIL='me@tomaskala.com'
-export GIT_COMMITTER_NAME="${REALNAME}"
-export GIT_AUTHOR_NAME="${REALNAME}"
-export BROWSER='firefox'
-export TERMINAL='st'
-export EDITOR='nvim'
-OS="$(uname)"
-export OS
-GPG_TTY="$(tty)"
-export GPG_TTY
-export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
-export LESSHISTFILE=-
-export PAGER=less
-
-
 ### Bash settings.
 HISTCONTROL=ignoreboth:erasedups # Erase duplicates.
 HISTFILESIZE=99999               # Max size of history file.
@@ -99,24 +82,8 @@ function source_if_exists {
   fi
 }
 
-source_if_exists /usr/share/bash-completion/bash_completion
-source_if_exists /usr/share/fzf/shell/key-bindings.bash
-
-
-### Path manipulation.
-function add {
-  if [[ ":$2:" != *":$1:"* ]]; then
-    if [ -z "$2" ]; then
-      printf '%s' "$1"
-    else
-      printf '%s' "$1:$2"
-    fi
-  else
-    printf '%s' "$2"
-  fi
-}
-
-PATH=$(add "${HOME}/.local/bin" "${PATH}")
+source_if_exists "/usr/share/bash-completion/bash_completion"
+source_if_exists "/usr/share/fzf/shell/key-bindings.bash"
 
 
 ### Display a message when opening a terminal.
