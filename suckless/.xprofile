@@ -1,0 +1,14 @@
+#!/bin/sh
+
+
+# Set the screen resolution and wallpaper.
+exec refreshresolution &
+
+# Set the input volume.
+exec amixer set Capture 40% &
+
+# Setup notifications.
+exec dunst &
+
+# Setup the status bar.
+exec slstatus &

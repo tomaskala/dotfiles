@@ -1,8 +1,10 @@
 #!/bin/sh
 
-exec refreshresolution &
-exec amixer set Capture 40% &
-exec dunst &
-exec slstatus &
 
+if [ -f "${HOME}/.xprofile" ]; then
+  . "${HOME}/.xprofile"
+fi
+
+# Launch dwm as a subprocess of the ssh agent,
+# so that when dwm terminates, the agent does too.
 ssh-agent dwm

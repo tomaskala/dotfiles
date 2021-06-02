@@ -42,4 +42,5 @@ safeclone "https://git.suckless.org/st" "${HOME}/st"
 ln -fs "$(pwd)/st/config.h" "${HOME}/st"
 sudo make -C "${HOME}/st" clean install
 
+ln -fs "$(pwd)/.xprofile" "${HOME}/.xprofile"
 ln -fs "$(pwd)/.xinitrc" "${HOME}/.xinitrc"
