@@ -12,7 +12,7 @@ safeclone() {
   dest="$2"
 
   if [ -d "${dest}" ]; then
-    echo "A directory ${dest} already exists. Skipping."
+    echo "The directory ${dest} already exists. Skipping."
   else
     git clone "${repo}" "${dest}"
   fi
