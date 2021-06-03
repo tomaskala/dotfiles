@@ -49,7 +49,7 @@ function tl_notes {
 }
 
 function tl_calculator {
-  local command=("bc" "-l")
+  local command=("bc" "-l" "-q")
   tl "calculator" "${command[@]}"
 }
 
