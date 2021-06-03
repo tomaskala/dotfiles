@@ -3,20 +3,23 @@ export REALNAME='Tomas Kala'
 export EMAIL='me@tomaskala.com'
 export GIT_COMMITTER_NAME="${REALNAME}"
 export GIT_AUTHOR_NAME="${REALNAME}"
+
 export BROWSER='firefox'
-export TERMINAL='st'
 export EDITOR='nvim'
+export TERMINAL='st'
+
 OS="$(uname)"
 export OS
 GPG_TTY="$(tty)"
 export GPG_TTY
+
 export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
 export LESSHISTFILE=-
 export PAGER=less
 
 
 ### Path manipulation.
-function add {
+add() {
   if [[ ":$2:" != *":$1:"* ]]; then
     if [ -z "$2" ]; then
       printf '%s' "$1"
@@ -33,4 +36,4 @@ export PATH
 
 
 ### Source .bashrc in case it does not happen automatically.
-source ~/.bashrc
+source "${HOME}/.bashrc"
