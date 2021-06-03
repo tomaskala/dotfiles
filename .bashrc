@@ -9,13 +9,12 @@ PS1="${PS1_LAMBDA} ${PS1_DIR} "
 unalias -a
 
 # Utilities.
-alias ls='ls --color --classify --human-readable --quoting-style=escape'
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ls='ls -FNh --color=auto --group-directories-first'
 alias ll='ls -l'
 alias lla='ls -la'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias diff='diff --color'
+alias g='git'
 
 # Media.
 alias y='youtube-dl'
@@ -26,17 +25,9 @@ alias audio-hdmi='pacmd set-card-profile 0 output:hdmi-stereo+input:analog-stere
 alias audio-laptop='pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo'
 
 # Editor aliases.
-alias vim='nvim'
 alias vi='nvim'
-
-# Git aliases.
-alias gau='git add --update'
-alias 'gc!'='git commit -v --amend'
-alias gcmsg='git commit -m'
-alias gd='git diff'
-alias glg='git log --stat'
-alias gpsup='git push --set-upstream origin $(git branch --show-current)'
-alias gst='git status'
+alias vim='nvim'
+alias vimdiff='nvim -d'
 
 
 ### Bash settings.
@@ -45,7 +36,7 @@ HISTFILESIZE=99999               # Max size of history file.
 HISTIGNORE="?:??"                # Ignore one and two letter commands.
 HISTSIZE=99999                   # Amount of history to save.
 
-# Enable the useful Bash features:
+# Enable the following bash features.
 # - cdspell: automatically fix directory typos when changing directory.
 # - direxpand: automatically expand directory globs when completing.
 # - dirspell: automatically fix directory typos when completing.
@@ -59,10 +50,8 @@ shopt -s cdspell direxpand dirspell globstar histappend histverify \
 
 
 ### Additional sources.
-function source_if_exists {
-  if [[ -f "$1" ]]; then
-    source "$1"
-  fi
+source_if_exists() {
+  [ -f "$1" ] && source "$1"
 }
 
 source_if_exists "/usr/share/bash-completion/bash_completion"
@@ -70,6 +59,4 @@ source_if_exists "/usr/share/fzf/shell/key-bindings.bash"
 
 
 ### Display a message when opening a terminal.
-if [[ -f "./.motd" ]]; then
-  cat "./.motd"
-fi
+[ -f "${HOME}/.motd" ] && cat "${HOME}/.motd"
