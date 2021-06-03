@@ -7,6 +7,7 @@ export GIT_AUTHOR_NAME="${REALNAME}"
 export BROWSER='firefox'
 export EDITOR='nvim'
 export TERMINAL='st'
+export XINITRC="${HOME}/.xinitrc"
 
 OS="$(uname)"
 export OS
@@ -37,3 +38,9 @@ export PATH
 
 ### Source .bashrc in case it does not happen automatically.
 source "${HOME}/.bashrc"
+
+
+### Start the X server on the user's tty if not already running.
+if [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg > /dev/null; then
+  exec startx "${XINITRC}"
+fi
