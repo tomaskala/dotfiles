@@ -305,8 +305,6 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
   (y) https://www.youtube.com/results?search_query=%s
   (r) https://www.reddit.com/search?q=%s
   (gh) https://github.com/search?q=%s
-  (tce) https://translate.google.com/?op=translate&sl=cs&tl=en&text=%s
-  (tec) https://translate.google.com/?op=translate&sl=en&tl=cs&text=%s
   (http) https://httpstatuses.com/%s
   (m) https://www.metal-archives.com/search?type=band_name&searchString=%s
   ```

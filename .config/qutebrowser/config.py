@@ -148,8 +148,6 @@ c.url.searchengines = {
     "y": "https://www.youtube.com/results?search_query={}",
     "r": "https://www.reddit.com/search?q={}",
     "gh": "https://github.com/search?q={}",
-    "tce": "https://translate.google.com/?op=translate&sl=cs&tl=en&text={}",
-    "tec": "https://translate.google.com/?op=translate&sl=en&tl=cs&text={}",
     "http": "https://httpstatuses.com/{}",
     "m": "https://www.metal-archives.com/search?type=band_name&searchString={}",
 }
