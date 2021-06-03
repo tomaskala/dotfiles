@@ -1,6 +1,3 @@
-#!/bin/sh
-
-
 ### Environment variables.
 export REALNAME='Tomas Kala'
 export EMAIL='me@tomaskala.com'
@@ -19,8 +16,8 @@ export PAGER=less
 
 
 ### Path manipulation.
-add() {
-  if ! echo ":$2:" | grep -q ".*:$1:.*"; then
+function add {
+  if [[ ":$2:" != *":$1:"* ]]; then
     if [ -z "$2" ]; then
       printf '%s' "$1"
     else
@@ -36,4 +33,4 @@ export PATH
 
 
 ### Source .bashrc in case it does not happen automatically.
-. ~/.bashrc
+source ~/.bashrc
