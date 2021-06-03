@@ -18,12 +18,12 @@ GIT_COMMIT_MSG="Sync"
 GIT_DIR=""
 
 
-function die {
+die() {
   >&2 echo "$1"
   exit 1
 }
 
-function set_git {
+set_git() {
   GIT_DIR="${1%/*}"
 
   while [[ ! -d "${GIT_DIR}" && "${GIT_DIR%/*}/" == "${SYNCED_DIR%/}/"* ]]; do
@@ -34,7 +34,7 @@ function set_git {
     == true ]] || GIT_DIR=""
 }
 
-function cmd_git {
+cmd_git() {
   set_git "${SYNCED_DIR}/"
 
   if [[ "$1" == "init" ]]; then
@@ -49,28 +49,28 @@ function cmd_git {
   fi
 }
 
-function git_add {
+git_add() {
   [[ -n "${GIT_DIR}" ]] || return
   git -C "${GIT_DIR}" add "$1" || return
   [[ -n $(git -C "${GIT_DIR}" status --porcelain "$1") ]] || return
 }
 
-function git_commit {
+git_commit() {
   [[ -n "${GIT_DIR}" ]] || return
   git -C "${GIT_DIR}" commit -m "$1"
 }
 
-function git_pull {
+git_pull() {
   [[ -n "${GIT_DIR}" ]] || return
   git -C "${GIT_DIR}" pull
 }
 
-function git_push {
+git_push() {
   [[ -n "${GIT_DIR}" ]] || return
   git -C "${GIT_DIR}" push
 }
 
-function main {
+main() {
   local commit_msg="${GIT_COMMIT_MSG}"
 
   # Show usage.

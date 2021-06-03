@@ -23,7 +23,7 @@ GEOMETRY=""
 NOTES_FILE=""
 
 
-function tl {
+tl() {
   local args=()
   local class="$1"
   shift
@@ -36,19 +36,19 @@ function tl {
   eval "${TERMINAL} ${args[*]}"
 }
 
-function tl_scratchpad {
+tl_scratchpad() {
   local tmpfile
   tmpfile=$(mktemp)
   local command=("${EDITOR}" -c "startinsert" "${tmpfile}")
   tl "scratchpad" "${command[@]}" && xclip -selection clipboard < "${tmpfile}"
 }
 
-function tl_notes {
+tl_notes() {
   local command=("${EDITOR}" "${NOTES_FILE}")
   tl "notes" "${command[@]}"
 }
 
-function tl_calculator {
+tl_calculator() {
   local command=("bc" "-l" "-q")
   tl "calculator" "${command[@]}"
 }

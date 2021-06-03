@@ -11,7 +11,7 @@ If destination is provided, save the encrypted file there. Otherwise,
 save it in the same directory as the source with '.gpg' appended to it."
 
 
-function die {
+die() {
   >&2 echo "$1"
   exit 1
 }

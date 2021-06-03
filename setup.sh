@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -eu -o pipefail
+
+
 GLOBIGNORE=".:..:.git:.gitignore"
 INSTALL_PRIVATE=false
 
@@ -14,7 +16,7 @@ Options:
   -h  Show this message and exit."
 
 
-function install_dotfile {
+install_dotfile() {
   dotfile="$1"
   dest="${HOME}/${dotfile}"
 
@@ -26,7 +28,7 @@ function install_dotfile {
 }
 
 
-function decrypt_dotfile {
+decrypt_dotfile() {
   dotfile="$1"
   dest="${HOME}/${dotfile%.gpg}"
 
