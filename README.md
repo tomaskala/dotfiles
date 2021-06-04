@@ -200,6 +200,8 @@ The following software should then be installed.
   * `$ sudo dnf install youtube-dl`
 * cmus
   * `$ sudo dnf install cmus`
+* zathura
+  * `$ sudo dnf install zathura zathura-djvu zathura-pdf-mupdf zathura-ps`
 
 
 #### Communication
