@@ -44,3 +44,7 @@ source "${HOME}/.bashrc"
 if [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg > /dev/null; then
   exec startx "${XINITRC}"
 fi
+
+
+### Clear the utility functions.
+unset -f add

@@ -64,3 +64,7 @@ source_if_exists "/usr/share/fzf/shell/key-bindings.bash"
 
 ### Load local configuration (last to allow overrides).
 source_if_exists "${HOME}/.bash_local"
+
+
+### Clear the utility functions.
+unset -f source_if_exists
