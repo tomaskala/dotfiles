@@ -1,11 +1,43 @@
-set nocompatible  " Must be the first line.
+set nocompatible   " Must be the first line.
+let mapleader=","  " The leader is a comma instead of a backslash.
 
 
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'morhetz/gruvbox'
+  Plug 'junegunn/goyo.vim'
 call plug#end()
+
+
+" PLUGIN CONFIGURATION
+" Toggle goyo.
+map <leader>g :Goyo<CR>
+
+" Workaround to make :q quit goyo and vim.
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+augroup goyoquit
+  autocmd!
+  autocmd User GoyoEnter call <SID>goyo_enter()
+  autocmd User GoyoLeave call <SID>goyo_leave()
+augroup end
 
 
 " COLORS
@@ -120,9 +152,6 @@ set shortmess+=I  " Do not display the startup message.
 
 " KEYMAPS
 " Note that the `"` comment cannot be used on the line defining the key mapping.
-
-" The leader is a comma instead of a backslash.
-let mapleader=","
 
 " Make j/down and k/up go by rows instead of lines in normal/visual selection.
 nnoremap j gj
