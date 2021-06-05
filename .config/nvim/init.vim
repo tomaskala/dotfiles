@@ -220,17 +220,29 @@ function SetIndentation(n)
   let &l:shiftwidth=a:n
 endfunction
 
-augroup FileTypeSpecificAutocommands
+augroup cython
+  autocmd!
   autocmd BufRead,BufNewFile *.pyx set filetype=cython
   autocmd BufRead,BufNewFile *.pxd set filetype=cython
+augroup end
 
+augroup indentation
+  autocmd!
   autocmd FileType haskell call SetIndentation(2)
   autocmd FileType lua call SetIndentation(2)
   autocmd FileType vim call SetIndentation(2)
   autocmd FileType sh,bash call SetIndentation(2)
+augroup end
+
+augroup column
+  autocmd!
+  autocmd FileType python,cython setlocal colorcolumn=89
+augroup end
+
+augroup plaintext
+  autocmd!
   autocmd FileType mail,markdown,text
     \ call SetIndentation(2) |
     \ setlocal textwidth=80 |
     \ set conceallevel=2
-  autocmd FileType python,cython setlocal colorcolumn=89
 augroup end
