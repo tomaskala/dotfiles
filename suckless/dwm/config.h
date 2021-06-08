@@ -79,6 +79,7 @@ static const char *calculatorcmd[] = { "termlaunch", "calculator", NULL };
 static const char *notescmd[] = { "termlaunch", "-n", "~/notes/todos/tasks.org", "notes", NULL };
 static const char *resolutioncmd[] = { "refreshresolution", NULL };
 static const char *passmenucmd[] = { "passmenu", NULL };
+static const char *slockcmd[] = { "slock", NULL };
 
 static Key keys[] = {
 	/* modifier         key                      function        argument */
@@ -120,6 +121,7 @@ static Key keys[] = {
 	{ MODKEY,           XK_n,                    spawn,          {.v = notescmd } },
 	{ MODKEY|ShiftMask, XK_r,                    spawn,          {.v = resolutioncmd } },
 	{ MODKEY|ShiftMask, XK_p,                    spawn,          {.v = passmenucmd } },
+	{ MODKEY|ShiftMask, XK_x,                    spawn,          {.v = slockcmd } },
 	{ 0,                XF86XK_AudioRaiseVolume, spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%; kill -10 $(pidof slstatus)") },
 	{ 0,                XF86XK_AudioLowerVolume, spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%; kill -10 $(pidof slstatus)") },
 	{ 0,                XF86XK_AudioMute,        spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -10 $(pidof slstatus)") },
