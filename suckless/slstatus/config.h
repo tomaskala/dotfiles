@@ -76,7 +76,7 @@ static const struct arg args[] = {
 	{ battery_state, "[bat %s",     "BAT0" },
 	{ battery_perc,  "%3s%%]",      "BAT0" },
 	{ separator,     " ",           NULL },
-	{ run_command,   "[vol %6s]",   "/bin/sh -c \"amixer get Master | tail -n1 | grep -o '\\[\\(.*\\)\\]' | sed 's/\\[\\|\\]//g'\"" },
+	{ run_command,   "[vol %6s]",   "/bin/sh -c \"amixer get Master | tail -n1 | sed 's/.*\\[\\(.*\\)\\] \\[\\(on\\|off\\)\\].*/\\1 \\2/'\"" },
 	{ separator,     " ",           NULL },
 	{ datetime,      "[%s]",        "%F %H:%M" },
 };
