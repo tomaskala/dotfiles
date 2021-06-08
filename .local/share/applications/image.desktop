@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=feh
+Type=Application
+Exec=/usr/bin/feh %f

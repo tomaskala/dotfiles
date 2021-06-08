@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=cmus
+Type=Application
+Terminal=true
+Exec=/usr/bin/cmus
