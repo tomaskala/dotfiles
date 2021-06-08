@@ -76,7 +76,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *scratchpadcmd[] = { "termlaunch", "scratchpad", NULL };
 static const char *calculatorcmd[] = { "termlaunch", "calculator", NULL };
-static const char *notescmd[] = { "termlaunch", "-n", "~/notes/todos/tasks.org", "notes", NULL };
+static const char *wikicmd[] = { "termlaunch", "wiki", NULL };
 static const char *resolutioncmd[] = { "refreshresolution", NULL };
 static const char *passmenucmd[] = { "passmenu", NULL };
 static const char *slockcmd[] = { "slock", NULL };
@@ -118,7 +118,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, XK_q,                    quit,           {0} },
 	{ MODKEY,           XK_g,                    spawn,          {.v = scratchpadcmd } },
 	{ MODKEY,           XK_c,                    spawn,          {.v = calculatorcmd } },
-	{ MODKEY,           XK_n,                    spawn,          {.v = notescmd } },
+	{ MODKEY,           XK_n,                    spawn,          {.v = wikicmd } },
 	{ MODKEY|ShiftMask, XK_r,                    spawn,          {.v = resolutioncmd } },
 	{ MODKEY|ShiftMask, XK_p,                    spawn,          {.v = passmenucmd } },
 	{ MODKEY|ShiftMask, XK_x,                    spawn,          {.v = slockcmd } },

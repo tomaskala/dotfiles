@@ -9,18 +9,15 @@ Launch the given command in a new terminal window.
 Commands:
   scratchpad  Open a temporary file in a text editor, copying its contents to
               the system clipboard after saving.
-  notes       Open the file given by the '-n' option in a text editor. If no
-              such file is given, open the editor with an empty text buffer.
+  wiki        Open the wiki.
   calculator  Launch calculator.
 
 Options:
   -g TEXT  X11 geometry string provided to floating windows.
-  -n FILE  Path to a notes file.
   -h       Show this message and exit."
 
 
 GEOMETRY=""
-NOTES_FILE=""
 
 
 tl() {
@@ -43,9 +40,9 @@ tl_scratchpad() {
   tl "scratchpad" "${command[@]}" && xclip -selection clipboard < "${tmpfile}"
 }
 
-tl_notes() {
-  local command=("${EDITOR}" "${NOTES_FILE}")
-  tl "notes" "${command[@]}"
+tl_wiki() {
+  local command=("${EDITOR}" -c VimwikiIndex)
+  tl "wiki" "${command[@]}"
 }
 
 tl_calculator() {
@@ -54,18 +51,17 @@ tl_calculator() {
 }
 
 
-while getopts "hg:n:" arg; do
+while getopts "hg:" arg; do
   case "${arg}" in
     h) echo "${__USAGE}"; exit 0 ;;
     g) GEOMETRY="${OPTARG}" ;;
-    n) NOTES_FILE="${OPTARG}" ;;
     *) echo "${__USAGE}"; exit 1 ;;
   esac
 done
 
 case "${@:${OPTIND}:1}" in
   scratchpad) tl_scratchpad ;;
-  notes) tl_notes ;;
+  wiki) tl_wiki ;;
   calculator) tl_calculator ;;
   *) echo "${__USAGE}"; exit 1 ;;
 esac

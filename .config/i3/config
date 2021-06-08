@@ -258,8 +258,8 @@ bindsym $mod+g exec --no-startup-id termlaunch scratchpad
 for_window [class="calculator"] floating enable
 bindsym $mod+c exec --no-startup-id termlaunch calculator
 
-# Notes.
-bindsym $mod+n exec --no-startup-id termlaunch -n ~/notes/todos/tasks.org notes
+# Wiki.
+bindsym $mod+n exec --no-startup-id termlaunch wiki
 
 # Passmenu.
 bindsym $mod+Shift+p exec --no-startup-id passmenu

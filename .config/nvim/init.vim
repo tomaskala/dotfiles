@@ -6,11 +6,17 @@ let mapleader=","  " The leader is a comma instead of a backslash.
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'morhetz/gruvbox'
+  Plug 'vimwiki/vimwiki'
   Plug 'junegunn/goyo.vim'
 call plug#end()
 
 
 " PLUGIN CONFIGURATION
+" vimwiki config.
+let g:vimwiki_list = [{'path': '~/notes/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_conceallevel=0
+let g:vimwiki_markdown_link_ext=1
+
 " Toggle goyo.
 map <leader>g :Goyo<CR>
 
@@ -272,6 +278,5 @@ augroup plaintext
   autocmd!
   autocmd FileType mail,markdown,text
     \ call SetIndentation(2) |
-    \ setlocal textwidth=80 |
-    \ set conceallevel=2
+    \ setlocal textwidth=80
 augroup end
