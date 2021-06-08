@@ -14,8 +14,8 @@ Commands:
   calculator  Launch calculator.
 
 Options:
-  -g TEXT  a
-  -n FILE  a
+  -g TEXT  X11 geometry string provided to floating windows.
+  -n FILE  Path to a notes file.
   -h       Show this message and exit."
 
 
