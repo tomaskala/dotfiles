@@ -1,5 +1,5 @@
 set nocompatible   " Must be the first line.
-let mapleader=","  " The leader is a comma instead of a backslash.
+let mapleader=','  " The leader is a comma instead of a backslash.
 
 
 " PLUGINS
@@ -13,7 +13,7 @@ call plug#end()
 
 " PLUGIN CONFIGURATION
 " vimwiki config.
-let g:vimwiki_list = [{'path': '~/notes/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list=[{'path': '~/notes/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_conceallevel=0
 let g:vimwiki_markdown_link_ext=1
 
@@ -22,14 +22,13 @@ map <leader>g :Goyo<CR>
 
 " Workaround to make :q quit goyo and vim.
 function! s:goyo_enter()
-  let b:quitting = 0
-  let b:quitting_bang = 0
-  autocmd QuitPre <buffer> let b:quitting = 1
-  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+  let b:quitting=0
+  let b:quitting_bang=0
+  autocmd QuitPre <buffer> let b:quitting=1
+  cabbrev <buffer> q! let b:quitting_bang=1 <bar> q!
 endfunction
 
 function! s:goyo_leave()
-  " Quit Vim if this is the only remaining buffer
   if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
     if b:quitting_bang
       qa!
@@ -54,16 +53,16 @@ let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='medium'
 colorscheme gruvbox
 
-function Day()
+function! Day()
   set background=light
 endfunction
 
-function Night()
+function! Night()
   set background=dark
 endfunction
 
-command Day call Day()
-command Night call Night()
+command! Day call Day()
+command! Night call Night()
 
 
 " FILETYPE-SPECIFIC
@@ -201,7 +200,7 @@ nnoremap <silent> <C-Left> :tabprevious<CR>
 map <Enter> o<ESC>
 
 " Fix caps lock annoyances.
-if has("user_commands")
+if has('user_commands')
   command! -bang -nargs=? -complete=file E e<bang> <args>
   command! -bang -nargs=? -complete=file W w<bang> <args>
   command! -bang -nargs=? -complete=file Wq wq<bang> <args>
@@ -221,7 +220,7 @@ endif
 command! MakeTags !ctags -R .
 
 
-" COPY-PASTE
+" Copy-paste
 " <leader>y yanks to system clipboard.
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
@@ -249,7 +248,7 @@ endif
 
 
 " FILETYPE-SPECIFIC AUTOCOMMANDS
-function SetIndentation(n)
+function! SetIndentation(n)
   let &l:tabstop=a:n
   let &l:softtabstop=a:n
   let &l:shiftwidth=a:n
