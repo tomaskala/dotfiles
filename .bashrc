@@ -37,6 +37,7 @@ HISTIGNORE="?:??"                # Ignore one and two letter commands.
 HISTSIZE=99999                   # Amount of history to save.
 
 # Enable the following bash features.
+# - vi: enable vi mode.
 # - cdspell: automatically fix directory typos when changing directory.
 # - direxpand: automatically expand directory globs when completing.
 # - dirspell: automatically fix directory typos when completing.
@@ -45,6 +46,7 @@ HISTSIZE=99999                   # Amount of history to save.
 # - histverify: expand, but don't automatically execute, history expansions.
 # - nocaseglob: case-insensitive globbing.
 # - no_empty_cmd_completion: don't TAB expand empty lines.
+set -o vi
 shopt -s cdspell direxpand dirspell globstar histappend histverify \
   nocaseglob no_empty_cmd_completion
 
