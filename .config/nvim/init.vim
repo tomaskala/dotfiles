@@ -230,6 +230,10 @@ nnoremap <leader>yy "+yy
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
+" Miscellaneous
+nnoremap <leader>d :call Day()<CR>
+nnoremap <leader>n :call Night()<CR>
+
 
 " SEARCHING
 set incsearch   " Search as characters are entered.
