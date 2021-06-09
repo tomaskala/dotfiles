@@ -13,9 +13,39 @@ call plug#end()
 
 " PLUGIN CONFIGURATION
 " vimwiki config.
-let g:vimwiki_list=[{'path': '~/notes/', 'syntax': 'markdown', 'ext': '.md'}]
+let s:wiki='~/notes/'
+let g:vimwiki_list=[{'path': s:wiki, 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_conceallevel=0
 let g:vimwiki_markdown_link_ext=1
+
+" Populate vimwiki index by the directory tree.
+function! Index()
+  let l:index_lines=[]
+  let l:directories=filter(globpath(s:wiki, '*', 0, 1), 'isdirectory(v:val)')
+  let l:wiki_name=split(s:wiki, '/')[-1]
+
+  for wiki_dir in l:directories
+    let l:wiki_name_end=stridx(wiki_dir, l:wiki_name) + len(l:wiki_name)
+    let l:wiki_subpage_name=wiki_dir[l:wiki_name_end + 1:]
+
+    call add(l:index_lines, '# ' . l:wiki_subpage_name)
+    call add(l:index_lines, '')
+
+    for wiki_file in globpath(wiki_dir, '**/*.md', 0, 1)
+      let l:wiki_name_end=stridx(wiki_file, l:wiki_name) + len(l:wiki_name)
+      let l:file_path=wiki_file[l:wiki_name_end + 1:]
+      let l:file_name=split(l:file_path, '/')[-1]
+      call add(l:index_lines, '* [' . l:file_name . '](' . l:file_path . ')')
+    endfor
+
+    call add(l:index_lines, '')
+    call add(l:index_lines, '')
+  endfor
+
+  if writefile(l:index_lines, expand(s:wiki . 'index.md'), 's')
+    echoerr 'Cannot write the wiki index.'
+  endif
+endfunction
 
 " Toggle goyo.
 map <leader>g :Goyo<CR>
@@ -233,6 +263,7 @@ vnoremap <leader>p "+p
 " Miscellaneous
 nnoremap <leader>d :call Day()<CR>
 nnoremap <leader>n :call Night()<CR>
+nnoremap <leader>i :call Index()<CR>
 
 
 " SEARCHING
