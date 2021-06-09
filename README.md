@@ -141,8 +141,6 @@ The following software should then be installed.
   * [vim-plug](https://github.com/junegunn/vim-plug)
 * Make
   * `$ sudo dnf install make`
-* [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-* [PyCharm](https://www.jetbrains.com/pycharm/)
 
 
 #### System utilities
