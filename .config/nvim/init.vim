@@ -20,31 +20,41 @@ let g:vimwiki_markdown_link_ext=1
 
 " Populate vimwiki index by the directory tree.
 function! Index()
-  let l:index_lines=[]
-  let l:directories=filter(globpath(s:wiki, '*', 0, 1), 'isdirectory(v:val)')
   let l:wiki_name=split(s:wiki, '/')[-1]
-
-  for l:wiki_dir in l:directories
-    let l:wiki_name_end=stridx(l:wiki_dir, l:wiki_name) + len(l:wiki_name)
-    let l:wiki_subpage_name=l:wiki_dir[l:wiki_name_end + 1:]
-
-    call add(l:index_lines, '# ' . l:wiki_subpage_name)
-    call add(l:index_lines, '')
-
-    for l:wiki_file in globpath(l:wiki_dir, '**/*.md', 0, 1)
-      let l:wiki_name_end=stridx(l:wiki_file, l:wiki_name) + len(l:wiki_name)
-      let l:file_path=l:wiki_file[l:wiki_name_end + 1:]
-      let l:file_name=split(l:file_path, '/')[-1]
-      call add(l:index_lines, '* [' . l:file_name . '](' . l:file_path . ')')
-    endfor
-
-    call add(l:index_lines, '')
-    call add(l:index_lines, '')
-  endfor
-
+  let l:index_lines=TraverseWiki(s:wiki, l:wiki_name, '#')
   if writefile(l:index_lines, expand(s:wiki . 'index.md'), 's')
     echoerr 'Cannot write the wiki index.'
   endif
+endfunction
+
+function! TraverseWiki(root, wiki_name, header_prefix)
+  let l:index_lines=[]
+  let l:directories=filter(globpath(a:root, '*', 0, 1), 'isdirectory(v:val)')
+  let l:files=globpath(a:root, '*.md', 0, 1)
+
+  for l:wiki_file in l:files
+    let l:wiki_name_end=stridx(l:wiki_file, a:wiki_name) + len(a:wiki_name)
+    let l:file_path=l:wiki_file[l:wiki_name_end + 1:]
+    let l:file_name=split(l:file_path, '/')[-1]
+    call add(l:index_lines, '* [' . l:file_name . '](' . l:file_path . ')')
+  endfor
+
+  if len(l:index_lines) > 0
+    call add(l:index_lines, '')
+    call add(l:index_lines, '')
+  endif
+
+  for l:wiki_dir in l:directories
+    let l:wiki_name_end=stridx(l:wiki_dir, a:wiki_name) + len(a:wiki_name)
+    let l:wiki_subpage_name=l:wiki_dir[l:wiki_name_end + 1:]
+    let l:rec_lines=TraverseWiki(l:wiki_dir, a:wiki_name, a:header_prefix . '#')
+
+    call add(l:index_lines, a:header_prefix . ' ' . l:wiki_subpage_name)
+    call add(l:index_lines, '')
+    call extend(l:index_lines, l:rec_lines)
+  endfor
+
+  return l:index_lines
 endfunction
 
 nnoremap <leader>i :call Index()<CR>
