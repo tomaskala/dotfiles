@@ -24,16 +24,16 @@ function! Index()
   let l:directories=filter(globpath(s:wiki, '*', 0, 1), 'isdirectory(v:val)')
   let l:wiki_name=split(s:wiki, '/')[-1]
 
-  for wiki_dir in l:directories
-    let l:wiki_name_end=stridx(wiki_dir, l:wiki_name) + len(l:wiki_name)
-    let l:wiki_subpage_name=wiki_dir[l:wiki_name_end + 1:]
+  for l:wiki_dir in l:directories
+    let l:wiki_name_end=stridx(l:wiki_dir, l:wiki_name) + len(l:wiki_name)
+    let l:wiki_subpage_name=l:wiki_dir[l:wiki_name_end + 1:]
 
     call add(l:index_lines, '# ' . l:wiki_subpage_name)
     call add(l:index_lines, '')
 
-    for wiki_file in globpath(wiki_dir, '**/*.md', 0, 1)
-      let l:wiki_name_end=stridx(wiki_file, l:wiki_name) + len(l:wiki_name)
-      let l:file_path=wiki_file[l:wiki_name_end + 1:]
+    for l:wiki_file in globpath(l:wiki_dir, '**/*.md', 0, 1)
+      let l:wiki_name_end=stridx(l:wiki_file, l:wiki_name) + len(l:wiki_name)
+      let l:file_path=l:wiki_file[l:wiki_name_end + 1:]
       let l:file_name=split(l:file_path, '/')[-1]
       call add(l:index_lines, '* [' . l:file_name . '](' . l:file_path . ')')
     endfor
@@ -46,6 +46,8 @@ function! Index()
     echoerr 'Cannot write the wiki index.'
   endif
 endfunction
+
+nnoremap <leader>i :call Index()<CR>
 
 " Toggle goyo.
 map <leader>g :Goyo<CR>
@@ -91,8 +93,8 @@ function! Night()
   set background=dark
 endfunction
 
-command! Day call Day()
-command! Night call Night()
+nnoremap <leader>d :call Day()<CR>
+nnoremap <leader>n :call Night()<CR>
 
 
 " FILETYPE-SPECIFIC
@@ -259,11 +261,6 @@ nnoremap <leader>yy "+yy
 " <leader>p pastes from system clipboard.
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
-
-" Miscellaneous
-nnoremap <leader>d :call Day()<CR>
-nnoremap <leader>n :call Night()<CR>
-nnoremap <leader>i :call Index()<CR>
 
 
 " SEARCHING
