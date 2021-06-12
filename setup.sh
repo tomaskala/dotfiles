@@ -2,18 +2,17 @@
 set -eu -o pipefail
 
 
-GLOBIGNORE=".:..:.git:.gitignore"
-INSTALL_PRIVATE=false
-
-GPG="gpg"
-which gpg2 &>/dev/null && GPG="gpg2"
-
-
-__USAGE="Usage: $(basename "$0") [OPTIONS]
+usage="Usage: $(basename "$0") [OPTIONS]
 
 Options:
   -p  Install private (encrypted) files.
   -h  Show this message and exit."
+
+
+GLOBIGNORE=".:..:.git:.gitignore"
+install_private=false
+gpg="gpg"
+which gpg2 &>/dev/null && gpg="gpg2"
 
 
 install_dotfile() {
@@ -36,7 +35,7 @@ decrypt_dotfile() {
     echo "Decrypting ${dotfile}"
     mkdir -p -m 700 "$(dirname "${dest}")"
     (umask 0177;
-    "${GPG}" --quiet -o "${dest}" -d "${dotfile}")
+    "${gpg}" --quiet -o "${dest}" -d "${dotfile}")
   else
     echo "Skipping ${dotfile}"
   fi
@@ -45,9 +44,9 @@ decrypt_dotfile() {
 
 while getopts "hp" arg; do
   case "${arg}" in
-    h) echo "${__USAGE}"; exit 0 ;;
-    p) INSTALL_PRIVATE=true ;;
-    *) echo "${__USAGE}"; exit 1 ;;
+    h) echo "${usage}"; exit 0 ;;
+    p) install_private=true ;;
+    *) echo "${usage}"; exit 1 ;;
   esac
 done
 
@@ -55,7 +54,7 @@ for source in .*; do
   while read -r dotfile; do
     if [[ "${dotfile}" = "${dotfile##*.gpg}" ]]; then
       install_dotfile "${dotfile}"
-    elif [[ "${INSTALL_PRIVATE}" = true ]]; then
+    elif [[ "${install_private}" = true ]]; then
       decrypt_dotfile "${dotfile}"
     fi
   done < <(find "${source}" -type f | sort)

@@ -2,7 +2,7 @@
 set -ef -o pipefail
 
 
-__USAGE="Usage: $(basename "$0") source [destination]
+usage="Usage: $(basename "$0") source [destination]
 
 Encrypt the source file using all public keys for the email found in the
 EMAIL environment variable.
@@ -19,30 +19,30 @@ die() {
 
 # Show usage.
 if [[ "$#" -gt 0 && "$1" == "-h" ]]; then
-  echo "${__USAGE}"
+  echo "${usage}"
   exit 0
 fi
 
 [[ -z "${EMAIL}" ]] && die "The EMAIL environment variable is not set."
 
-GPG_OPTS=( "--quiet" "--yes" "--compress-algo=none" "--no-encrypt-to" )
-GPG="gpg"
+gpt_opts=( "--quiet" "--yes" "--compress-algo=none" "--no-encrypt-to" )
+gpg="gpg"
 
-which gpg2 &>/dev/null && GPG="gpg2"
+which gpg2 &>/dev/null && gpg="gpg2"
 
-[[ -n ${GPG_AGENT_INFO} || ${GPG} == "gpg2" ]] \
-  && GPG_OPTS+=( "--batch" "--use-agent" )
+[[ -n ${GPG_AGENT_INFO} || ${gpg} == "gpg2" ]] \
+  && gpt_opts+=( "--batch" "--use-agent" )
 
 [[ "$#" -eq 0 || "$#" -gt 2 ]] && die "Specify either 1 or 2 arguments."
 
 # Process arguments.
-SOURCE="$1"
-[[ "$#" -eq 2 ]] && GPG_OPTS+=( "-o" "$2" )
+source="$1"
+[[ "$#" -eq 2 ]] && gpt_opts+=( "-o" "$2" )
 
-[[ ! -f "${SOURCE}" ]] && die "The file ${SOURCE} does not exist."
+[[ ! -f "${source}" ]] && die "The file ${source} does not exist."
 
 # Read all fingerprints for the email stored in the EMAIL environment variable.
-FPR_PARSER='
+fpr_parser='
 BEGIN {
   out = ""
 }
@@ -57,8 +57,8 @@ $1 == "uid" {
 '
 
 while read -r keyid; do
-  GPG_OPTS+=( "-r" "${keyid}" )
-done < <(gpg --list-keys --with-colons "${EMAIL}" | awk -F: "${FPR_PARSER}")
+  gpt_opts+=( "-r" "${keyid}" )
+done < <(${gpg} --list-keys --with-colons "${EMAIL}" | awk -F: "${fpr_parser}")
 
 # Encrypt the source file.
-"${GPG}" -e "${GPG_OPTS[@]}" "${SOURCE}"
+"${gpg}" -e "${gpt_opts[@]}" "${source}"

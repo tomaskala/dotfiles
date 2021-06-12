@@ -2,7 +2,7 @@
 set -uf -o pipefail
 
 
-__USAGE="Usage: $(basename "$0") [<commit-message>]
+usage="Usage: $(basename "$0") [<commit-message>]
    or: $(basename "$0") git [<args>...]
 
 In the first form: Synchronize the repository with the remote by
@@ -13,9 +13,9 @@ In the second form: Provide shortcuts for git commands ran as if
 inside the synchronized directory."
 
 
-SYNCED_DIR="${HOME}/notes"
-GIT_COMMIT_MSG="Sync"
-GIT_DIR=""
+synced_dir="${HOME}/notes"
+git_commit_msg="Sync"
+git_dir=""
 
 
 die() {
@@ -24,68 +24,68 @@ die() {
 }
 
 set_git() {
-  GIT_DIR="${1%/*}"
+  git_dir="${1%/*}"
 
-  while [[ ! -d "${GIT_DIR}" && "${GIT_DIR%/*}/" == "${SYNCED_DIR%/}/"* ]]; do
-    GIT_DIR="${GIT_DIR%/*}"
+  while [[ ! -d "${git_dir}" && "${git_dir%/*}/" == "${synced_dir%/}/"* ]]; do
+    git_dir="${git_dir%/*}"
   done
 
-  [[ $(git -C "${GIT_DIR}" rev-parse --is-inside-work-tree 2>/dev/null) \
-    == true ]] || GIT_DIR=""
+  [[ $(git -C "${git_dir}" rev-parse --is-inside-work-tree 2>/dev/null) \
+    == true ]] || git_dir=""
 }
 
 cmd_git() {
-  set_git "${SYNCED_DIR}/"
+  set_git "${synced_dir}/"
 
   if [[ "$1" == "init" ]]; then
-    GIT_DIR="${SYNCED_DIR}"
-    git -C "${GIT_DIR}" "$@" || exit 1
-    git_add "${SYNCED_DIR}"
+    git_dir="${synced_dir}"
+    git -C "${git_dir}" "$@" || exit 1
+    git_add "${synced_dir}"
     git_commit "Initialize the repository"
-  elif [[ -n "${GIT_DIR}" ]]; then
-    git -C "${GIT_DIR}" "$@"
+  elif [[ -n "${git_dir}" ]]; then
+    git -C "${git_dir}" "$@"
   else
     die "Error: Git repository not initialized."
   fi
 }
 
 git_add() {
-  [[ -n "${GIT_DIR}" ]] || return
-  git -C "${GIT_DIR}" add "$1" || return
-  [[ -n $(git -C "${GIT_DIR}" status --porcelain "$1") ]] || return
+  [[ -n "${git_dir}" ]] || return
+  git -C "${git_dir}" add "$1" || return
+  [[ -n $(git -C "${git_dir}" status --porcelain "$1") ]] || return
 }
 
 git_commit() {
-  [[ -n "${GIT_DIR}" ]] || return
-  git -C "${GIT_DIR}" commit -m "$1"
+  [[ -n "${git_dir}" ]] || return
+  git -C "${git_dir}" commit -m "$1"
 }
 
 git_pull() {
-  [[ -n "${GIT_DIR}" ]] || return
-  git -C "${GIT_DIR}" pull
+  [[ -n "${git_dir}" ]] || return
+  git -C "${git_dir}" pull
 }
 
 git_push() {
-  [[ -n "${GIT_DIR}" ]] || return
-  git -C "${GIT_DIR}" push
+  [[ -n "${git_dir}" ]] || return
+  git -C "${git_dir}" push
 }
 
 main() {
-  local commit_msg="${GIT_COMMIT_MSG}"
+  local commit_msg="${git_commit_msg}"
 
   # Show usage.
   if [[ "$#" -gt 0 && "$1" == "-h" ]]; then
-    echo "${__USAGE}"
+    echo "${usage}"
     exit 0
   fi
 
   # Check whether the directory exists.
-  if [[ ! -d "${SYNCED_DIR}" ]]; then
-    die "Error: The directory ${SYNCED_DIR} does not exist."
+  if [[ ! -d "${synced_dir}" ]]; then
+    die "Error: The directory ${synced_dir} does not exist."
   fi
 
   # Check whether the git repository is initialized.
-  git -C "${SYNCED_DIR}" rev-parse 2>/dev/null \
+  git -C "${synced_dir}" rev-parse 2>/dev/null \
     || die "Error: Git repository not initialized."
 
   # Parse arguments.
@@ -99,8 +99,8 @@ main() {
   fi
 
   # Synchronize.
-  set_git "${SYNCED_DIR}/"
-  git_add "${SYNCED_DIR}"
+  set_git "${synced_dir}/"
+  git_add "${synced_dir}"
   git_commit "${commit_msg}"
   git_pull
   git_push

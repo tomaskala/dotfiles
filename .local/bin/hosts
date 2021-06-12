@@ -2,7 +2,7 @@
 set -euf -o pipefail
 
 
-__USAGE="Usage: $(basename "$0") [OPTIONS]
+usage="Usage: $(basename "$0") [OPTIONS]
 
 Options:
   -b FILE  Path to a blacklist file with 1 address per line.
@@ -18,10 +18,10 @@ Options:
   -h       Show this message and exit."
 
 
-HOSTS_SRC="https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts"
-BLACKLIST_SRC=""
-LOOKUP_SRC=""
-DNS=""
+hosts_src="https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts"
+blacklist_src=""
+lookup_src=""
+dns=""
 
 
 die() {
@@ -33,36 +33,36 @@ die() {
 # Process arguments.
 while getopts "hb:s:d:" arg; do
   case "${arg}" in
-    h) echo "${__USAGE}"; exit 0 ;;
-    b) BLACKLIST_SRC="${OPTARG}" ;;
-    s) LOOKUP_SRC="${OPTARG}" ;;
-    d) DNS="${OPTARG}" ;;
-    *) echo "${__USAGE}"; exit 1 ;;
+    h) echo "${usage}"; exit 0 ;;
+    b) blacklist_src="${OPTARG}" ;;
+    s) lookup_src="${OPTARG}" ;;
+    d) dns="${OPTARG}" ;;
+    *) echo "${usage}"; exit 1 ;;
   esac
 done
 
 # Check the argument values.
-if [[ -n "${LOOKUP_SRC}" ]] && ! type dig > /dev/null; then
+if [[ -n "${lookup_src}" ]] && ! type dig > /dev/null; then
   die "Dig is not installed."
 fi
 
-if [[ -n "${LOOKUP_SRC}" ]] && [[ ! -f "${LOOKUP_SRC}" ]]; then
-  die "The file ${LOOKUP_SRC} does not exist."
+if [[ -n "${lookup_src}" ]] && [[ ! -f "${lookup_src}" ]]; then
+  die "The file ${lookup_src} does not exist."
 fi
 
-if [[ -n "${BLACKLIST_SRC}" ]] && [[ ! -f "${BLACKLIST_SRC}" ]]; then
-  die "The file ${BLACKLIST_SRC} does not exist."
+if [[ -n "${blacklist_src}" ]] && [[ ! -f "${blacklist_src}" ]]; then
+  die "The file ${blacklist_src} does not exist."
 fi
 
-if [[ "${DNS#@}" == "${DNS}" ]]; then
-  DNS="@${DNS}"
+if [[ "${dns#@}" == "${dns}" ]]; then
+  dns="@${dns}"
 fi
 
 # Download the base hosts file.
-sudo wget -O "/etc/hosts" "${HOSTS_SRC}" && sync
+sudo wget -O "/etc/hosts" "${hosts_src}" && sync
 
-# Append DNS lookups of internal services.
-if [[ -n "${LOOKUP_SRC}" ]]; then
+# Append dns lookups of internal services.
+if [[ -n "${lookup_src}" ]]; then
   echo "# DNS lookup from the 'hosts' script." | sudo tee -a /etc/hosts
 
   while read -r addr; do
@@ -71,16 +71,16 @@ if [[ -n "${LOOKUP_SRC}" ]]; then
     fi
 
     if [[ "${addr#\#}" == "${addr}" ]]; then
-      lookup=$(dig "${addr}" "${DNS}" +short)
+      lookup=$(dig "${addr}" "${dns}" +short)
       echo "${lookup} ${addr}" | sudo tee -a /etc/hosts
     else
       echo "${addr}" | sudo tee -a /etc/hosts
     fi
-  done < "${LOOKUP_SRC}"
+  done < "${lookup_src}"
 fi
 
 # Append the blacklist no-ops.
-if [[ -n "${BLACKLIST_SRC}" ]]; then
+if [[ -n "${blacklist_src}" ]]; then
   echo "# Blacklist from the 'hosts' script." | sudo tee -a /etc/hosts
 
   while read -r addr; do
@@ -94,5 +94,5 @@ if [[ -n "${BLACKLIST_SRC}" ]]; then
     else
       echo "${addr}" | sudo tee -a /etc/hosts
     fi
-  done < "${BLACKLIST_SRC}"
+  done < "${blacklist_src}"
 fi
