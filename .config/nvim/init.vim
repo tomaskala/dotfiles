@@ -322,3 +322,9 @@ augroup plaintext
     \ call SetIndentation(2) |
     \ setlocal textwidth=80
 augroup end
+
+augroup todo
+  autocmd!
+  autocmd Syntax *
+    \ call matchadd('Constant', '\v\zs<(TODO|DONE|CANCELLED|FIXME)>')
+augroup end
