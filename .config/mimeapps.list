@@ -1,6 +1,7 @@
 [Default Applications]
 text/x-shellscript=text.desktop;
 text/plain=text.desktop;
+x-scheme-handler/mailto=mail.desktop;
 application/postscript=pdf.desktop;
 application/pdf=pdf.desktop;
 image/png=image.desktop;

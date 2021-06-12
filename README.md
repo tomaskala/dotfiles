@@ -25,7 +25,6 @@ Before reinstalling the system, backup the following:
   * `bookmarkbackups`;
   * `favicons.sqlite`;
   * `sessionstore.jsonlz4`.
-* Thunderbird profile: `~/.thunderbird/<profile-directory>`.
 * Saved passwords: `~/.password-store`.
 * Downloads directory: `~/Downloads`.
 * Documents directory: `~/Documents`.
@@ -125,10 +124,8 @@ The following software should then be installed.
   $ python scripts/mkvenv.py
   $ ln -fs $HOME/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop ~/.local/share/applications/
   ```
-* Thunderbird
-  * Install the [No Message Pane
-    Sort](https://addons.thunderbird.net/en-US/thunderbird/addon/no-message-pane-sort-by-mouse/)
-    addon.
+* Email
+  * `neomutt`, `urlview`
 * Transmission
 
 
