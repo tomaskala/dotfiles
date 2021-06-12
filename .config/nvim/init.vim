@@ -62,7 +62,7 @@ endfunction
 nnoremap <leader>i :call Index()<CR>
 
 " Toggle goyo.
-map <leader>g :Goyo<CR>
+nnoremap <leader>g :Goyo<CR>
 
 " Workaround to make :q quit goyo and vim.
 function! s:goyo_enter()
@@ -241,7 +241,7 @@ nnoremap <silent> <C-Right> :tabnext<CR>
 nnoremap <silent> <C-Left> :tabprevious<CR>
 
 " Press Enter to insert a blank line below.
-map <Enter> o<ESC>
+nnoremap <Enter> o<ESC>
 
 " Fix caps lock annoyances.
 if has('user_commands')
@@ -256,13 +256,11 @@ if has('user_commands')
   command! -bang Qa qa<bang>
 endif
 
-
 " MakeTags command to generate ctags.
 " ctrl+]   ... jump to tag under the cursor.
 " g+ctrl+] ... ambiguous tags
 " ctrl+t   ... jump back up the tag stack.
 command! MakeTags !ctags -R .
-
 
 " Copy-paste
 " <leader>y yanks to system clipboard.
