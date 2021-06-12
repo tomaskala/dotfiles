@@ -304,6 +304,8 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
   (gh) https://github.com/search?q=%s
   (http) https://httpstatuses.com/%s
   (m) https://www.metal-archives.com/search?type=band_name&searchString=%s
+  (tce) https://www.deepl.com/translator#cs/en/%s
+  (tec) https://www.deepl.com/translator#en/cs/%s
   ```
 * Install the `firefox/gruvbox.xpi` by opening it (`CTRL+o`) in
   Firefox.

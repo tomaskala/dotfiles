@@ -150,6 +150,8 @@ c.url.searchengines = {
     "gh": "https://github.com/search?q={}",
     "http": "https://httpstatuses.com/{}",
     "m": "https://www.metal-archives.com/search?type=band_name&searchString={}",
+    "tce": "https://www.deepl.com/translator#cs/en/{}",
+    "tec": "https://www.deepl.com/translator#en/cs/{}",
 }
 
 # Keybindings.
