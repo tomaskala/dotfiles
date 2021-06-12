@@ -144,7 +144,8 @@ set noswapfile
 
 
 " UI CONFIG
-set number                      " Show line numbers.
+set number                      " Show absolute line numbers.
+set relativenumber              " Show relative line numbers.
 set noshowmode                  " The status bar displays the current mode.
 set showcmd                     " Show the last command in the bottom bar.
 set wildmenu                    " Visual autocomplete for the command menu.
