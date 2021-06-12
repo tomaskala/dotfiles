@@ -33,10 +33,12 @@ function! TraverseWiki(root, wiki_name, header_prefix)
   let l:files=globpath(a:root, '*.md', 0, 1)
 
   for l:wiki_file in l:files
-    let l:wiki_name_end=stridx(l:wiki_file, a:wiki_name) + len(a:wiki_name)
-    let l:file_path=l:wiki_file[l:wiki_name_end + 1:]
-    let l:file_name=split(l:file_path, '/')[-1]
-    call add(l:index_lines, '* [' . l:file_name . '](' . l:file_path . ')')
+    if l:wiki_file !~ '.*index.md'
+      let l:wiki_name_end=stridx(l:wiki_file, a:wiki_name) + len(a:wiki_name)
+      let l:file_path=l:wiki_file[l:wiki_name_end + 1:]
+      let l:file_name=split(l:file_path, '/')[-1]
+      call add(l:index_lines, '* [' . l:file_name . '](' . l:file_path . ')')
+    endif
   endfor
 
   if len(l:index_lines) > 0
