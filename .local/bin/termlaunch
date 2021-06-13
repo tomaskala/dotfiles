@@ -10,7 +10,8 @@ Commands:
   scratchpad  Open a temporary file in a text editor, copying its contents to
               the system clipboard after saving.
   wiki        Open the wiki.
-  calculator  Launch calculator.
+  calculator  Launch a calculator.
+  email       Launch an email client.
 
 Options:
   -g TEXT  X11 geometry string provided to floating windows.
@@ -50,6 +51,11 @@ tl_calculator() {
   tl "calculator" "${command[@]}"
 }
 
+tl_email() {
+  local command=("neomutt")
+  tl "email" "${command[@]}"
+}
+
 
 while getopts "hg:" arg; do
   case "${arg}" in
@@ -63,5 +69,6 @@ case "${@:${OPTIND}:1}" in
   scratchpad) tl_scratchpad ;;
   wiki) tl_wiki ;;
   calculator) tl_calculator ;;
+  email) tl_email ;;
   *) echo "${usage}"; exit 1 ;;
 esac
