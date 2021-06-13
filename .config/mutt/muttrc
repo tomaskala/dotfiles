@@ -7,6 +7,7 @@ set date_format="%Y-%m-%d %H:%M"
 set index_format="%4C %Z %D %-15.15L (%?l?%4l&%4c?) %s"
 
 ### General settings.
+set editor='${EDITOR} -c "set filetype=mail"'
 set fast_reply                # Go straight to compose when replying.
 set fcc_attach                # Save attachments with the body.
 set forward_format="Fwd: %s"  # Format of the subject when forwarding.
