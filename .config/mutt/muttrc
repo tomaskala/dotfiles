@@ -1,5 +1,17 @@
 set realname="${REALNAME}"
+set mbox_type=Maildir
+set header_cache="${HOME}/.cache/neomutt/${EMAIL}/headers"
+set message_cachedir="${HOME}/.cache/neomutt/${EMAIL}/bodies"
 set mailcap_path="${HOME}/.config/mutt/mailcap":"${mailcap_path}"
+
+set folder="${HOME}/Mail/${EMAIL}/"
+set sendmail="msmtp -a ${EMAIL}"
+
+set spoolfile="+INBOX"
+set record="+Sent"
+set trash="+Trash"
+set postponed="+Drafts"
+mailboxes =INBOX =Sent =Trash =Drafts =Junk
 
 ### Set formats.
 set date_format="%Y-%m-%d %H:%M"
@@ -7,6 +19,7 @@ set date_format="%Y-%m-%d %H:%M"
 set index_format="%4C %Z %D %-15.15L (%?l?%4l&%4c?) %s"
 
 ### General settings.
+set edit_headers=yes          # Allow editing the email headers.
 set editor='${EDITOR} -c "set filetype=mail"'
 set fast_reply                # Go straight to compose when replying.
 set fcc_attach                # Save attachments with the body.
@@ -25,6 +38,7 @@ set sort_aux="reverse-last-date-received"  # Secondary sort.
 set ssl_force_tls=yes         # Force TLS.
 set wait_key=no               # Do not ask to press a key to continue.
 unset collapse_unread         # Do not collapse threads with unread messages.
+unset signature               # Disable the no-signature nagging.
 auto_view text/html           # Automatically show HTML.
 alternative_order text/plain text/enriched text/html  # Format preferences.
 
@@ -60,6 +74,7 @@ bind index,pager S sync-mailbox
 bind index,pager R group-reply
 bind editor <Tab> complete-query
 macro index,pager U "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>""view URLs"
+macro index o "<shell-escape>mbsync -ac ${HOME}/.config/mbsync/mbsyncrc<enter>"
 
 ### Sidebar settings.
 set sidebar_visible

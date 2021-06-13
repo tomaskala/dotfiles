@@ -1,0 +1,12 @@
+defaults
+auth on
+tls on
+tls_trust_file /etc/pki/tls/certs/ca-bundle.crt
+logfile ~/.config/msmtp/msmtp.log
+
+account me@tomaskala.com
+host smtp.mailbox.org
+port 587
+from me@tomaskala.com
+user me@tomaskala.com
+passwordeval "pass communication/me@tomaskala.com"

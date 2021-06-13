@@ -1,0 +1,22 @@
+IMAPStore me@tomaskala.com-remote
+Host imap.mailbox.org
+Port 993
+User me@tomaskala.com
+PassCmd "pass communication/me@tomaskala.com"
+SSLType IMAPS
+CertificateFile /etc/pki/tls/certs/ca-bundle.crt
+
+MaildirStore me@tomaskala.com-local
+Path ~/Mail/me@tomaskala.com/
+Inbox ~/Mail/me@tomaskala.com/INBOX
+SubFolders Verbatim
+
+Channel me@tomaskala.com
+Far :me@tomaskala.com-remote:
+Near :me@tomaskala.com-local:
+Create Both
+Expunge Both
+Patterns *
+SyncState *
+MaxMessages 0
+ExpireUnread no
