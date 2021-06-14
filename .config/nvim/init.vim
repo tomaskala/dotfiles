@@ -159,7 +159,7 @@ set splitright  " Open new pane to the right.
 
 set scrolloff=3     " Minimum lines to keep above/below cursor when scrolling.
 set cursorline      " Highlight the current line.
-set colorcolumn=81  " Show a column at 81 characters.
+set colorcolumn=80  " Show a column at 80 characters.
 
 
 " STATUSLINE
@@ -320,7 +320,7 @@ augroup plaintext
   autocmd!
   autocmd FileType mail,markdown,text
     \ call SetIndentation(2) |
-    \ setlocal textwidth=80
+    \ setlocal textwidth=79
 augroup end
 
 augroup todo
