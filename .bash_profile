@@ -1,5 +1,6 @@
 ### Environment variables.
 export REALNAME='Tomas Kala'
+export NAME="${REALNAME}"
 export EMAIL='me@tomaskala.com'
 export GIT_COMMITTER_NAME="${REALNAME}"
 export GIT_AUTHOR_NAME="${REALNAME}"
@@ -7,6 +8,11 @@ export GIT_AUTHOR_NAME="${REALNAME}"
 export BROWSER='firefox'
 export EDITOR='nvim'
 export TERMINAL='st'
+
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export NOTMUCH_CONFIG="${XDG_CONFIG_HOME}/notmuch/notmuchrc"
 export XINITRC="${HOME}/.xinitrc"
 
 OS="$(uname)"

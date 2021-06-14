@@ -1,0 +1,12 @@
+[database]
+path=Mail
+
+[new]
+tags=unread;inbox;
+ignore=/.*[.](json|lock|bak|uidvalidity|mbsyncstate|)$/
+
+[search]
+exclude_tags=deleted;spam;
+
+[maildir]
+synchronize_flags=true

@@ -125,7 +125,7 @@ The following software should then be installed.
   $ ln -fs $HOME/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop ~/.local/share/applications/
   ```
 * Email
-  * `neomutt`, `urlview`, `isync`, `msmtp`
+  * `neomutt`, `urlview`, `isync`, `msmtp`, `notmuch`
 * Transmission
 
 
