@@ -203,29 +203,6 @@ set shortmess+=I  " Do not display the startup message.
 " KEYMAPS
 " Note that the `"` comment cannot be used on the line defining the key mapping.
 
-" Make j/down and k/up go by rows instead of lines in normal/visual selection.
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up> gk
-vnoremap <Down> gj
-vnoremap <Up> gk
-
-" Make down and up go by rows instead of by lines in the insert mode.
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
-
-" Go to the beginning/end of a row instead of a line in normal/visual selection.
-nnoremap ^ g^
-nnoremap $ g$
-vnoremap ^ g^
-vnoremap $ g$
-
-" Decrease indentation level in insert mode.
-inoremap <S-Tab> <ESC><<i
-
 " Yank from the cursor to the end of the line, consistent with C and D.
 nnoremap Y y$
 
@@ -273,6 +250,9 @@ nnoremap <leader>yy "+yy
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
+" Press <leader><space> to turn off search highlight.
+nnoremap <leader><space> :nohlsearch<CR>
+
 
 " SEARCHING
 set incsearch   " Search as characters are entered.
@@ -280,9 +260,6 @@ set hlsearch    " Highlight matches.
 set ignorecase  " Case insensitive search.
 set smartcase   " But case sensitive when uppercase is present.
 set showmatch   " Live match highlighting.
-
-" Press <leader><space> to turn off search highlight.
-nnoremap <leader><space> :nohlsearch<CR>
 
 " Show substitution results in real time.
 if exists('&inccommand')
