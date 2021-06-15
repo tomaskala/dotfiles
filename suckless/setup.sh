@@ -47,5 +47,5 @@ sudo make -C "${HOME}/suckless/st" clean install
 safeclone "https://git.suckless.org/slock" "${HOME}/suckless/slock"
 sudo make -C "${HOME}/suckless/slock" clean install
 
-ln -fs "$(pwd)/.xprofile" "${HOME}/.config/.xprofile"
-ln -fs "$(pwd)/.xinitrc" "${HOME}/.config/.xinitrc"
+ln -fs "$(pwd)/xprofile" "${HOME}/.config/xprofile"
+ln -fs "$(pwd)/xinitrc" "${HOME}/.config/xinitrc"

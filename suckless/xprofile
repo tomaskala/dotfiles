@@ -2,13 +2,13 @@
 
 
 # Set the screen resolution and wallpaper.
-exec refreshresolution &
+refreshresolution &
 
 # Set the input volume.
-exec amixer set Capture 40% &
+amixer set Capture 40% &
 
 # Setup notifications.
-exec dunst &
+dunst &
 
 # Setup the status bar.
-exec slstatus &
+slstatus &

@@ -12,8 +12,12 @@ export TERMINAL='st'
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
+
+export INPUTRC="${HOME}/.config/inputrc"
 export NOTMUCH_CONFIG="${HOME}/.config/notmuch/notmuchrc"
-export XINITRC="${HOME}/.config/.xinitrc"
+export PASSWORD_STORE_DIR="${HOME}/.local/share/password-store"
+export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
+export XINITRC="${HOME}/.config/xinitrc"
 
 OS="$(uname)"
 export OS

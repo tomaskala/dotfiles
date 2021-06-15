@@ -1,8 +1,8 @@
 #!/bin/sh
 
 
-if [ -f "${HOME}/.config/.xprofile" ]; then
-  . "${HOME}/.config/.xprofile"
+if [ -f "${HOME}/.config/xprofile" ]; then
+  . "${HOME}/.config/xprofile"
 fi
 
 # Launch dwm as a subprocess of the ssh agent,
