@@ -148,8 +148,8 @@ set number                      " Show absolute line numbers.
 set relativenumber              " Show relative line numbers.
 set noshowmode                  " The status bar displays the current mode.
 set showcmd                     " Show the last command in the bottom bar.
+set wildmode=longest:full,full  " Shell-like filename autocompletion.
 set wildmenu                    " Visual autocomplete for the command menu.
-set wildmode=full               " Shell-like filename autocompletion.
 
 set showmatch                   " Highlight matching parentheses.
 set matchpairs=(:),[:],{:},<:>  " These parentheses are shown as matching.
