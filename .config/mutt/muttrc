@@ -34,6 +34,7 @@ set mime_forward              # Forward also attachments.
 set mime_type_query_command="file --mime-type -b %s"
 set reverse_name              # Reply as whoever the message was addressed to.
 set rfc2047_parameters        # Decode RFC2047-encoded MIME parameters.
+alternates "@tomaskala\.com$" # Auto-use addresses matching the regex to reply.
 
 ### Sort settings.
 set sort="threads"            # Sort emails by threads.
