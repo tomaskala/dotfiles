@@ -218,9 +218,6 @@ nnoremap <silent> <C-Right> :tabnext<CR>
 " Previous tab.
 nnoremap <silent> <C-Left> :tabprevious<CR>
 
-" Press Enter to insert a blank line below.
-nnoremap <Enter> o<ESC>
-
 " Fix caps lock annoyances.
 if has('user_commands')
   command! -bang -nargs=? -complete=file E e<bang> <args>
