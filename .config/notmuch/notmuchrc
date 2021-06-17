@@ -2,8 +2,8 @@
 path=Mail
 
 [new]
-tags=unread;inbox;
-ignore=/.*[.](json|lock|bak|uidvalidity|mbsyncstate|)$/
+tags=new;
+ignore=.mbsyncstate;.uidvalidity;
 
 [search]
 exclude_tags=deleted;spam;

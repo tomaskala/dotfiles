@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mbsync -a -c "${MBSYNC_CONFIG}"
