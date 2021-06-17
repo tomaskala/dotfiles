@@ -13,6 +13,7 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
 
+export LYNX_CFG="${HOME}/.config/lynx/lynx.cfg"
 export INPUTRC="${HOME}/.config/inputrc"
 export MBSYNC_CONFIG="${HOME}/.config/mbsync/mbsyncrc"
 export NOTMUCH_CONFIG="${HOME}/.config/notmuch/notmuchrc"
