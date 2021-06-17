@@ -34,6 +34,7 @@ ln -fs "$(pwd)/dwm/config.h" "${HOME}/suckless/dwm"
 sudo make -C "${HOME}/suckless/dwm" clean install
 
 safeclone "https://git.suckless.org/dmenu" "${HOME}/suckless/dmenu"
+ln -fs "$(pwd)/dmenu/config.h" "${HOME}/suckless/dmenu"
 sudo make -C "${HOME}/suckless/dmenu" clean install
 
 safeclone "https://git.suckless.org/slstatus" "${HOME}/suckless/slstatus"
