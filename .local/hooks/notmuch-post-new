@@ -35,5 +35,5 @@ notmuch tag +dev -inbox -- from:*@github.com
 notmuch tag +dev -inbox -- from:*@vpsfree.cz
 
 # Trash
-notmuch tag +trash -inbox -unread -new -- folder:/.*Trash/
-notmuch tag +trash -inbox -unread -new -- folder:/.*Junk/
+notmuch tag --remove-all +trash -- folder:/.*Trash/
+notmuch tag --remove-all +trash -- folder:/.*Junk/
