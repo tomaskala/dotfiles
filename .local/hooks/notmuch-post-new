@@ -1,15 +1,16 @@
 #!/bin/sh
 
-check_emails() {
-  recipient="$1"
-  unread=$(notmuch count tag:new to:"${recipient}")
+tag_emails() {
+  address="$1"
+  unread=$(notmuch count tag:new to:"${address}")
 
   if [ "${unread}" -gt 0 ]; then
-    notify-send "${recipient}" "${unread} unread email(s)"
+    notify-send "${address}" "${unread} unread email(s)"
   fi
 
   notmuch tag +inbox +unread -new -- tag:new
+  notmuch tag +sent -inbox -unread -new -- from:"${address}"
 }
 
-check_emails "${EMAIL}"
-check_emails "public@tomaskala.com"
+tag_emails "${EMAIL}"
+tag_emails "public@tomaskala.com"
