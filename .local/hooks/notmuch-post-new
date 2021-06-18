@@ -1,16 +1,39 @@
 #!/bin/sh
 
-tag_emails() {
+check_emails() {
   address="$1"
   unread=$(notmuch count tag:new to:"${address}")
 
   if [ "${unread}" -gt 0 ]; then
     notify-send "${address}" "${unread} unread email(s)"
   fi
-
-  notmuch tag +inbox +unread -new -- tag:new
-  notmuch tag +sent -inbox -unread -new -- from:"${address}"
 }
 
-tag_emails "${EMAIL}"
-tag_emails "public@tomaskala.com"
+check_emails "${EMAIL}"
+check_emails "public@tomaskala.com"
+
+notmuch tag +inbox +unread -new -- tag:new
+notmuch tag +sent -inbox -unread -new -- from:"${EMAIL}" or from:public@tomaskala.com
+
+# My public email.
+notmuch tag +public -inbox -- to:public@tomaskala.com
+
+# Separate categories.
+notmuch tag +czechitas -inbox -- from:*@czechitas.cz
+notmuch tag +bank -inbox -- from:*csob.cz
+
+# Email providers.
+notmuch tag +email -inbox -- from:*@protonmail.ch or from:*@protonmail.com
+notmuch tag +email -inbox -- from:*@mailbox.org
+
+# Gaming-related emails.
+notmuch tag +gaming -inbox -- from:*@steampowered.com
+notmuch tag +gaming -inbox -- from:*gog.com
+
+# Development-related emails.
+notmuch tag +dev -inbox -- from:*@github.com
+notmuch tag +dev -inbox -- from:*@vpsfree.cz
+
+# Trash
+notmuch tag +trash -inbox -unread -new -- folder:/.*Trash/
+notmuch tag +trash -inbox -unread -new -- folder:/.*Junk/

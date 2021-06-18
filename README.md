@@ -126,6 +126,13 @@ The following software should then be installed.
   ```
 * Email
   * `neomutt`, `urlview`, `isync`, `msmtp`, `notmuch`, `lynx`
+  * To synchronize emails for the first time, run the following.
+    ```
+    $ mkdir -p ~/Mail/"${EMAIL}"
+    $ ./setup.sh -n  # Link the notmuch hooks.
+    $ notmuch new
+    $ notmuch tag -unread -- tag:unread
+    ```
 * Transmission
 
 

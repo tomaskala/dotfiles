@@ -1,8 +1,16 @@
 ### Paths.
-set folder="${HOME}/Mail/${EMAIL}/"
 set header_cache="${HOME}/.cache/neomutt/${EMAIL}/headers"
 set message_cachedir="${HOME}/.cache/neomutt/${EMAIL}/bodies"
 set mailcap_path="${HOME}/.config/mutt/mailcap":"${mailcap_path}"
+
+### Hooks.
+startup-hook "exec sync-mailbox"
+shutdown-hook "exec sync-mailbox"
+
+### Notmuch settings.
+set nm_unread_tag="new"
+set nm_record=yes
+set nm_record_tags="sent"
 
 ### Basic settings.
 set charset="utf-8"
@@ -58,9 +66,7 @@ set menu_scroll
 ### Sidebar settings.
 set sidebar_visible
 set sidebar_short_path
-set sidebar_folder_indent
-set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
-set sidebar_indent_string="  "
+set sidebar_format="%D%* %N/%S"
 
 ### Source colors and keybindings.
 source "${HOME}/.config/mutt/colors.muttrc"
@@ -69,8 +75,25 @@ source "${HOME}/.config/mutt/bindings.muttrc"
 ### Mailbox settings.
 set realname="${REALNAME}"
 set sendmail="msmtp -a ${EMAIL}"
-set spoolfile="+INBOX"
-set record="+Sent"
-set trash="+Trash"
-set postponed="+Drafts"
-mailboxes =INBOX =Sent =Drafts =Trash =Junk
+set spoolfile="+/${EMAIL}/INBOX"
+set record="+${EMAIL}/Sent"
+set trash="+${EMAIL}/Trash"
+set postponed="+${EMAIL}/Drafts"
+
+set virtual_spoolfile
+set folder="${HOME}/Mail/"
+
+virtual-mailboxes "INBOX" "notmuch://?query=tag:inbox"
+virtual-mailboxes "Sent" "notmuch://?query=tag:sent"
+virtual-mailboxes "Drafts" "notmuch://?query=folder:${EMAIL}/Drafts"
+virtual-mailboxes "Trash" "notmuch://?query=folder:${EMAIL}/Trash"
+virtual-mailboxes "Junk" "notmuch://?query=folder:${EMAIL}/Junk"
+
+virtual-mailboxes "Public" "notmuch://?query=tag:public"
+
+virtual-mailboxes "Czechitas" "notmuch://?query=tag:czechitas"
+virtual-mailboxes "Bank" "notmuch://?query=tag:bank"
+
+virtual-mailboxes "Email" "notmuch://?query=tag:email"
+virtual-mailboxes "Gaming" "notmuch://?query=tag:gaming"
+virtual-mailboxes "Dev" "notmuch://?query=tag:dev"
