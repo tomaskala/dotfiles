@@ -29,6 +29,8 @@ notmuch tag +email -inbox -- from:*@mailbox.org
 # Gaming-related emails.
 notmuch tag +gaming -inbox -- from:*@steampowered.com
 notmuch tag +gaming -inbox -- from:*gog.com
+notmuch tag +gaming -inbox -- from:*runescape.com
+notmuch tag +gaming -inbox -- from:*blizzard.com
 
 # Development-related emails.
 notmuch tag +dev -inbox -- from:*@github.com
