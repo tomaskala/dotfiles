@@ -21,6 +21,7 @@ Create Both
 Expunge Both
 Patterns *
 SyncState *
+Sync All
 
 Channel main-drafts
 Far :main-remote:"Drafts"
@@ -29,6 +30,7 @@ Create Both
 Expunge Both
 Patterns *
 SyncState *
+Sync All
 
 Channel main-sent
 Far :main-remote:"Sent"
@@ -37,6 +39,7 @@ Create Both
 Expunge Both
 Patterns *
 SyncState *
+Sync All
 
 Channel main-trash
 Far :main-remote:"Trash"
@@ -45,6 +48,7 @@ Create Both
 Expunge Both
 Patterns *
 SyncState *
+Sync All
 
 Channel main-junk
 Far :main-remote:"Junk"
@@ -53,6 +57,7 @@ Create Both
 Expunge Both
 Patterns *
 SyncState *
+Sync All
 
 Group main
 Channel main-inbox
