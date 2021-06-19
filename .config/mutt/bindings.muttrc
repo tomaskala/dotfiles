@@ -35,7 +35,6 @@ bind index,pager,browser d half-down
 bind index,pager,browser u half-up
 bind index,pager S sync-mailbox
 bind index,pager R group-reply
-bind editor <Tab> complete-query
 bind index,pager \Ct modify-labels
 
 ### Custom macros.

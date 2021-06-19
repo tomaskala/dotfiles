@@ -14,6 +14,7 @@ set nm_record_tags="sent"
 
 ### Basic settings.
 set charset="utf-8"
+set config_charset="utf-8"
 set send_charset="utf-8:iso-8859-1:us-ascii"
 set mbox_type=Maildir
 set mail_check=60             # Check for new messages this often.
@@ -72,6 +73,11 @@ set sidebar_format="%D%* %N/%S"
 ### Source colors and keybindings.
 source "${HOME}/.config/mutt/colors.muttrc"
 source "${HOME}/.config/mutt/bindings.muttrc"
+
+### Source aliases.
+set alias_file="${HOME}/.config/mutt/aliases"
+set sort_alias="alias"
+source "$alias_file"
 
 ### Mailbox settings.
 set realname="${REALNAME}"
