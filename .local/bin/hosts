@@ -5,6 +5,7 @@ set -euf -o pipefail
 usage="Usage: $(basename "$0") [OPTIONS]
 
 Options:
+  -a       Download an ad-blocking hosts file.
   -b FILE  Path to a blacklist file with 1 address per line.
            The file may contain comment lines beginning with '#'
            as well as empty lines. The addresses are assumed not
@@ -19,6 +20,7 @@ Options:
 
 
 hosts_src="https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts"
+download_hosts=false
 blacklist_src=""
 lookup_src=""
 dns=""
@@ -31,9 +33,10 @@ die() {
 
 
 # Process arguments.
-while getopts "hb:s:d:" arg; do
+while getopts "hab:s:d:" arg; do
   case "${arg}" in
     h) echo "${usage}"; exit 0 ;;
+    a) download_hosts=true ;;
     b) blacklist_src="${OPTARG}" ;;
     s) lookup_src="${OPTARG}" ;;
     d) dns="${OPTARG}" ;;
@@ -43,7 +46,7 @@ done
 
 # Check the argument values.
 if [[ -n "${lookup_src}" ]] && ! type dig > /dev/null; then
-  die "Dig is not installed."
+  die "The dig command is not installed."
 fi
 
 if [[ -n "${lookup_src}" ]] && [[ ! -f "${lookup_src}" ]]; then
@@ -59,7 +62,11 @@ if [[ "${dns#@}" == "${dns}" ]]; then
 fi
 
 # Download the base hosts file.
-sudo wget -O "/etc/hosts" "${hosts_src}" && sync
+if [[ "${download_hosts}" == true ]]; then
+  sudo wget -O /etc/hosts "${hosts_src}" && sync
+else
+  sudo truncate -s 0 /etc/hosts
+fi
 
 # Append dns lookups of internal services.
 if [[ -n "${lookup_src}" ]]; then
