@@ -12,6 +12,8 @@ map K zoom in
 map J zoom out
 map i recolor
 map p print
+map h navigate previous
+map l navigate next
 
 set default-fg "#ebdbb2"
 set default-bg "#1d2021"
