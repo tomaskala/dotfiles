@@ -14,7 +14,6 @@ alias grep='grep --color=auto'
 alias ls='ls -FNh --color=auto --group-directories-first'
 alias ll='ls -l'
 alias lla='ls -la'
-alias g='git'
 
 # Media.
 alias y='youtube-dl'
@@ -25,7 +24,6 @@ alias audio-hdmi='pacmd set-card-profile 0 output:hdmi-stereo+input:analog-stere
 alias audio-laptop='pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo'
 
 # Editor aliases.
-alias vi='nvim'
 alias vim='nvim'
 alias vimdiff='nvim -d'
 
@@ -38,17 +36,13 @@ HISTSIZE=99999                   # Amount of history to save.
 
 # Enable the following bash features.
 # - vi: enable vi mode.
-# - cdspell: automatically fix directory typos when changing directory.
 # - direxpand: automatically expand directory globs when completing.
-# - dirspell: automatically fix directory typos when completing.
 # - globstar: ** recursive glob.
 # - histappend: append to history, don't overwrite.
 # - histverify: expand, but don't automatically execute, history expansions.
-# - nocaseglob: case-insensitive globbing.
 # - no_empty_cmd_completion: don't TAB expand empty lines.
 set -o vi
-shopt -s cdspell direxpand dirspell globstar histappend histverify \
-  nocaseglob no_empty_cmd_completion
+shopt -s direxpand globstar histappend histverify no_empty_cmd_completion
 
 
 ### Additional sources.
