@@ -2,6 +2,8 @@
 set header_cache="${HOME}/.cache/neomutt/${EMAIL}/headers"
 set message_cachedir="${HOME}/.cache/neomutt/${EMAIL}/bodies"
 set mailcap_path="${HOME}/.config/mutt/mailcap":"${mailcap_path}"
+set certificate_file="${HOME}/.config/mutt/certificates"
+set tmpdir="${HOME}/.config/mutt/temp"
 
 ### Hooks.
 startup-hook "exec sync-mailbox"
@@ -15,60 +17,69 @@ set nm_record_tags="sent"
 ### Basic settings.
 set charset="utf-8"
 set config_charset="utf-8"
-set send_charset="utf-8:iso-8859-1:us-ascii"
+set mail_check=0       # Check for new messages this often.
+set mail_check_stats   # Enable checking for new messages.
 set mbox_type=Maildir
-set mail_check=60             # Check for new messages this often.
-set mail_check_stats          # Enable checking for new messages.
-set ssl_force_tls             # Force TLS.
-unset collapse_unread         # Do not collapse threads with unread messages.
-unset mark_old                # Unread mail stays so until read.
-unset markers                 # Do not display line continuation characters.
-unset signature               # Disable the no-signature nagging.
-unset wait_key                # Do not ask to press a key to continue.
-unset beep_new                # Shut up.
+set send_charset="utf-8:iso-8859-1:us-ascii"
+set ssl_force_tls      # Force TLS.
+set timeout=3          # How long to wait until aborting the waiting for input.
+unset collapse_unread  # Do not collapse threads with unread messages.
+unset mark_old         # Unread mail stays so until read.
+unset signature        # Disable the no-signature nagging.
+unset wait_key         # Do not ask to press a key to continue.
+unset beep_new         # Shut up.
 
 ### Set formats.
 set date_format="%Y-%m-%d %H:%M"
-set index_format="%4C %Z %D %-15.15L (%?l?%4l&%4c?) %s"
+set index_format="[%Z]  %D  %-20.20F  %s"
 
 ### Compose view settings.
-set edit_headers              # Allow editing the email headers.
+set attribution="On %d, %n wrote:"  # Quoting header format.
+set edit_headers               # Allow editing the email headers.
 set editor='${EDITOR} -c "set filetype=mail"'
-set envelope_from             # Pass the "from" address to msmtp.
-set fast_reply                # Skip to compose when replying.
-set fcc_attach                # Save attachments with the body.
-set forward_format="Fwd: %s"  # Format of the subject when forwarding.
-set forward_quote             # Include the message in forwards.
-set include                   # Include the message in replies.
-set mime_forward              # Forward also attachments.
+set envelope_from              # Pass the "from" address to msmtp.
+set fast_reply                 # Skip to compose when replying.
+set fcc_attach                 # Save attachments with the body.
+set forward_format="Fwd: %s"   # Format of the subject when forwarding.
+set forward_quote              # Include the message in forwards.
+set include                    # Include the message in replies.
+set mime_forward               # Forward also attachments.
 set mime_type_query_command="file --mime-type -b %s"
-set reverse_name              # Reply as whoever the message was addressed to.
-set rfc2047_parameters        # Decode RFC2047-encoded MIME parameters.
-alternates "@tomaskala\.com$" # Auto-use addresses matching the regex to reply.
+set reverse_name               # Reply as whoever the message was addressed to.
+set rfc2047_parameters         # Decode RFC2047-encoded MIME parameters.
+set sig_dashes                 # Dashes before the signature.
+alternates "@tomaskala\.com$"  # Auto-use the matching addresses to reply.
 
 ### Sort settings.
-set sort="threads"            # Sort emails by threads.
-set sort_aux="reverse-last-date-received"  # Secondary sort.
+set sort="threads"                        # Sort emails by threads.
+set sort_aux="reverse-last-date-received" # Secondary sort.
 
 ### Email headers and attachments.
 ignore *
-unignore from: to: cc: bcc: date: subject:  # Show only these headers.
+unignore from: to: cc: bcc: date: subject:            # Show only these headers.
 unhdr_order *
-hdr_order from: to: cc: bcc: date: subject: # Header ordering.
+hdr_order from: to: cc: bcc: date: subject:           # Header ordering.
 alternative_order text/plain text/enriched text/html  # Format preferences.
 auto_view text/html                                   # Show HTML.
 alternative_order text/plain text/enriched text/html  # Format preferences.
 
 ### Pager settings.
-set pager_index_lines=10
-set pager_context=3
-set tilde
-set menu_scroll    
+set menu_scroll           # Scroll in menus.
+set pager_context=3       # Number of context lines to show.
+set pager_index_lines=10  # Number of index lines to show.
+set pager_stop            # Don't go to the next message automatically.
+set tilde                 # Show tildes like vim does.
+unset markers             # Do not display line continuation characters.
 
 ### Sidebar settings.
-set sidebar_visible
-set sidebar_short_path
 set sidebar_format="%D%* %N/%S"
+set sidebar_short_path
+set sidebar_visible
+set sidebar_width=24
+
+### Statusbar settings.
+set status_chars=" *%A"
+set status_format="───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
 ### Source colors and keybindings.
 source "${HOME}/.config/mutt/colors.muttrc"
@@ -82,6 +93,7 @@ source "$alias_file"
 ### Mailbox settings.
 set realname="${REALNAME}"
 set sendmail="msmtp -a ${EMAIL}"
+set sendmail_wait=0  # Wait until the mail has been sent.
 set spoolfile="+/${EMAIL}/INBOX"
 set record="+${EMAIL}/Sent"
 set trash="+${EMAIL}/Trash"
