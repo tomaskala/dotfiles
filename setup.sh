@@ -21,7 +21,7 @@ install_dotfile() {
   dotfile="$1"
   dest="${HOME}/${dotfile}"
 
-  echo "Installing ${dotfile}"
+  printf 'Installing %s\n' "${dotfile}"
 
   mkdir -p -m 700 "$(dirname "${dest}")"
   chmod go-rwx "${dotfile}"
@@ -35,18 +35,18 @@ decrypt_dotfile() {
 
   if [ ! -e "${dest}" ] || \
       [ -n "$(find -L "${dotfile}" -prune -newer "${dest}")" ]; then
-    echo "Decrypting ${dotfile}"
+    printf 'Decrypting %s\n' "${dotfile}"
     mkdir -p -m 700 "$(dirname "${dest}")"
     (umask 0177;
     "${gpg}" --quiet -o "${dest}" -d "${dotfile}")
   else
-    echo "Skipping ${dotfile}"
+    printf 'Skipping %s\n' "${dotfile}"
   fi
 }
 
 
 install_notmuch_hooks() {
-  echo "Installing notmuch hooks"
+  printf 'Installing notmuch hooks\n'
   mkdir -p -m 700 ~/Mail/.notmuch/hooks
 
   hook="$(pwd)/.local/hooks/notmuch-pre-new"
@@ -61,10 +61,10 @@ install_notmuch_hooks() {
 
 while getopts "hnp" arg; do
   case "${arg}" in
-    h) echo "${usage}"; exit 0 ;;
+    h) printf '%s\n' "${usage}"; exit 0 ;;
     n) install_notmuch=true ;;
     p) install_private=true ;;
-    *) echo "${usage}"; exit 1 ;;
+    *) printf '%s\n' "${usage}"; exit 1 ;;
   esac
 done
 

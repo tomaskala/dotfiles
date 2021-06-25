@@ -59,9 +59,9 @@ tl_email() {
 
 while getopts "hg:" arg; do
   case "${arg}" in
-    h) echo "${usage}"; exit 0 ;;
+    h) printf '%s\n' "${usage}"; exit 0 ;;
     g) geometry="${OPTARG}" ;;
-    *) echo "${usage}"; exit 1 ;;
+    *) printf '%s\n' "${usage}"; exit 1 ;;
   esac
 done
 
@@ -70,5 +70,5 @@ case "${@:${OPTIND}:1}" in
   wiki) tl_wiki ;;
   calculator) tl_calculator ;;
   email) tl_email ;;
-  *) echo "${usage}"; exit 1 ;;
+  *) printf '%s\n' "${usage}"; exit 1 ;;
 esac

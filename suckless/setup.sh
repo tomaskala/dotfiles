@@ -3,7 +3,7 @@ set -euf
 
 
 die() {
-  >&2 echo "$1"
+  printf '%s\n' "$1" >&2
   exit 1
 }
 
@@ -12,7 +12,7 @@ safeclone() {
   dest="$2"
 
   if [ -d "${dest}" ]; then
-    echo "The directory ${dest} already exists. Skipping."
+    printf 'The directory %s already exists. Skipping.\n' "${dest}"
   else
     git clone "${repo}" "${dest}"
   fi

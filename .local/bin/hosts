@@ -27,7 +27,7 @@ dns=""
 
 
 die() {
-  >&2 echo "$1"
+  printf '%s\n' "$1" >&2
   exit 1
 }
 
@@ -35,12 +35,12 @@ die() {
 # Process arguments.
 while getopts "hab:s:d:" arg; do
   case "${arg}" in
-    h) echo "${usage}"; exit 0 ;;
+    h) printf '%s\n' "${usage}"; exit 0 ;;
     a) download_hosts=true ;;
     b) blacklist_src="${OPTARG}" ;;
     s) lookup_src="${OPTARG}" ;;
     d) dns="${OPTARG}" ;;
-    *) echo "${usage}"; exit 1 ;;
+    *) printf '%s\n' "${usage}"; exit 1 ;;
   esac
 done
 
@@ -70,7 +70,7 @@ fi
 
 # Append dns lookups of internal services.
 if [ -n "${lookup_src}" ]; then
-  echo "# DNS lookup from the 'hosts' script." | sudo tee -a /etc/hosts
+  printf '# DNS lookup from the hosts script.\n' | sudo tee -a /etc/hosts
 
   while read -r addr; do
     if [ -z "${addr}" ]; then
@@ -79,16 +79,16 @@ if [ -n "${lookup_src}" ]; then
 
     if [ "${addr#\#}" = "${addr}" ]; then
       lookup=$(dig "${addr}" "${dns}" +short)
-      echo "${lookup} ${addr}" | sudo tee -a /etc/hosts
+      printf '%s %s\n' "${lookup}" "${addr}" | sudo tee -a /etc/hosts
     else
-      echo "${addr}" | sudo tee -a /etc/hosts
+      printf '%s\n' "${addr}" | sudo tee -a /etc/hosts
     fi
   done < "${lookup_src}"
 fi
 
 # Append the blacklist no-ops.
 if [ -n "${blacklist_src}" ]; then
-  echo "# Blacklist from the 'hosts' script." | sudo tee -a /etc/hosts
+  printf '# Blacklist from the hosts script.\n' | sudo tee -a /etc/hosts
 
   while read -r addr; do
     if [ -z "${addr}" ]; then
@@ -96,10 +96,10 @@ if [ -n "${blacklist_src}" ]; then
     fi
 
     if [ "${addr#\#}" = "${addr}" ]; then
-      echo "0.0.0.0 ${addr}" | sudo tee -a /etc/hosts
-      echo "0.0.0.0 www.${addr}" | sudo tee -a /etc/hosts
+      printf '0.0.0.0 %s\n' "${addr}" | sudo tee -a /etc/hosts
+      printf '0.0.0.0 www.%s\n' "${addr}" | sudo tee -a /etc/hosts
     else
-      echo "${addr}" | sudo tee -a /etc/hosts
+      printf '%s\n' "${addr}" | sudo tee -a /etc/hosts
     fi
   done < "${blacklist_src}"
 fi
