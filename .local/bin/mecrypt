@@ -42,7 +42,7 @@ source_file="$1"
 [[ ! -f "${source_file}" ]] && die "The file ${source_file} does not exist."
 
 # Read all fingerprints for the email stored in the EMAIL environment variable.
-fpr_parser='
+read -rd '' fpr_parser << 'EOF' || true
 BEGIN {
   out = ""
 }
@@ -54,7 +54,7 @@ $1 == "fpr" {
 $1 == "uid" {
   print out;
 }
-'
+EOF
 
 while read -r keyid; do
   gpt_opts+=( "-r" "${keyid}" )
