@@ -55,11 +55,11 @@ source_if_exists "/usr/share/fzf/shell/key-bindings.bash"
 
 
 ### Display a message when opening a terminal.
-[ -f "${HOME}/.motd" ] && cat "${HOME}/.motd"
+[ -f ~/.motd ] && cat ~/.motd
 
 
 ### Load local configuration (last to allow overrides).
-source_if_exists "${HOME}/.bash_local"
+source_if_exists ~/.bash_local
 
 
 ### Clear the utility functions.

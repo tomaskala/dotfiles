@@ -122,7 +122,7 @@ The following software should then be installed.
   $ git clone https://github.com/qutebrowser/qutebrowser.git
   $ cd ./qutebrowser
   $ python scripts/mkvenv.py
-  $ ln -fs $HOME/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop ~/.local/share/applications/
+  $ ln -fs ~/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop ~/.local/share/applications/
   ```
 * Email
   * `neomutt`, `urlview`, `isync`, `msmtp`, `notmuch`, `lynx`

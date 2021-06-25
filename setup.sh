@@ -46,15 +46,15 @@ decrypt_dotfile() {
 
 install_notmuch_hooks() {
   echo "Installing notmuch hooks"
-  mkdir -p -m 700 "${HOME}/Mail/.notmuch/hooks"
+  mkdir -p -m 700 ~/Mail/.notmuch/hooks
 
   hook="$(pwd)/.local/hooks/notmuch-pre-new"
   chmod 700 "${hook}"
-  ln -fs "${hook}" "${HOME}/Mail/.notmuch/hooks/pre-new"
+  ln -fs "${hook}" ~/Mail/.notmuch/hooks/pre-new
 
   hook="$(pwd)/.local/hooks/notmuch-post-new"
   chmod 700 "${hook}"
-  ln -fs "${hook}" "${HOME}/Mail/.notmuch/hooks/post-new"
+  ln -fs "${hook}" ~/Mail/.notmuch/hooks/post-new
 }
 
 
@@ -81,5 +81,5 @@ if [[ "${install_notmuch}" = true ]]; then
   install_notmuch_hooks
 fi
 
-chmod 700 "${HOME}/.gnupg"
+chmod 700 ~/.gnupg
 chmod -w .config/vlc/vlcrc

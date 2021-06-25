@@ -27,26 +27,26 @@ if ! type make > /dev/null; then
   die "Make is not installed."
 fi
 
-mkdir -p "${HOME}/suckless"
+mkdir -p ~/suckless
 
-safeclone "https://git.suckless.org/dwm" "${HOME}/suckless/dwm"
-ln -fs "$(pwd)/dwm/config.h" "${HOME}/suckless/dwm"
-sudo make -C "${HOME}/suckless/dwm" clean install
+safeclone "https://git.suckless.org/dwm" ~/suckless/dwm
+ln -fs "$(pwd)/dwm/config.h" ~/suckless/dwm
+sudo make -C ~/suckless/dwm clean install
 
-safeclone "https://git.suckless.org/dmenu" "${HOME}/suckless/dmenu"
-ln -fs "$(pwd)/dmenu/config.h" "${HOME}/suckless/dmenu"
-sudo make -C "${HOME}/suckless/dmenu" clean install
+safeclone "https://git.suckless.org/dmenu" ~/suckless/dmenu
+ln -fs "$(pwd)/dmenu/config.h" ~/suckless/dmenu
+sudo make -C ~/suckless/dmenu clean install
 
-safeclone "https://git.suckless.org/slstatus" "${HOME}/suckless/slstatus"
-ln -fs "$(pwd)/slstatus/config.h" "${HOME}/suckless/slstatus"
-sudo make -C "${HOME}/suckless/slstatus" clean install
+safeclone "https://git.suckless.org/slstatus" ~/suckless/slstatus
+ln -fs "$(pwd)/slstatus/config.h" ~/suckless/slstatus
+sudo make -C ~/suckless/slstatus clean install
 
-safeclone "https://git.suckless.org/st" "${HOME}/suckless/st"
-ln -fs "$(pwd)/st/config.h" "${HOME}/suckless/st"
-sudo make -C "${HOME}/suckless/st" clean install
+safeclone "https://git.suckless.org/st" ~/suckless/st
+ln -fs "$(pwd)/st/config.h" ~/suckless/st
+sudo make -C ~/suckless/st clean install
 
-safeclone "https://git.suckless.org/slock" "${HOME}/suckless/slock"
-sudo make -C "${HOME}/suckless/slock" clean install
+safeclone "https://git.suckless.org/slock" ~/suckless/slock
+sudo make -C ~/suckless/slock clean install
 
-ln -fs "$(pwd)/xprofile" "${HOME}/.config/xprofile"
-ln -fs "$(pwd)/xinitrc" "${HOME}/.config/xinitrc"
+ln -fs "$(pwd)/xprofile" ~/.config/xprofile
+ln -fs "$(pwd)/xinitrc" ~/.config/xinitrc

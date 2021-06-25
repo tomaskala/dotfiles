@@ -1,9 +1,9 @@
 ### Paths.
-set header_cache="${HOME}/.cache/neomutt/${EMAIL}/headers"
-set message_cachedir="${HOME}/.cache/neomutt/${EMAIL}/bodies"
-set mailcap_path="${HOME}/.config/mutt/mailcap":"${mailcap_path}"
-set certificate_file="${HOME}/.config/mutt/certificates"
-set tmpdir="${HOME}/.config/mutt/temp"
+set header_cache=~/.cache/mutt/headers
+set message_cachedir=~/.cache/mutt/bodies
+set mailcap_path=~/.config/mutt/mailcap:"${mailcap_path}"
+set certificate_file=~/.config/mutt/certificates
+set tmpdir=~/.config/mutt/temp
 
 ### Hooks.
 startup-hook "exec sync-mailbox"
@@ -82,11 +82,11 @@ set status_chars=" *%A"
 set status_format="───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
 ### Source colors and keybindings.
-source "${HOME}/.config/mutt/colors.muttrc"
-source "${HOME}/.config/mutt/bindings.muttrc"
+source ~/.config/mutt/colors.muttrc
+source ~/.config/mutt/bindings.muttrc
 
 ### Source aliases.
-set alias_file="${HOME}/.config/mutt/aliases"
+set alias_file=~/.config/mutt/aliases
 set sort_alias="alias"
 source "$alias_file"
 
@@ -100,7 +100,7 @@ set trash="+${EMAIL}/Trash"
 set postponed="+${EMAIL}/Drafts"
 
 set virtual_spoolfile
-set folder="${HOME}/Mail/"
+set folder=~/Mail/
 
 virtual-mailboxes "INBOX" "notmuch://?query=tag:inbox"
 virtual-mailboxes "Sent" "notmuch://?query=tag:sent"
