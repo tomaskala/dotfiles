@@ -13,7 +13,7 @@ I am using the latest Fedora installation.
 * Run the `setup.sh` script which will symlink config files to their respective
   locations.
 * Once Firefox has been configured, manually symlink the
-* `firefox/user-overrides.js` file to `~/.mozilla/firefox/<profile-directory>`.
+  `firefox/user-overrides.js` file to `~/.mozilla/firefox/<profile-directory>`.
 
 
 ## Backup
@@ -25,7 +25,7 @@ Before reinstalling the system, backup the following:
   * `bookmarkbackups`;
   * `favicons.sqlite`;
   * `sessionstore.jsonlz4`.
-* Saved passwords: `~/.password-store`.
+* Saved passwords: `~/.local/share/password-store`.
 * Downloads directory: `~/Downloads`.
 * Documents directory: `~/Documents`.
 * Pictures directory: `~/Pictures`.

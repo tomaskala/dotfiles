@@ -1,7 +1,7 @@
 ### Environment variables.
 export REALNAME='Tomas Kala'
-export NAME="${REALNAME}"
 export EMAIL='me@tomaskala.com'
+export NAME="${REALNAME}"
 export GIT_COMMITTER_NAME="${REALNAME}"
 export GIT_AUTHOR_NAME="${REALNAME}"
 
