@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -euf -o pipefail
+#!/bin/sh
+set -euf
 
 
 usage="Usage: $(basename "$0") [OPTIONS]
@@ -14,7 +14,7 @@ Options:
   -s FILE  Path to a lookup file with 1 address per line.
            The file may contain comment lines beginning with '#'
            as well as empty lines.
-  -d TEXT  Address of a DNS server to use when digging the lookup file contents.
+  -d TEXT  Address of a DNS server to use when digging the lookup file.
            If not beginning with '@', the character will be substituted.
   -h       Show this message and exit."
 
@@ -45,39 +45,39 @@ while getopts "hab:s:d:" arg; do
 done
 
 # Check the argument values.
-if [[ -n "${lookup_src}" ]] && ! type dig > /dev/null; then
+if [ -n "${lookup_src}" ] && ! command -v dig > /dev/null; then
   die "The dig command is not installed."
 fi
 
-if [[ -n "${lookup_src}" ]] && [[ ! -f "${lookup_src}" ]]; then
+if [ -n "${lookup_src}" ] && [ ! -f "${lookup_src}" ]; then
   die "The file ${lookup_src} does not exist."
 fi
 
-if [[ -n "${blacklist_src}" ]] && [[ ! -f "${blacklist_src}" ]]; then
+if [ -n "${blacklist_src}" ] && [ ! -f "${blacklist_src}" ]; then
   die "The file ${blacklist_src} does not exist."
 fi
 
-if [[ "${dns#@}" == "${dns}" ]]; then
+if [ "${dns#@}" = "${dns}" ]; then
   dns="@${dns}"
 fi
 
 # Download the base hosts file.
-if [[ "${download_hosts}" == true ]]; then
+if [ "${download_hosts}" = true ]; then
   sudo wget -O /etc/hosts "${hosts_src}" && sync
 else
   sudo truncate -s 0 /etc/hosts
 fi
 
 # Append dns lookups of internal services.
-if [[ -n "${lookup_src}" ]]; then
+if [ -n "${lookup_src}" ]; then
   echo "# DNS lookup from the 'hosts' script." | sudo tee -a /etc/hosts
 
   while read -r addr; do
-    if [[ -z "${addr}" ]]; then
+    if [ -z "${addr}" ]; then
       continue
     fi
 
-    if [[ "${addr#\#}" == "${addr}" ]]; then
+    if [ "${addr#\#}" = "${addr}" ]; then
       lookup=$(dig "${addr}" "${dns}" +short)
       echo "${lookup} ${addr}" | sudo tee -a /etc/hosts
     else
@@ -87,15 +87,15 @@ if [[ -n "${lookup_src}" ]]; then
 fi
 
 # Append the blacklist no-ops.
-if [[ -n "${blacklist_src}" ]]; then
+if [ -n "${blacklist_src}" ]; then
   echo "# Blacklist from the 'hosts' script." | sudo tee -a /etc/hosts
 
   while read -r addr; do
-    if [[ -z "${addr}" ]]; then
+    if [ -z "${addr}" ]; then
       continue
     fi
 
-    if [[ "${addr#\#}" == "${addr}" ]]; then
+    if [ "${addr#\#}" = "${addr}" ]; then
       echo "0.0.0.0 ${addr}" | sudo tee -a /etc/hosts
       echo "0.0.0.0 www.${addr}" | sudo tee -a /etc/hosts
     else

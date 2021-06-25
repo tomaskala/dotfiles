@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -eu -o pipefail
+#!/bin/sh
+set -eu
 
 
 usage="Usage: $(basename "$0") [OPTIONS]
@@ -14,7 +14,7 @@ GLOBIGNORE=".:..:.git:.gitignore"
 install_private=false
 install_notmuch=false
 gpg="gpg"
-which gpg2 &>/dev/null && gpg="gpg2"
+command -v gpg2 > /dev/null && gpg="gpg2"
 
 
 install_dotfile() {
@@ -33,7 +33,8 @@ decrypt_dotfile() {
   dotfile="$1"
   dest="${HOME}/${dotfile%.gpg}"
 
-  if [[ ! -e "${dest}" || "${dotfile}" -nt "${dest}" ]]; then
+  if [ ! -e "${dest}" ] || \
+      [ -n "$(find -L "${dotfile}" -prune -newer "${dest}")" ]; then
     echo "Decrypting ${dotfile}"
     mkdir -p -m 700 "$(dirname "${dest}")"
     (umask 0177;
@@ -67,17 +68,17 @@ while getopts "hnp" arg; do
   esac
 done
 
-for source in .*; do
-  while read -r dotfile; do
-    if [[ "${dotfile}" = "${dotfile##*.gpg}" ]]; then
+for dotfiles_source in .*; do
+  find "${dotfiles_source}" -type f | sort | while read -r dotfile; do
+    if [ "${dotfile}" = "${dotfile##*.gpg}" ]; then
       install_dotfile "${dotfile}"
-    elif [[ "${install_private}" = true ]]; then
+    elif [ "${install_private}" = true ]; then
       decrypt_dotfile "${dotfile}"
     fi
-  done < <(find "${source}" -type f | sort)
+  done
 done
 
-if [[ "${install_notmuch}" = true ]]; then
+if [ "${install_notmuch}" = true ]; then
   install_notmuch_hooks
 fi
 

@@ -36,10 +36,10 @@ which gpg2 &>/dev/null && gpg="gpg2"
 [[ "$#" -eq 0 || "$#" -gt 2 ]] && die "Specify either 1 or 2 arguments."
 
 # Process arguments.
-source="$1"
+source_file="$1"
 [[ "$#" -eq 2 ]] && gpt_opts+=( "-o" "$2" )
 
-[[ ! -f "${source}" ]] && die "The file ${source} does not exist."
+[[ ! -f "${source_file}" ]] && die "The file ${source_file} does not exist."
 
 # Read all fingerprints for the email stored in the EMAIL environment variable.
 fpr_parser='
@@ -61,4 +61,4 @@ while read -r keyid; do
 done < <(${gpg} --list-keys --with-colons "${EMAIL}" | awk -F: "${fpr_parser}")
 
 # Encrypt the source file.
-"${gpg}" -e "${gpt_opts[@]}" "${source}"
+"${gpg}" -e "${gpt_opts[@]}" "${source_file}"

@@ -19,11 +19,11 @@ safeclone() {
 }
 
 
-if ! type git > /dev/null; then
+if ! command -v git > /dev/null; then
   die "Git is not installed."
 fi
 
-if ! type make > /dev/null; then
+if ! command -v make > /dev/null; then
   die "Make is not installed."
 fi
 
