@@ -65,6 +65,8 @@ while getopts "hg:" arg; do
   esac
 done
 
+[[ -z "${TERMINAL}" ]] && die "The TERMINAL environment variable is not set."
+
 case "${@:${OPTIND}:1}" in
   scratchpad) tl_scratchpad ;;
   wiki) tl_wiki ;;

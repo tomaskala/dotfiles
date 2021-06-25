@@ -9,7 +9,7 @@ if [[ $1 == "--type" ]]; then
 fi
 
 if [[ -n ${WAYLAND_DISPLAY} ]]; then
-	dmenu=dmenu-wl
+	dmenu="dmenu-wl"
 	xdotool="ydotool type --file -"
 elif [[ -n ${DISPLAY} ]]; then
 	dmenu=dmenu
