@@ -280,6 +280,9 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     ! https://www.google.com
     www.google.com##div:has-text(Before you continue to Google Search)
     www.google.com##:root:style(overflow: auto !important;)
+    
+    ! stackexchange hot network questions
+    ###hot-network-questions
     ```
 5. [Temporary
 Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
