@@ -18,6 +18,7 @@ export INPUTRC="${HOME}/.config/inputrc"
 export MBSYNC_CONFIG="${HOME}/.config/mbsync/mbsyncrc"
 export NOTMUCH_CONFIG="${HOME}/.config/notmuch/notmuchrc"
 export PASSWORD_STORE_DIR="${HOME}/.local/share/password-store"
+export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
 export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
 export XINITRC="${HOME}/.config/xinitrc"
 

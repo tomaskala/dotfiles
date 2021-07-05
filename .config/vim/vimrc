@@ -1,4 +1,43 @@
-set nocompatible   " Must be the first line.
+" VIM COMPATIBILITY
+if !has('nvim')
+  set nocompatible
+  set ttymouse=xterm2
+  set autoindent
+  set autoread
+  set background=dark
+  set backspace=indent,eol,start
+  set belloff=all
+  set complete=.,w,b,u,t
+  set cscopeverbose
+  set display=lastline
+  set encoding=utf-8
+  set fillchars=vert:│,fold:·
+  set formatoptions=tcqj
+  set nofsync
+  set history=10000
+  set hlsearch
+  set incsearch
+  set langnoremap
+  set nolangremap
+  set laststatus=2
+  set nrformats=bin,hex
+  set ruler
+  set showcmd
+  set sidescroll=1
+  set smarttab
+  set tabpagemax=50
+  set tags=./tags;,tags
+  set ttimeoutlen=50
+  set ttyfast
+  set undodir='~/.local/share/vim/undo'
+  set wildmenu
+
+  let &t_ti.="\e[1 q"
+  let &t_SI.="\e[5 q"
+  let &t_EI.="\e[1 q"
+  let &t_te.="\e[0 q"
+endif
+
 let mapleader=','  " The leader is a comma instead of a backslash.
 
 
@@ -91,7 +130,6 @@ augroup end
 
 " COLORS
 set termguicolors
-set background=dark
 let g:gruvbox_italic='1'
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='medium'
@@ -119,9 +157,6 @@ filetype plugin on  " Load filetype-specific plugin files.
 syntax enable                   " Enable syntax processing.
 set mouse=a                     " Enable mouse input.
 set selection=old               " Old-style visual selection.
-set encoding=utf-8              " Set file encoding.
-set backspace=indent,eol,start  " Backspace over these.
-set autoread                    " Automatically reload changed files from disk.
 set path+=**                    " Recursive globbing.
 
 
@@ -132,8 +167,6 @@ set shiftwidth=4   " Auto-indent this many spaces.
 set softtabstop=4  " Number of spaces when performing editing operations.
 set linebreak      " Do not break words when wrapping lines.
 set expandtab      " Tabs are spaces.
-set smarttab       " Smart behavior when inserting tab in front of a line.
-set autoindent     " Indent at the previous line level.
 set nojoinspaces   " Do not insert an extra space when joining (J) sentences.
 
 
@@ -147,9 +180,7 @@ set noswapfile
 set number                      " Show absolute line numbers.
 set relativenumber              " Show relative line numbers.
 set noshowmode                  " The status bar displays the current mode.
-set showcmd                     " Show the last command in the bottom bar.
 set wildmode=longest:full,full  " Shell-like filename autocompletion.
-set wildmenu                    " Visual autocomplete for the command menu.
 
 set showmatch                   " Highlight matching parentheses.
 set matchpairs=(:),[:],{:},<:>  " These parentheses are shown as matching.
@@ -174,7 +205,6 @@ let currentmode={
   \ 'c': 'COMMAND ',
 \}
 
-set laststatus=2                          " Status line height.
 set statusline=                           " Clear the status line.
 set statusline+=\ %{currentmode[mode()]}  " Show the current mode.
 set statusline+=\ %F                      " Current file path.
@@ -191,7 +221,6 @@ set statusline+=\ col:%c                  " Column number.
 " SHUT UP
 set noerrorbells
 set novisualbell
-set belloff=all
 
 
 " MISCELLANEOUS
@@ -252,8 +281,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 
 " SEARCHING
-set incsearch   " Search as characters are entered.
-set hlsearch    " Highlight matches.
 set ignorecase  " Case insensitive search.
 set smartcase   " But case sensitive when uppercase is present.
 set showmatch   " Live match highlighting.
@@ -264,7 +291,15 @@ if exists('&inccommand')
 endif
 
 
-" FILETYPE-SPECIFIC AUTOCOMMANDS
+" FILETYPE-SPECIFIC COMMANDS
+
+" C style
+set cinoptions+=t0  " Don't indent function type.
+set cinoptions+=l1  " Align with case label.
+set cinoptions+=:0  " Align case with switch.
+set cinkeys-=0#     " Directives aren't special.
+let c_no_curly_error=1  " Vim still lacks C99 support.
+
 function! SetIndentation(n)
   let &l:tabstop=a:n
   let &l:softtabstop=a:n
