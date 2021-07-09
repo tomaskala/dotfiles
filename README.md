@@ -134,6 +134,7 @@ The following software should then be installed.
     $ notmuch tag -unread -- tag:unread
     ```
 * Transmission
+* [sfeed](https://codemadness.org/sfeed-simple-feed-parser.html)
 
 
 #### Development
