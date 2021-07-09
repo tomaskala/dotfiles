@@ -115,6 +115,9 @@ c.search.incremental = True
 # Switch between tabs using the mouse wheel.
 c.tabs.mousewheel_switching = False
 
+# Open URLs from the terminal in new tabs.
+c.new_instance_open_target = "tab"
+
 # Position of new tabs opened from another tab.
 c.tabs.new_position.related = "next"
 
