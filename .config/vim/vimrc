@@ -1,37 +1,36 @@
 " VIM COMPATIBILITY
 if !has('nvim')
-  set nocompatible
-  set ttymouse=xterm2
-  set autoindent
-  set autoread
-  set background=dark
-  set backspace=indent,eol,start
-  set belloff=all
-  set complete=.,w,b,u,t
-  set cscopeverbose
-  set display=lastline
-  set encoding=utf-8
-  set fillchars=vert:│,fold:·
-  set formatoptions=tcqj
-  set nofsync
-  set history=10000
-  set hlsearch
-  set incsearch
-  set langnoremap
-  set nolangremap
-  set laststatus=2
-  set nrformats=bin,hex
-  set ruler
-  set showcmd
-  set sidescroll=1
-  set smarttab
-  set tabpagemax=50
-  set tags=./tags;,tags
-  set ttimeoutlen=50
-  set ttyfast
-  set undodir='~/.local/share/vim/undo'
-  set wildmenu
+  set nocompatible                " No vi-compatibility.
+  set ttymouse=xterm2             " Enable mouse input.
+  set autoindent                  " Continue indent from the previous line.
+  set autoread                    " Automatically reload external changes.
+  set background=dark             " Dark mode.
+  set backspace=indent,eol,start  " Backspace goes over these.
+  set belloff=all                 " Shut up.
+  set complete=.,w,b,u,t          " Keyboard completion options.
+  set display=lastline  " Display as much as possible from the last line.
+  set encoding=utf-8              " Use the one true encoding.
+  set fillchars=vert:│,fold:·     " Fill the statuslines with these.
+  set formatoptions=tcqj          " Format options.
+  set nofsync                     " Do not synchronize after saving.
+  set history=10000               " Maximum amount of history.
+  set hlsearch                    " Highlight all matches.
+  set incsearch                   " Incremental search.
+  set nolangremap     " Do not break mapping when switching the keyboard lang.
+  set laststatus=2                " Always show status line.
+  set nrformats=bin,hex           " Use these bases along with the decimal.
+  set ruler                       " Show the line and column numbers.
+  set showcmd                     " Show the last command entered.
+  set sidescroll=1    " Minimal number of columns to scroll horizontally.
+  set smarttab        " Smart tab behavior regarding spaces and indentation.
+  set tabpagemax=50   " Maximum number of tabs opened by the -p option.
+  set tags=./tags;,tags           " Ctags location.
+  set ttimeoutlen=50  " Wait this many ms for a key code sequence to complete.
+  set ttyfast                     " Indicate a fast terminal connection.
+  set undodir='~/.local/share/vim/undo'  " Directory containing undo files.
+  set wildmenu                    " Enable wildmenu.
 
+  " Cursor shape options.
   let &t_ti.="\e[1 q"
   let &t_SI.="\e[5 q"
   let &t_EI.="\e[1 q"
@@ -294,10 +293,10 @@ endif
 " FILETYPE-SPECIFIC COMMANDS
 
 " C style
-set cinoptions+=t0  " Don't indent function type.
-set cinoptions+=l1  " Align with case label.
-set cinoptions+=:0  " Align case with switch.
-set cinkeys-=0#     " Directives aren't special.
+set cinoptions+=t0      " Don't indent function type.
+set cinoptions+=l1      " Align with case label.
+set cinoptions+=:0      " Align case with switch.
+set cinkeys-=0#         " Directives aren't special.
 let c_no_curly_error=1  " Vim still lacks C99 support.
 
 function! SetIndentation(n)
