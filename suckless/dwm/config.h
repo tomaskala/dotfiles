@@ -40,7 +40,6 @@ static const Rule rules[] = {
 	{ "jetbrains-idea",    NULL,     NULL,    1 << 3, 0,          -1 },
 	{ "jetbrains-pycharm", NULL,     NULL,    1 << 3, 0,          -1 },
 	{ "mpv",               NULL,     NULL,    1 << 6, 0,          -1 },
-	{ "vlc",               NULL,     NULL,    1 << 6, 0,          -1 },
 	{ "st-256color",       NULL,     "cmus",  1 << 7, 0,          -1 },
 	{ "Virt-manager",      NULL,     NULL,    1 << 8, 0,          -1 },
 	{ "scratchpad",        NULL,     NULL,    0,      1,          -1 },

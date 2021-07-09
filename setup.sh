@@ -88,4 +88,3 @@ if [ "${install_notmuch}" = true ]; then
 fi
 
 chmod 700 ~/.gnupg
-chmod -w .config/vlc/vlcrc

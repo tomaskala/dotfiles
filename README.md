@@ -149,8 +149,6 @@ The following software should then be installed.
 
 #### System utilities
 
-* Alacritty
-  * `$ sudo dnf install alacritty`
 * Fira Code
   * `$ sudo dnf install fira-code-fonts`
 * bash-completion
