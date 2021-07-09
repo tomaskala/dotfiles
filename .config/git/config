@@ -5,6 +5,9 @@
     editor = nvim
     autoclrf = input
 
+[init]
+    defaultBranch = master
+
 [color]
     branch = auto
     diff = auto
