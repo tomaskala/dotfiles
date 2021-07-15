@@ -55,8 +55,7 @@ bindsym $mod+v split v
 # Enter fullscreen mode for the focused container.
 bindsym $mod+f fullscreen toggle
 
-# Change container layout (stacked, tabbed).
-bindsym $mod+s layout stacking
+# Change container layout to tabbed.
 bindsym $mod+w layout tabbed
 
 # Toggle tiling / floating.
@@ -260,6 +259,9 @@ bindsym $mod+e exec --no-startup-id termlaunch email
 
 # Passmenu.
 bindsym $mod+Shift+p exec --no-startup-id passmenu
+
+# RSS feed.
+bindsym $mod+s exec --no-startup-id rssfeed
 
 # Disable annoying titlebar.
 default_border none

@@ -11,7 +11,8 @@ open_urls() {
 		params=$(printf '\n%s' "$1" | tr '\n' ' ')
 		printf '%s' "${params}" | xargs qutebrowser
 	else
-		notify-send -u critical "Cannot open URLs" "Browser unknown."
+		notify-send -u critical "Cannot open URLs" \
+			"Unrecognized browser: ${BROWSER}."
 	fi
 }
 
