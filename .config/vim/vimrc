@@ -189,6 +189,11 @@ set statusline+=[%l/%L]                   " Cursor line location.
 set statusline+=\ col:%c                  " Column number.
 
 
+" NETRW SETTINGS
+let g:netrw_banner=0
+let g:netrw_winsize=25
+
+
 " SHUT UP
 set noerrorbells
 set novisualbell
