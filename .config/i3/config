@@ -206,9 +206,6 @@ bindsym Shift+Print exec --no-startup-id maim -f jpg -s ~/Pictures/"$(date --iso
 # Start rofi.
 bindsym $mod+p exec --no-startup-id rofi -show
 
-# Toggle sticky window.
-bindsym $mod+Shift+s sticky toggle
-
 # Disable annoying edges around windows.
 hide_edge_borders both
 
@@ -262,6 +259,7 @@ bindsym $mod+Shift+p exec --no-startup-id passmenu
 
 # RSS feed.
 bindsym $mod+s exec --no-startup-id rssfeed
+bindsym $mod+Shift+s exec --no-startup-id sfeed_update $SFEEDRC
 
 # Disable annoying titlebar.
 default_border none
