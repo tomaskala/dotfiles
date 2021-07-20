@@ -68,10 +68,10 @@ bindsym $mod+a focus mode_toggle
 set $ws1 "1: www"
 set $ws2 "2: com"
 set $ws3 "3: >_"
-set $ws4 "4: dev"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
-set $ws7 "7: vid"
+set $ws7 "7"
 set $ws8 "8: mus"
 set $ws9 "9: vir"
 set $ws10 "10"
@@ -232,8 +232,6 @@ assign [class="TelegramDesktop"] $ws2
 assign [class="Chromium-browser"] $ws4
 assign [class="jetbrains-idea"] $ws4
 assign [class="jetbrains-pycharm"] $ws4
-
-assign [class="mpv"] $ws7
 
 # Needs 'set set_term_title=true' in cmus config.
 for_window [class="st-256color" title="cmus"] move container to workspace $ws8
