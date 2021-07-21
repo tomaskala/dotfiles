@@ -28,11 +28,13 @@
     autoStash = true
 
 [merge]
-    tool = vimdiff
+    tool = diffconflicts
     conflictStyle = diff3
 
-[mergetool "vimdiff"]
-    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "diffconflicts"]
+    cmd = diffconflicts $BASE $LOCAL $REMOTE $MERGED
+    trustExitCode = true
+    keepBackup = false
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
