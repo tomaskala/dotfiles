@@ -103,19 +103,7 @@ nnoremap <leader>i :call Index()<CR>
 set termguicolors
 let g:gruvbox_italic='1'
 let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_contrast_light='medium'
 colorscheme gruvbox
-
-function! Day()
-  set background=light
-endfunction
-
-function! Night()
-  set background=dark
-endfunction
-
-nnoremap <leader>d :call Day()<CR>
-nnoremap <leader>n :call Night()<CR>
 
 
 " FILETYPE-SPECIFIC
