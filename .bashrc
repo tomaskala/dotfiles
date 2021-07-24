@@ -46,21 +46,22 @@ shopt -s direxpand globstar histappend histverify no_empty_cmd_completion
 
 
 ### Additional sources.
-source_if_exists() {
-  [ -f "$1" ] && source "$1"
+include() {
+  [ -r "$1" ] && source "$1"
 }
 
-source_if_exists "/usr/share/bash-completion/bash_completion"
-source_if_exists "/usr/share/fzf/shell/key-bindings.bash"
+include /usr/share/fzf/shell/key-bindings.bash
+include /etc/bash_completion.d/pass
+include /etc/bash_completion.d/pass-tail
 
 
 ### Display a message when opening a terminal.
-[ -f ~/.motd ] && cat ~/.motd
+[ -r ~/.motd ] && cat ~/.motd
 
 
 ### Load local configuration (last to allow overrides).
-source_if_exists ~/.bash_local
+include ~/.bash_local
 
 
 ### Clear the utility functions.
-unset -f source_if_exists
+unset -f include
