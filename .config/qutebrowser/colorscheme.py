@@ -28,7 +28,7 @@ dark_green = "#98971a"
 dark_yellow = "#d79921"
 dark_blue = "#458588"
 dark_purple = "#b16286"
-dark_aqua = "#689d6a"
+dark_aqua = "#427b58"
 dark_gray = "#a89984"
 dark_orange = "#d65d0e"
 

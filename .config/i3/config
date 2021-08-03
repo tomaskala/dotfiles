@@ -149,9 +149,9 @@ set $normal-bg-color #1d2021
 set $normal-fg-color #ebdbb2
 set $normal-bd-color #1d2021
 
-set $focused-bg-color #689d6a
+set $focused-bg-color #427b58
 set $focused-fg-color #1d2021
-set $focused-bd-color #689d6a
+set $focused-bd-color #427b58
 
 set $inactive-bg-color #458588
 set $inactive-fg-color #1d2021

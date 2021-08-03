@@ -43,7 +43,7 @@ let mapleader=','  " The leader is a comma instead of a backslash.
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
   Plug 'sheerun/vim-polyglot'
-  Plug 'morhetz/gruvbox'
+  Plug 'sainnhe/gruvbox-material'
   Plug 'vimwiki/vimwiki'
 call plug#end()
 
@@ -101,9 +101,11 @@ nnoremap <leader>i :call Index()<CR>
 
 " COLORS
 set termguicolors
-let g:gruvbox_italic='1'
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+let g:gruvbox_material_background='hard'
+let g:gruvbox_material_better_performance=1
+let g:gruvbox_material_enable_bold=1
+let g:gruvbox_material_enable_italic=1
+colorscheme gruvbox-material
 
 
 " FILETYPE-SPECIFIC
