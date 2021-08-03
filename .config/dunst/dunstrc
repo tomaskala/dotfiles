@@ -50,7 +50,7 @@
     idle_threshold = 120
 
     # Font style.
-    font = Fira Code Regular 8
+    font = JetBrains Mono Regular 8
 
     # The spacing between lines.
     line_height = 0

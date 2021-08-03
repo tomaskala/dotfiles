@@ -150,8 +150,8 @@ The following software should then be installed.
 
 #### System utilities
 
-* Fira Code
-  * `$ sudo dnf install fira-code-fonts`
+* JetBrains Mono
+  * `$ sudo dnf install jetbrains-mono-fonts`
 * ShellCheck
   * `$ sudo dnf install ShellCheck`
 * tmux
