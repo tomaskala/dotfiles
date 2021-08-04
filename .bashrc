@@ -51,6 +51,7 @@ include() {
 }
 
 include /usr/share/fzf/shell/key-bindings.bash
+include /usr/share/bash-completion/completions/git
 include /etc/bash_completion.d/pass
 include /etc/bash_completion.d/pass-tail
 
