@@ -3,7 +3,7 @@
 
 [core]
     editor = nvim
-    autoclrf = input
+    autoclrf = false
 
 [init]
     defaultBranch = master
