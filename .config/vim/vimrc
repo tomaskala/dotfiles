@@ -115,10 +115,11 @@ filetype plugin on  " Load filetype-specific plugin files.
 
 
 " MAIN
-syntax enable                   " Enable syntax processing.
-set mouse=a                     " Enable mouse input.
-set selection=old               " Old-style visual selection.
-set path+=**                    " Recursive globbing.
+syntax enable        " Enable syntax processing.
+set mouse=a          " Enable mouse input.
+set selection=old    " Old-style visual selection.
+set path+=**         " Recursive globbing.
+set fileformat=unix  " Always use unix-style line endings.
 
 
 " INDENTATION
