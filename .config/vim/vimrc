@@ -8,7 +8,7 @@ if !has('nvim')
   set backspace=indent,eol,start  " Backspace goes over these.
   set belloff=all                 " Shut up.
   set complete=.,w,b,u,t          " Keyboard completion options.
-  set display=lastline  " Display as much as possible from the last line.
+  set display=lastline            " Show as much as possible of the last line.
   set encoding=utf-8              " Use the one true encoding.
   set fillchars=vert:│,fold:·     " Fill the statuslines with these.
   set formatoptions=tcqj          " Format options.
@@ -16,16 +16,16 @@ if !has('nvim')
   set history=10000               " Maximum amount of history.
   set hlsearch                    " Highlight all matches.
   set incsearch                   " Incremental search.
-  set nolangremap     " Do not break mapping when switching the keyboard lang.
+  set nolangremap                 " Do not break mappings when langmap changes.
   set laststatus=2                " Always show status line.
   set nrformats=bin,hex           " Use these bases along with the decimal.
   set ruler                       " Show the line and column numbers.
   set showcmd                     " Show the last command entered.
-  set sidescroll=1    " Minimal number of columns to scroll horizontally.
-  set smarttab        " Smart tab behavior regarding spaces and indentation.
-  set tabpagemax=50   " Maximum number of tabs opened by the -p option.
+  set sidescroll=1                " Min number of columns for side scrolling.
+  set smarttab                    " Smart tab behavior about indentation.
+  set tabpagemax=50               " Max number of tabs opened by the -p arg.
   set tags=./tags;,tags           " Ctags location.
-  set ttimeoutlen=50  " Wait this many ms for a key code sequence to complete.
+  set ttimeoutlen=50              " Timeout in ms for a key code to complete.
   set ttyfast                     " Indicate a fast terminal connection.
   set undodir='~/.local/share/vim/undo'  " Directory containing undo files.
   set wildmenu                    " Enable wildmenu.
