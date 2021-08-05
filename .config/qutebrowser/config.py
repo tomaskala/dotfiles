@@ -155,6 +155,7 @@ c.url.searchengines = {
     "m": "https://www.metal-archives.com/search?type=band_name&searchString={}",
     "tce": "https://www.deepl.com/translator#cs/en/{}",
     "tec": "https://www.deepl.com/translator#en/cs/{}",
+    "py": "https://docs.python.org/3/search.html?q={}",
 }
 
 # Keybindings.
