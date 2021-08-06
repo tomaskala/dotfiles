@@ -22,6 +22,7 @@ export SFEEDRC="${HOME}/.config/sfeed/sfeedrc"
 export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
 export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
 export XINITRC="${HOME}/.config/xinitrc"
+export SUDO_ASKPASS="${HOME}/.local/bin/dpass"
 
 OS="$(uname)"
 export OS
