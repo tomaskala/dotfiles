@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+set -euf -o pipefail
+
+
+usage="Usage: $(basename "$0") [OPTIONS]
+
+Setup the environment for focused work.
+
+Options:
+  -b         Block distracting websites (requires sudo).
+  -r         Reset the environment (requires sudo in case distracting websites
+             were blocked before).
+  -t NUMBER  Reset the environment automatically after the specified time
+             period. The format of NUMBER is the same as given to the sleep(1)
+             command. Requires sudo in case distracting websites were blocked
+             before. Will prompt you using a GUI askpass when the timer ends.
+  -h         Show this message and exit."
+
+
+hosts_comment='# Blocked by the focus script.'
+distractions=(
+  reddit.com
+  news.ycombinator.com
+  hckrnews.com
+  lobste.rs
+  youtube.com
+)
+
+block=false
+reset=false
+timeout=""
+
+
+set_env() {
+  # Disable notifications.
+  killall -SIGUSR1 dunst
+
+  # Block distracting sites.
+  if [ "${block}" = true ]; then
+    printf '%s\n' "${hosts_comment}" | sudo tee -a /etc/hosts > /dev/null
+
+    for web in "${distractions[@]}"; do
+      printf '0.0.0.0 %s\n' "${web}" | sudo tee -a /etc/hosts > /dev/null
+      printf '0.0.0.0 www.%s\n' "${web}" | sudo tee -a /etc/hosts > /dev/null
+    done
+  fi
+}
+
+reset_env() {
+  # Enable notifications.
+  killall -SIGUSR2 dunst
+
+  # Unblock distracting sites.
+  if grep -q "${hosts_comment}" /etc/hosts; then
+    sudo -A sed -i "/${hosts_comment}/d" /etc/hosts
+  fi
+
+  for web in "${distractions[@]}"; do
+    if grep -q "${web}" /etc/hosts; then
+      sudo -A sed -i "/${web}/d" /etc/hosts
+    fi
+  done
+}
+
+
+while getopts "hbrt:" arg; do
+  case "${arg}" in
+    h) printf '%s\n' "${usage}"; exit 0 ;;
+    b) block=true ;;
+    r) reset=true ;;
+    t) timeout="${OPTARG}" ;;
+    *) printf '%s\n' "${usage}"; exit 1 ;;
+  esac
+done
+
+if [ "${reset}" = true ]; then
+  reset_env
+else
+  set_env
+
+  if [ -n "${timeout}" ]; then
+    sleep "${timeout}"
+    reset_env
+  fi
+fi
