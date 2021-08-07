@@ -20,13 +20,9 @@ command -v gpg2 > /dev/null && gpg="gpg2"
 install_dotfile() {
   dotfile="$1"
   dest="${HOME}/${dotfile}"
-  target_dir="$(dirname "${dest}")"
 
   printf 'Installing %s\n' "${dotfile}"
-
-  mkdir -p "${target_dir}"
-  [ "${target_dir}" != "${HOME}" ] && \
-    find "${target_dir}" -type d -exec chmod 700 {} \;
+  mkdir -p "$(dirname "${dest}")"
 
   chmod go-rwx "${dotfile}"
   ln -fs "$(pwd)/${dotfile}" "${dest}"
@@ -40,11 +36,7 @@ decrypt_dotfile() {
   if [ ! -e "${dest}" ] || \
       [ -n "$(find -L "${dotfile}" -prune -newer "${dest}")" ]; then
     printf 'Decrypting %s\n' "${dotfile}"
-    target_dir="$(dirname "${dest}")"
-
-    mkdir -p "${target_dir}"
-    [ "${target_dir}" != "${HOME}" ] && \
-      find "${target_dir}" -type d -exec chmod 700 {} \;
+    mkdir -p "$(dirname "${dest}")"
 
     (umask 0177;
     "${gpg}" --quiet -o "${dest}" -d "${dotfile}")
@@ -56,9 +48,7 @@ decrypt_dotfile() {
 
 install_notmuch_hooks() {
   printf 'Installing notmuch hooks\n'
-
   mkdir -p ~/Mail/.notmuch/hooks
-  find ~/Mail/.notmuch/hooks -type d -exec chmod 700 {} \;
 
   hook="$(pwd)/.local/hooks/notmuch-pre-new"
   chmod 700 "${hook}"
