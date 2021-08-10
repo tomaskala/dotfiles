@@ -28,11 +28,11 @@
     autoStash = true
 
 [merge]
-    tool = diffconflicts
+    tool = vimdiff
     conflictStyle = diff3
 
-[mergetool "diffconflicts"]
-    cmd = diffconflicts $BASE $LOCAL $REMOTE $MERGED
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
     trustExitCode = true
     keepBackup = false
 
