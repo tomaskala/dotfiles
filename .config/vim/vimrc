@@ -281,6 +281,7 @@ augroup end
 
 augroup indentation
   autocmd!
+  autocmd FileType c call SetIndentation(2)
   autocmd FileType haskell call SetIndentation(2)
   autocmd FileType lua call SetIndentation(2)
   autocmd FileType vim call SetIndentation(2)
@@ -289,7 +290,7 @@ augroup end
 
 augroup column
   autocmd!
-  autocmd FileType python,cython setlocal colorcolumn=89
+  autocmd FileType python,cython,pyrex setlocal colorcolumn=89
 augroup end
 
 augroup plaintext
