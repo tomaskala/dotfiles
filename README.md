@@ -146,6 +146,8 @@ The following software should then be installed.
   * [vim-plug](https://github.com/junegunn/vim-plug)
 * Make
   * `$ sudo dnf install make`
+* valgrind
+  * `$ sudo dnf install valgrind`
 
 
 #### System utilities
