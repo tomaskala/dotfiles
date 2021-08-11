@@ -148,6 +148,11 @@ The following software should then be installed.
   * `$ sudo dnf install make`
 * valgrind
   * `$ sudo dnf install valgrind`
+* clang
+  ```
+  $ sudo dnf install clang
+  $ sudo update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100
+  ```
 
 
 #### System utilities
