@@ -39,9 +39,9 @@ set_env() {
   if [ "${block}" = true ]; then
     printf '%s\n' "${hosts_comment}" | sudo tee -a /etc/hosts > /dev/null
 
-    for web in "${distractions[@]}"; do
-      printf '0.0.0.0 %s\n' "${web}" | sudo tee -a /etc/hosts > /dev/null
-      printf '0.0.0.0 www.%s\n' "${web}" | sudo tee -a /etc/hosts > /dev/null
+    for site in "${distractions[@]}"; do
+      printf '0.0.0.0 %s\n' "${site}" | sudo tee -a /etc/hosts > /dev/null
+      printf '0.0.0.0 www.%s\n' "${site}" | sudo tee -a /etc/hosts > /dev/null
     done
   fi
 }
@@ -55,9 +55,9 @@ reset_env() {
     sudo -A sed -i "/${hosts_comment}/d" /etc/hosts
   fi
 
-  for web in "${distractions[@]}"; do
-    if grep -q "${web}" /etc/hosts; then
-      sudo -A sed -i "/${web}/d" /etc/hosts
+  for site in "${distractions[@]}"; do
+    if grep -q "${site}" /etc/hosts; then
+      sudo -A sed -i "/${site}/d" /etc/hosts
     fi
   done
 }
