@@ -282,7 +282,7 @@ augroup end
 
 augroup indentation
   autocmd!
-  autocmd FileType c call SetIndentation(2)
+  autocmd FileType c,cpp call SetIndentation(2)
   autocmd FileType haskell call SetIndentation(2)
   autocmd FileType lua call SetIndentation(2)
   autocmd FileType vim call SetIndentation(2)
