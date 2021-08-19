@@ -203,8 +203,8 @@ bar {
 bindsym Print exec --no-startup-id maim -f jpg ~/Pictures/"$(date --iso-8601=seconds).jpg"
 bindsym Shift+Print exec --no-startup-id maim -f jpg -s ~/Pictures/"$(date --iso-8601=seconds).jpg"
 
-# Start rofi.
-bindsym $mod+p exec --no-startup-id rofi -show
+# Start dmenu.
+bindsym $mod+p exec --no-startup-id dmenu_run
 
 # Disable annoying edges around windows.
 hide_edge_borders both
