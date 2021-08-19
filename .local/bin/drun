@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euf
+
+
+programs=(
+  firefox
+  qutebrowser
+  chromium-browser
+  Discord
+  Telegram
+  wireshark
+  pycharm
+  idea
+  lutris
+  virt-manager
+  cmus
+  transmission-gtk
+)
+
+"$(printf '%s\n' "${programs[@]}" | dmenu)"
