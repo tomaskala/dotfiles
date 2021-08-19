@@ -17,4 +17,4 @@ programs=(
   transmission-gtk
 )
 
-"$(printf '%s\n' "${programs[@]}" | dmenu)"
+"$(printf '%s\n' "${programs[@]}" | dmenu "$@")"
