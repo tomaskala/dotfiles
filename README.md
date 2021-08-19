@@ -96,8 +96,6 @@ The following software should then be installed.
   * `$ sudo dnf install feh`
 * arandr
   * `$ sudo dnf install xrandr arandr`
-* rofi
-  * `$ sudo dnf install rofi`
 * lxappearance
   * `$ sudo dnf install lxappearance`
   * Set the `Adwaita-dark` theme to kill the blinding white flash when opening a
