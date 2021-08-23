@@ -27,9 +27,7 @@ Before reinstalling the system, backup the following:
   * `sessionstore.jsonlz4`.
 * Saved passwords: `~/.local/share/password-store`.
 * Downloads directory: `~/Downloads`.
-* Documents directory: `~/Documents`.
 * Pictures directory: `~/Pictures`.
-* Work directory: `~/Work`.
 * Export GPG keys.
   ```
   $ gpg --armor --export-secret-keys <key-id> > <path-to-backup>/private.key
@@ -40,7 +38,7 @@ Before reinstalling the system, backup the following:
     $ gpg --import <path-to-backup>/private.key
     $ gpg --import-ownertrust <path-to-backup>/ownertrust.txt
     ```
-* Export SSH keys.
+* SSH keys.
   * Export the `~/.ssh` directory.
   * To restore, copy the directory back, `cd` into it, run the ssh agent
     (`eval $(ssh-agent)`) and perform the following (for each private & public
@@ -63,11 +61,6 @@ Before reinstalling the system, backup the following:
   * `$ sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`
 * Enable SSD trimming.
   * `$ sudo systemctl enable fstrim.timer`
-* Download a [hosts file](https://github.com/StevenBlack/hosts/).
-  * `$ sudo wget -O '/etc/hosts'
-    'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts'
-    && sync`
-  * The [hosts](.local/bin/hosts) script can be used here.
 * [Backup LUKS
   headers](https://fedoraproject.org/wiki/Disk_Encryption_User_Guide#Backup_LUKS_headers).
 * Configure the touchpad on the X Window System.
@@ -86,26 +79,6 @@ Before reinstalling the system, backup the following:
 ### Software
 
 The following software should then be installed.
-
-
-#### Window manager
-
-* i3, i3lock, i3status
-  * `$ sudo dnf install i3 i3lock i3status`
-* feh
-  * `$ sudo dnf install feh`
-* arandr
-  * `$ sudo dnf install xrandr arandr`
-* lxappearance
-  * `$ sudo dnf install lxappearance`
-  * Set the `Adwaita-dark` theme to kill the blinding white flash when opening a
-    new tab in Firefox.
-* dunst
-  * `$ sudo dnf install dunst`
-* maim
-  * `$ sudo dnf install maim`
-* xclip
-  * `$ sudo dnf install xclip`
 
 
 #### Internet
@@ -155,6 +128,16 @@ The following software should then be installed.
 
 #### System utilities
 
+* feh
+  * `$ sudo dnf install feh`
+* arandr
+  * `$ sudo dnf install xrandr arandr`
+* dunst
+  * `$ sudo dnf install dunst`
+* maim
+  * `$ sudo dnf install maim`
+* xclip
+  * `$ sudo dnf install xclip`
 * JetBrains Mono
   * `$ sudo dnf install jetbrains-mono-fonts`
 * ShellCheck
@@ -176,19 +159,6 @@ The following software should then be installed.
     and put it into `/etc/bash_completion.d` under the name `pass`.
   * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
   * [pass-update](https://github.com/roddhjav/pass-update)
-* Virtual Machine Manager
-  * `$ sudo dnf install virt-manager`
-  * Add the current user to the group: `$ sudo usermod -aG libvirt $USER`.
-* Docker
-  * Instead of using `dnf`, follow the [official
-    instructions](https://docs.docker.com/engine/install/). The most-recent
-    version is needed to get a proper cgroups support.
-  * Create the docker group: `$ sudo groupadd docker`.
-  * Add the current user to the group: `$ sudo usermod -aG docker $USER`.
-  * Relog.
-* Wireshark
-  * `$ sudo dnf install wireshark`
-  * Add the current user to the group: `$ sudo usermod -aG wireshark $USER`.
 
 
 #### Media
@@ -327,8 +297,7 @@ Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/
   (tec) https://www.deepl.com/translator#en/cs/%s
   (py) https://docs.python.org/3/search.html?q=%s
   ```
-* Install the `firefox/gruvbox.xpi` by opening it (`CTRL+o`) in
-  Firefox.
+* Install the `firefox/gruvbox.xpi` by opening it (`CTRL+o`) in Firefox.
 
 
 #### Import data
