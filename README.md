@@ -256,18 +256,7 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     ! stackexchange hot network questions
     ###hot-network-questions
     ```
-5. [Temporary
-Containers](https://addons.mozilla.org/en-US/firefox/addon/temporary-containers/)
-  * **General**
-    * `Automatic mode: enabled`
-  * **Isolation**
-    * **Navigation**
-      * `Target Domain: Different from Tab Domain & Subdomains`
-    * **Mouse Click**
-      * `Middle Mouse: Different from Tab Domain & Subdomains`
-      * `Ctrl/Cmd + Left Mouse: Different from Tab Domain & Subdomains`
-      * `Left Mouse: Different from Tab Domain & Subdomains`
-6. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+5. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
   * Add the following two rules to the blacklist. They are to disable
     vimium-ff in Jupyter notebooks, typically found on such URLs.
     * `https?://localhost*`;
