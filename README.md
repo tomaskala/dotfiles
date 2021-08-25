@@ -3,7 +3,7 @@
 
 ## My dotfiles and utilities
 
-I am using the latest Fedora installation.
+I use Arch, btw.
 
 
 ## Installation
@@ -53,27 +53,23 @@ Before reinstalling the system, backup the following:
     the top of `~/.ssh/config`.
 
 
-## System installation
+## System setup
 
-* Update packages.
-  * `$ sudo dnf distro-sync -y && sync`
-* Update firmware.
-  * `$ sudo fwupdmgr refresh && sudo fwupdmgr update --verbose`
-* Enable SSD trimming.
-  * `$ sudo systemctl enable fstrim.timer`
-* [Backup LUKS
-  headers](https://fedoraproject.org/wiki/Disk_Encryption_User_Guide#Backup_LUKS_headers).
-* Configure the touchpad on the X Window System.
-  * Put the following inside `/etc/X11/xorg.conf.d/90-touchpad.conf`.
-    ```
-    Section "InputClass"
-        Identifier "touchpad"
-        MatchIsTouchpad "on"
-        Driver "libinput"
-        Option "Tapping" "on"
-        Option "NaturalScrolling" "on"
-    EndSection
-    ```
+* Backup LUKS headers.
+  ```
+  $ sudo cryptsetup luksHeaderBackup --header-backup-file <file> <device>
+  ```
+* Put the following inside `/etc/X11/xorg.conf.d/90-touchpad.conf` to configure
+  the touchpad.
+  ```
+  Section "InputClass"
+      Identifier "touchpad"
+      MatchIsTouchpad "on"
+      Driver "libinput"
+      Option "Tapping" "on"
+      Option "NaturalScrolling" "on"
+  EndSection
+  ```
 
 
 ### Software
@@ -83,11 +79,11 @@ The following software should then be installed.
 
 #### Internet
 
-* Firefox
-* Qutebrowser
-  * Optionally install asciidoc to generate help files.
-    * `$ sudo dnf install asciidoc`
-  * Install Qutebrowser from the official repository.
+```
+$ sudo pacman -S firefox neomutt isync msmtp notmuch lynx
+```
+* [urlview](https://aur.archlinux.org/packages/urlview/).
+* qutebrowser
   ```
   $ cd
   $ git clone https://github.com/qutebrowser/qutebrowser.git
@@ -95,90 +91,61 @@ The following software should then be installed.
   $ python scripts/mkvenv.py
   $ ln -fs ~/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop ~/.local/share/applications/
   ```
-* Email
-  * `neomutt`, `urlview`, `isync`, `msmtp`, `notmuch`, `lynx`
-  * To synchronize emails for the first time, run the following.
-    ```
-    $ mkdir -p ~/Mail/"${EMAIL}"
-    $ ./setup.sh -n  # Link the notmuch hooks.
-    $ notmuch new
-    $ notmuch tag -unread -- tag:unread
-    ```
-* Transmission
-* [sfeed](https://codemadness.org/sfeed-simple-feed-parser.html)
+* To synchronize emails for the first time, run the following.
+  ```
+  $ mkdir -p ~/Mail/"${EMAIL}"
+  $ ./setup.sh -n  # Link the notmuch hooks.
+  $ notmuch new
+  $ notmuch tag -unread -- tag:unread
+  ```
 
 
 #### Development
 
-* git
-  * `$ sudo dnf install git`
-* neovim
-  * `$ sudo dnf install neovim`
-  * [vim-plug](https://github.com/junegunn/vim-plug)
-* Make
-  * `$ sudo dnf install make`
-* valgrind
-  * `$ sudo dnf install valgrind`
-* clang
-  ```
-  $ sudo dnf install clang
-  $ sudo update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100
-  ```
+```
+$ sudo pacman -S git neovim make valgrind clang
+```
+* [vim-plug](https://github.com/junegunn/vim-plug)
 
 
 #### System utilities
 
-* feh
-  * `$ sudo dnf install feh`
-* arandr
-  * `$ sudo dnf install xrandr arandr`
-* dunst
-  * `$ sudo dnf install dunst`
-* maim
-  * `$ sudo dnf install maim`
-* xclip
-  * `$ sudo dnf install xclip`
-* JetBrains Mono
-  * `$ sudo dnf install jetbrains-mono-fonts`
-* ShellCheck
-  * `$ sudo dnf install ShellCheck`
-* tmux
-  * `$ sudo dnf install tmux`
-* fzf
-  * `$ sudo dnf install fzf`
-* ag
-  * `$ sudo dnf install the_silver_searcher`
-* htop
-  * `$ sudo dnf install htop`
-* sensors
-  * `$ sudo dnf install lm_sensors -y && sudo sensors-detect --auto`
-* [pass](https://www.passwordstore.org)
-  * `$ sudo dnf install pass`
-  * Download the [bash completion
-    file](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion)
-    and put it into `/etc/bash_completion.d` under the name `pass`.
-  * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
-  * [pass-update](https://github.com/roddhjav/pass-update)
+```
+$ sudo pacman -S feh xorg-xrandr arandr libnotify dunst maim xclip tmux fzf \
+  the_silver_searcher htop pass wget man-db
+```
+* [pass bash
+  completions](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion),
+  put it into `/etc/bash_completion.d/pass`
+* [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
+* [pass-update](https://github.com/roddhjav/pass-update)
+* [shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
+  * The binary version from AUR is dependency-free.
+* [pmount](https://aur.archlinux.org/packages/pmount/)
+
+  
+#### Fonts
+
+```
+$ sudo pacman -S ttf-liberation
+```
+* [jetbrains mono](https://www.jetbrains.com/lp/mono/).
 
 
 #### Media
 
-* mpv
-  * `$ sudo dnf install mpv`
-* FFmpeg
-  * `$ sudo dnf install ffmpeg`
-* youtube-dl
-  * `$ sudo dnf install youtube-dl`
-* cmus
-  * `$ sudo dnf install cmus`
-* zathura
-  * `$ sudo dnf install zathura zathura-djvu zathura-pdf-mupdf zathura-ps`
+```
+$ sudo pacman -S mpv ffmpeg youtube-dl cmus zathura zathura-djvu zathura-ps \
+  zathura-pdf-mupdf
+```
 
 
 #### Communication
 
-* Discord
-* Telegram
+```
+$ sudo pacman -S discord
+```
+* [telegram](https://aur.archlinux.org/packages/telegram-desktop-bin/)
 
 
 ### Firefox configuration
@@ -190,10 +157,6 @@ This section addresses the configuration of the Firefox browser.
 
 * Create a new profile. Importing data from an old profile is addressed towards
   the end of this section.
-* Remove system addons
-  * Either `$ cd /usr/lib/firefox/browser/features` or `$ cd
-    /usr/lib64/firefox/browser/features` followed by `$ sudo rm *.xpi`
-  * Note that this must be redone every time Firefox is updated
 
 
 #### Addons
@@ -227,7 +190,6 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
       * `EasyList`
     * `Privacy:`
       * `EasyPrivacy`
-      * `Fanboy’s Enhanced Tracking List`
     * `Malware domains:` all
     * `Annoyances`
       * `AdGuard Annoyances`

@@ -1,7 +1,7 @@
 defaults
 auth on
 tls on
-tls_trust_file /etc/pki/tls/certs/ca-bundle.crt
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
 protocol smtp
 logfile ~/.config/msmtp/msmtp.log
 
