@@ -77,6 +77,15 @@ Before reinstalling the system, backup the following:
 The following software should then be installed.
 
 
+#### Environment
+
+* pulseaudio
+  ```
+  $ sudo pacman -S pulseaudio pulseaudio-alsa pamixer
+  ```
+* X and window manager: see my `suckless` repository.
+
+
 #### Internet
 
 ```
