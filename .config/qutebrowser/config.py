@@ -156,6 +156,7 @@ c.url.searchengines = {
     "tce": "https://www.deepl.com/translator#cs/en/{}",
     "tec": "https://www.deepl.com/translator#en/cs/{}",
     "py": "https://docs.python.org/3/search.html?q={}",
+    "aw": "https://wiki.archlinux.org/index.php?search={}",
 }
 
 # Keybindings.

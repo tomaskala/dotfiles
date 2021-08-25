@@ -256,6 +256,7 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
   (tce) https://www.deepl.com/translator#cs/en/%s
   (tec) https://www.deepl.com/translator#en/cs/%s
   (py) https://docs.python.org/3/search.html?q=%s
+  (aw) https://wiki.archlinux.org/index.php?search=%s
   ```
 * Install the `firefox/gruvbox.xpi` by opening it (`CTRL+o`) in Firefox.
 
