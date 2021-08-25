@@ -5,8 +5,8 @@ set -euf
 programs=(
   firefox
   qutebrowser
-  Discord
-  Telegram
+  discord
+  telegram-desktop
   lutris
   cmus
   transmission-gtk

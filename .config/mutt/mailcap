@@ -4,4 +4,3 @@ image/*; feh %s;
 video/*; setsid mpv --quiet %s &; copiousoutput;
 audio/*; mpv %s;
 application/pdf; zathura %s;
-application/json; jq -C; copiousoutput;
