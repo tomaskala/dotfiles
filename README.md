@@ -70,6 +70,7 @@ Before reinstalling the system, backup the following:
       Option "NaturalScrolling" "on"
   EndSection
   ```
+* Uncomment `Color` in `/etc/pacman.conf`.
 
 
 ### Software
