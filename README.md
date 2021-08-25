@@ -136,7 +136,7 @@ $ sudo pacman -S feh xorg-xrandr arandr libnotify dunst maim xclip tmux fzf \
 #### Fonts
 
 ```
-$ sudo pacman -S ttf-liberation
+$ sudo pacman -S ttf-liberation noto-fonts-emoji
 ```
 * [jetbrains mono](https://www.jetbrains.com/lp/mono/).
 
