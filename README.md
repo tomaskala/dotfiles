@@ -153,7 +153,7 @@ $ sudo pacman -S mpv ffmpeg youtube-dl cmus zathura zathura-djvu zathura-ps \
 ```
 $ sudo pacman -S discord
 ```
-* [telegram](https://desktop.telegram.org/)
+* [telegram](https://aur.archlinux.org/packages/telegram-desktop-bin/)
 
 
 ### Firefox configuration
