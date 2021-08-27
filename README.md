@@ -1,8 +1,6 @@
 # Dotfiles
 
 
-## My dotfiles and utilities
-
 I use Arch, btw.
 
 
