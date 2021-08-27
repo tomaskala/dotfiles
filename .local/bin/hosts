@@ -68,6 +68,12 @@ else
   sudo truncate -s 0 /etc/hosts
 fi
 
+host=$(cat /etc/hostname)
+printf '127.0.0.1 localhost.localdomain localhost\n' | sudo tee -a /etc/hosts
+printf '::1 localhost.localdomain localhost\n' | sudo tee -a /etc/hosts
+printf '127.0.0.1 %s.localdomain %s\n' "${host}" "${host}" \
+  | sudo tee -a /etc/hosts
+
 # Append dns lookups of internal services.
 if [ -n "${lookup_src}" ]; then
   printf '# DNS lookup from the hosts script.\n' | sudo tee -a /etc/hosts
