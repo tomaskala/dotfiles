@@ -6,7 +6,7 @@ programs=(
   firefox
   qutebrowser
   discord
-  telegram
+  telegram-desktop
   lutris
   cmus
   transmission-gtk
