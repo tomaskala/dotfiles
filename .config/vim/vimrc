@@ -296,9 +296,16 @@ augroup end
 
 augroup plaintext
   autocmd!
-  autocmd FileType mail,markdown,text
+  autocmd FileType markdown,text
     \ call SetIndentation(2) |
     \ setlocal textwidth=79
+augroup end
+
+augroup email
+  autocmd!
+  autocmd FileType mail
+    \ call SetIndentation(2) |
+    \ setlocal textwidth=79 fo+=w
 augroup end
 
 augroup todo
