@@ -14,7 +14,7 @@ Options:
   -s FILE  Path to a lookup file with 1 address per line.
            The file may contain comment lines beginning with '#'
            as well as empty lines.
-  -d TEXT  Address of a DNS server to use when digging the lookup file.
+  -d TEXT  Address of a DNS server to use when using the lookup file.
            If not beginning with '@', the character will be substituted.
   -h       Show this message and exit."
 
@@ -45,8 +45,8 @@ while getopts "hab:s:d:" arg; do
 done
 
 # Check the argument values.
-if [ -n "${lookup_src}" ] && ! command -v dig > /dev/null; then
-  die "The dig command is not installed."
+if [ -n "${lookup_src}" ] && ! command -v drill > /dev/null; then
+  die "The drill command is not installed."
 fi
 
 if [ -n "${lookup_src}" ] && [ ! -f "${lookup_src}" ]; then
@@ -84,7 +84,7 @@ if [ -n "${lookup_src}" ]; then
     fi
 
     if [ "${addr#\#}" = "${addr}" ]; then
-      lookup=$(dig "${addr}" "${dns}" +short)
+      lookup=$(drill "${addr}" "${dns}" +short)
       printf '%s %s\n' "${lookup}" "${addr}" | sudo tee -a /etc/hosts
     else
       printf '%s\n' "${addr}" | sudo tee -a /etc/hosts
