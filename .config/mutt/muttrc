@@ -48,6 +48,7 @@ set mime_type_query_command="file --mime-type -b %s"
 set reverse_name               # Reply as whoever the message was addressed to.
 set rfc2047_parameters         # Decode RFC2047-encoded MIME parameters.
 set sig_dashes                 # Dashes before the signature.
+set text_flowed                # Send format-flowed, vim must be set to fo+=w.
 alternates "@tomaskala\.com$"  # Auto-use the matching addresses to reply.
 
 ### Sort settings.
