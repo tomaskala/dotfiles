@@ -50,7 +50,7 @@
     idle_threshold = 120
 
     # Font style.
-    font = JetBrains Mono, Noto Color Emoji 8
+    font = JetBrains Mono 8
 
     # The spacing between lines.
     line_height = 0
