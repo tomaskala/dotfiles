@@ -1,43 +1,52 @@
 ### Sidebar.
-bind index,pager <up> sidebar-prev
-bind index,pager <down> sidebar-next
-bind index,pager <right> sidebar-open
+bind index,pager \Ck sidebar-prev
+bind index,pager \Cj sidebar-next
+bind index,pager \Cl sidebar-open
+bind index,pager b sidebar-toggle-visible
 
-# Keybindings.
+### Noops.
 bind index,pager i noop
 bind index,pager g noop
-bind index j next-entry
-bind index k previous-entry
-bind attach <return> view-mailcap
-bind attach l view-mailcap
 bind editor <space> noop
-bind index G last-entry
-bind index gg first-entry
-bind pager,attach h exit
-bind pager j next-line
-bind pager k previous-line
-bind pager l view-attachments
-bind index D delete-message
-bind index U undelete-message
-bind index L limit
 bind index h noop
-bind index l display-message
-bind index <space> collapse-thread
-macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"
-bind index,pager H view-raw-message
-bind browser l select-entry
-bind pager,browser gg top-page
-bind pager,browser G bottom-page
-bind index,pager,browser d half-down
-bind index,pager,browser u half-up
-bind index,pager S sync-mailbox
-bind index,pager R group-reply
-bind index,pager \Ct modify-labels
-bind index <tab> sync-mailbox
 
-### Custom macros.
-macro index,pager U "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>""view URLs"
-macro index o "<shell-escape>notmuch new<enter>"
-macro index c "<change-vfolder>?" "Change to vfolder overview"
-macro index \\\\ "<vfolder-from-query>" "Search mailbox"
-macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "Mark all messages as read"
+### Movement up and down.
+bind index k previous-entry
+bind pager k previous-line
+bind index j next-entry
+bind pager j next-line
+bind index gg first-entry
+bind pager,browser gg top-page
+bind index G last-entry
+bind pager,browser G bottom-page
+bind index,pager,browser u half-up
+bind index,pager,browser d half-down
+
+### Movement left and right.
+bind pager,attach h exit
+macro browser h '<change-dir><kill-line>..<enter>' "go to parent folder"
+bind index l display-message
+bind pager l view-attachments
+bind browser l select-entry
+bind attach l view-mailcap
+
+### Synchronization.
+macro index,pager S "<shell-escape>mbsync -a -c ${MBSYNC_CONFIG}<enter><sync-mailbox><check-stats>" "sync email"
+macro index,pager <tab> "<sync-mailbox><check-stats>"
+
+### Deletion and saving.
+macro index,pager D "<save-message>${trash}<enter>"
+macro index,pager s "<save-message>"
+
+### Limit the messages.
+macro index a "<limit>~A<enter>"       # All.
+macro index i "<limit>~U | ~F<enter>"  # Unread or flagged.
+macro index I "<limit>~U<enter>"       # Unread.
+
+# Miscellaneous keybindings.
+bind index <space> collapse-thread
+bind index,pager H view-raw-message
+bind index,pager R group-reply
+
+### Show all URLs in the message.
+macro index,pager U "<pipe-message>urlview<enter>" "view URLs"

@@ -1,68 +1,81 @@
+### Mailbox settings.
+set realname="${REALNAME}"
+set folder=~/Mail/
+set spoolfile="+/${EMAIL}/INBOX"
+set record="+${EMAIL}/Sent"
+set trash="+${EMAIL}/Trash"
+set postponed="+${EMAIL}/Drafts"
+mailboxes "=${EMAIL}/INBOX" "=${EMAIL}/Sent" "=${EMAIL}/Drafts" "=${EMAIL}/Trash" "=${EMAIL}/Junk"
+
+### Sending emails.
+set sendmail="msmtp -a ${EMAIL}"
+set sendmail_wait=0  # Wait until the mail has been sent before changing views.
+
 ### Paths.
-set header_cache=~/.cache/mutt/headers
-set message_cachedir=~/.cache/mutt/bodies
-set mailcap_path=~/.config/mutt/mailcap:"${mailcap_path}"
-set certificate_file=~/.config/mutt/certificates
-set tmpdir=~/.config/mutt/temp
+set certificate_file="~/.local/share/mutt/${EMAIL}/certificates"
+set header_cache="~/.cache/mutt/${EMAIL}/headers"
+set mailcap_path="~/.config/mutt/mailcap"
+set message_cachedir="~/.cache/mutt/${EMAIL}/bodies"
 
 ### Hooks.
 startup-hook "exec sync-mailbox"
 shutdown-hook "exec sync-mailbox"
 
-### Notmuch settings.
-set nm_unread_tag="new"
-set nm_record=yes
-set nm_record_tags="sent"
-
 ### Basic settings.
 set charset="utf-8"
 set config_charset="utf-8"
-set mail_check=0       # Check for new messages this often.
-set mail_check_stats   # Enable checking for new messages.
+set mail_check=60      # Check for new messages this often.
+set mail_check_stats   # Calculate message statistics when polling for emails.
+set mail_check_stats_interval=60  # Calculate the statistics this often.
 set mbox_type=Maildir
+set pipe_decode        # Decode the message before <pipe-message>.
+set print_decode       # Decode the message before <print-message>.
 set send_charset="utf-8:iso-8859-1:us-ascii"
 set ssl_force_tls      # Force TLS.
-set timeout=3          # How long to wait until aborting the waiting for input.
+set thorough_search    # Decode the headers and bodies when searching ~h or ~b.
+set timeout=10         # How long to wait until aborting the waiting for input.
+unset beep             # Shut up.
+unset beep_new         # Shut up.
 unset collapse_unread  # Do not collapse threads with unread messages.
+unset confirmappend    # Do not confirm appending messages to directories.
 unset mark_old         # Unread mail stays so until read.
 unset signature        # Disable the no-signature nagging.
 unset wait_key         # Do not ask to press a key to continue.
-unset beep_new         # Shut up.
 
 ### Set formats.
 set date_format="%Y-%m-%d %H:%M"
 set index_format="[%Z]  %D  %-20.20F  %s"
 
-### Compose view settings.
-set attribution="On %d, %n wrote:"  # Quoting header format.
-set edit_headers               # Allow editing the email headers.
-set editor='${EDITOR} -c "set filetype=mail"'
-set envelope_from              # Pass the "from" address to msmtp.
-set fast_reply                 # Skip to compose when replying.
-set fcc_attach                 # Save attachments with the body.
-set forward_format="Fwd: %s"   # Format of the subject when forwarding.
-set forward_quote              # Include the message in forwards.
-set include                    # Include the message in replies.
-set mime_forward               # Forward also attachments.
-set mime_type_query_command="file --mime-type -b %s"
-set reverse_name               # Reply as whoever the message was addressed to.
-set rfc2047_parameters         # Decode RFC2047-encoded MIME parameters.
-set sig_dashes                 # Dashes before the signature.
-set text_flowed                # Send format-flowed, vim must be set to fo+=w.
-alternates "@tomaskala\.com$"  # Auto-use the matching addresses to reply.
-
 ### Sort settings.
-set sort="threads"                        # Sort emails by threads.
-set sort_aux="reverse-last-date-received" # Secondary sort.
+set narrow_tree                            # Make the thread tree narrower.
+set sort="threads"                         # Sort emails by threads.
+set sort_aux="reverse-last-date-received"  # Secondary sort.
+set strict_threads                         # Do not group emails by subjects.
 
 ### Email headers and attachments.
-ignore *
-unignore from: to: cc: bcc: date: subject:            # Show only these headers.
-unhdr_order *
-hdr_order from: to: cc: bcc: date: subject:           # Header ordering.
+ignore *                                              # Ignore all headers.
+unignore from: to: cc: bcc: date: subject:            # But unignore these.
+unhdr_order *                                         # Clear header ordering.
+hdr_order from: to: cc: bcc: date: subject:           # Set header ordering.
 alternative_order text/plain text/enriched text/html  # Format preferences.
 auto_view text/html                                   # Show HTML.
-alternative_order text/plain text/enriched text/html  # Format preferences.
+
+### Compose view settings.
+set attribution="On %d, %n wrote:"  # Quoting header format.
+set edit_headers                    # Allow editing the email headers.
+set editor='${EDITOR} -c "set filetype=mail"'
+set envelope_from                   # Pass the "from" address to msmtp.
+set fast_reply                      # Skip to compose when replying.
+set fcc_attach                      # Save attachments with the body.
+set forward_format="Fwd: %s"        # Forwarding subject format.
+set forward_quote                   # Include the message in forwards.
+set include                         # Include the message in replies.
+set mime_forward                    # Forward attachments as well.
+set mime_type_query_command="file --mime-type -b %s"
+set reverse_name                    # Reply as the recipient.
+set rfc2047_parameters              # Decode RFC2047-encoded MIME parameters.
+set text_flowed                     # Send format-flowed, vim must have fo+=w.
+alternates "@tomaskala\.com$"       # Auto-use the matching addresses to reply.
 
 ### Pager settings.
 set menu_scroll           # Scroll in menus.
@@ -90,30 +103,3 @@ source ~/.config/mutt/bindings.muttrc
 set alias_file=~/.config/mutt/aliases
 set sort_alias="alias"
 source "$alias_file"
-
-### Mailbox settings.
-set realname="${REALNAME}"
-set sendmail="msmtp -a ${EMAIL}"
-set sendmail_wait=0  # Wait until the mail has been sent.
-set spoolfile="+/${EMAIL}/INBOX"
-set record="+${EMAIL}/Sent"
-set trash="+${EMAIL}/Trash"
-set postponed="+${EMAIL}/Drafts"
-
-set virtual_spoolfile
-set folder=~/Mail/
-
-virtual-mailboxes "INBOX" "notmuch://?query=tag:inbox"
-virtual-mailboxes "Sent" "notmuch://?query=tag:sent"
-virtual-mailboxes "Drafts" "notmuch://?query=folder:${EMAIL}/Drafts"
-virtual-mailboxes "Trash" "notmuch://?query=folder:${EMAIL}/Trash"
-virtual-mailboxes "Junk" "notmuch://?query=folder:${EMAIL}/Junk"
-
-virtual-mailboxes "Public" "notmuch://?query=tag:public"
-
-virtual-mailboxes "Czechitas" "notmuch://?query=tag:czechitas"
-virtual-mailboxes "Bank" "notmuch://?query=tag:bank"
-
-virtual-mailboxes "Email" "notmuch://?query=tag:email"
-virtual-mailboxes "Gaming" "notmuch://?query=tag:gaming"
-virtual-mailboxes "Dev" "notmuch://?query=tag:dev"

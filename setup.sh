@@ -6,13 +6,11 @@ usage="Usage: $(basename "$0") [OPTIONS]
 
 Options:
   -p  Install private (encrypted) files.
-  -n  Install notmuch hooks.
   -h  Show this message and exit."
 
 
 GLOBIGNORE=".:..:.git:.gitignore"
 install_private=false
-install_notmuch=false
 gpg="gpg"
 command -v gpg2 > /dev/null && gpg="gpg2"
 
@@ -46,24 +44,9 @@ decrypt_dotfile() {
 }
 
 
-install_notmuch_hooks() {
-  printf 'Installing notmuch hooks\n'
-  mkdir -p ~/Mail/.notmuch/hooks
-
-  hook="$(pwd)/.local/hooks/notmuch-pre-new"
-  chmod 700 "${hook}"
-  ln -fs "${hook}" ~/Mail/.notmuch/hooks/pre-new
-
-  hook="$(pwd)/.local/hooks/notmuch-post-new"
-  chmod 700 "${hook}"
-  ln -fs "${hook}" ~/Mail/.notmuch/hooks/post-new
-}
-
-
 while getopts "hnp" arg; do
   case "${arg}" in
     h) printf '%s\n' "${usage}"; exit 0 ;;
-    n) install_notmuch=true ;;
     p) install_private=true ;;
     *) printf '%s\n' "${usage}"; exit 1 ;;
   esac
@@ -78,9 +61,5 @@ for dotfiles_source in .*; do
     fi
   done
 done
-
-if [ "${install_notmuch}" = true ]; then
-  install_notmuch_hooks
-fi
 
 chmod 700 ~/.gnupg
