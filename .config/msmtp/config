@@ -3,7 +3,7 @@ auth on
 tls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
 protocol smtp
-logfile ~/.config/msmtp/msmtp.log
+logfile ~/.local/share/msmtp/msmtp.log
 
 account me@tomaskala.com
 host smtp.mailbox.org

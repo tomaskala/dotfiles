@@ -88,7 +88,7 @@ The following software should then be installed.
 #### Internet
 
 ```
-$ sudo pacman -S firefox neomutt isync msmtp notmuch lynx
+$ sudo pacman -S firefox neomutt isync msmtp lynx
 ```
 * [urlview](https://aur.archlinux.org/packages/urlview/).
 * qutebrowser
@@ -102,9 +102,7 @@ $ sudo pacman -S firefox neomutt isync msmtp notmuch lynx
 * To synchronize emails for the first time, run the following.
   ```
   $ mkdir -p ~/Mail/"${EMAIL}"
-  $ ./setup.sh -n  # Link the notmuch hooks.
-  $ notmuch new
-  $ notmuch tag -unread -- tag:unread
+  $ mbsync -a -c "${MBSYNC_CONFIG}"
   ```
 
 
