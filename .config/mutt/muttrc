@@ -38,6 +38,7 @@ unset beep             # Shut up.
 unset beep_new         # Shut up.
 unset collapse_unread  # Do not collapse threads with unread messages.
 unset confirmappend    # Do not confirm appending messages to directories.
+unset help             # Do not show the help toolbar on the top.
 unset mark_old         # Unread mail stays so until read.
 unset signature        # Disable the no-signature nagging.
 unset wait_key         # Do not ask to press a key to continue.
