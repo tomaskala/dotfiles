@@ -91,6 +91,9 @@ The following software should then be installed.
 $ sudo pacman -S firefox neomutt isync msmtp lynx
 ```
 * [urlview](https://aur.archlinux.org/packages/urlview/).
+  * Delete the `/etc/urlview/` directory, since the default configuration
+    defines the `COMMAND` directive, which in turn makes `urlview` not honor
+    the `BROWSER` environment variable.
 * qutebrowser
   ```
   $ cd
