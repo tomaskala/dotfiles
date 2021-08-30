@@ -45,6 +45,7 @@ user_pref("media.autoplay.default", 5);
 user_pref("media.eme.enabled", true);
 user_pref("media.gmp-widevinecdm.enabled", true);
 user_pref("media.gmp-widevinecdm.visible", true);
+user_pref("media.hardware-video-decoding.force-enabled", true);
 user_pref("network.dns.disableIPv6", false);
 user_pref("network.http.referer.XOriginPolicy", 0);
 user_pref("permissions.default.camera", 2);
