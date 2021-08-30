@@ -8,7 +8,6 @@ programs=(
   discord
   telegram-desktop
   lutris
-  cmus
   transmission-gtk
 )
 
