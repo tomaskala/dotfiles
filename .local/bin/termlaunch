@@ -35,6 +35,7 @@ tl() {
 }
 
 tl_scratchpad() {
+  [[ -z "${EDITOR}" ]] && die "The EDITOR environment variable is not set."
   local tmpfile
   tmpfile=$(mktemp)
   local command=("${EDITOR}" -c "startinsert" "${tmpfile}")
@@ -42,6 +43,7 @@ tl_scratchpad() {
 }
 
 tl_wiki() {
+  [[ -z "${EDITOR}" ]] && die "The EDITOR environment variable is not set."
   local command=("${EDITOR}" -c VimwikiIndex)
   tl "wiki" "${command[@]}"
 }
