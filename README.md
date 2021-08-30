@@ -121,7 +121,7 @@ $ sudo pacman -S git neovim make valgrind clang
 
 ```
 $ sudo pacman -S feh xorg-xrandr arandr libnotify dunst maim xclip tmux fzf \
-  the_silver_searcher htop pass wget man-db
+  the_silver_searcher htop pass wget man-db man-pages
 ```
 * [pass bash
   completions](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion),
