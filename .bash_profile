@@ -23,6 +23,9 @@ export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
 export XINITRC="${HOME}/.config/xinitrc"
 export SUDO_ASKPASS="${HOME}/.local/bin/dpass"
 
+export GOPATH="${HOME}/.local/share/go"
+export GOBIN="${HOME}/.local/share/go/bin"
+
 OS="$(uname)"
 export OS
 GPG_TTY="$(tty)"
