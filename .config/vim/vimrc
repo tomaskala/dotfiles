@@ -280,6 +280,16 @@ augroup cython
   autocmd BufRead,BufNewFile *.pxd set filetype=cython
 augroup end
 
+augroup go
+  autocmd!
+  autocmd filetype go setlocal makeprg=go\ build
+  autocmd filetype go setlocal noexpandtab shiftwidth=4 tabstop=4 textwidth=72
+  autocmd filetype go map <silent> <buffer> <leader>i
+      \ :update \|
+      \ :cexpr system("goimports -w " . expand('%')) \|
+      \ :silent edit<cr>
+augroup end
+
 augroup indentation
   autocmd!
   autocmd FileType c,cpp call SetIndentation(2)
