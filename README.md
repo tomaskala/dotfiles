@@ -194,6 +194,15 @@ $ sudo systemctl enable unbound
 $ sudo systemctl start unbound
 ```
 
+After having set unbound as the local DNS resolver, the boot time got about 2
+seconds slower than before. This was not caused by the `/etc/fstab` entries as
+suspected, but by having enabled the unbound service. After some investigation,
+it turned out that the bottleneck is the NetworkManager-wait-online service
+and disabling it fixes the problem.
+```
+$ sudo systemctl disable NetworkManager-wait-online
+```
+
 
 ### Firefox configuration
 
