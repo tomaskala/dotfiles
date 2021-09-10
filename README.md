@@ -180,6 +180,10 @@ Add the following lines to `/etc/fstab`.
 /dev/log /etc/unbound/dev/log none bind 0 0
 ```
 
+Furthermore, to periodically probe the root anchor, the directory
+`/etc/unbound` as well as the file `/etc/unbound/trusted-key.key` must be
+writable by the `unbound` user.
+
 Next, NetworkManager needs to be configured not to overwrite the DNS server
 address with the DHCP-supplied one. Create a
 `/etc/NetworkManager/conf.d/dns.conf` file with the following contents.
