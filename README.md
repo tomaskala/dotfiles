@@ -163,7 +163,7 @@ This will setup unbound as the local DNS resolver. For security, unbound is
 chrooted into `/etc/unbound`.
 ```
 $ sudo pacman -S unbound expat
-$ sudo cp ./unbound/unbound.conf /etc/unbound/unbound.conf
+$ sudo cp ./etc/unbound/unbound.conf /etc/unbound/unbound.conf
 ```
 
 Unbound needs access to entropy and to the system log, so they must be bound
