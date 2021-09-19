@@ -283,6 +283,8 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     vimium-ff in Jupyter notebooks, typically found on such URLs.
     * `https?://localhost*`;
     * `https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`;
+6. [Tree Style
+   Tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
 
 
 #### Configuration
@@ -310,6 +312,8 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
   (aw) https://wiki.archlinux.org/index.php?search=%s
   ```
 * Install the `firefox/gruvbox.xpi` by opening it (`CTRL+o`) in Firefox.
+* Symlink the `firefox/userChrome.css` file to
+  `~/.mozilla/firefox/<profile-directory>/chrome`.
 
 
 #### Import data

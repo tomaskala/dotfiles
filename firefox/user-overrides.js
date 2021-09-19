@@ -78,6 +78,7 @@ user_pref("services.sync.tabs.lastSync", "0");
 user_pref("signon.generation.enabled", false);
 user_pref("signon.management.page.breach-alerts.enabled", false);
 user_pref("signon.rememberSignons", false);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("webgl.disabled", false);
 user_pref("webgl.dxgl.enabled", true);
 user_pref("webgl.enable-webgl2", true);
