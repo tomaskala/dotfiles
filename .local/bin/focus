@@ -37,7 +37,7 @@ set_env() {
 
   # Block distracting sites.
   if [ "${block}" = true ]; then
-    printf '%s\n' "${hosts_comment}" | sudo tee -a /etc/hosts > /dev/null
+    printf '%s\n' "${hosts_comment}" | sudo -A tee -a /etc/hosts > /dev/null
 
     for site in "${distractions[@]}"; do
       printf '0.0.0.0 %s\n' "${site}" | sudo tee -a /etc/hosts > /dev/null
@@ -50,6 +50,10 @@ reset_env() {
   # Enable notifications.
   killall -SIGUSR2 dunst
 
+  if [ "$1" = true ]; then
+    notify-send 'focus' 'Resetting the environment'
+  fi
+
   # Unblock distracting sites.
   if grep -q "${hosts_comment}" /etc/hosts; then
     sudo -A sed -i "/${hosts_comment}/d" /etc/hosts
@@ -57,7 +61,7 @@ reset_env() {
 
   for site in "${distractions[@]}"; do
     if grep -q "${site}" /etc/hosts; then
-      sudo -A sed -i "/${site}/d" /etc/hosts
+      sudo sed -i "/${site}/d" /etc/hosts
     fi
   done
 }
@@ -74,12 +78,12 @@ while getopts "hbrt:" arg; do
 done
 
 if [ "${reset}" = true ]; then
-  reset_env
+  reset_env false
 else
   set_env
 
   if [ -n "${timeout}" ]; then
     sleep "${timeout}"
-    reset_env
+    reset_env true
   fi
 fi
