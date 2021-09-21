@@ -275,12 +275,6 @@ function! SetIndentation(n)
   let &l:shiftwidth=a:n
 endfunction
 
-augroup cython
-  autocmd!
-  autocmd BufRead,BufNewFile *.pyx set filetype=cython
-  autocmd BufRead,BufNewFile *.pxd set filetype=cython
-augroup end
-
 augroup go
   autocmd!
   autocmd filetype go setlocal makeprg=go\ build
@@ -302,7 +296,7 @@ augroup end
 
 augroup column
   autocmd!
-  autocmd FileType python,cython,pyrex setlocal colorcolumn=89
+  autocmd FileType python,pyrex setlocal colorcolumn=89
 augroup end
 
 augroup plaintext
