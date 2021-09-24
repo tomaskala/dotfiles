@@ -87,7 +87,7 @@ c.downloads.location.suggestion = "both"
 c.editor.command = [
     os.environ["TERMINAL"],
     "-e",
-    os.environ["EDITOR"],
+    "nvim",
     "-f",
     "{file}",
     "-c",
