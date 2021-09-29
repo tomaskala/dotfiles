@@ -1,6 +1,7 @@
 user_pref("browser.cache.disk.enable", true);
 user_pref("browser.ctrlTab.recentlyUsedOrder", false);
 user_pref("browser.display.use_document_fonts", 1);
+user_pref("browser.in-content.dark-mode", true);
 user_pref("browser.newtab.preload", true);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
@@ -79,6 +80,7 @@ user_pref("signon.generation.enabled", false);
 user_pref("signon.management.page.breach-alerts.enabled", false);
 user_pref("signon.rememberSignons", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("ui.systemUsesDarkTheme", 1);
 user_pref("webgl.disabled", false);
 user_pref("webgl.dxgl.enabled", true);
 user_pref("webgl.enable-webgl2", true);
