@@ -28,8 +28,6 @@ export GOBIN="${HOME}/.local/share/go/bin"
 
 OS="$(uname)"
 export OS
-GPG_TTY="$(tty)"
-export GPG_TTY
 
 export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
 export LESSHISTFILE=-

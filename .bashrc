@@ -5,6 +5,11 @@ PS1_DIR="\[\e[38;5;78m\]\w\[\e[0m\]"
 PS1="${PS1_LAMBDA} ${PS1_DIR} "
 
 
+### Environment variables.
+GPG_TTY="$(tty)"
+export GPG_TTY
+
+
 ### Aliases.
 unalias -a
 
