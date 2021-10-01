@@ -57,32 +57,12 @@ Before reinstalling the system, backup the following:
   ```
   $ sudo cryptsetup luksHeaderBackup --header-backup-file <file> <device>
   ```
-* Put the following inside `/etc/X11/xorg.conf.d/90-touchpad.conf` to configure
-  the touchpad.
-  ```
-  Section "InputClass"
-      Identifier "touchpad"
-      MatchIsTouchpad "on"
-      Driver "libinput"
-      Option "Tapping" "on"
-      Option "NaturalScrolling" "on"
-  EndSection
-  ```
 * Uncomment `Color` in `/etc/pacman.conf`.
 
 
 ### Software
 
 The following software should then be installed.
-
-
-#### Environment
-
-* pulseaudio
-  ```
-  $ sudo pacman -S pulseaudio pulseaudio-alsa pamixer
-  ```
-* X and window manager: see my `suckless` repository.
 
 
 #### Internet
@@ -120,8 +100,7 @@ $ sudo pacman -S git neovim make valgrind clang
 #### System utilities
 
 ```
-$ sudo pacman -S feh xorg-xrandr arandr libnotify dunst maim xclip tmux fzf \
-  the_silver_searcher htop pass wget man-db man-pages
+$ sudo pacman -S tmux fzf the_silver_searcher htop pass wget man-db man-pages
 ```
 * [pass bash
   completions](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion),
