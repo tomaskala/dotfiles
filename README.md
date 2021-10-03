@@ -289,7 +289,8 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
   (py) https://docs.python.org/3/search.html?q=%s
   (aw) https://wiki.archlinux.org/index.php?search=%s
   ```
-* Install the `firefox/gruvbox.xpi` by opening it (`CTRL+o`) in Firefox.
+* Install one of the themes in the `firefox` directory by opening it (`CTRL+o`)
+  in Firefox.
 * Symlink the `firefox/userChrome.css` file to
   `~/.mozilla/firefox/<profile-directory>/chrome`.
 
