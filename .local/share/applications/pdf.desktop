@@ -1,4 +1,0 @@
-[Desktop Entry]
-Name=zathura
-Type=Application
-Exec=/usr/bin/zathura %u

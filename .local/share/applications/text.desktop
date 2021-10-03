@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=vim
-Type=Application
-Terminal=true
-Exec=/usr/bin/nvim %F
