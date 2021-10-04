@@ -128,6 +128,7 @@ set softtabstop=4  " Number of spaces when performing editing operations.
 set linebreak      " Do not break words when wrapping lines.
 set expandtab      " Tabs are spaces.
 set nojoinspaces   " Do not insert an extra space when joining (J) sentences.
+set nostartofline  " Do not move the cursor to line beginning on gg, G, etc.
 
 
 " BACKUPS
