@@ -21,6 +21,7 @@ alias ll='ls -l'
 alias lla='ls -la'
 
 # Media.
+alias mvi='mpv --config-dir="${HOME}/.config/mvi"'
 alias y='youtube-dl'
 alias yp='youtube-dl -o "%(playlist_index)s-%(title)s.%(ext)s"'
 alias ya='mpv --no-video --ytdl-format=bestaudio'
