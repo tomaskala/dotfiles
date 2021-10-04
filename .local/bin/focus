@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euf -o pipefail
 
-
 usage="Usage: $(basename "$0") [OPTIONS]
 
 Setup the environment for focused work.
@@ -16,7 +15,6 @@ Options:
              before. Will prompt you using a GUI askpass when the timer ends.
   -h         Show this message and exit."
 
-
 hosts_comment='# Blocked by the focus script.'
 distractions=(
   reddit.com
@@ -29,7 +27,6 @@ distractions=(
 block=false
 reset=false
 timeout=""
-
 
 set_env() {
   # Disable notifications.
@@ -65,7 +62,6 @@ reset_env() {
     fi
   done
 }
-
 
 while getopts "hbrt:" arg; do
   case "${arg}" in

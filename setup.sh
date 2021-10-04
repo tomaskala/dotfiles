@@ -1,19 +1,16 @@
 #!/bin/sh
 set -eu
 
-
 usage="Usage: $(basename "$0") [OPTIONS]
 
 Options:
   -p  Install private (encrypted) files.
   -h  Show this message and exit."
 
-
 GLOBIGNORE=".:..:.git:.gitignore"
 install_private=false
 gpg="gpg"
 command -v gpg2 > /dev/null && gpg="gpg2"
-
 
 install_dotfile() {
   dotfile="$1"
@@ -25,7 +22,6 @@ install_dotfile() {
   chmod go-rwx "${dotfile}"
   ln -fs "$(pwd)/${dotfile}" "${dest}"
 }
-
 
 decrypt_dotfile() {
   dotfile="$1"
@@ -42,7 +38,6 @@ decrypt_dotfile() {
     printf 'Skipping %s\n' "${dotfile}"
   fi
 }
-
 
 while getopts "hnp" arg; do
   case "${arg}" in

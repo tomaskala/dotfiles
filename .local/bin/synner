@@ -1,7 +1,6 @@
 #!/bin/sh
 set -euf
 
-
 usage="Usage: $(basename "$0") [<commit-message>]
    or: $(basename "$0") git [<args>...]
 
@@ -12,10 +11,8 @@ the commit message passed as an argument.
 In the second form: Provide shortcuts for git commands ran as if
 inside the synchronized directory."
 
-
 synced_dir=~/notes
 commit_msg="Sync"
-
 
 die() {
   printf '%s\n' "$1" >&2
@@ -35,7 +32,6 @@ cmd_git() {
     die "Error: Git repository not initialized."
   fi
 }
-
 
 # Show usage.
 if [ "$#" -gt 0 ] && [ "$1" = "-h" ]; then

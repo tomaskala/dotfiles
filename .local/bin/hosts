@@ -1,7 +1,6 @@
 #!/bin/sh
 set -euf
 
-
 usage="Usage: $(basename "$0") [OPTIONS]
 
 Options:
@@ -18,19 +17,16 @@ Options:
            If not beginning with '@', the character will be substituted.
   -h       Show this message and exit."
 
-
 hosts_src="https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts"
 download_hosts=false
 blacklist_src=""
 lookup_src=""
 dns=""
 
-
 die() {
   printf '%s\n' "$1" >&2
   exit 1
 }
-
 
 # Process arguments.
 while getopts "hab:s:d:" arg; do

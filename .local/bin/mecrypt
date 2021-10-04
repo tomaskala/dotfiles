@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -ef -o pipefail
 
-
 usage="Usage: $(basename "$0") source [destination]
 
 Encrypt the source file using all public keys for the email found in the
@@ -10,12 +9,10 @@ EMAIL environment variable.
 If destination is provided, save the encrypted file there. Otherwise,
 save it in the same directory as the source with '.gpg' appended to it."
 
-
 die() {
   printf '%s\n' "$1" >&2
   exit 1
 }
-
 
 # Show usage.
 if [[ "$#" -gt 0 && "$1" == "-h" ]]; then
