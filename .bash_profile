@@ -7,7 +7,7 @@ export GIT_AUTHOR_NAME="${REALNAME}"
 
 export BROWSER='firefox'
 export EDITOR='nvim'
-export TERMINAL='st'
+export TERMINAL='alacritty'
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
@@ -19,7 +19,6 @@ export MBSYNC_CONFIG="${HOME}/.config/mbsync/mbsyncrc"
 export PASSWORD_STORE_DIR="${HOME}/.local/share/password-store"
 export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
 export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
-export XINITRC="${HOME}/.config/xinitrc"
 
 export GOPATH="${HOME}/.local/share/go"
 export GOBIN="${HOME}/.local/share/go/bin"
@@ -53,11 +52,10 @@ export PATH
 source "${HOME}/.bashrc"
 
 
-### Start the X server on the user's tty if not already running.
-if [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg > /dev/null; then
-  exec startx "${XINITRC}"
-fi
-
-
 ### Clear the utility functions.
 unset -f add
+
+
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+  ssh-agent sway
+fi
