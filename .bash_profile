@@ -20,7 +20,6 @@ export PASSWORD_STORE_DIR="${HOME}/.local/share/password-store"
 export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
 export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
 export XINITRC="${HOME}/.config/xinitrc"
-export SUDO_ASKPASS="${HOME}/.local/bin/dpass"
 
 export GOPATH="${HOME}/.local/share/go"
 export GOBIN="${HOME}/.local/share/go/bin"
