@@ -81,6 +81,7 @@ $ sudo pacman -S firefox neomutt isync msmtp lynx
   $ cd ./qutebrowser
   $ python scripts/mkvenv.py
   $ ln -fs ~/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop ~/.local/share/applications/
+  $ sudo pacman -S nss
   ```
 * To synchronize emails for the first time, run the following.
   ```
