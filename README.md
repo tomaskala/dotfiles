@@ -92,7 +92,7 @@ $ sudo pacman -S firefox neomutt isync msmtp lynx
 #### Development
 
 ```
-$ sudo pacman -S git neovim make valgrind clang
+$ sudo pacman -S git neovim make
 ```
 * [vim-plug](https://github.com/junegunn/vim-plug)
 
