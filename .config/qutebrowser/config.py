@@ -127,6 +127,9 @@ c.tabs.new_position.stacking = True
 # Position of new tabs which are not opened from another tab.
 c.tabs.new_position.unrelated = "last"
 
+# Position of the tab bar.
+c.tabs.position = "left"
+
 # Which tab to select when the focused tab is removed.
 c.tabs.select_on_remove = "last-used"
 
