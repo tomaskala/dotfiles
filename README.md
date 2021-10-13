@@ -11,7 +11,9 @@ I use Arch, btw.
 * Run the `setup.sh` script which will symlink config files to their respective
   locations.
 * Once Firefox has been configured, manually symlink the
-  `firefox/user-overrides.js` file to `~/.mozilla/firefox/<profile-directory>`.
+  `firefox/user-overrides.js` file to `~/.mozilla/firefox/<profile-directory>/`
+  and the `firefox/userChrome.css` file to
+  `~/.mozilla/firefox/<profile-directory>/chrome/`
 
 
 ## Backup
@@ -292,8 +294,6 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
   ```
 * Install one of the themes in the `firefox` directory by opening it (`CTRL+o`)
   in Firefox.
-* Symlink the `firefox/userChrome.css` file to
-  `~/.mozilla/firefox/<profile-directory>/chrome`.
 
 
 #### Import data
