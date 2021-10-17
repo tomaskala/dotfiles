@@ -103,7 +103,8 @@ $ sudo pacman -S git neovim make
 #### System utilities
 
 ```
-$ sudo pacman -S tmux fzf the_silver_searcher htop pass wget man-db man-pages
+$ sudo pacman -S tmux fzf the_silver_searcher htop pass wget man-db man-pages \
+  rsync
 ```
 * [pass bash
   completions](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion),
