@@ -5,11 +5,7 @@ usage="Usage: $(basename "$0") [OPTIONS]
 
 Options:
   -a       Download an ad-blocking hosts file.
-  -b FILE  Path to a blacklist file with 1 address per line.
-           The file may contain comment lines beginning with '#'
-           as well as empty lines. The addresses are assumed not
-           to begin with a 'www.'. In turn, the script blocks both
-           the given as well as 'www.'-prepended variants.
+  -b FILE  Path to a blacklist file in the hosts file format.
   -s FILE  Path to a lookup file with 1 address per line.
            The file may contain comment lines beginning with '#'
            as well as empty lines.
@@ -92,16 +88,6 @@ fi
 if [ -n "${blacklist_src}" ]; then
   printf '# Blacklist from the hosts script.\n' | sudo tee -a /etc/hosts
 
-  while read -r addr; do
-    if [ -z "${addr}" ]; then
-      continue
-    fi
-
-    if [ "${addr#\#}" = "${addr}" ]; then
-      printf '0.0.0.0 %s\n' "${addr}" | sudo tee -a /etc/hosts
-      printf '0.0.0.0 www.%s\n' "${addr}" | sudo tee -a /etc/hosts
-    else
-      printf '%s\n' "${addr}" | sudo tee -a /etc/hosts
-    fi
-  done < "${blacklist_src}"
+  # shellcheck disable=SC2024
+  sudo tee -a /etc/hosts < "${blacklist_src}"
 fi

@@ -1,35 +1,67 @@
 # Shitty Czech news sites.
-idnes.cz
-seznam.cz
-seznamzpravy.cz
-novinky.cz
-irozhlas.cz
-lidovky.cz
-ihned.cz
-ceskenoviny.cz
-ctk.cz
-aktualne.cz
-ceskatelevize.cz
-ct24.ceskatelevize.cz
-echo24.cz
-e15.cz
-tn.cz
-parlamentnilisty.cz
-eurozpravy.cz
-forum24.cz
-blesk.cz
-info.cz
-neovlivni.cz
-peak.cz
-hlidacipes.org
-denikreferendum.cz
-advojka.cz
-heroine.cz
-mediaguru.cz
+0.0.0.0 idnes.cz
+0.0.0.0 www.idnes.cz
+0.0.0.0 seznam.cz
+0.0.0.0 www.seznam.cz
+0.0.0.0 seznamzpravy.cz
+0.0.0.0 www.seznamzpravy.cz
+0.0.0.0 novinky.cz
+0.0.0.0 www.novinky.cz
+0.0.0.0 irozhlas.cz
+0.0.0.0 www.irozhlas.cz
+0.0.0.0 lidovky.cz
+0.0.0.0 www.lidovky.cz
+0.0.0.0 ihned.cz
+0.0.0.0 www.ihned.cz
+0.0.0.0 ceskenoviny.cz
+0.0.0.0 www.ceskenoviny.cz
+0.0.0.0 ctk.cz
+0.0.0.0 www.ctk.cz
+0.0.0.0 aktualne.cz
+0.0.0.0 www.aktualne.cz
+0.0.0.0 ceskatelevize.cz
+0.0.0.0 www.ceskatelevize.cz
+0.0.0.0 ct24.ceskatelevize.cz
+0.0.0.0 www.ct24.ceskatelevize.cz
+0.0.0.0 echo24.cz
+0.0.0.0 www.echo24.cz
+0.0.0.0 e15.cz
+0.0.0.0 www.e15.cz
+0.0.0.0 tn.cz
+0.0.0.0 www.tn.cz
+0.0.0.0 parlamentnilisty.cz
+0.0.0.0 www.parlamentnilisty.cz
+0.0.0.0 eurozpravy.cz
+0.0.0.0 www.eurozpravy.cz
+0.0.0.0 forum24.cz
+0.0.0.0 www.forum24.cz
+0.0.0.0 blesk.cz
+0.0.0.0 www.blesk.cz
+0.0.0.0 info.cz
+0.0.0.0 www.info.cz
+0.0.0.0 neovlivni.cz
+0.0.0.0 www.neovlivni.cz
+0.0.0.0 peak.cz
+0.0.0.0 www.peak.cz
+0.0.0.0 hlidacipes.org
+0.0.0.0 www.hlidacipes.org
+0.0.0.0 denikreferendum.cz
+0.0.0.0 www.denikreferendum.cz
+0.0.0.0 advojka.cz
+0.0.0.0 www.advojka.cz
+0.0.0.0 heroine.cz
+0.0.0.0 www.heroine.cz
+0.0.0.0 mediaguru.cz
+0.0.0.0 www.mediaguru.cz
 
 # Not news sites, but shitty nonetheless.
-az247.cz
-antiadblock.cz
-antiadblock.org
-antiadblock.com
-czechcrunch.cz
+0.0.0.0 az247.cz
+0.0.0.0 www.az247.cz
+0.0.0.0 antiadblock.cz
+0.0.0.0 www.antiadblock.cz
+0.0.0.0 antiadblock.org
+0.0.0.0 www.antiadblock.org
+0.0.0.0 antiadblock.com
+0.0.0.0 www.antiadblock.com
+0.0.0.0 czechcrunch.cz
+0.0.0.0 www.czechcrunch.cz
