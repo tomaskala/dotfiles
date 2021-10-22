@@ -53,6 +53,14 @@
 0.0.0.0 www.heroine.cz
 0.0.0.0 mediaguru.cz
 0.0.0.0 www.mediaguru.cz
+0.0.0.0 iprima.cz
+0.0.0.0 www.iprima.cz
+0.0.0.0 cnn.iprima.cz
+0.0.0.0 www.cnn.iprima.cz
+0.0.0.0 tv.nova.cz
+0.0.0.0 www.tv.nova.cz
+0.0.0.0 novaplus.nova.cz
+0.0.0.0 www.novaplus.nova.cz
 
 # Not news sites, but shitty nonetheless.
 0.0.0.0 az247.cz
