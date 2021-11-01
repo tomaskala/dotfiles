@@ -56,6 +56,6 @@ source "${HOME}/.bashrc"
 unset -f add
 
 
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+if [ -z "${WAYLAND_DISPLAY}" ] && [ -z "${DISPLAY}" ] && [ "$(tty)" = "/dev/tty1" ]; then
   ssh-agent sway
 fi
