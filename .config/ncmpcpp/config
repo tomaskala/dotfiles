@@ -1,0 +1,69 @@
+[mpd]
+mpd_host = "~/.config/mpd/socket"
+mpd_music_dir = "/media/sdb/Music"
+
+[dirs]
+lyrics_directory = "~/.local/share/lyrics"
+ncmpcpp_directory = "~/.config/ncmpcpp"
+
+[editor]
+external_editor = "nvim"
+use_console_editor = "yes"
+
+[display]
+autocenter_mode = "yes"
+browser_display_mode = "columns"
+centered_cursor = "yes"
+colors_enabled = "yes"
+connected_message_on_startup = "no"
+display_volume_level = "yes"
+header_visibility = "no"
+playlist_display_mode = "columns"
+progressbar_look = "━━"
+search_engine_display_mode = "columns"
+statusbar_visibility = "no"
+titles_visibility = "no"
+user_interface = "alternative"
+
+[library]
+ignore_diacritics = "yes"
+ignore_leading_the = "yes"
+media_library_primary_tag = "album_artist"
+startup_screen = "media_library"
+
+[misc]
+allow_for_physical_item_deletion = "no"
+message_delay_time = "0"
+mouse_support = "no"
+playlist_disable_highlight_delay = "0"
+volume_change_step = "5"
+
+[formats]
+alternative_header_first_line_format = "{{$(blue)$b%t$/b$(end)}}"
+alternative_header_second_line_format = "{{$(green)$b%a$/b$(end)}{ - $(green)$b%b$(end)}}|{%D}"
+browser_playlist_prefix = "$(end)playlist$(end) "
+current_item_inactive_column_prefix = "$(green)$r"
+current_item_inactive_column_suffix = "$/r$(end)"
+current_item_prefix = "$(blue)$r"
+current_item_suffix = "$/r$(end)"
+song_columns_list_format = "(24)[blue]{a} (6f)[blue]{y} (26)[blue]{b} (4f)[green]{n} (38)[green]{t} (6)[magenta]{lr}"
+song_library_format = "%n - %t $R %l"
+song_list_format = "$(red){%a}$(end) $(blue){%t}$(end) $R $(green){%b}$(end) $(magenta)({%l})$(end)"
+song_status_format = "{$(blue)%a$(end)} {$(blue)%b$(end)} {$(green)%t$(end)}"
+song_window_title_format = "{%a-%t}"
+
+[colors]
+active_window_border = "blue"
+alternative_ui_separator_color = "green:b"
+color1 = "blue"
+color2 = "green"
+empty_tag_color = "green"
+header_window_color = "blue"
+main_window_color = "white"
+player_state_color = "white:b"
+progressbar_elapsed_color = "blue:b"
+state_flags_color = "white:b"
+state_line_color = "white"
+statusbar_time_color = "blue:b"
+volume_color = "blue:b"
+window_border_color = "green"
