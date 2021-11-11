@@ -127,6 +127,7 @@ $ sudo pacman -S ttf-bitstream-vera noto-fonts-emoji ttf-jetbrains-mono
 ```
 $ sudo pacman -S mpv ffmpeg youtube-dl mpd ncmpcpp zathura zathura-djvu zathura-ps zathura-pdf-mupdf
 $ mkdir ~/.config/mpd/playlists
+$ systemctl --user enable --now mpd.socket
 ```
 
 

@@ -1,5 +1,4 @@
 [mpd]
-mpd_host = "~/.config/mpd/socket"
 mpd_music_dir = "/media/sdb/Music"
 
 [dirs]
