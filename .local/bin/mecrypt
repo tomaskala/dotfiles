@@ -22,19 +22,19 @@ fi
 
 [[ -z "${EMAIL}" ]] && die "The EMAIL environment variable is not set."
 
-gpt_opts=( "--quiet" "--yes" "--compress-algo=none" "--no-encrypt-to" )
+gpg_opts=( "--quiet" "--yes" "--compress-algo=none" "--no-encrypt-to" )
 gpg="gpg"
 
-which gpg2 &>/dev/null && gpg="gpg2"
+command -v gpg2 > /dev/null && gpg="gpg2"
 
 [[ -n ${GPG_AGENT_INFO} || ${gpg} == "gpg2" ]] \
-  && gpt_opts+=( "--batch" "--use-agent" )
+  && gpg_opts+=( "--batch" "--use-agent" )
 
 [[ "$#" -eq 0 || "$#" -gt 2 ]] && die "Specify either 1 or 2 arguments."
 
 # Process arguments.
 source_file="$1"
-[[ "$#" -eq 2 ]] && gpt_opts+=( "-o" "$2" )
+[[ "$#" -eq 2 ]] && gpg_opts+=( "-o" "$2" )
 
 [[ ! -f "${source_file}" ]] && die "The file ${source_file} does not exist."
 
@@ -54,8 +54,8 @@ $1 == "uid" {
 EOF
 
 while read -r keyid; do
-  gpt_opts+=( "-r" "${keyid}" )
+  gpg_opts+=( "-r" "${keyid}" )
 done < <(${gpg} --list-keys --with-colons "${EMAIL}" | awk -F: "${fpr_parser}")
 
 # Encrypt the source file.
-"${gpg}" -e "${gpt_opts[@]}" "${source_file}"
+"${gpg}" -e "${gpg_opts[@]}" "${source_file}"
