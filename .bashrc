@@ -63,9 +63,5 @@ include /etc/bash_completion.d/pass-tail
 [ -r ~/.motd ] && cat ~/.motd
 
 
-### Load local configuration (last to allow overrides).
-include ~/.bash_local
-
-
 ### Clear the utility functions.
 unset -f include
