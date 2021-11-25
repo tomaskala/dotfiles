@@ -19,6 +19,8 @@ fzf_command() {
     --bind 'down:execute-silent(mpc volume -5)' \
     --bind 'up:execute-silent(mpc volume +5)' \
     --bind '=:execute-silent(mpc volume 100)' \
+    --bind 'ctrl-a:execute-silent(mpc add {})' \
+    --bind 'ctrl-i:execute-silent(mpc insert {})' \
     --bind 'ctrl-r:execute-silent(mpc update)'
 }
 
