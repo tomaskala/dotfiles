@@ -4,7 +4,7 @@ set -eufo pipefail
 LOCATION_STORE=~/.local/share/player-one/location
 
 fzf_command() {
-  fzf -d '/' +m --color=bw --reverse --border --keep-right \
+  fzf -d / +m --color bw --reverse --border --keep-right \
     --bind 'ctrl-h:reload(mpc ls {..-3})+clear-query' \
     --bind 'ctrl-l:reload(mpc ls {})+clear-query' \
     --bind 'ctrl-d:half-page-down' \
