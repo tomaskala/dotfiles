@@ -24,14 +24,8 @@ fzf_command() {
     --bind 'ctrl-r:execute-silent(mpc update)'
 }
 
-init_store() {
-  store_dir=$(dirname "${LOCATION_STORE}")
-  mkdir -p "${store_dir}"
-  touch "${LOCATION_STORE}"
-}
-
 mpc_play() {
-  if [ "${1%.mp3}" = "$1" -a "${1%.flac}" = "$1" ]; then
+  if [ "${1%.mp3}" = "$1" ] && [ "${1%.flac}" = "$1" ]; then
     album="$1"
     first=1
   else
@@ -47,9 +41,10 @@ mpc_play() {
 
 export -f mpc_play
 
+mkdir -p "$(dirname "${LOCATION_STORE}")"
+touch "${LOCATION_STORE}"
+location=$(cat "${LOCATION_STORE}")
+
 mpc repeat on
 mpc consume on
-
-init_store
-location=$(cat "${LOCATION_STORE}")
 mpc ls "${location}" | fzf_command
