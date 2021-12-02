@@ -1,55 +1,39 @@
-" VIM COMPATIBILITY
-if !has('nvim')
-  set nocompatible                " No vi-compatibility.
-  set ttymouse=xterm2             " Enable mouse input.
-  set autoindent                  " Continue indent from the previous line.
-  set autoread                    " Automatically reload external changes.
-  set background=dark             " Dark mode.
-  set backspace=indent,eol,start  " Backspace goes over these.
-  set belloff=all                 " Shut up.
-  set complete=.,w,b,u,t          " Keyboard completion options.
-  set display=lastline            " Show as much as possible of the last line.
-  set encoding=utf-8              " Use the one true encoding.
-  set fillchars=vert:│,fold:·     " Fill the statuslines with these.
-  set formatoptions=tcqj          " Format options.
-  set nofsync                     " Do not synchronize after saving.
-  set history=10000               " Maximum amount of history.
-  set hlsearch                    " Highlight all matches.
-  set incsearch                   " Incremental search.
-  set nolangremap                 " Do not break mappings when langmap changes.
-  set laststatus=2                " Always show status line.
-  set nrformats=bin,hex           " Use these bases along with the decimal.
-  set ruler                       " Show the line and column numbers.
-  set showcmd                     " Show the last command entered.
-  set sidescroll=1                " Min number of columns for side scrolling.
-  set smarttab                    " Smart tab behavior about indentation.
-  set tabpagemax=50               " Max number of tabs opened by the -p arg.
-  set tags=./tags;,tags           " Ctags location.
-  set ttimeoutlen=50              " Timeout in ms for a key code to complete.
-  set ttyfast                     " Indicate a fast terminal connection.
-  set undodir='~/.local/share/vim/undo'  " Directory containing undo files.
-  set wildmenu                    " Enable wildmenu.
-
-  " Cursor shape options.
-  let &t_ti.="\e[1 q"
-  let &t_SI.="\e[5 q"
-  let &t_EI.="\e[1 q"
-  let &t_te.="\e[0 q"
-endif
-
 let mapleader=','  " The leader is a comma instead of a backslash.
 
 
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'mhartington/oceanic-next'
-  Plug 'sheerun/vim-polyglot'
+  Plug 'marko-cerovac/material.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'vimwiki/vimwiki'
 call plug#end()
 
 
 " PLUGIN CONFIGURATION
-" vimwiki config.
+" tree-sitter
+lua <<EOF
+require("nvim-treesitter.configs").setup({
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = false,
+  },
+  ensure_installed = {
+    "bash",
+    "c",
+    "go",
+    "json",
+    "lua",
+    "python",
+    "regex",
+    "vim",
+    "yaml",
+  },
+})
+EOF
+
+" vimwiki
 let s:wiki='~/notes/'
 let g:vimwiki_list=[{'path': s:wiki, 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_conceallevel=0
@@ -101,23 +85,41 @@ nnoremap <leader>i :call Index()<CR>
 
 " COLORS
 set termguicolors
-let g:oceanic_next_terminal_bold=1
-let g:oceanic_next_terminal_italic=1
-colorscheme OceanicNext
-
-
-" FILETYPE-SPECIFIC
-filetype on         " Syntax highlighting.
-filetype indent on  " Load filetype-specific indent files.
-filetype plugin on  " Load filetype-specific plugin files.
+let g:material_style='oceanic'
+lua <<EOF
+require("material").setup({
+  italics = {
+    comments = true,
+  },
+  disable = {
+    background = true,
+  },
+  custom_highlights = {
+    StatusLine = {
+      fg = "#C0C5CE",
+      bg = "#1B2B34",
+    },
+    TSField = {
+      fg = "#717CB4",
+    },
+  },
+})
+EOF
+colorscheme material
 
 
 " MAIN
+filetype on          " Syntax highlighting.
+filetype indent on   " Load filetype-specific indent files.
+filetype plugin on   " Load filetype-specific plugin files.
 syntax enable        " Enable syntax processing.
 set mouse=a          " Enable mouse input.
 set selection=old    " Old-style visual selection.
 set path+=**         " Recursive globbing.
 set fileformat=unix  " Always use unix-style line endings.
+set nohidden         " Once a tab is closed, remove the buffer.
+set lazyredraw       " Redraw only when needed.
+set shortmess+=I     " Do not display the startup message.
 
 
 " INDENTATION
@@ -127,7 +129,6 @@ set shiftwidth=4   " Auto-indent this many spaces.
 set softtabstop=4  " Number of spaces when performing editing operations.
 set linebreak      " Do not break words when wrapping lines.
 set expandtab      " Tabs are spaces.
-set nojoinspaces   " Do not insert an extra space when joining (J) sentences.
 set nostartofline  " Do not move the cursor to line beginning on gg, G, etc.
 
 
@@ -189,22 +190,11 @@ set noerrorbells
 set novisualbell
 
 
-" MISCELLANEOUS
-set nohidden      " Once a tab is closed, remove the buffer.
-set lazyredraw    " Redraw only when needed.
-set shortmess+=I  " Do not display the startup message.
-
-
 " KEYMAPS
-" Note that the `"` comment cannot be used on the line defining the key mapping.
-
-" Yank from the cursor to the end of the line, consistent with C and D.
-nnoremap Y y$
-
 " Use ctrl+direction to change split panes.
+map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
-map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Next tab.
@@ -212,25 +202,6 @@ nnoremap <silent> <C-Right> :tabnext<CR>
 
 " Previous tab.
 nnoremap <silent> <C-Left> :tabprevious<CR>
-
-" Fix caps lock annoyances.
-if has('user_commands')
-  command! -bang -nargs=? -complete=file E e<bang> <args>
-  command! -bang -nargs=? -complete=file W w<bang> <args>
-  command! -bang -nargs=? -complete=file Wq wq<bang> <args>
-  command! -bang -nargs=? -complete=file WQ wq<bang> <args>
-  command! -bang Wa wa<bang>
-  command! -bang WA wa<bang>
-  command! -bang Q q<bang>
-  command! -bang QA qa<bang>
-  command! -bang Qa qa<bang>
-endif
-
-" MakeTags command to generate ctags.
-" ctrl+]   ... jump to tag under the cursor.
-" g+ctrl+] ... ambiguous tags
-" ctrl+t   ... jump back up the tag stack.
-command! MakeTags !ctags -R .
 
 " Copy-paste
 " <leader>y yanks to system clipboard.
@@ -246,20 +217,33 @@ vnoremap <leader>p "+p
 nnoremap <leader><space> :nohlsearch<CR>
 
 
+" USER COMMANDS
+" Fix caps lock annoyances.
+command! -bang -nargs=? -complete=file E e<bang> <args>
+command! -bang -nargs=? -complete=file W w<bang> <args>
+command! -bang -nargs=? -complete=file Wq wq<bang> <args>
+command! -bang -nargs=? -complete=file WQ wq<bang> <args>
+command! -bang Wa wa<bang>
+command! -bang WA wa<bang>
+command! -bang Q q<bang>
+command! -bang QA qa<bang>
+command! -bang Qa qa<bang>
+
+" MakeTags command to generate ctags.
+" ctrl+]   ... jump to tag under the cursor.
+" g+ctrl+] ... ambiguous tags
+" ctrl+t   ... jump back up the tag stack.
+command! MakeTags !ctags -R .
+
+
 " SEARCHING
 set ignorecase  " Case insensitive search.
 set smartcase   " But case sensitive when uppercase is present.
 set showmatch   " Live match highlighting.
 
-" Show substitution results in real time.
-if exists('&inccommand')
-  set inccommand=nosplit
-endif
-
 
 " FILETYPE-SPECIFIC COMMANDS
-
-" C style
+" C
 set cinoptions+=t0      " Don't indent function type.
 set cinoptions+=l1      " Align with case label.
 set cinoptions+=:0      " Align case with switch.

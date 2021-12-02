@@ -17,7 +17,6 @@ export LYNX_CFG="${HOME}/.config/lynx/lynx.cfg"
 export INPUTRC="${HOME}/.config/inputrc"
 export MBSYNC_CONFIG="${HOME}/.config/mbsync/mbsyncrc"
 export PASSWORD_STORE_DIR="${HOME}/.local/share/password-store"
-export VIMINIT='let $MYVIMRC="$HOME/.config/vim/vimrc" | source $MYVIMRC'
 export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
 
 export GOPATH="${HOME}/.local/share/go"
