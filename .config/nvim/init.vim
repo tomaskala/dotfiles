@@ -1,4 +1,4 @@
-let mapleader=','  " The leader is a comma instead of a backslash.
+let g:mapleader=','  " The leader is a comma instead of a backslash.
 
 
 " PLUGINS
@@ -156,7 +156,7 @@ set colorcolumn=80  " Show a column at 80 characters.
 
 
 " STATUSLINE
-let currentmode={
+let g:currentmode={
   \ 'n': 'NORMAL ',
   \ 'v': 'VISUAL ',
   \ 'V': 'V-LINE ',
@@ -167,17 +167,17 @@ let currentmode={
   \ 'c': 'COMMAND ',
 \}
 
-set statusline=                           " Clear the status line.
-set statusline+=\ %{currentmode[mode()]}  " Show the current mode.
-set statusline+=\ %F                      " Current file path.
-set statusline+=%{&modified?'\ [+]':''}   " The file has been modified.
-set statusline+=%{&readonly?'\ [x]':''}   " The file is read-only.
-set statusline+=%<                        " Truncate line here.
-set statusline+=%=                        " Left/right-aligned items separator.
+set statusline=                             " Clear the status line.
+set statusline+=\ %{g:currentmode[mode()]}  " Show the current mode.
+set statusline+=\ %F                        " Current file path.
+set statusline+=%{&modified?'\ [+]':''}     " The file has been modified.
+set statusline+=%{&readonly?'\ [x]':''}     " The file is read-only.
+set statusline+=%<                          " Truncate line here.
+set statusline+=%=                          " Aligned items separator.
 set statusline+=%{&filetype!=#''?&filetype.'\ ':'none\ '}  " File type.
-set statusline+=%-7([%{&fileformat}]%)    " File format.
-set statusline+=[%l/%L]                   " Cursor line location.
-set statusline+=\ col:%c                  " Column number.
+set statusline+=%-7([%{&fileformat}]%)      " File format.
+set statusline+=[%l/%L]                     " Cursor line location.
+set statusline+=\ col:%c                    " Column number.
 
 
 " NETRW SETTINGS
@@ -244,11 +244,11 @@ set showmatch   " Live match highlighting.
 
 " FILETYPE-SPECIFIC COMMANDS
 " C
-set cinoptions+=t0      " Don't indent function type.
-set cinoptions+=l1      " Align with case label.
-set cinoptions+=:0      " Align case with switch.
-set cinkeys-=0#         " Directives aren't special.
-let c_no_curly_error=1  " Vim still lacks C99 support.
+set cinoptions+=t0        " Don't indent function type.
+set cinoptions+=l1        " Align with case label.
+set cinoptions+=:0        " Align case with switch.
+set cinkeys-=0#           " Directives aren't special.
+let g:c_no_curly_error=1  " Vim still lacks C99 support.
 
 function! SetIndentation(n)
   let &l:tabstop=a:n
