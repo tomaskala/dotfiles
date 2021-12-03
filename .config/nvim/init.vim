@@ -277,7 +277,7 @@ augroup end
 
 augroup column
   autocmd!
-  autocmd FileType python,pyrex setlocal colorcolumn=89
+  autocmd FileType python setlocal colorcolumn=89
 augroup end
 
 augroup plaintext
