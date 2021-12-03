@@ -258,9 +258,9 @@ endfunction
 
 augroup go
   autocmd!
-  autocmd filetype go setlocal makeprg=go\ build
-  autocmd filetype go setlocal noexpandtab shiftwidth=4 tabstop=4 textwidth=72
-  autocmd filetype go map <silent> <buffer> <leader>i
+  autocmd FileType go setlocal makeprg=go\ build
+  autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 textwidth=72
+  autocmd FileType go map <silent> <buffer> <leader>i
       \ :update \|
       \ :cexpr system("goimports -w " . expand('%')) \|
       \ :silent edit<CR>
@@ -268,28 +268,28 @@ augroup end
 
 augroup indentation
   autocmd!
-  autocmd filetype c,cpp call SetIndentation(2)
-  autocmd filetype haskell call SetIndentation(2)
-  autocmd filetype lua call SetIndentation(2)
-  autocmd filetype vim call SetIndentation(2)
-  autocmd filetype sh,bash call SetIndentation(2)
+  autocmd FileType c,cpp call SetIndentation(2)
+  autocmd FileType haskell call SetIndentation(2)
+  autocmd FileType lua call SetIndentation(2)
+  autocmd FileType vim call SetIndentation(2)
+  autocmd FileType sh,bash call SetIndentation(2)
 augroup end
 
 augroup column
   autocmd!
-  autocmd filetype python,pyrex setlocal colorcolumn=89
+  autocmd FileType python,pyrex setlocal colorcolumn=89
 augroup end
 
 augroup plaintext
   autocmd!
-  autocmd filetype markdown,text
+  autocmd FileType markdown,text
     \ call SetIndentation(2) |
     \ setlocal textwidth=79
 augroup end
 
 augroup email
   autocmd!
-  autocmd filetype mail
+  autocmd FileType mail
     \ call SetIndentation(2) |
     \ setlocal textwidth=79 fo+=w
 augroup end
