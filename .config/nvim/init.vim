@@ -3,7 +3,6 @@ let g:mapleader=','  " The leader is a comma instead of a backslash.
 
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'marko-cerovac/material.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'vimwiki/vimwiki'
 call plug#end()
@@ -22,6 +21,7 @@ require("nvim-treesitter.configs").setup({
   ensure_installed = {
     "bash",
     "c",
+    "cpp",
     "go",
     "json",
     "lua",
@@ -85,28 +85,26 @@ nnoremap <leader>i :call Index()<CR>
 
 " COLORS
 set termguicolors
-let g:material_style='oceanic'
 lua <<EOF
-require("material").setup({
-  italics = {
-    comments = true,
-  },
-  disable = {
-    background = true,
-  },
-  custom_highlights = {
-    StatusLine = {
-      fg = "#C0C5CE",
-      bg = "#1B2B34",
-    },
-    TSField = {
-      fg = "#717CB4",
-    },
-  },
+require("base16").setup({
+    base00 = "#262627",  -- Background
+    base01 = "#313132",  -- Color column, current line
+    base02 = "#313132",  -- Statusbar
+    base03 = "#606366",  -- Comments
+    base04 = "#6B737B",  -- Line numbers
+    base05 = "#A9B7C6",  -- Normal text
+    base06 = "#FFC66D",
+    base07 = "#FFFFFF",
+    base08 = "#E74946",  -- Errors
+    base09 = "#669FEE",  -- Literals, selected tab
+    base0A = "#BBB529",  -- Data types, search highlights
+    base0B = "#6A8759",  -- Strings
+    base0C = "#9876AA",  -- Properties, fields
+    base0D = "#FFC66B",  -- Functions, imports, macros, namespaces
+    base0E = "#CC7832",  -- Keywords, definitions
+    base0F = "#8381B8",  -- Built-ins
 })
 EOF
-colorscheme material
-
 
 " MAIN
 filetype on          " Syntax highlighting.
