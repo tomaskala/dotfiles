@@ -209,12 +209,15 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     ! stackexchange hot network questions
     ###hot-network-questions
     ```
-5. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+5. [Sponsorblock](https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/)
+   * `Sponsor: Auto Skip`
+   * `Interaction Reminder (Subscribe): Auto Skip`
+6. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
   * Add the following two rules to the blacklist. They are to disable
     vimium-ff in Jupyter notebooks, typically found on such URLs.
     * `https?://localhost*`;
     * `https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`;
-6. [Tree Style
+7. [Tree Style
    Tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
 
 
