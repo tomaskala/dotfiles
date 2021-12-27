@@ -22,6 +22,8 @@ alias lla='ls -la'
 
 # Media.
 alias mvi='mpv --config-dir="${HOME}/.config/mvi"'
+alias td='transmission-daemon'
+alias tm='transmission-remote'
 alias y='yt-dlp'
 alias yp='yt-dlp -o "%(playlist_index)s-%(title)s.%(ext)s"'
 alias ya='mpv --no-video --ytdl-format=bestaudio'

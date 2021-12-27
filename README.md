@@ -70,7 +70,7 @@ The following software should then be installed.
 #### Internet
 
 ```
-$ sudo pacman -S firefox neomutt isync msmtp lynx
+$ sudo pacman -S firefox neomutt isync msmtp lynx transmission-cli
 ```
 * [urlview](https://aur.archlinux.org/packages/urlview/).
   * Delete the `/etc/urlview/` directory, since the default configuration
