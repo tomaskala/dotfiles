@@ -115,7 +115,7 @@ set mouse=a          " Enable mouse input.
 set selection=old    " Old-style visual selection.
 set path+=**         " Recursive globbing.
 set fileformat=unix  " Always use unix-style line endings.
-set nohidden         " Once a tab is closed, remove the buffer.
+set hidden           " Do not lose history when switching buffers.
 set lazyredraw       " Redraw only when needed.
 set shortmess+=I     " Do not display the startup message.
 
