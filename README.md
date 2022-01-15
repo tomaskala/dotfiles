@@ -193,22 +193,9 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     * `Regions, languages`
       * `CZE, SVK: EasyList Czech and Slovak`
       * `RUS: RU AdList`
-    * `Custom:` [Import this file for cryptominer
-      blocking](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt)
-      -- simply paste the link (not the file contents) to the 'custom' field.
-  * **My filters**
-    ```
-    ! https://google.com
-    google.com##div:has-text(Before you continue to Google Search)
-    google.com##:root:style(overflow: auto !important;)
-
-    ! https://www.google.com
-    www.google.com##div:has-text(Before you continue to Google Search)
-    www.google.com##:root:style(overflow: auto !important;)
-    
-    ! stackexchange hot network questions
-    ###hot-network-questions
-    ```
+    * `Custom:`
+      * https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt
+      * https://raw.githubusercontent.com/tomaskala/blocklists/master/blocklist.txt
 5. [Sponsorblock](https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/)
    * `Sponsor: Auto Skip`
    * `Interaction Reminder (Subscribe): Auto Skip`
