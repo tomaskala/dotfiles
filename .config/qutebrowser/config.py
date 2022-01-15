@@ -39,6 +39,7 @@ c.content.blocking.adblock.lists = [
     "https://www.fanboy.co.nz/fanboy-problematic-sites.txt",
     "https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt",
     "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
+    "https://raw.githubusercontent.com/tomaskala/blocklists/master/blocklist.txt",
 ]
 
 # Enable the ad/host blocker
