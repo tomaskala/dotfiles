@@ -271,6 +271,7 @@ augroup indentation
   autocmd FileType lua call SetIndentation(2)
   autocmd FileType vim call SetIndentation(2)
   autocmd FileType sh,bash call SetIndentation(2)
+  autocmd FileType json,yaml call SetIndentation(2)
 augroup end
 
 augroup column
