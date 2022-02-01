@@ -7,7 +7,7 @@ export GIT_AUTHOR_NAME="${REALNAME}"
 
 export BROWSER='firefox'
 export EDITOR='nvim'
-export TERMINAL='alacritty'
+export TERMINAL='foot'
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
