@@ -15,32 +15,14 @@ map p print
 map h navigate previous
 map l navigate next
 
-set default-bg "#1C1C1C"
-set default-fg "#AF005F"
+set default-bg "#1A212E"
+set default-fg "#D9E0EE"
 
-set statusbar-bg "#5FAF00"
-set statusbar-fg "#1C1C1C"
+set statusbar-bg "#1A212E"
+set statusbar-fg "#D9E0EE"
 
-set inputbar-bg "#1C1C1C"
-set inputbar-fg "#D0D0D0"
+set inputbar-bg "#1A212E"
+set inputbar-fg "#D9E0EE"
 
-set notification-bg "#1C1C1C"
-set notification-fg "#D0D0D0"
-
-set notification-error-bg "#1C1C1C"
-set notification-error-fg "#585858"
-
-set notification-warning-bg "#1C1C1C"
-set notification-warning-fg "#585858"
-
-set highlight-color "#AFD700"
-set highlight-active-color "#FF5FAF"
-
-set completion-bg "#AF005F"
-set completion-fg "#FF5FAF"
-
-set completion-highlight-bg "#FF5FAF"
-set completion-highlight-fg "#D0D0D0"
-
-set recolor-lightcolor "#1C1C1C"
-set recolor-darkcolor "#D7875F"
+set recolor-lightcolor "#1A212E"
+set recolor-darkcolor "#D9E0EE"
