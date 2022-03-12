@@ -118,7 +118,7 @@ $ sudo pacman -S tmux fzf the_silver_searcher htop pass wget man-db man-pages rs
 #### Fonts
 
 ```
-$ sudo pacman -S ttf-bitstream-vera noto-fonts-emoji ttf-jetbrains-mono
+$ sudo pacman -S ttf-bitstream-vera noto-fonts noto-fonts-emoji ttf-jetbrains-mono
 ```
 
 
