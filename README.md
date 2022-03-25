@@ -103,16 +103,35 @@ $ sudo pacman -S git neovim make
 #### System utilities
 
 ```
-$ sudo pacman -S tmux fzf the_silver_searcher htop pass wget man-db man-pages rsync
+$ sudo pacman -S dash tmux fzf the_silver_searcher htop pass wget man-db man-pages rsync
 ```
 * [pass bash
   completions](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion),
-  put it into `/etc/bash_completion.d/pass`
+  put it into `/etc/bash_completion.d/pass`.
 * [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
 * [pass-update](https://github.com/roddhjav/pass-update)
 * [shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
   * The binary version from AUR is dependency-free.
 * [pmount](https://aur.archlinux.org/packages/pmount/)
+* Link `dash` to `/bin/sh`.
+  ```
+  # ln -sfT dash /usr/bin/sh
+  ```
+* Automatically relink `dash` to `/bin/sh` after every `bash` update. Put the
+  following `pacman` hook to `/usr/share/libalpm/hooks/dashbinsh.hook`.
+  ```
+  [Trigger]
+  Type = Package
+  Operation = Install
+  Operation = Upgrade
+  Target = bash
+
+  [Action]
+  Description = Re-pointing /bin/sh symlink to dash...
+  When = PostTransaction
+  Exec = /usr/bin/ln -sfT dash /usr/bin/sh
+  Depends = dash
+  ```
 
   
 #### Fonts
