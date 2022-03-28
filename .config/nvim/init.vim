@@ -246,10 +246,7 @@ augroup go
   autocmd!
   autocmd FileType go setlocal makeprg=go\ build
   autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 textwidth=72
-  autocmd FileType go map <silent> <buffer> <leader>i
-      \ :update \|
-      \ :cexpr system("goimports -w " . expand('%')) \|
-      \ :silent edit<CR>
+  autocmd FileType go setlocal formatprg=gofmt\ -s
 augroup end
 
 augroup indentation
