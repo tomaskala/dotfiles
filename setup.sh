@@ -8,8 +8,6 @@ Options:
   -h  Show this message and exit."
 
 install_private=false
-gpg="gpg"
-command -v gpg2 > /dev/null && gpg="gpg2"
 
 install_dotfile() {
   dotfile="$1"
@@ -31,8 +29,7 @@ decrypt_dotfile() {
     printf 'Decrypting %s\n' "${dotfile}"
     mkdir -p "$(dirname "${dest}")"
 
-    (umask 0177;
-    "${gpg}" --quiet -o "${dest}" -d "${dotfile}")
+    (umask 0177; gpg --quiet -o "${dest}" -d "${dotfile}")
   else
     printf 'Skipping %s\n' "${dotfile}"
   fi
