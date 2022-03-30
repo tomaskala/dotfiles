@@ -7,7 +7,6 @@ Options:
   -p  Install private (encrypted) files.
   -h  Show this message and exit."
 
-GLOBIGNORE=".:..:.git:.gitignore"
 install_private=false
 gpg="gpg"
 command -v gpg2 > /dev/null && gpg="gpg2"
@@ -48,6 +47,12 @@ while getopts "hnp" arg; do
 done
 
 for dotfiles_source in .*; do
+  if [ "${dotfiles_source}" = '.' ] \
+    || [ "${dotfiles_source}" = '..' ] \
+    || [ "${dotfiles_source#.git}" != "${dotfiles_source}" ]; then
+    continue
+  fi
+
   find "${dotfiles_source}" -type f | sort | while read -r dotfile; do
     if [ "${dotfile}" = "${dotfile##*.gpg}" ]; then
       install_dotfile "${dotfile}"
