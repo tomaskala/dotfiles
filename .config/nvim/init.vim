@@ -3,9 +3,9 @@ let g:mapleader=','  " The leader is a comma instead of a backslash.
 
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
+  Plug 'cocopon/iceberg.vim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'vimwiki/vimwiki'
-  Plug 'navarasu/onedark.nvim'
 call plug#end()
 
 
@@ -89,10 +89,7 @@ nnoremap <leader>i :call Index()<CR>
 
 " COLORS
 set termguicolors
-let g:onedark_config = {
-    \ 'style': 'deep',
-\}
-colorscheme onedark
+colorscheme iceberg
 
 " MAIN
 filetype on          " Syntax highlighting.
