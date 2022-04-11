@@ -76,15 +76,6 @@ $ sudo pacman -S firefox neomutt isync msmtp lynx transmission-cli
   * Delete the `/etc/urlview/` directory, since the default configuration
     defines the `COMMAND` directive, which in turn makes `urlview` not honor
     the `BROWSER` environment variable.
-* qutebrowser
-  ```
-  $ cd
-  $ git clone https://github.com/qutebrowser/qutebrowser.git
-  $ cd ./qutebrowser
-  $ python scripts/mkvenv.py
-  $ ln -fs ~/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop ~/.local/share/applications/
-  $ sudo pacman -S nss
-  ```
 * To synchronize emails for the first time, run the following.
   ```
   $ mkdir -p ~/Mail/"${EMAIL}"
