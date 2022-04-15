@@ -88,7 +88,7 @@ $ sudo pacman -S firefox neomutt isync msmtp lynx transmission-cli
 ```
 $ sudo pacman -S git neovim make
 ```
-* [vim-plug](https://github.com/junegunn/vim-plug)
+* [packer](https://github.com/wbthomason/packer.nvim)
 
 
 #### System utilities
