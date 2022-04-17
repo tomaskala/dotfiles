@@ -10,10 +10,8 @@ I use Arch, btw.
 * Install the necessary software.
 * Run the `setup.sh` script which will symlink config files to their respective
   locations.
-* Once Firefox has been configured, manually symlink the
-  `firefox/user-overrides.js` file to `~/.mozilla/firefox/<profile-directory>/`
-  and the `firefox/userChrome.css` file to
-  `~/.mozilla/firefox/<profile-directory>/chrome/`
+* Once Firefox has been configured, manually symlink `firefox/userChrome.css`
+  to `~/.mozilla/firefox/<profile-directory>/chrome/`
 
 
 ## Backup
@@ -220,14 +218,7 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 
 #### Configuration
 
-* I use [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js)
-* Once the `firefox/user-overrides.js` file from this repository is symlinked to
-* the Firefox profile directory, run the `updater.sh`
-  [script](https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh)
-  within the same directory.
-* The `firefox/user-overrides.js` file includes most of the `about:preferences`
-  contents. The only exception is the **Search engines** section, which must be
-  cleared and set to the following (using bookmarks, since Firefox does not
+* Set the following search engines (using bookmarks, since Firefox does not
   allow to edit the search engines in preferences).
   ```
   (d) https://duckduckgo.com/?q=%s
