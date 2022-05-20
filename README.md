@@ -55,7 +55,7 @@ Before reinstalling the system, backup the following:
 
 * Backup LUKS headers.
   ```
-  $ sudo cryptsetup luksHeaderBackup --header-backup-file <file> <device>
+  # cryptsetup luksHeaderBackup --header-backup-file <file> <device>
   ```
 * Uncomment `Color` in `/etc/pacman.conf`.
 
@@ -68,7 +68,7 @@ The following software should then be installed.
 #### Internet
 
 ```
-$ sudo pacman -S firefox neomutt isync msmtp lynx transmission-cli
+# pacman -S firefox neomutt isync msmtp lynx transmission-cli
 ```
 * [urlview](https://aur.archlinux.org/packages/urlview/).
   * Delete the `/etc/urlview/` directory, since the default configuration
@@ -84,7 +84,7 @@ $ sudo pacman -S firefox neomutt isync msmtp lynx transmission-cli
 #### Development
 
 ```
-$ sudo pacman -S git neovim make
+# pacman -S git neovim make
 ```
 * [packer](https://github.com/wbthomason/packer.nvim)
 
@@ -92,7 +92,7 @@ $ sudo pacman -S git neovim make
 #### System utilities
 
 ```
-$ sudo pacman -S dash tmux fzf the_silver_searcher htop pass wget man-db man-pages rsync
+# pacman -S dash tmux fzf the_silver_searcher htop pass wget man-db man-pages rsync
 ```
 * [pass bash
   completions](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion),
@@ -126,14 +126,14 @@ $ sudo pacman -S dash tmux fzf the_silver_searcher htop pass wget man-db man-pag
 #### Fonts
 
 ```
-$ sudo pacman -S ttf-bitstream-vera noto-fonts noto-fonts-emoji ttf-jetbrains-mono
+# pacman -S ttf-bitstream-vera noto-fonts noto-fonts-emoji ttf-jetbrains-mono
 ```
 
 
 #### Media
 
 ```
-$ sudo pacman -S mpv ffmpeg yt-dlp mpd mpc zathura zathura-djvu zathura-ps zathura-pdf-mupdf
+# pacman -S mpv ffmpeg yt-dlp mpd mpc zathura zathura-djvu zathura-ps zathura-pdf-mupdf
 $ mkdir ~/.config/mpd/playlists
 $ systemctl --user enable --now mpd.socket
 ```
@@ -142,7 +142,7 @@ $ systemctl --user enable --now mpd.socket
 #### Communication
 
 ```
-$ sudo pacman -S discord
+# pacman -S discord
 ```
 * [telegram](https://aur.archlinux.org/packages/telegram-desktop-bin/)
 
