@@ -9,27 +9,11 @@ end)
 -- Treesitter config
 -------------------------------------------------------------------------------
 require("nvim-treesitter.configs").setup({
+  ensure_installed = "all",
   highlight = {
     enable = true,
   },
   indent = {
     enable = false,
-  },
-  ensure_installed = {
-    "bash",
-    "c",
-    "comment",
-    "cpp",
-    "go",
-    "gomod",
-    "gowork",
-    "json",
-    "lua",
-    "make",
-    "markdown",
-    "python",
-    "regex",
-    "vim",
-    "yaml",
   },
 })
