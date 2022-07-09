@@ -1,6 +1,5 @@
 require("options")
 require("plugins")
 require("colorscheme")
-require("statusline")
 require("keymaps")
 require("autocmds")
