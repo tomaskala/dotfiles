@@ -14,15 +14,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_augroup("python", {clear = true})
-vim.api.nvim_create_autocmd("FileType", {
-  group = "python",
-  pattern = "python",
-  callback = function()
-    vim.opt_local.colorcolumn = "89"
-  end,
-})
-
 vim.api.nvim_create_augroup("indentation", {clear = true})
 vim.api.nvim_create_autocmd("FileType", {
   group = "indentation",
