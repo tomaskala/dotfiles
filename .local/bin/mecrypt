@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ef -o pipefail
+set -efo pipefail
 
 usage="Usage: $(basename "$0") source [destination]
 
