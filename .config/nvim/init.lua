@@ -144,14 +144,17 @@ vim.api.nvim_create_augroup("indentation", {clear = true})
 vim.api.nvim_create_autocmd("FileType", {
   group = "indentation",
   pattern = {
+    "bash",
     "c",
     "cpp",
+    "email",
     "haskell",
-    "lua",
-    "vim",
-    "sh",
-    "bash",
     "json",
+    "lua",
+    "markdown",
+    "sh",
+    "text",
+    "vim",
     "yaml",
   },
   callback = function()
@@ -164,23 +167,8 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_augroup("plaintext", {clear = true})
 vim.api.nvim_create_autocmd("FileType", {
   group = "plaintext",
-  pattern = {"markdown", "text"},
+  pattern = {"mail", "markdown", "text"},
   callback = function()
-    vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.textwidth = 79
-  end,
-})
-
-vim.api.nvim_create_augroup("email", {clear = true})
-vim.api.nvim_create_autocmd("FileType", {
-  group = "email",
-  pattern = "mail",
-  callback = function()
-    vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-    vim.opt_local.shiftwidth = 2
     vim.opt_local.textwidth = 79
     vim.opt_local.formatoptions:append("w")
   end,
