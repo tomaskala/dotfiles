@@ -1,46 +1,46 @@
 -- Options
 -------------------------------------------------------------------------------
-vim.g.mapleader = ","          -- The leader is a comma instead of a backslash.
-vim.opt.mouse = "a"            -- Enable mouse input.
-vim.opt.path:append("**")      -- Recursive globbing.
-vim.opt.fileformat = "unix"    -- Always use unix-style line endings.
-vim.opt.hidden = true          -- Do not lose history when switching buffers.
-vim.opt.lazyredraw = true      -- Redraw only when needed.
-vim.opt.shortmess:append("I")  -- Do not display the startup message.
+vim.g.mapleader = ","
+vim.opt.mouse = "a"
+vim.opt.path:append("**")
+vim.opt.fileformat = "unix"
+vim.opt.hidden = true
+vim.opt.lazyredraw = true
+vim.opt.shortmess:append("I")
 
-vim.opt.tabstop = 4          -- Tab character is this many spaces.
-vim.opt.softtabstop = 4      -- Tab or backspace press is this many spaces.
-vim.opt.shiftwidth = 4       -- Indentation is this many spaces.
-vim.opt.linebreak = true     -- Do not break words when wrapping lines.
-vim.opt.expandtab = true     -- Tabs are spaces.
-vim.opt.startofline = false  -- Do not move the cursor to line start on gg, G.
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.linebreak = true
+vim.opt.expandtab = true
+vim.opt.startofline = false
 
-vim.opt.backup = false    -- Do not keep backups around after writing buffers.
-vim.opt.swapfile = false  -- Disable swapfile creation.
+vim.opt.backup = false
+vim.opt.swapfile = false
 
-vim.opt.number = true                        -- Show absolute line numbers.
-vim.opt.relativenumber = true                -- Show relative line numbers.
-vim.opt.wildmode = {"longest:full", "full"}  -- Shell-like autocompletion.
-vim.opt.splitbelow = true                    -- Open new pane to the bottom.
-vim.opt.splitright = true                    -- Open new pane to the right.
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.wildmode = {"longest:full", "full"}
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
-vim.opt.scrolloff = 3       -- Minimum lines to keep above/below cursor.
-vim.opt.cursorline = true   -- Highlight the current line.
-vim.opt.colorcolumn = "80"  -- Show a column at 80 characters.
+vim.opt.scrolloff = 3
+vim.opt.cursorline = true
+vim.opt.colorcolumn = "80"
 
-vim.g.netrw_banner = 0    -- Hide the netrw banner.
-vim.g.netrw_winsize = 25  -- Use this percentage of the screen for netrw.
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
 
-vim.opt.errorbells = false  -- Disable the bell for error messages.
-vim.opt.visualbell = false  -- Disable the visual bell.
+vim.opt.errorbells = false
+vim.opt.visualbell = false
 
-vim.opt.ignorecase = true  -- Case insensitive search.
-vim.opt.smartcase = true   -- But case sensitive when uppercase is present.
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-vim.opt.cinoptions:append("t0")  -- Don't indent function type.
-vim.opt.cinoptions:append("l1")  -- Align with case label.
-vim.opt.cinoptions:append(":0")  -- Align case with switch.
-vim.opt.cinkeys:remove("0#")     -- Directives aren't special.
+vim.opt.cinoptions:append("t0")
+vim.opt.cinoptions:append("l1")
+vim.opt.cinoptions:append(":0")
+vim.opt.cinkeys:remove("0#")
 
 -- Plugins
 -------------------------------------------------------------------------------
