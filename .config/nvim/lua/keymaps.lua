@@ -41,22 +41,6 @@ vim.api.nvim_set_keymap("", "<C-j>", "<C-W>j", {noremap = true})
 vim.api.nvim_set_keymap("", "<C-k>", "<C-W>k", {noremap = true})
 vim.api.nvim_set_keymap("", "<C-l>", "<C-W>l", {noremap = true})
 
--- Next tab.
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-Right>",
-  ":tabnext<CR>",
-  {noremap = true, silent = true}
-)
-
--- Previous tab.
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-Left>",
-  ":tabprevious<CR>",
-  {noremap = true, silent = true}
-)
-
 -- Copy-paste
 -- <leader>y yanks to system clipboard.
 vim.api.nvim_set_keymap("n", "<leader>y", "\"+y", {noremap = true})
