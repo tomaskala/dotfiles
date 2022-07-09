@@ -2,7 +2,7 @@
 -------------------------------------------------------------------------------
 vim.g.mapleader = ","
 vim.opt.mouse = "a"
-vim.opt.path:append("**")
+vim.opt.path = "**"
 vim.opt.fileformat = "unix"
 vim.opt.hidden = true
 vim.opt.lazyredraw = true
