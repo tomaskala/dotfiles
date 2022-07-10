@@ -45,14 +45,12 @@ nnoremap <leader>yy "+yy
 nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 
-" Turn off search highlight.
-nnoremap <leader><space> :noh<CR>
-
 " Generate ctags.
 " ctrl+]   ... jump to tag under the cursor.
 " g+ctrl+] ... ambiguous tags
 " ctrl+t   ... jump back up the tag stack.
 map <leader>t :silent !ctags -R<CR>
+map <leader><space> :noh<CR>
 
 augroup go
   autocmd!
