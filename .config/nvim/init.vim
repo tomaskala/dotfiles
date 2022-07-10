@@ -52,17 +52,17 @@ vnoremap <leader>p "+p
 map <leader>t :silent !ctags -R<CR>
 map <leader><space> :noh<CR>
 
-augroup go
-  autocmd!
-  autocmd FileType go setl mp=go\ build fp=gofmt\ -s noet tw=72
-augroup end
+aug go
+  au!
+  au FileType go setl mp=go\ build fp=gofmt\ -s noet tw=72
+aug end
 
-augroup indentation
-  autocmd!
-  autocmd FileType bash,c,cpp,haskell,json,lua,mail,markdown,sh,text,vim,yaml setl ts=2 sts=2 sw=2
-augroup end
+aug indentation
+  au!
+  au FileType bash,c,cpp,haskell,json,lua,mail,markdown,sh,text,vim,yaml setl ts=2 sts=2 sw=2
+aug end
 
-augroup plaintext
-  autocmd!
-  autocmd FileType mail,markdown,text setl tw=79 fo+=w
-augroup end
+aug plaintext
+  au!
+  au FileType mail,markdown,text setl tw=79 fo+=w
+aug end
