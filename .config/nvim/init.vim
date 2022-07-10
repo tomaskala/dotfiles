@@ -30,12 +30,6 @@ EOF
 set tgc
 colo iceberg
 
-" MakeTags command to generate ctags.
-" ctrl+]   ... jump to tag under the cursor.
-" g+ctrl+] ... ambiguous tags
-" ctrl+t   ... jump back up the tag stack.
-command! MakeTags !ctags -R .
-
 " Fix caps lock annoyances.
 command! -bang -nargs=? -complete=file E e<bang> <args>
 command! -bang -nargs=? -complete=file W w<bang> <args>
@@ -64,6 +58,12 @@ vnoremap <leader>p "+p
 
 " Turn off search highlight.
 nnoremap <leader><space> :noh<CR>
+
+" Generate ctags.
+" ctrl+]   ... jump to tag under the cursor.
+" g+ctrl+] ... ambiguous tags
+" ctrl+t   ... jump back up the tag stack.
+map <leader>t :silent !ctags -R<CR>
 
 augroup go
   autocmd!
