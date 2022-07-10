@@ -86,7 +86,7 @@ The following software should then be installed.
 ```
 # pacman -S git neovim make
 ```
-* [packer](https://github.com/wbthomason/packer.nvim)
+* [vim-plug](https://github.com/junegunn/vim-plug)
 
 
 #### System utilities
