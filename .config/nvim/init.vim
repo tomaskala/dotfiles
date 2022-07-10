@@ -30,21 +30,6 @@ EOF
 set tgc
 colo iceberg
 
-" Change split panes.
-map <C-h> <C-W>h
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-l> <C-W>l
-
-" Yank to system clipboard.
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-nnoremap <leader>yy "+yy
-
-" Paste from system clipboard.
-nnoremap <leader>p "+p
-vnoremap <leader>p "+p
-
 map <leader>t :silent !ctags -R<CR>
 map <leader><space> :noh<CR>
 
