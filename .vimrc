@@ -3,7 +3,7 @@ filetype plugin indent on
 syntax on
 
 set mouse=a ttm=0 pa=** ff=unix enc=utf-8 nf=bin,hex ar hid lz shm+=I
-set ts=4 sts=4 sw=4 lbr et nosol bs=indent,eol,start sta nojs fo+=j ai
+set ts=2 sts=2 sw=2 lbr et nosol bs=indent,eol,start sta nojs fo+=j ai
 set nobk noswf
 set nu rnu ru sc wmnu wim=longest:full,full ls=2 sb spr cpt-=i
 set so=3 cul cc=80 hi=1000
@@ -28,9 +28,9 @@ aug go
   au FileType go setl mp=go\ build fp=gofmt\ -s noet tw=72
 aug end
 
-aug indentation
+aug indentmore
   au!
-  au FileType bash,c,cpp,haskell,json,lua,mail,markdown,sh,text,vim,yaml setl ts=2 sts=2 sw=2
+  au FileType python setl ts=4 sts=4 sw=4
 aug end
 
 aug plaintext
