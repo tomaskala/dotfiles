@@ -2,7 +2,7 @@
     signingKey = BEB4BD93D9FFD6A585F367AA6C787D207CCD1CFA
 
 [core]
-    editor = nvim
+    editor = vim
     autoclrf = false
 
 [init]
@@ -31,11 +31,6 @@
     ff = only
     tool = vimdiff
     conflictStyle = diff3
-
-[mergetool "vimdiff"]
-    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-    trustExitCode = true
-    keepBackup = false
 
 [filter "lfs"]
     clean = git-lfs clean -- %f

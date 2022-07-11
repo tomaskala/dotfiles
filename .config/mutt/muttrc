@@ -64,7 +64,7 @@ auto_view text/html                                   # Show HTML.
 ### Compose view settings.
 set attribution="On %d, %n wrote:"  # Quoting header format.
 set edit_headers                    # Allow editing the email headers.
-set editor='nvim -c "set filetype=mail"'
+set editor='vim -c "set filetype=mail"'
 set envelope_from                   # Pass the "from" address to msmtp.
 set fast_reply                      # Skip to compose when replying.
 set fcc_attach                      # Save attachments with the body.

@@ -20,9 +20,6 @@ alias tm='transmission-remote'
 alias y='yt-dlp'
 alias ya='mpv --no-video --ytdl-format=bestaudio'
 
-alias vim='nvim'
-alias vimdiff='nvim -d'
-
 HISTCONTROL=ignoreboth:erasedups
 HISTFILESIZE=99999
 HISTIGNORE='?:??'

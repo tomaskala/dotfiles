@@ -84,7 +84,7 @@ The following software should then be installed.
 #### Development
 
 ```
-# pacman -S git neovim make ctags
+# pacman -S git vim make ctags
 ```
 
 
