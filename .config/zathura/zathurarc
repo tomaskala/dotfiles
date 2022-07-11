@@ -15,14 +15,14 @@ map p print
 map h navigate previous
 map l navigate next
 
-set default-bg "#161821"
-set default-fg "#d9e0ee"
+set default-bg "#262626"
+set default-fg "#ffffff"
 
-set statusbar-bg "#161821"
-set statusbar-fg "#d9e0ee"
+set statusbar-bg "#262626"
+set statusbar-fg "#ffffff"
 
-set inputbar-bg "#161821"
-set inputbar-fg "#d9e0ee"
+set inputbar-bg "#262626"
+set inputbar-fg "#ffffff"
 
-set recolor-lightcolor "#161821"
-set recolor-darkcolor "#d9e0ee"
+set recolor-lightcolor "#262626"
+set recolor-darkcolor "#ffffff"
