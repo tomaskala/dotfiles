@@ -9,26 +9,7 @@ set so=3 cul cc=80
 set noeb novb
 set ic scs
 set cino=t0,l1,:0 cink-=0#
-
-call plug#begin('~/.local/share/nvim/plugged')
-  Plug 'cocopon/iceberg.vim'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-call plug#end()
-
-lua <<EOF
-require("nvim-treesitter.configs").setup({
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = false,
-  },
-  ensure_installed = "all",
-})
-EOF
-
-set tgc
-colo iceberg
+colo slate
 
 map <leader>t :silent !ctags -R<CR>
 map <leader><space> :noh<CR>

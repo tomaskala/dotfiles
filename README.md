@@ -86,7 +86,6 @@ The following software should then be installed.
 ```
 # pacman -S git neovim make ctags
 ```
-* [vim-plug](https://github.com/junegunn/vim-plug)
 
 
 #### System utilities
