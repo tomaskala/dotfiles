@@ -1,17 +1,23 @@
-let g:mapleader=','
-let g:netrw_banner=0
-let g:netrw_winsize=25
-set mouse=a pa=** ff=unix hid lz shm+=I
-set ts=4 sts=4 sw=4 lbr et nosol
+set nocp
+filetype plugin indent on
+syntax on
+
+set mouse=a pa=** ff=unix enc=utf-8 nf=bin,hex ar hid lz shm+=I
+set ts=4 sts=4 sw=4 lbr et nosol bs=indent,eol,start sta nojs fo+=j ai
 set nobk noswf
-set nu rnu wim=longest:full,full sb spr
-set so=3 cul cc=80
+set nu rnu ru sc wmnu wim=longest:full,full ls=2 sb spr cpt-=i
+set so=3 cul cc=80 hi=1000
 set noeb novb
-set ic scs
+set is hls ic scs
+set lcs=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set cino=t0,l1,:0 cink-=0#
 colo slate
 
-map <leader>t :silent !ctags -R<CR>
+let g:mapleader=','
+let g:netrw_banner=0
+let g:netrw_winsize=25
+
+map <leader>t :silent !ctags -R<CR><C-L>
 map <leader><space> :noh<CR>
 
 aug go
