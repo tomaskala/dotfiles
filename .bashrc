@@ -1,7 +1,5 @@
-unset PS1
-PS1_LAMBDA='\[\e[38;5;173m\]λ\[\e[0m\]'
-PS1_DIR='\[\e[38;5;78m\]\w\[\e[0m\]'
-PS1="${PS1_LAMBDA} ${PS1_DIR} "
+PS0='\e[2 q\2'
+PS1='\[\e[38;5;173m\]λ\[\e[0m\] \[\e[38;5;78m\]\w\[\e[0m\] '
 
 GPG_TTY="$(tty)"
 export GPG_TTY
