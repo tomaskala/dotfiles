@@ -6,7 +6,6 @@ export GIT_AUTHOR_NAME="${REALNAME}"
 
 export BROWSER=firefox
 export EDITOR=vim
-export TERMINAL=foot
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
@@ -45,7 +44,4 @@ export PATH
 unset -f add
 
 source "${HOME}/.bashrc"
-
-if [[ -z "${WAYLAND_DISPLAY}" ]] && [[ -z "${DISPLAY}" ]] && [[ "$(tty)" = "/dev/tty1" ]]; then
-  ssh-agent sway
-fi
+[[ -r "${HOME}/.bash_profile_local" ]] && source "${HOME}/.bash_profile_local"
