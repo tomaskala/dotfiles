@@ -41,6 +41,7 @@ set ruler
 set showcmd
 set wildmenu
 set wildmode=longest:full,full
+set laststatus=1
 
 set incsearch
 set hlsearch
