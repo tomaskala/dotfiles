@@ -159,59 +159,26 @@ This section addresses the configuration of the Firefox browser.
 
 #### Addons
 
-1. [Clear URLs](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
-  * `Prevent tracking injection over history API: enabled`
-2. [Facebook
-Container](https://addons.mozilla.org/en-US/firefox/addon/facebook-container/)
-3. [Firefox Multi-Account
-Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/)
-  * Create the desired containers, visit all matching sites in these
-    containers and check `Always open in this container`
-  * Then (if you wish) visit them again and check `Remember my decision` to
-    always open them in the assigned container
-4. [uBlock
+1. [uBlock
 Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
-  * **Settings**
-    * `Hide placeholders of blocked elements: enabled`
-    * `I am an advanced user: enabled` -> set `suspendTabsUntilReady` to
-      `true` -> `I am an advanced user: disabled`
-    * **Privacy**
-      * Enable all
-    * **Default behavior**
-      * `Disable cosmetic filtering: disabled`
-  * **Filter lists** -- check the following
-    * `Auto-update filter lists`
-    * `Parse and enforce cosmetic filters`
-    * `My filters`
-    * `Built-in`
-    * `Ads`
-      * `EasyList`
-    * `Privacy:`
-      * `EasyPrivacy`
-    * `Malware domains:` all
-    * `Annoyances`
-      * `AdGuard Annoyances`
-      * `EasyList Cookie`
-      * `Fanboy's Annoyance`
-      * `uBlock filters - Annoyances`
-    * `Multipurpose`
-      * `Dan Pollock's hosts file`
-      * `Peter Lowe's Ad and tracking server list`
-    * `Regions, languages`
-      * `CZE, SVK: EasyList Czech and Slovak`
-      * `RUS: RU AdList`
-    * `Custom:`
-      * https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt
-      * https://raw.githubusercontent.com/tomaskala/blocklists/master/blocklist.txt
-5. [Sponsorblock](https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/)
+  * Setup a [blocking mode](https://github.com/gorhill/uBlock/wiki/Blocking-mode).
+  * Enable `AdGuard URL Tracking Protection`.
+  * Import the following custom lists.
+    * [Actually Legitimate URL Shortener 
+      Tool](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt).
+    * [NoCoin Adblock 
+      List](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt)
+    * [uBlock Origin Dev 
+      Filter](https://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/all_search_engines/global.txt).
+2. [Sponsorblock](https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/)
    * `Sponsor: Auto Skip`
    * `Interaction Reminder (Subscribe): Auto Skip`
-6. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+3. [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
   * Add the following two rules to the blacklist. They are to disable
     vimium-ff in Jupyter notebooks, typically found on such URLs.
     * `https?://localhost*`;
     * `https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`;
-7. [Tree Style
+4. [Tree Style
    Tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
 
 
@@ -232,8 +199,9 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
   (py) https://docs.python.org/3/search.html?q=%s
   (aw) https://wiki.archlinux.org/index.php?search=%s
   ```
-* Install one of the themes in the `firefox` directory by opening it (`CTRL+o`)
-  in Firefox.
+* Go to `about:config` and set 
+  `toolkit.legacyUserProfileCustomizations.stylesheets` to `true` to enable 
+  `userChrome.css`.
 
 
 #### Import data
