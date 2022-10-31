@@ -170,6 +170,7 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
       List](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt)
     * [uBlock Origin Dev 
       Filter](https://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/all_search_engines/global.txt).
+    * [letsblock.it](https://letsblock.it/) has some nifty filters.
 2. [Sponsorblock](https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/)
    * `Sponsor: Auto Skip`
    * `Interaction Reminder (Subscribe): Auto Skip`
