@@ -1,6 +1,6 @@
 filetype plugin indent on
 syntax on
-colorscheme slate
+colorscheme habamax
 
 set mouse=a
 set ttimeoutlen=0
