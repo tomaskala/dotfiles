@@ -1,5 +1,5 @@
 PS0='\e[2 q\2'
-PS1='\[\e[38;5;173m\]λ\[\e[0m\] \[\e[38;5;78m\]\w\[\e[0m\] '
+PS1='\e[91mλ\e[0m \e[32m\w\e[0m '
 
 GPG_TTY="$(tty)"
 export GPG_TTY
