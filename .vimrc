@@ -60,6 +60,10 @@ let &t_EI="\e[2 q"
 
 nnoremap <leader>t :silent !ctags -R<CR><C-L>
 nnoremap <leader><space> :nohlsearch<CR>
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
 
 augroup golang
   autocmd!
