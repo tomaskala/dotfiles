@@ -40,4 +40,4 @@ export PATH
 unset -f add
 
 source "${HOME}/.bashrc"
-[[ -r "${HOME}/.bash_profile_local" ]] && source "${HOME}/.bash_profile_local"
+[[ -f "${HOME}/.bash_profile_local" ]] && source "${HOME}/.bash_profile_local"
