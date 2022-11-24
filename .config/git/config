@@ -1,46 +1,46 @@
 [user]
-    name = Tomas Kala
-    signingKey = BEB4BD93D9FFD6A585F367AA6C787D207CCD1CFA
+name = Tomas Kala
+signingKey = BEB4BD93D9FFD6A585F367AA6C787D207CCD1CFA
 
 [core]
-    editor = vim
-    autoclrf = false
+editor = vim
+autoclrf = false
 
 [init]
-    defaultBranch = master
+defaultBranch = master
 
 [color]
-    branch = auto
-    diff = auto
-    interactive = auto
-    status = auto
+branch = auto
+diff = auto
+interactive = auto
+status = auto
 
 [fetch]
-    prune = true
+prune = true
 
 [push]
-    default = simple
+default = simple
 
 [pull]
-    ff = only
+ff = only
 
 [rebase]
-    autoSquash = true
-    autoStash = true
+autoSquash = true
+autoStash = true
 
 [merge]
-    ff = only
-    tool = vimdiff
-    conflictStyle = diff3
+ff = only
+tool = vimdiff
+conflictStyle = diff3
 
 [filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
 
 [commit]
-    gpgSign = true
+gpgSign = true
 
 [pass]
-    signcommits = true
+signcommits = true
