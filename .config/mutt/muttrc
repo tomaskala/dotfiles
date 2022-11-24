@@ -1,5 +1,5 @@
 ### Mailbox settings.
-set realname="${REALNAME}"
+set realname="Tomas Kala"
 set folder=~/Mail/
 set spoolfile="+/${EMAIL}/INBOX"
 set record="+${EMAIL}/Sent"

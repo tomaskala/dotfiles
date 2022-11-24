@@ -1,8 +1,4 @@
-export REALNAME='Tomas Kala'
 export EMAIL='me@tomaskala.com'
-export NAME="${REALNAME}"
-export GIT_COMMITTER_NAME="${REALNAME}"
-export GIT_AUTHOR_NAME="${REALNAME}"
 
 export BROWSER=firefox
 export EDITOR=vim
