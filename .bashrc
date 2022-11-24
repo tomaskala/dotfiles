@@ -1,4 +1,4 @@
-PS1='\e[91mλ\e[0m \e[32m\w\e[0m '
+PS1='\[\e[91m\]λ\[\e[0m\] \[\e[32m\]\w\[\e[0m\] '
 
 GPG_TTY="$(tty)"
 export GPG_TTY
