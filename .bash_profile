@@ -1,7 +1,9 @@
 export EMAIL='me@tomaskala.com'
-
 export BROWSER=firefox
 export EDITOR=vim
+export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
+export LESSHISTFILE=-
+export PAGER=less
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
@@ -15,13 +17,6 @@ export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
 
 export GOPATH="${HOME}/.local/share/go"
 export GOBIN="${HOME}/.local/share/go/bin"
-
-OS="$(uname)"
-export OS
-
-export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
-export LESSHISTFILE=-
-export PAGER=less
 
 add() {
   if [[ ":$2:" != *":$1:"* ]]; then

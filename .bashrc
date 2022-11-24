@@ -1,4 +1,3 @@
-PS0='\e[2 q\2'
 PS1='\e[91mλ\e[0m \e[32m\w\e[0m '
 
 GPG_TTY="$(tty)"
