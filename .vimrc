@@ -64,7 +64,11 @@ nnoremap ]Q :clast<CR>
 
 augroup golang
   autocmd!
-  autocmd FileType go setlocal makeprg=go\ build formatprg=gofmt\ -s noexpandtab
+  autocmd FileType go setlocal makeprg=go\ build noexpandtab
+  autocmd FileType go nnoremap <silent> <buffer> <leader>f
+      \ :update \|
+      \ :cexpr system("goimports -w " . expand('%')) \|
+      \ :silent edit<cr>
 augroup end
 
 augroup indentmore
