@@ -54,6 +54,9 @@ set cinkeys-=0#
 let g:mapleader=','
 let g:netrw_banner=0
 let g:netrw_winsize=25
+let &t_SI="\e[6 q"
+let &t_SR="\e[4 q"
+let &t_EI="\e[2 q"
 
 nnoremap <leader>t :silent !ctags -R<CR><C-L>
 nnoremap <leader><space> :nohlsearch<CR>
