@@ -1,7 +1,8 @@
 filetype plugin indent on
 syntax on
-colorscheme habamax
+colorscheme plain
 
+set background=dark
 set mouse=a
 set ttimeoutlen=0
 set path=**
@@ -69,9 +70,9 @@ augroup golang
   autocmd!
   autocmd FileType go setlocal makeprg=go\ build noexpandtab
   autocmd FileType go nnoremap <silent> <buffer> <leader>f
-      \ :update \|
-      \ :cexpr system("goimports -w " . expand('%')) \|
-      \ :silent edit<cr>
+    \ :update \|
+    \ :cexpr system('goimports -w ' . expand('%')) \|
+    \ :silent edit<cr>
 augroup end
 
 augroup indentmore
