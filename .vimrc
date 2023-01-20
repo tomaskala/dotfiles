@@ -2,55 +2,12 @@ filetype plugin indent on
 syntax on
 colorscheme plain
 
-set background=dark
-set mouse=a
-set ttimeoutlen=0
-set path=**
-set fileformat=unix
-set encoding=utf-8
-set nrformats=bin,hex
-set lazyredraw
-set shortmess+=I
-set history=1000
-set splitbelow
-set splitright
-set complete-=i
-
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-set autoindent
-set backspace=indent,eol,start
-set nostartofline
-set nojoinspaces
-set formatoptions+=j
-
-set autoread
-set hidden
-set nobackup
-set noswapfile
-set noerrorbells
-set novisualbell
-
-set cursorline
-set scrolloff=3
-set colorcolumn=80
-set number
-set relativenumber
-set ruler
-set showcmd
-set wildmenu
-set wildmode=longest:full,full
-set laststatus=1
-
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
-
-set cinoptions=t0,l1,:0
-set cinkeys-=0#
+set bg=dark mouse=a ttm=0 pa=** ff=unix enc=utf-8 nf=bin,hex lz shm+=I sb spr
+set ts=2 sts=2 sw=2 et ai bs=indent,eol,start nosol nojs fo+=j cpt-=i
+set ar hid nobk noswf noeb novb hi=1000
+set cul so=3 cc=80 nu rnu ru sc wmnu wim=longest:full,full ls=1
+set is hls ic scs
+set cino=t0,l1,:0 cink-=0#
 
 let g:mapleader=','
 let g:netrw_banner=0
@@ -59,28 +16,28 @@ let &t_SI="\e[6 q"
 let &t_SR="\e[4 q"
 let &t_EI="\e[2 q"
 
-nnoremap <leader>t :silent !ctags -R<CR><C-L>
-nnoremap <leader><space> :nohlsearch<CR>
-nnoremap [q :cprevious<CR>
-nnoremap ]q :cnext<CR>
-nnoremap [Q :cfirst<CR>
-nnoremap ]Q :clast<CR>
+nn <leader>t :sil !ctags -R<CR><C-L>
+nn <leader><space> :noh<CR>
+nn [q :cp<CR>
+nn ]q :cn<CR>
+nn [Q :cfir<CR>
+nn ]Q :cla<CR>
 
-augroup golang
-  autocmd!
-  autocmd FileType go setlocal makeprg=go\ build noexpandtab
-  autocmd FileType go nnoremap <silent> <buffer> <leader>f
-    \ :update \|
-    \ :cexpr system('goimports -w ' . expand('%')) \|
-    \ :silent edit<cr>
-augroup end
+aug golang
+  au!
+  au FileType go setl mp=go\ build noet
+  au FileType go nn <silent> <buffer> <leader>f
+    \ :up \|
+    \ :cex system('goimports -w ' . expand('%')) \|
+    \ :sil edit<cr>
+aug end
 
-augroup indentmore
-  autocmd!
-  autocmd FileType go,python setlocal tabstop=4 softtabstop=4 shiftwidth=4
-augroup end
+aug indentmore
+  au!
+  au FileType go,python setl ts=4 sts=4 sw=4
+aug end
 
-augroup plaintext
-  autocmd!
-  autocmd FileType mail,markdown,text setlocal textwidth=79 formatoptions+=w
-augroup end
+aug plaintext
+  au!
+  au FileType mail,markdown,text setl tw=79 fo+=w
+aug end
