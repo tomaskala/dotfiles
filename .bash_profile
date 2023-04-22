@@ -35,5 +35,5 @@ export PATH
 unset -f add
 
 source "${HOME}/.bashrc"
-[[ -f "${HOME}/.bash_profile_local" ]] && source "${HOME}/.bash_profile_local"
 [[ -f "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]] && source "${HOME}/.nix-profile/etc/profile.d/nix.sh"
+[[ -f "${HOME}/.bash_profile_local" ]] && source "${HOME}/.bash_profile_local"
