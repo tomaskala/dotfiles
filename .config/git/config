@@ -1,6 +1,5 @@
 [user]
 name = Tomas Kala
-signingKey = BEB4BD93D9FFD6A585F367AA6C787D207CCD1CFA
 
 [core]
 editor = vim
@@ -38,9 +37,3 @@ clean = git-lfs clean -- %f
 smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 required = true
-
-[commit]
-gpgSign = true
-
-[pass]
-signcommits = true
