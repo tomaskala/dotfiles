@@ -91,7 +91,7 @@ The following software should then be installed.
 #### System utilities
 
 ```
-# pacman -S dash tmux fzf the_silver_searcher htop pass wget man-db man-pages rsync
+# pacman -S dash tmux fzf the_silver_searcher htop pass wget man-db man-pages rsync bc
 ```
 * [pass bash
   completions](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion),
