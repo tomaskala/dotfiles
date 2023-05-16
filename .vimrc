@@ -8,7 +8,7 @@ set cul so=3 cc=80 nu rnu ru sc wmnu wim=longest:full,full ls=1
 set is hls ic scs
 set cino=t0,l1,:0 cink-=0#
 
-colorscheme retrobox
+colorscheme sorbet
 let g:mapleader=','
 let g:netrw_banner=0
 let g:netrw_winsize=25
