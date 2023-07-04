@@ -170,6 +170,8 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
       List](https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt)
     * [uBlock Origin Dev 
       Filter](https://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/all_search_engines/global.txt).
+    * [GitHub Less Social](https://git.sr.ht/~toastal/github-less-social) can
+      be used to make GitHub look less like a social network.
     * [letsblock.it](https://letsblock.it/) has some nifty filters.
 2. [Sponsorblock](https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/)
    * `Sponsor: Auto Skip`
