@@ -1,8 +1,6 @@
 # Dotfiles
 
-
 I use Arch, btw.
-
 
 ## Installation
 
@@ -10,9 +8,6 @@ I use Arch, btw.
 - Install the necessary software.
 - Run the `setup.sh` script which will symlink config files to their respective
   locations.
-- Once Firefox has been configured, manually symlink `firefox/userChrome.css`
-  to `~/.mozilla/firefox/<profile-directory>/chrome/`
-
 
 ## Backup
 
@@ -50,20 +45,11 @@ Before reinstalling the system, backup the following:
     the private key password on every `git push`, add `AddKeysToAgent yes` to
     the top of `~/.ssh/config`.
 
-
 ## System setup
-
-- Backup LUKS headers.
-  ```
-  # cryptsetup luksHeaderBackup --header-backup-file <file> <device>
-  ```
-- Uncomment `Color` in `/etc/pacman.conf`.
-
 
 ### Software
 
 The following software should then be installed.
-
 
 #### Internet
 
@@ -80,13 +66,11 @@ The following software should then be installed.
   $ mbsync -a -c "${MBSYNC_CONFIG}"
   ```
 
-
 #### Development
 
 ```
 # pacman -S git vim make ctags
 ```
-
 
 #### System utilities
 
@@ -120,14 +104,12 @@ The following software should then be installed.
   Exec = /usr/bin/ln -sfT dash /usr/bin/sh
   Depends = dash
   ```
-
   
 #### Fonts
 
 ```
 # pacman -S ttf-bitstream-vera noto-fonts noto-fonts-emoji ttf-font-awesome ttf-jetbrains-mono
 ```
-
 
 #### Media
 
@@ -137,7 +119,6 @@ $ mkdir ~/.config/mpd/playlists
 $ systemctl --user enable --now mpd.socket
 ```
 
-
 #### Communication
 
 ```
@@ -145,24 +126,16 @@ $ systemctl --user enable --now mpd.socket
 ```
 - [telegram](https://aur.archlinux.org/packages/telegram-desktop-bin/)
 
-
 ### Firefox configuration
 
-This section addresses the configuration of the Firefox browser.
-
-
-#### Post-installation cleanup
-
-- Create a new profile. Importing data from an old profile is addressed towards
-  the end of this section.
-
+Create a new profile. Importing data from an old profile is addressed towards 
+the end of this section.
 
 #### Addons
 
 1. [uBlock
 Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
   - Setup a [blocking mode](https://github.com/gorhill/uBlock/wiki/Blocking-mode).
-  - Enable `AdGuard URL Tracking Protection`.
   - Import the following custom lists.
     - [Actually Legitimate URL Shortener 
       Tool](https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt).
@@ -184,7 +157,6 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 4. [Tree Style
    Tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
 
-
 #### Configuration
 
 - Set the following search engines (using bookmarks, since Firefox does not
@@ -205,7 +177,8 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 - Go to `about:config` and set 
   `toolkit.legacyUserProfileCustomizations.stylesheets` to `true` to enable 
   `userChrome.css`.
-
+- Symlink `firefox/userChrome.css` to 
+  `~/.mozilla/firefox/<profile-directory>/chrome/`
 
 #### Import data
 
@@ -215,7 +188,6 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 - I transfer *Bookmarks, Downloads and Browsing History* (files `places.sqlite`,
   `bookmarkbackups` and `favicons.sqlite`) and *Stored session* (file
   `sessionstore.jsonlz4`).
-
 
 #### Cleanup
 
