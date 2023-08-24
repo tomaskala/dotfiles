@@ -17,6 +17,7 @@ export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
 
 export GOPATH="${HOME}/.local/share/go"
 export GOBIN="${HOME}/.local/share/go/bin"
+export GOTOOLCHAIN="local"
 
 add() {
   if [[ ":$2:" != *":$1:"* ]]; then
