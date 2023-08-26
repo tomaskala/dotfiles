@@ -108,7 +108,7 @@ The following software should then be installed.
 #### Fonts
 
 ```
-# pacman -S ttf-bitstream-vera noto-fonts noto-fonts-emoji ttf-font-awesome ttf-jetbrains-mono
+# pacman -S ttf-bitstream-vera noto-fonts noto-fonts-emoji ttf-nerd-fonts-symbols-mono ttf-jetbrains-mono
 ```
 
 #### Media
