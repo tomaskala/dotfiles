@@ -16,7 +16,7 @@ export PASSWORD_STORE_DIR="${HOME}/.local/share/password-store"
 export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
 
 export GOPATH="${HOME}/.local/share/go"
-export GOBIN="${HOME}/.local/share/go/bin"
+export GOBIN="${HOME}/.local/bin"
 export GOTOOLCHAIN="local"
 
 add() {
