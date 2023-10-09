@@ -11,4 +11,4 @@ port 465
 tls_starttls off
 from me@tomaskala.com
 user me@tomaskala.com
-passwordeval "pass communication/me@tomaskala.com"
+passwordeval "pass communication/me@tomaskala.com_imap_pc"

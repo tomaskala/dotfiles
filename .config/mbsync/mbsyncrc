@@ -2,7 +2,7 @@ IMAPAccount main
 Host imap.mailbox.org
 Port 993
 User me@tomaskala.com
-PassCmd "pass communication/me@tomaskala.com"
+PassCmd "pass communication/me@tomaskala.com_imap_pc"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
