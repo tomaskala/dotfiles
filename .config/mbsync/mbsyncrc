@@ -1,7 +1,7 @@
 IMAPAccount main
-Host imap.mailbox.org
+Host imap.fastmail.com
 Port 993
-User me@tomaskala.com
+User tomaskala@fastmail.com
 PassCmd "pass communication/me@tomaskala.com_imap_pc"
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
@@ -51,7 +51,7 @@ SyncState *
 Sync All
 
 Channel main-junk
-Far :main-remote:"Junk"
+Far :main-remote:"Spam"
 Near :main-local:Junk
 Create Both
 Expunge Both
