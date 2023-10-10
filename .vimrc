@@ -39,5 +39,5 @@ aug end
 
 aug plaintext
   au!
-  au FileType mail,markdown,text setl tw=79 fo+=w ts=2 sts=2 sw=2
+  au FileType markdown,text setl tw=79 fo+=w ts=2 sts=2 sw=2
 aug end

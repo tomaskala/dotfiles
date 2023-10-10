@@ -54,17 +54,8 @@ The following software should then be installed.
 #### Internet
 
 ```
-# pacman -S firefox neomutt isync msmtp lynx transmission-cli
+# pacman -S firefox thunderbird lynx transmission-cli
 ```
-- [urlview](https://aur.archlinux.org/packages/urlview/).
-  - Delete the `/etc/urlview/` directory, since the default configuration
-    defines the `COMMAND` directive, which in turn makes `urlview` not honor
-    the `BROWSER` environment variable.
-- To synchronize emails for the first time, run the following.
-  ```
-  $ mkdir -p ~/Mail/"${EMAIL}"
-  $ mbsync -a -c "${MBSYNC_CONFIG}"
-  ```
 
 #### Development
 
