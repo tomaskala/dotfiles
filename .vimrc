@@ -1,8 +1,8 @@
 filetype plugin indent on
 syntax on
 
-set bg=dark tgc ttm=0 pa=** ff=unix enc=utf-8 nf=bin,hex lz shm+=I sb spr
-set ts=2 sts=2 sw=2 et ai bs=indent,eol,start nosol nojs fo+=j cpt-=i
+set bg=dark tgc ttm=0 pa=** ff=unix enc=utf-8 nf=bin,hex lz shm+=I shm-=S
+set ts=2 sts=2 sw=2 et ai bs=indent,eol,start nosol nojs fo+=j cpt-=i sb spr
 set ar hid nobk noswf noeb novb hi=1000 mouse=a cpo-=a
 set cul so=3 cc=80 nu rnu ru sc wmnu wim=longest:full,full ls=2
 set is hls ic scs
