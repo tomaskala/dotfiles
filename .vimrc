@@ -18,6 +18,7 @@ let &t_EI="\e[2 q"
 
 nn <leader>t :sil !ctags -R<CR><C-L>
 nn <leader><space> :noh<CR>
+nn Y y$
 nn [q :cp<CR>
 nn ]q :cn<CR>
 nn [Q :cfir<CR>
