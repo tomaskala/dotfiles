@@ -1,3 +1,6 @@
+vim.g.mapleader = ","
+require("plugins")
+
 vim.opt.path = "**"
 vim.opt.fileformat = "unix"
 vim.opt.ttimeoutlen = 0
@@ -27,8 +30,6 @@ vim.opt.smartcase = true
 vim.opt.cinoptions = { "t0", "l1", ":0" }
 vim.opt.cinkeys:remove("0#")
 
-vim.cmd("colorscheme habamax")
-vim.g.mapleader = ","
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
