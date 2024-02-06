@@ -17,7 +17,11 @@ require("lazy").setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd("colorscheme tokyonight-moon")
+      require("tokyonight").setup({
+        style = "moon",
+      })
+
+      vim.cmd("colorscheme tokyonight")
     end,
   },
   {
@@ -27,8 +31,7 @@ require("lazy").setup({
     event = { "BufReadPre", "BufNewFile" },
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     config = function()
-      local treesitter = require("nvim-treesitter.configs")
-      treesitter.setup({
+      require("nvim-treesitter.configs").setup({
         highlight = { enable = true },
         indent = { enable = true },
         ensure_installed = {
@@ -65,6 +68,20 @@ require("lazy").setup({
           "toml",
           "typescript",
           "yaml",
+        },
+      })
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup({
+        options = {
+          theme = "tokyonight",
+        },
+        sections = {
+          lualine_x = { "filetype" },
         },
       })
     end,
