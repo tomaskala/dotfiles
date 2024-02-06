@@ -39,10 +39,9 @@ vim.keymap.set("n", "]q", ":cnext<CR>", { noremap = true })
 vim.keymap.set("n", "[Q", ":cfirst<CR>", { noremap = true })
 vim.keymap.set("n", "]Q", ":clast<CR>", { noremap = true })
 
-local golang = vim.api.nvim_create_augroup("golang", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = "go",
-  group = golang,
+  group = vim.api.nvim_create_augroup("golang", { clear = true }),
   callback = function(args)
     vim.opt_local.makeprg = "go build"
     vim.opt_local.expandtab = false
@@ -54,10 +53,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-local indentmore = vim.api.nvim_create_augroup("indentmore", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "go", "python" },
-  group = indentmore,
+  group = vim.api.nvim_create_augroup("indentmore", { clear = true }),
   callback = function()
     vim.opt_local.tabstop = 4
     vim.opt_local.softtabstop = 4
@@ -65,10 +63,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-local plaintext = vim.api.nvim_create_augroup("plaintext", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "markdown", "text" },
-  group = plaintext,
+  group = vim.api.nvim_create_augroup("plaintext", { clear = true }),
   callback = function()
     vim.opt_local.textwidth = 79
     vim.opt_local.formatoptions:append({ w = true })
