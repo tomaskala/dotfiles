@@ -92,30 +92,46 @@ require("lazy").setup({
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
     opts = {
+      ensure_installed = {
+        "ansiblels",
+        "dockerls",
+        "eslint",
+        "tsserver",
+        "lua_ls",
+        "nil_ls",
+        "pyright",
+        "ruff_lsp",
+      },
       automatic_installation = true,
     },
+    config = function(_, opts)
+      local lspconfig = require("lspconfig")
+      local mason_lspconfig = require("mason-lspconfig")
+      mason_lspconfig.setup(opts)
+
+      mason_lspconfig.setup_handlers({
+        function(server)
+          lspconfig[server].setup({})
+        end,
+
+        ["lua_ls"] = function()
+          lspconfig.lua_ls.setup({
+            settings = {
+              Lua = {
+                diagnostics = {
+                  globals = { "vim" },
+                },
+              },
+            },
+          })
+        end,
+      })
+    end,
   },
   {
     "neovim/nvim-lspconfig",
     dependencies = { "williamboman/mason-lspconfig.nvim" },
     config = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.ansiblels.setup({})
-      lspconfig.dockerls.setup({})
-      lspconfig.eslint.setup({})
-      lspconfig.tsserver.setup({})
-      lspconfig.lua_ls.setup({
-        settings = {
-          Lua = {
-            diagnostics = { globals = { "vim", "require" } },
-            workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-          },
-        },
-      })
-      lspconfig.nil_ls.setup({})
-      lspconfig.pyright.setup({})
-      lspconfig.ruff_lsp.setup({})
-
       -- Global mappings.
       vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
@@ -129,7 +145,7 @@ require("lazy").setup({
           vim.bo[args.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
           -- Buffer local mappings.
-          local opts = { buffer = args.buf }
+          local opts = { buffer = args.buf, noremap = true, silent = true }
           vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
           vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -145,7 +161,7 @@ require("lazy").setup({
           vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
           vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
           vim.keymap.set("n", "<leader>f", function()
-            vim.lsp.buf.format { async = true }
+            vim.lsp.buf.format({ async = true })
           end, opts)
         end,
       })
