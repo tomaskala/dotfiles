@@ -96,11 +96,11 @@ require("lazy").setup({
         "ansiblels",
         "dockerls",
         "eslint",
-        "tsserver",
         "lua_ls",
         "nil_ls",
         "pyright",
         "ruff_lsp",
+        "tsserver",
       },
       automatic_installation = true,
     },
@@ -121,6 +121,24 @@ require("lazy").setup({
                 diagnostics = {
                   globals = { "vim" },
                 },
+              },
+            },
+          })
+        end,
+
+        ["tsserver"] = function()
+          lspconfig.tsserver.setup({
+            commands = {
+              OrganizeImports = {
+                function()
+                  local params = {
+                    command = "_typescript.organizeImports",
+                    arguments = { vim.api.nvim_buf_get_name(0) },
+                  }
+
+                  vim.lsp.buf.execute_command(params)
+                end,
+                description = "Organize imports",
               },
             },
           })
