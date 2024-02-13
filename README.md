@@ -99,9 +99,7 @@ The following software should then be installed.
 #### Media
 
 ```
-# pacman -S mpv ffmpeg yt-dlp mpd mpc zathura zathura-djvu zathura-ps zathura-pdf-mupdf
-$ mkdir ~/.config/mpd/playlists
-$ systemctl --user enable --now mpd.socket
+# pacman -S mpv ffmpeg yt-dlp
 ```
 
 #### Communication
