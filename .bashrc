@@ -27,7 +27,5 @@ shopt -s direxpand globstar histappend histverify no_empty_cmd_completion
 
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/bash-completion/completions/git
-source /etc/bash_completion.d/pass
-source /etc/bash_completion.d/pass-tail
 
 [[ -f "${HOME}/.bashrc_local" ]] && source "${HOME}/.bashrc_local"

@@ -18,7 +18,6 @@ Before reinstalling the system, backup the following:
   - `bookmarkbackups`;
   - `favicons.sqlite`;
   - `sessionstore.jsonlz4`.
-- Saved passwords: `~/.local/share/password-store`.
 - Downloads directory: `~/Downloads`.
 - Pictures directory: `~/Pictures`.
 - Export GPG keys.
@@ -66,13 +65,8 @@ The following software should then be installed.
 #### System utilities
 
 ```
-# pacman -S dash tmux fzf the_silver_searcher htop pass wget man-db man-pages rsync bc
+# pacman -S dash tmux fzf the_silver_searcher htop wget man-db man-pages rsync bc
 ```
-- [pass bash
-  completions](https://git.zx2c4.com/password-store/plain/src/completion/pass.bash-completion),
-  put it into `/etc/bash_completion.d/pass`.
-- [pass-extension-tail](https://github.com/palortoff/pass-extension-tail)
-- [pass-update](https://github.com/roddhjav/pass-update)
 - [shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
   - The binary version from AUR is dependency-free.
 - [pmount](https://aur.archlinux.org/packages/pmount/)
@@ -147,6 +141,7 @@ Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
     - `https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}*`;
 4. [Tree Style
    Tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
+5. [Bitwarden](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/)
 
 #### Configuration
 

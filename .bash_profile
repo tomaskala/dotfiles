@@ -11,7 +11,6 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 
 export LYNX_CFG="${HOME}/.config/lynx/lynx.cfg"
 export INPUTRC="${HOME}/.config/inputrc"
-export PASSWORD_STORE_DIR="${HOME}/.local/share/password-store"
 export WINEPREFIX="${HOME}/.local/share/wineprefixes/default"
 
 export GOPATH="${HOME}/.local/share/go"
