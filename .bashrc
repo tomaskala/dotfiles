@@ -13,13 +13,8 @@ alias tm='transmission-remote'
 alias y='yt-dlp'
 alias ya='mpv --no-video --ytdl-format=bestaudio'
 
-HISTCONTROL=ignoreboth:erasedups
-HISTFILESIZE=99999
+HISTCONTROL=ignoreboth
 HISTIGNORE='?:??'
-HISTSIZE=99999
-
-set -o vi
-shopt -s direxpand globstar histappend histverify no_empty_cmd_completion
 
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/bash-completion/completions/git
