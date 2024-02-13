@@ -23,5 +23,3 @@ for dotfiles_source in .*; do
     install_dotfile "${dotfile}"
   done
 done
-
-chmod 700 ~/.gnupg

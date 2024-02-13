@@ -1,8 +1,4 @@
 PS1='\[\e[1;35m\]\u@\h\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\] \$ '
-
-GPG_TTY="$(tty)"
-export GPG_TTY
-
 unalias -a
 
 alias diff='diff --color=auto'
