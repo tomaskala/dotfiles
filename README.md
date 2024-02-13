@@ -59,7 +59,6 @@ The following software should then be installed.
 ```
 - [shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
   - The binary version from AUR is dependency-free.
-- [pmount](https://aur.archlinux.org/packages/pmount/)
 - Link `dash` to `/bin/sh`.
   ```
   # ln -sfT dash /usr/bin/sh
