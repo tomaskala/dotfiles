@@ -55,8 +55,12 @@ The following software should then be installed.
 #### System utilities
 
 ```
-# pacman -S dash tmux fzf ripgrep htop wget man-db man-pages rsync bc
+# pacman -S dash zsh tmux fzf ripgrep htop wget man-db man-pages rsync bc
 ```
+- Change shell to `zsh`.
+  ```
+  $ chsh -s $(command -v zsh)
+  ```
 - [shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
   - The binary version from AUR is dependency-free.
 - Link `dash` to `/bin/sh`.
