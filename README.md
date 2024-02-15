@@ -55,7 +55,7 @@ The following software should then be installed.
 #### System utilities
 
 ```
-# pacman -S dash tmux fzf the_silver_searcher htop wget man-db man-pages rsync bc
+# pacman -S dash tmux fzf ripgrep htop wget man-db man-pages rsync bc
 ```
 - [shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
   - The binary version from AUR is dependency-free.

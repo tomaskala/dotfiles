@@ -193,16 +193,6 @@ require("lazy").setup({
         file_ignore_patterns = {
           ".git",
         },
-        vimgrep_arguments = {
-          "ag",
-          "--hidden",
-          "--no-color",
-          "--no-heading",
-          "--filename",
-          "--numbers",
-          "--column",
-          "--smart-case",
-        },
       },
       pickers = {
         find_files = {
