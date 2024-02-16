@@ -30,7 +30,10 @@ autoStash = true
 [merge]
 ff = only
 tool = vimdiff
-conflictStyle = diff3
+conflictStyle = zdiff3
+
+[diff]
+algorithm = histogram
 
 [filter "lfs"]
 clean = git-lfs clean -- %f
