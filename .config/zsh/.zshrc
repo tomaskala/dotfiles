@@ -1,4 +1,5 @@
 autoload -Uz colors && colors
+bindkey -e
 PROMPT="%B%F{magenta}%n@%m%f %F{blue}%~%f %#%b "
 RPROMPT="%(0?.%F{green}.%F{red})%?%f [%*]"
 
