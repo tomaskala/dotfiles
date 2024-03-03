@@ -124,7 +124,7 @@ local function finalize_timesheet(work_days, free_days)
   return timesheet
 end
 
-local function read_csv(path)
+local function read_csv(lines)
   local function from_csv(line)
     line = line .. ","
     local fields = {}
@@ -151,7 +151,7 @@ local function read_csv(path)
 
   local header = nil
   local data = {}
-  for line in io.lines(path) do
+  for line in lines do
     local fields = from_csv(line)
     if header == nil then
       header = fields
@@ -201,7 +201,8 @@ Arguments:
   timesheet.csv         CSV file with columns 'Date', 'Hours' and 'Description'
                         such that 'Date' contains DD/MM/YYYY, 'Hours' contains
                         integers and 'Description' contains strings and where
-                        empty 'Hours' or 'Description' imply a non-working day
+                        empty 'Hours' or 'Description' imply a non-working day.
+                        Alternatively, can be a "-" to denote stdin.
 Options:
   --help                Show this message and exit
   --start      <number> Work start on a given day (default: %d)
@@ -248,8 +249,9 @@ local function main()
   local work_start = options["work_start"]
   local work_end = options["work_end"]
   local max_daily_hours = options["max_hours"]
+  local lines = timesheet_path == "-" and io.stdin:lines() or io.lines(timesheet_path)
 
-  local timesheet = read_csv(timesheet_path)
+  local timesheet = read_csv(lines)
   local work_days, free_days = split_timesheet(timesheet)
   randomize_timesheet(work_days, work_start, work_end, max_daily_hours)
   timesheet = finalize_timesheet(work_days, free_days)
