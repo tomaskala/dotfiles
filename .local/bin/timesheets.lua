@@ -87,44 +87,76 @@ local function randomize_timesheet(timesheet, work_start, work_end, max_hours)
   end
 end
 
-local function is_work_day(day_entry)
-  return day_entry["Hours"] ~= "" and day_entry["Description"] ~= ""
-end
-
-local function split_timesheet(timesheet)
-  local work_days = {}
-  local free_days = {}
-  for _, day_entry in ipairs(timesheet) do
-    if is_work_day(day_entry) then
-      table.insert(work_days, day_entry)
-    else
-      table.insert(free_days, day_entry)
+local function finalize_timesheet(timesheet)
+  local function date_range(start, stop)
+    local curr = os.time(start)
+    local max = os.time(stop)
+    return function()
+      while curr <= max do
+        local date = os.date("*t", curr)
+        curr = curr + 86400
+        return {
+          day = date.day,
+          month = date.month,
+          year = date.year,
+        }
+      end
     end
   end
-  return work_days, free_days
-end
 
-local function finalize_timesheet(work_days, free_days)
-  local function parse_datetime(s)
-    local pattern = "(%d%d)/(%d%d)/(%d%d%d%d)"
-    local day, month, year = s:match(pattern)
-    return tonumber(day), tonumber(month), tonumber(year)
+  local function find_work_entry(date)
+    for _, day_entry in ipairs(timesheet) do
+      if date.day == day_entry["Date"].day
+        and date.month == day_entry["Date"].month
+        and date.year == day_entry["Date"].year then
+        return day_entry
+      end
+    end
+    return nil
   end
 
-  local timesheet = {}
-  table.move(work_days, 1, #work_days, 1, timesheet)
-  table.move(free_days, 1, #free_days, #timesheet + 1, timesheet)
-  table.sort(timesheet, function(entry1, entry2)
-    local day1, month1, year1 = parse_datetime(entry1["Date"])
-    local day2, month2, year2 = parse_datetime(entry2["Date"])
-    return (day1 < day2 and month1 == month2 and year1 == year2)
-      or (month1 < month2 and year1 == year2)
-      or (year1 < year2)
-  end)
-  return timesheet
+  local function format_datetime(t)
+    return string.format("%02d/%02d/%d", t.day, t.month, t.year)
+  end
+
+  local full_timesheet = {}
+  local date_min = timesheet[1]["Date"]
+  local date_max = timesheet[#timesheet]["Date"]
+  for date in date_range(date_min, date_max) do
+    local work_entry = find_work_entry(date)
+    if work_entry then
+      table.insert(full_timesheet, {
+        Date = format_datetime(date),
+        Hours = work_entry["Hours"],
+        Start = work_entry["Start"],
+        End = work_entry["End"],
+        Description = work_entry["Description"],
+      })
+    else
+      table.insert(full_timesheet, {
+        Date = format_datetime(date),
+        Hours = 0,
+        Start = "",
+        End = "",
+        Description = "",
+      })
+    end
+  end
+
+  return full_timesheet
 end
 
 local function read_csv(lines)
+  local function parse_date(s)
+    local pattern = "(%d%d)/(%d%d)/(%d%d%d%d)"
+    local day, month, year = s:match(pattern)
+    return {
+      day = tonumber(day),
+      month = tonumber(month),
+      year = tonumber(year),
+    }
+  end
+
   local function from_csv(line)
     line = line .. ","
     local fields = {}
@@ -149,17 +181,23 @@ local function read_csv(lines)
     return fields
   end
 
-  local header = nil
+  local header = {"Date", "Hours", "Description"}
+  local header_read = false
   local data = {}
   for line in lines do
     local fields = from_csv(line)
-    if header == nil then
-      header = fields
-    else
-      local entries = {}
-      for i, field in ipairs(fields) do
-        entries[header[i]] = field
+    if not header_read then
+      if table.concat(header) ~= table.concat(fields) then
+        error(string.format("Expected header '%s', got '%s'",
+          table.concat(header, ", "), table.concat(fields, ", ")))
       end
+      header_read = true
+    else
+      local entries = {
+        Date = parse_date(fields[1]),
+        Hours = fields[2],
+        Description = fields[3],
+      }
       table.insert(data, entries)
     end
   end
@@ -256,8 +294,7 @@ Usage: %s randomize <timesheet.csv> [options]
 Arguments:
   timesheet.csv         CSV file with columns 'Date', 'Hours' and 'Description'
                         such that 'Date' contains DD/MM/YYYY, 'Hours' contains
-                        integers and 'Description' contains strings and where
-                        empty 'Hours' or 'Description' imply a non-working day.
+                        integers and 'Description' contains strings.
                         Alternatively, can be a "-" to denote stdin.
 Options:
   --help                Show this message and exit.
@@ -334,20 +371,17 @@ local function main()
     local lines = timesheet_path == "-" and io.stdin:lines() or io.lines(timesheet_path)
 
     local timesheet = read_csv(lines)
-    local work_days, free_days = split_timesheet(timesheet)
-    randomize_timesheet(work_days, work_start, work_end, max_daily_hours)
-    timesheet = finalize_timesheet(work_days, free_days)
+    randomize_timesheet(timesheet, work_start, work_end, max_daily_hours)
+    timesheet = finalize_timesheet(timesheet)
     write_csv(io.stdout, header, timesheet)
 
     local total_hours = 0
     local min_hours = math.maxinteger
     local max_hours = math.mininteger
     for _, entry in ipairs(timesheet) do
-      if is_work_day(entry) then
-        total_hours = total_hours + entry["Hours"]
-        min_hours = math.min(min_hours, entry["Hours"])
-        max_hours = math.max(max_hours, entry["Hours"])
-      end
+      total_hours = total_hours + entry["Hours"]
+      min_hours = math.min(min_hours, entry["Hours"])
+      max_hours = math.max(max_hours, entry["Hours"])
     end
     io.stderr:write(string.format("Total hours: %d\n", total_hours))
     io.stderr:write(string.format("Min hours in a day: %0.1f\n", min_hours))
