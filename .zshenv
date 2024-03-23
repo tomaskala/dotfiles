@@ -4,6 +4,7 @@ export EDITOR=vim
 export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
 export LESSHISTFILE=-
 export PAGER=less
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 export XDG_CACHE_HOME=~/.cache
 export XDG_CONFIG_HOME=~/.config
