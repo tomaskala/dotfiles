@@ -1,5 +1,8 @@
 autoload -Uz colors && colors
 bindkey -e
+bindkey "^[[H"  beginning-of-line
+bindkey "^[[F"  end-of-line
+bindkey "^[[3~" delete-char
 PROMPT="%B%F{magenta}%n@%m%f %F{blue}%~%f %#%b "
 RPROMPT="%(0?.%F{green}.%F{red})%?%f [%*]"
 
