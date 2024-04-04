@@ -96,6 +96,7 @@ require("lazy").setup({
         "ansiblels",
         "dockerls",
         "eslint",
+        "gopls",
         "lua_ls",
         "nil_ls",
         "pyright",
