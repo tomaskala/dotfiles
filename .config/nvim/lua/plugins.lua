@@ -94,8 +94,8 @@ require("lazy").setup({
     opts = {
       ensure_installed = {
         "ansiblels",
+        "biome",
         "dockerls",
-        "eslint",
         "gopls",
         "lua_ls",
         "nil_ls",
