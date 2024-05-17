@@ -151,12 +151,6 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     dependencies = { "williamboman/mason-lspconfig.nvim" },
     config = function()
-      -- Global mappings.
-      vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})
-      vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, {})
-
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
         callback = function(args)
@@ -167,7 +161,6 @@ require("lazy").setup({
           local keymap_opts = { buffer = args.buf, noremap = true, silent = true }
           vim.keymap.set("n", "gD", vim.lsp.buf.declaration, keymap_opts)
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, keymap_opts)
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, keymap_opts)
           vim.keymap.set("n", "gi", vim.lsp.buf.implementation, keymap_opts)
           vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, keymap_opts)
           vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, keymap_opts)
