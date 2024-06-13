@@ -1,24 +1,11 @@
 [user]
 name = Tomas Kala
 
-[core]
-editor = vim
-autoclrf = false
-
 [init]
 defaultBranch = master
 
-[color]
-branch = auto
-diff = auto
-interactive = auto
-status = auto
-
 [fetch]
 prune = true
-
-[push]
-default = simple
 
 [pull]
 ff = only
