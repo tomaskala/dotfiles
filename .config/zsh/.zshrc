@@ -29,11 +29,6 @@ alias grep='grep --color=auto'
 alias ls='ls -FNh --color=auto --group-directories-first'
 alias ll='ls -l'
 alias lla='ls -la'
-
-alias mvi='mpv --config-dir="${HOME}/.config/mvi"'
-alias td='transmission-daemon'
-alias tm='transmission-remote'
-alias y='yt-dlp'
 alias ya='mpv --no-video --ytdl-format=bestaudio'
 
 source /usr/share/fzf/completion.zsh

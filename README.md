@@ -43,7 +43,7 @@ The following software should then be installed.
 #### Internet
 
 ```
-# pacman -S firefox thunderbird lynx transmission-cli
+# pacman -S firefox thunderbird
 ```
 
 #### Development

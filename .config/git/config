@@ -16,7 +16,6 @@ autoStash = true
 
 [merge]
 ff = only
-tool = vimdiff
 conflictStyle = zdiff3
 
 [diff]
