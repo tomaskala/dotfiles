@@ -1,5 +1,4 @@
 vim.g.mapleader = ","
-require("plugins")
 
 vim.opt.path = "**"
 vim.opt.fileformat = "unix"

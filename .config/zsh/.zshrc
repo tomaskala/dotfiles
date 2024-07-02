@@ -24,6 +24,7 @@ zmodload zsh/complist
 
 unalias -a
 
+alias vim='nvim'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ls='ls -FNh --color=auto --group-directories-first'

@@ -49,7 +49,7 @@ The following software should then be installed.
 #### Development
 
 ```
-# pacman -S git vim make ctags
+# pacman -S git nvim make ctags
 ```
 
 #### System utilities

@@ -1,5 +1,5 @@
 export EMAIL='me@tomaskala.com'
-export EDITOR=vim
+export EDITOR=nvim
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 export XDG_CACHE_HOME=~/.cache
