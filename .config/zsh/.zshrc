@@ -32,6 +32,5 @@ alias ll='ls -l'
 alias lla='ls -la'
 alias ya='mpv --no-video --ytdl-format=bestaudio'
 
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+source <(fzf --zsh)
 [[ -f "$ZDOTDIR/.zshrc_local" ]] && source "$ZDOTDIR/.zshrc_local"
