@@ -1,9 +1,6 @@
 [user]
 name = Tomas Kala
 
-[init]
-defaultBranch = master
-
 [fetch]
 prune = true
 
