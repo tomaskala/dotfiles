@@ -1,0 +1,57 @@
+[alias]
+a = "add"
+c = "commit"
+cp = "cherry-pick"
+d = "diff"
+l = "log"
+s = "status"
+sh = "show"
+sw = "switch"
+
+[branch]
+sort = "-committerdate"
+
+[commit]
+verbose = true
+
+[core]
+pager = delta
+
+[delta]
+hunk-header-style = "file syntax"
+line-numbers = true
+syntax-theme = "ansi"
+
+[diff]
+algorithm = "histogram"
+
+[fetch]
+prune = true
+
+[init]
+defaultBranch = "main"
+
+[interactive]
+diffFilter = delta --color-only
+
+[merge]
+conflictStyle = "zdiff3"
+ff = "only"
+
+[pull]
+ff = "only"
+
+[push]
+autoSetupRemote = true
+followTags = true
+
+[rebase]
+autoSquash = true
+autoStash = true
+
+[tag]
+sort = "version:refname"
+
+[user]
+email = "me@tomaskala.com"
+name = "Tomas Kala"
