@@ -1,0 +1,63 @@
+packages:
+  darwin:
+    brews:
+      # System utilities
+      - 'bat'
+      - 'chezmoi'
+      - 'coreutils'
+      - 'diffutils'
+      - 'fd'
+      - 'fish'
+      - 'fzf'
+      - 'gawk'
+      - 'gnu-sed'
+      - 'gnu-tar'
+      - 'grep'
+      - 'htop'
+      - 'jq'
+      - 'ripgrep'
+      - 'rsync'
+      - 'tree'
+      # Development
+      - 'git'
+      - 'git-delta'
+      - 'nvim'
+      - 'shellcheck'
+      - 'tree-sitter-cli'
+      - 'zellij'
+      # Go development
+      - 'go'
+      - 'golangci-lint'
+      - 'gopls'
+      # Lua development
+      - 'lua'
+      - 'lua-language-server'
+      # Python development
+      - 'python'
+      - 'ruff'
+      - 'uv'
+      # Media
+      - 'hugo'
+      - 'yt-dlp'
+      # Networking
+      - 'ldns'
+      - 'nmap'
+      - 'openssl'
+      - 'whois'
+    casks:
+      - 'discord'
+      - 'firefox'
+      - 'ghostty'
+      - 'iina'
+      - 'netnewswire'
+      - 'obsidian'
+      - 'pearcleaner'
+      - 'signal'
+      - 'telegram'
+      - 'wireshark-app'
+    mas:
+      'Bitwarden': 1352778147
+      'FreshCards': 1523398835
+      'Hush': 1544743900
+      'Wipr': 1662217862
+      'WireGuard': 1451685025
