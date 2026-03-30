@@ -1,0 +1,30 @@
+{{ if eq .chezmoi.os "darwin" -}}
+/opt/homebrew/bin/brew shellenv | source
+fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
+fish_add_path /opt/homebrew/opt/gawk/libexec/gnubin
+fish_add_path /opt/homebrew/opt/gnu-sed/libexec/gnubin
+fish_add_path /opt/homebrew/opt/gnu-tar/libexec/gnubin
+fish_add_path /opt/homebrew/opt/grep/libexec/gnubin
+{{- end }}
+
+set -gx EMAIL me@tomaskala.com
+set -gx EDITOR nvim
+
+set -gx XDG_CACHE_HOME ~/.cache
+set -gx XDG_CONFIG_HOME ~/.config
+set -gx XDG_DATA_HOME ~/.local/share
+
+set -gx GOPATH ~/.local/share/go
+set -gx GOBIN ~/.local/bin
+
+set -g fish_greeting
+fish_add_path ~/.local/bin
+
+fzf --fish | source
+
+alias diff 'diff --color=auto'
+alias grep 'grep --color=auto'
+alias ll 'ls -l'
+alias lla 'ls -la'
+alias ls 'ls -FNh --color=auto --group-directories-first'
+alias vim 'nvim'
