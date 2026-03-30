@@ -1,0 +1,8 @@
+theme = dark:Catppuccin Macchiato,light:Catppuccin Latte
+{{- if eq .chezmoi.os "darwin" }}
+command = /opt/homebrew/bin/fish
+{{- else }}
+command = fish
+{{- end }}
+maximize = true
+keybind = global:cmd+backquote=toggle_quick_terminal
