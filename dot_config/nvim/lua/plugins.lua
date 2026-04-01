@@ -82,7 +82,7 @@ do
 end
 
 require("nvim-treesitter").install({
-  "awk", "bash", "c", "comment", "csv", "dockerfile","fish", "git_rebase",
+  "awk", "bash", "c", "comment", "csv", "dockerfile", "fish", "git_rebase",
   "gitcommit", "gitignore", "go", "gomod", "gosum", "gotmpl", "gowork",
   "hcl", "jq", "json", "lua", "luap", "markdown", "markdown_inline", "nix",
   "proto", "python", "regex", "sql", "toml", "yaml",
@@ -93,5 +93,5 @@ vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("start_treesitter", { clear = true }),
   callback = function()
     pcall(vim.treesitter.start)
-  end
+  end,
 })

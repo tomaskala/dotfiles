@@ -23,6 +23,14 @@ vim.lsp.config("lua-language-server", {
   },
   settings = {
     Lua = {
+      format = {
+        enable = true,
+        defaultConfig = {
+          quote_style = "double",
+          call_arg_parentheses = "always",
+          trailing_table_separator = "smart",
+        },
+      },
       diagnostics = {
         globals = {
           "vim",
@@ -60,4 +68,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
-
