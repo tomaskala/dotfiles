@@ -13,8 +13,6 @@ vim.opt.breakindent = true
 vim.opt.shortmess:append({ I = true })
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-
-vim.opt.backup = false
 vim.opt.swapfile = false
 
 vim.opt.cursorline = true
@@ -37,7 +35,7 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "Go settings",
   pattern = "go",
   group = vim.api.nvim_create_augroup("golang", { clear = true }),
-  callback = function(args)
+  callback = function()
     vim.opt_local.expandtab = false
     vim.opt_local.makeprg = "go build"
   end,
