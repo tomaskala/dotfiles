@@ -66,6 +66,15 @@ do
   end, opts)
 
   local telescope = require("telescope")
+  telescope.setup({
+    extensions = {
+      file_browser = {
+        grouped = true,
+        hijack_netrw = true,
+      },
+    },
+  })
+
   telescope.load_extension("fzf")
   telescope.load_extension("file_browser")
 
