@@ -1,19 +1,19 @@
 {
   "plugins": {
     "catppuccin": {
-      "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
+      "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
       "src": "https://github.com/catppuccin/nvim"
     },
     "lualine.nvim": {
-      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "rev": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "nvim-treesitter": {
-      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
-      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "telescope-file-browser.nvim": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
     },
     "telescope.nvim": {
-      "rev": "cfb85dcf7f822b79224e9e6aef9e8c794211b20b",
+      "rev": "506338434fec5ad19cb1f8d45bf92d66c4917393",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     }
   }
