@@ -38,7 +38,6 @@ packages:
       - 'uv'
       # Media
       - 'hugo'
-      - 'yt-dlp'
       # Networking
       - 'ldns'
       - 'nmap'
