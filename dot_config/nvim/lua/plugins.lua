@@ -5,12 +5,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
     local name = args.data.spec.name
     local kind = args.data.kind
 
-    if name == "nvim-treesitter" and kind == "update" then
-      if not args.data.active then
-        vim.cmd.packadd("nvim-treesitter")
-      end
-      vim.cmd("TSUpdate")
-    elseif name == "telescope-fzf-native.nvim" and (kind == "install" or kind == "update") then
+    if name == "telescope-fzf-native.nvim" and (kind == "install" or kind == "update") then
       if not args.data.active then
         vim.cmd.packadd("telescope-fzf-native.nvim")
       end
@@ -20,30 +15,10 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 vim.pack.add({
-  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
   "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/nvim-telescope/telescope-file-browser.nvim",
   "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
   "https://github.com/nvim-telescope/telescope.nvim",
-  "https://github.com/nvim-treesitter/nvim-treesitter",
-})
-
-require("catppuccin").setup({
-  background = {
-    light = "latte",
-    dark = "macchiato",
-  },
-})
-vim.cmd.colorscheme("catppuccin")
-
-require("lualine").setup({
-  options = {
-    theme = "catppuccin-nvim",
-  },
-  sections = {
-    lualine_x = { "filetype" },
-  },
 })
 
 do
@@ -89,18 +64,3 @@ do
     telescope.extensions.file_browser.file_browser()
   end, opts)
 end
-
-require("nvim-treesitter").install({
-  "awk", "bash", "c", "comment", "csv", "dockerfile", "fish", "git_rebase",
-  "gitcommit", "gitignore", "go", "gomod", "gosum", "gotmpl", "gowork",
-  "hcl", "jq", "json", "lua", "luap", "markdown", "markdown_inline", "nix",
-  "proto", "python", "regex", "sql", "toml", "yaml",
-})
-vim.api.nvim_create_autocmd("FileType", {
-  desc = "Start treesitter",
-  pattern = "*",
-  group = vim.api.nvim_create_augroup("start_treesitter", { clear = true }),
-  callback = function()
-    pcall(vim.treesitter.start)
-  end,
-})

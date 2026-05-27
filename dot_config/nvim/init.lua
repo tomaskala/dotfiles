@@ -4,6 +4,7 @@ vim.g.mapleader = ","
 require("plugins")
 require("lsp")
 
+vim.cmd.colorscheme("quiet")
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
