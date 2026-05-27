@@ -8,38 +8,6 @@ vim.lsp.config("gopls", {
   },
 })
 
-vim.lsp.config("lua-language-server", {
-  cmd = { "lua-language-server" },
-  filetypes = { "lua" },
-  root_markers = {
-    ".luarc.json",
-    ".luarc.jsonc",
-    ".luacheckrc",
-    ".stylua.toml",
-    "stylua.toml",
-    "selene.toml",
-    "selene.yml",
-    ".git",
-  },
-  settings = {
-    Lua = {
-      format = {
-        enable = true,
-        defaultConfig = {
-          quote_style = "double",
-          call_arg_parentheses = "always",
-          trailing_table_separator = "smart",
-        },
-      },
-      diagnostics = {
-        globals = {
-          "vim",
-        },
-      },
-    },
-  },
-})
-
 vim.lsp.config("ruff", {
   cmd = { "ruff", "server" },
   filetypes = { "python" },
@@ -51,7 +19,7 @@ vim.lsp.config("ruff", {
   },
 })
 
-vim.lsp.enable({ "gopls", "lua-language-server", "ruff" })
+vim.lsp.enable({ "gopls", "ruff" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   desc = "Configure LSP",
