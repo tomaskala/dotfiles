@@ -2,6 +2,8 @@ packages:
   darwin:
     brews:
       # System utilities
+      - 'age'
+      - 'age-plugin-yubikey'
       - 'bat'
       - 'chezmoi'
       - 'coreutils'
@@ -15,6 +17,7 @@ packages:
       - 'grep'
       - 'htop'
       - 'jq'
+      - 'qrencode'
       - 'ripgrep'
       - 'rsync'
       - 'tree'
