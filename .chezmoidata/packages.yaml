@@ -31,10 +31,6 @@ packages:
       - 'go'
       - 'golangci-lint'
       - 'gopls'
-      # Python development
-      - 'python'
-      - 'ruff'
-      - 'uv'
       # Media
       - 'hugo'
     casks:
