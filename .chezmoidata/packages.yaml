@@ -33,6 +33,7 @@ packages:
       - 'gopls'
       # Media
       - 'hugo'
+      - 'typst'
     casks:
       - 'discord'
       - 'firefox'
