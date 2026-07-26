@@ -29,7 +29,6 @@ packages:
       - 'zellij'
       # Go development
       - 'go'
-      - 'golangci-lint'
       - 'gopls'
       # Media
       - 'hugo'
