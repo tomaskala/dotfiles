@@ -42,7 +42,6 @@ packages:
       - 'obsidian'
       - 'pearcleaner'
       - 'signal'
-      - 'telegram'
     mas:
       'FreshCards': 1523398835
       'Hush': 1544743900
