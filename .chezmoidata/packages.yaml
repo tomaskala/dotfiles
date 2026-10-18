@@ -34,7 +34,6 @@ packages:
       - 'hugo'
       - 'typst'
     casks:
-      - 'discord'
       - 'firefox'
       - 'ghostty'
       - 'iina'
