@@ -1,23 +1,20 @@
 Host bob
-  IdentitiesOnly yes
   User tomas
   IdentityFile ~/.ssh/id_ed25519_bob
 
 Host github.com
-  IdentitiesOnly yes
-  User tomaskala
+  User git
   IdentityFile ~/.ssh/id_ed25519_github
 
 Host seedbox
-  IdentitiesOnly yes
   User return9826
   HostName nexus.usbx.me
   IdentityFile ~/.ssh/id_ed25519_seedbox
 
 Host *
+  IdentitiesOnly yes
   ServerAliveInterval 60
   AddKeysToAgent yes
-  ControlPath ~/.ssh/master-%h-%p-%r
   {{- if eq .chezmoi.os "darwin" }}
   UseKeychain yes
   {{- end }}
