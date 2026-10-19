@@ -29,7 +29,6 @@ packages:
       - 'zellij'
       # Go development
       - 'go'
-      - 'gopls'
       # Media
       - 'hugo'
       - 'typst'
