@@ -2,6 +2,10 @@ Host bob
   User tomas
   IdentityFile ~/.ssh/id_ed25519_bob
 
+Host forgejo.bob.*
+  User forgejo
+  IdentityFile ~/.ssh/id_ed25519_bob
+
 Host github.com
   User git
   IdentityFile ~/.ssh/id_ed25519_github
